@@ -1,0 +1,200 @@
+ERROR - 2023-06-07 08:15:27 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in C:\xampp8\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:174
+Stack trace:
+#0 C:\xampp8\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(174): mysqli->real_connect('localhost', '', '', '', 3306, '', 0)
+#1 C:\xampp8\htdocs\sitenun-main\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp8\htdocs\sitenun-main\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp8\htdocs\sitenun-main\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp8\htdocs\sitenun-main\app\Models\MUser.php(36): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp8\htdocs\sitenun-main\app\Controllers\Login.php(29): App\Models\MUser->ceklogin('admin')
+#6 C:\xampp8\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Login->ceklogin()
+#7 C:\xampp8\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 C:\xampp8\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp8\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' (using password: NO) in C:\xampp8\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\xampp8\htdocs\sitenun-main\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp8\htdocs\sitenun-main\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp8\htdocs\sitenun-main\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp8\htdocs\sitenun-main\app\Models\MUser.php(36): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp8\htdocs\sitenun-main\app\Controllers\Login.php(29): App\Models\MUser->ceklogin('admin')
+#5 C:\xampp8\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Login->ceklogin()
+#6 C:\xampp8\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#7 C:\xampp8\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp8\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-06-07 08:15:27 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user`
+WHERE `username` = :username:', [...], false)
+ 3 APPPATH\Models\MUser.php(36): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Login.php(29): App\Models\MUser->ceklogin('admin')
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Login->ceklogin()
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 08:15:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:17:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:18:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 08:18:55 --> Invalid file: "errors/error_login.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('errors/error_login.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('errors/error_login.php', [], true)
+ 3 APPPATH\Controllers\Home.php(16): view('errors/error_login.php')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 08:20:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:21:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:21:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:21:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:21:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:22:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:23:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:23:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:23:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:24:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:24:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:24:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:24:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:24:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:25:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 08:25:01 --> Invalid file: "Home.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Home.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Home', [], true)
+ 3 APPPATH\Views\Layout\Content.php(20): view('Home')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 7 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 8 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+11 APPPATH\Controllers\Home.php(14): view('Layout/Template', [...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 08:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 08:25:05 --> Invalid file: "Home.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Home.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Home', [], true)
+ 3 APPPATH\Views\Layout\Content.php(20): view('Home')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 7 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 8 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+11 APPPATH\Controllers\Home.php(14): view('Layout/Template', [...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 08:25:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 08:25:17 --> Invalid file: "Home.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Home.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Home', [], true)
+ 3 APPPATH\Views\Layout\Content.php(20): view('Home')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 7 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 8 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+11 APPPATH\Controllers\Home.php(14): view('Layout/Template', [...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 08:25:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:25:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:25:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:25:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:25:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 08:25:49 --> Invalid file: "Home.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Home.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Home', [], true)
+ 3 APPPATH\Views\Layout\Content.php(20): view('Home')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 7 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 8 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+11 APPPATH\Controllers\Home.php(14): view('Layout/Template', [...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 08:26:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 08:26:43 --> Invalid file: "Home.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Home.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Home', [], true)
+ 3 APPPATH\Views\Layout\Content.php(20): view('Home')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 7 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 8 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+11 APPPATH\Controllers\Home.php(14): view('Layout/Template', [...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 08:26:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:26:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 08:26:50 --> Invalid file: "Home.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Home.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Home', [], true)
+ 3 APPPATH\Views\Layout\Content.php(20): view('Home')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 7 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 8 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+11 APPPATH\Controllers\Home.php(14): view('Layout/Template', [...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 08:28:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 08:28:57 --> Invalid file: "Home.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Home.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Home', [], true)
+ 3 APPPATH\Views\Layout\Content.php(20): view('Home')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 7 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 8 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+11 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 08:29:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:31:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
