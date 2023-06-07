@@ -198,3 +198,219 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
 INFO - 2023-06-07 08:29:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-06-07 08:31:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-06-07 08:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:38:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:39:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 08:59:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 09:25:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 09:27:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:27:32 --> Undefined variable $judul
+in APPPATH\Views\Layout\Content.php on line 7.
+ 1 APPPATH\Views\Layout\Content.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php', 7)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 5 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+ 9 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:28:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:28:09 --> Undefined variable $judul
+in APPPATH\Views\Layout\Content.php on line 7.
+ 1 APPPATH\Views\Layout\Content.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php', 7)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 5 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+ 9 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:28:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:28:26 --> Undefined variable $judul
+in APPPATH\Views\Layout\Content.php on line 7.
+ 1 APPPATH\Views\Layout\Content.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php', 7)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 5 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+ 9 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:29:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:29:06 --> Undefined variable $judul
+in APPPATH\Views\Layout\Content.php on line 7.
+ 1 APPPATH\Views\Layout\Content.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php', 7)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 5 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+ 9 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:29:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:29:07 --> Undefined variable $judul
+in APPPATH\Views\Layout\Content.php on line 7.
+ 1 APPPATH\Views\Layout\Content.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php', 7)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 5 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+ 9 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:30:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:30:02 --> Undefined variable $judul
+in APPPATH\Views\Layout\Content.php on line 7.
+ 1 APPPATH\Views\Layout\Content.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php', 7)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 5 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+ 9 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:30:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:30:03 --> Undefined variable $judul
+in APPPATH\Views\Layout\Content.php on line 7.
+ 1 APPPATH\Views\Layout\Content.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php', 7)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 5 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+ 9 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:30:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:30:32 --> Undefined variable $judul
+in APPPATH\Views\Beranda.php on line 5.
+ 1 APPPATH\Views\Beranda.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Beranda.php', 5)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Beranda.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Beranda', [], true)
+ 5 APPPATH\Views\Layout\Content.php(4): view('Beranda')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 9 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+13 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:30:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:30:58 --> Undefined variable $judul
+in APPPATH\Views\Beranda.php on line 5.
+ 1 APPPATH\Views\Beranda.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Beranda.php', 5)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Beranda.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Beranda', [], true)
+ 5 APPPATH\Views\Layout\Content.php(4): view('Beranda')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 9 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+13 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:30:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:30:58 --> Undefined variable $judul
+in APPPATH\Views\Beranda.php on line 5.
+ 1 APPPATH\Views\Beranda.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Beranda.php', 5)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Beranda.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Beranda', [], true)
+ 5 APPPATH\Views\Layout\Content.php(4): view('Beranda')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 9 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+13 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:31:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:31:28 --> Undefined variable $judul
+in APPPATH\Views\Layout\Content.php on line 7.
+ 1 APPPATH\Views\Layout\Content.php(7): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $judul', 'C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php', 7)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 5 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+ 9 APPPATH\Controllers\Home.php(13): view('Layout/Template', [...])
+10 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:31:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 09:32:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-07 09:32:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-06-07 09:32:15 --> Invalid file: "User/Data.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('User/Data.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('User/Data', [], true)
+ 3 APPPATH\Views\Layout\Content.php(20): view('User/Data')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 7 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 8 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+11 APPPATH\Controllers\User.php(15): view('Layout/Template', [...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\User->index()
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-07 09:32:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
