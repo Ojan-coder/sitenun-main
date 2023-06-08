@@ -14,8 +14,9 @@
                     <div class="card-body">
                         <?php
                         if (!empty(session()->getFlashdata('success'))) { ?>
-                            <div class="alert alert-light-success color-success">
-                                <i class="bi bi-check-circle"></i> Success.
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <i class="icon fas fa-check"></i> Success.
                                 <?= session()->getFlashdata('success'); ?>
                             </div>
                         <?php

@@ -18,12 +18,12 @@
 
 <script src="https://example.com/fontawesome/v6.4.0/js/all.js" data-auto-a11y="true" ></script>
 
-<!-- <script src="<?= base_url('assets/') ?>plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="<?= base_url('assets/') ?>plugins/jquery-validation/additional-methods.min.js"></script> -->
+<script src="<?= base_url('assets/') ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= base_url('assets/') ?>plugins/jquery-validation/additional-methods.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script> -->
 
 
 <script src="<?= base_url('assets/') ?>plugins/jquery-ui/jquery-ui.min.js"></script>

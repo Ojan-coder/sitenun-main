@@ -66,6 +66,7 @@ class Login extends BaseController
                     session()->set('nama', $ceklogin['namauser']);
                     session()->set('namaadmin', $ceklogin['username']);
                     session()->set('status', $ceklogin['status']);
+                    session()->set('akses1', $ceklogin['akses']);
                     session()->set('masuk', TRUE);
                     return redirect()->to(base_url('/Beranda'));
                 } else {

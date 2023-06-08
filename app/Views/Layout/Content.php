@@ -1,5 +1,15 @@
+<?php
+if (session()->get('akses1') == '0') {
+    $akses = "Pimpinan";
+} else if (session()->get('akses1') == '1') {
+    $akses = "Administrator";
+} else if (session()->get('akses1') == '2') {
+    $akses = "Produksi";
+} else if (session()->get('akses1') == '3') {
+    $akses = "Pelanggan";
+}
+?>
 <div class="content-wrapper">
-
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -9,7 +19,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item active"><?= $akses ?></li>
                     </ol>
                 </div>
             </div>
