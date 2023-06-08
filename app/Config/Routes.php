@@ -39,6 +39,8 @@ $routes->get('/Logout', 'Login::Logout');
 // User routes
 $routes->get('/User', 'User::index');
 $routes->get('/user', 'User::index');
+$routes->get('/User-Tambah', 'User::tambah');
+
 $routes->post('/Store', 'User::add');
 
 

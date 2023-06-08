@@ -25,7 +25,7 @@ class User extends BaseController
     {
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
-                'isi' => 'Master/User/Data'
+                'isi' => 'Master/User/Add'
             ];
             return view('Layout/Template', $data);
         } else {

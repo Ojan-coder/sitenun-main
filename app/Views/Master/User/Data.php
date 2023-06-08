@@ -7,26 +7,11 @@
                         <h3 class="card-title">Data User</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" data-target="#modal-lg" class="btn btn-outline-primary" title="Tambah Data User">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('User-Tambah') ?>')" class="btn btn-outline-primary" title="Tambah Data User">
                             <i class="fa fa-plus-circle"></i>
                         </button>
                     </div>
                     <div class="card-body">
-                        <?php
-                        $errors = session()->getFlashdata('errors');
-                        if (!empty($errors)) { ?>
-                            <div class="alert alert-light-danger color-danger">
-                                <h5><i class="bi bi-exclamation-circle"></i> Error.</h5>
-                                <h6><b>!! Ada Kesalahan Input Data :</b></h6>
-                                <ul>
-                                    <?php foreach ($errors as $key => $error) { ?>
-                                        <li><?= esc($error) ?></li>
-                                    <?php
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
-                        <?php } ?>
                         <?php
                         if (!empty(session()->getFlashdata('success'))) { ?>
                             <div class="alert alert-light-success color-success">
