@@ -6,6 +6,10 @@ class Home extends BaseController
 {
     public function index()
     {
+        return view('Home');
+    }
+    public function home()
+    {
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
                 'isi' => 'Beranda'

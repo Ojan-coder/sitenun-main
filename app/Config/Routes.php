@@ -11,7 +11,7 @@ $routes = Services::routes();
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Login');
+$routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -29,12 +29,18 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Login::index');
-$routes->get('/Beranda', 'Home::index');
+$routes->get('/','Home::index');
+$routes->get('/Admin', 'Login::index');
+$routes->get('/admin', 'Login::index');
+$routes->get('/Beranda', 'Home::home');
 $routes->post('/In', 'Login::ceklogin');
+$routes->get('/Logout', 'Login::Logout');
 
 // User routes
 $routes->get('/User', 'User::index');
+$routes->get('/user', 'User::index');
+$routes->post('/Store', 'User::add');
+
 
 /*
  * --------------------------------------------------------------------

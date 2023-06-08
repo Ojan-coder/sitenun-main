@@ -14,14 +14,23 @@
 
 
 <script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
+<script src="<?= base_url('assets/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://example.com/fontawesome/v6.4.0/js/all.js" data-auto-a11y="true" ></script>
+
+<!-- <script src="<?= base_url('assets/') ?>plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= base_url('assets/') ?>plugins/jquery-validation/additional-methods.min.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
 
 <script src="<?= base_url('assets/') ?>plugins/jquery-ui/jquery-ui.min.js"></script>
 
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
-
-<script src="<?= base_url('assets/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <script src="<?= base_url('assets/') ?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('assets/') ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -55,15 +64,15 @@
             "responsive": true,
             "lengthChange": false,
             "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            "buttons": ["csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         $('#example2').DataTable({
             "paging": true,
-            "lengthChange": false,
-            "searching": false,
+            "lengthChange": true,
+            "searching": true,
             "ordering": true,
             "info": true,
-            "autoWidth": false,
+            "autoWidth": true,
             "responsive": true,
         });
     });
