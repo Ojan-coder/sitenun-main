@@ -19,7 +19,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -29,7 +29,7 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/','Home::index');
+$routes->get('/', 'Home::index');
 $routes->get('/Admin', 'Login::index');
 $routes->get('/admin', 'Login::index');
 $routes->get('/Beranda', 'Home::home');
@@ -40,6 +40,18 @@ $routes->get('/Logout', 'Login::Logout');
 $routes->get('/User', 'User::index');
 $routes->get('/User-Tambah', 'User::tambah');
 $routes->post('/Store-user', 'User::add');
+
+// Pelanggan
+$routes->get('/Pelanggan', 'Pelanggan::index');
+$routes->get('/Pelanggan-Tambah', 'Pelanggan::tambah');
+$routes->post('/Store-pelanggan', 'Pelanggan::add');
+
+// Produk
+$routes->get('/Produksi', 'Produk::index');
+$routes->get('/Produk-Tambah', 'Produk::tambah');
+$routes->post('/Store-produk', 'Produk::add');
+
+
 
 
 /*

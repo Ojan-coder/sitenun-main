@@ -15,8 +15,9 @@
 
 <script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
 <script src="<?= base_url('assets/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= base_url('assets/') ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 
-<script src="https://example.com/fontawesome/v6.4.0/js/all.js" data-auto-a11y="true" ></script>
+<!-- <script src="https://example.com/fontawesome/v6.4.0/js/all.js" data-auto-a11y="true" ></script> -->
 
 <script src="<?= base_url('assets/') ?>plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="<?= base_url('assets/') ?>plugins/jquery-validation/additional-methods.min.js"></script>

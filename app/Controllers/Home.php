@@ -6,6 +6,8 @@ class Home extends BaseController
 {
     public function index()
     {
+        $session = session();
+        $session->destroy();
         return view('Home');
     }
     public function home()

@@ -50,14 +50,14 @@ class Login extends BaseController
                 'error_pass' => $validation->getError('pass')
             ];
             session()->setFlashdata($session_error);
-            return redirect()->to(base_url());
+            return redirect()->to(base_url('admin'));
         } else {
             if ($ceklogin == NULL) {
                 $session_login = [
                     'error_login' => 'Username / Password Tidak Valid !',
                 ];
                 session()->setFlashdata($session_login);
-                return redirect()->to(base_url());
+                return redirect()->to(base_url('admin'));
             } else {
                 $pass = $ceklogin['password'];
                 $veryfi = password_verify($password, $pass);
@@ -74,7 +74,7 @@ class Login extends BaseController
                         'error_login' => 'Password Tidak Valid !',
                     ];
                     session()->setFlashdata($session_login);
-                    return redirect()->to(base_url());
+                    return redirect()->to(base_url('admin'));
                 }
             }
         }

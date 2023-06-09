@@ -44,10 +44,10 @@
                                         <td><?= $r['username'] ?></td>
                                         <td class="text-center"><?= $stt ?></td>
                                         <td>
-                                            <button type="button" class="btn btn-outline-warning" title="Edit Data">
+                                            <button type="button" onclick="location.href=('<?= base_url('User/edit') . '/' . $r['iduser'] ?>')" class="btn btn-outline-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger" title="Hapus Data">
+                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['iduser'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                             <?php
@@ -79,45 +79,71 @@
     </div>
 </section>
 
-<div class="modal fade" id="modal-lg">
-    <div class="modal-dialog modal-lg">
+<!--Danger theme Modal -->
+<div class="modal fade text-left" id="danger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Tambah Data</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title white" id="myModalLabel120">
+                    Delete !!
+                </h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
                 </button>
             </div>
-            <div class="modal-body">
-                <form id="Form" action="<?= base_url('Store') ?>" method="POST">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username">
-                        </div>
-                        <div class="form-group">
-                            <label for="namalengkap">Nama Lengkap</label>
-                            <input type="text" name="nama" class="form-control" id="namalengkap" placeholder="Enter Username">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
-                        </div>
-                        <div class="form-group mb-0">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
-                                <label class="custom-control-label" for="exampleCheck1" style="font-size: 14px;">Saya Setuju <a href="#">dengan persyaratan yang diajukan !</a>.</label>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+            <form method="POST" action="<?= base_url('User/delete') ?>">
+                <div class="modal-body">
+                    Apakah Yakin Ingin Menghapus Data User Ini ?
+                    <input type="hidden" id="kodejenis" name="kodejenis">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">No</span>
+                    </button>
+                    <button type="submit" class="btn btn-danger ml-1" data-bs-dismiss="modal">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Yes</span>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
+<div class="modal fade" id="modal-danger">
+    <div class="modal-dialog">
+        <div class="modal-content bg-danger">
+            <div class="modal-header">
+                <h4 class="modal-title">Perhatian !</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="background-color: white;">
+                <form method="POST" action="<?= base_url('User/delete') ?>">
+                    <div class="modal-body" style="color: black;">
+                        Apakah Yakin Ingin Menghapus Data User Ini ?
+                        <input type="hidden" id="iduser" name="iduser">
+                    </div>
+            </div>
+            <div class="modal-footer justify-content-between" style="background-color: white;">
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">No</button>
+                <button type="submit" class="btn btn-outline-danger">Yes</button>
+            </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+
 <script>
+    function ambil(id) {
+        $('#iduser').val(id);
+    }
     $(document).ready(function() {
         $.validator.setDefaults({
             submitHandler: function() {

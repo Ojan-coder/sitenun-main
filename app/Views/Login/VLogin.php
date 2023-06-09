@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SI-TENUN | Login </title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-
     <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/fontawesome-free/css/all.min.css">
 
     <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
@@ -91,8 +89,9 @@
 
                 <?php
                 if (session()->getFlashdata('error_username') || session()->getFlashdata('error_pass')) : ?>
-                    <div class="alert alert-danger"> Error
-                        <i class="bi bi-file-excel"></i><br>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <i class="fa fa-check-circle" aria-hidden="true"></i> Error.
                         <?= session()->getFlashdata('error_username') ?><br><?= session()->getFlashdata('error_pass') ?>
                     </div>
                 <?php endif; ?>
@@ -104,7 +103,7 @@
                         <?= session()->getFlashdata('error_login') ?>
                     </div>
                 <?php endif; ?>
-                
+
                 <form action="<?= base_url('In') ?>" method="post">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="username" placeholder="Email">
@@ -159,11 +158,9 @@
 
     </div>
 
-
+    <script src="https://example.com/fontawesome/v6.4.0/js/all.js" data-auto-a11y="true"></script>
     <script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
-
     <script src="<?= base_url('assets/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <script src="<?= base_url('assets/') ?>dist/js/adminlte.min.js?v=3.2.0"></script>
 </body>
 
