@@ -52,9 +52,11 @@
                                 <label>Akses</label>
                                 <select name="cbakses" class="form-control">
                                     <option>-Pilih-</option>
-                                    <option value="0">Pimpinan</option>
-                                    <option value="1">Administrator</option>
-                                    <option value="2">Produksi</option>
+                                    <?php
+                                    foreach($level as $r){
+                                    ?>
+                                    <option value="<?= $r['id_level'] ?>"><?= $r['nama_level'] ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                             <div class="form-group">

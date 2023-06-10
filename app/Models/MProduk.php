@@ -14,12 +14,10 @@ class MProduk extends Model
             ->limit(1)
             ->get()->getRowArray();
 
-        if (!empty($kode['kodeproduk'])) {
+        if (!empty($kode['iduser'])) {
             $no = $kode['iduser'] + 1;
-        } else if (empty($kode['kodeproduk'])) {
-            $no = $kode['iduser'] + 1;
-        } else {
-            $no = 00;
+        } else if (empty($kode['iduser'])) {
+            $no = "1";
         }
         $huruf = "PR-";
         $batas = str_pad($no, 2, "00", STR_PAD_LEFT);
@@ -31,7 +29,26 @@ class MProduk extends Model
     {
         return $this->db->table('produk')->get()->getResultArray();
     }
-    
+
+    public function detail($id)
+    {
+        return $this->db
+            ->table('produk')
+            ->where('kodeproduk', $id)->get()->getRowArray();
+    }
+
+    public function insert_data($data)
+    {
+        return $this->db->table('produk')->insert($data);
+    }
+    function update_data($data, $id)
+    {
+        return $this->db->table('produk')->update($data, ['kodeproduk' => $id]);
+    }
+    public function hapus($id)
+    {
+        return $this->db->table('produk')->delete(['kodeproduk' => $id]);
+    }
 }
 // return $this->db
 //             ->table($table)

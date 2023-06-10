@@ -38,29 +38,29 @@
                             </div>
                         <?php
                         } ?>
-                        <form action="<?= base_url('/Store-produk') ?>" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="<?= base_url('Store-produk') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Produk</label>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <input type="text" name="namaproduk" value="<?= old('namaproduk') ?>" id="namaproduk" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Deskripsi</label>
-                                <textarea class="form-control" name="deskripsi"></textarea>
+                                <textarea class="form-control" name="deskripsi" id="deskripsi" ></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Harga Produk</label>
-                                <input type="text" name="harga" id="harga" class="form-control">
+                                <input type="number" name="harga" id="harga" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Jumlah Produk</label>
-                                <input type="number" name="jumlah" id="jumlah" class="form-control">
+                                <input type="number" name="jumlah" id="jumlah" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Upload Foto</label>
+                                <label id="gambar">Upload Foto</label>
                                 <input type="file" name="gambar" id="gambar" class="form-control">
                             </div>
-                            <button type="submit" style="width:50px" class="btn btn-outline-primary">
+                            <button type="submit" id="submit" style="width:50px" class="btn btn-outline-primary">
                                 <i class="fas fa-save"></i>
                             </button>
                         </form>
@@ -70,3 +70,39 @@
         </div>
     </div>
 </section>
+
+<script>
+    $(document).ready(function() {
+        // $.validator.setDefaults({
+        //     submitHandler: function() {
+        //         alert("Form successful submitted!");
+        //     }
+        // });
+
+        $("#form").validate({
+            rules: {
+                gambar: {
+                    mimes: "image/jpeg,image/png,image/jpg",
+                    filesize: 2000
+                },
+            },
+            messages: {
+                gambar: {
+                    mimes: "Extension gambar harus JPEG,JPG,PNG",
+                    filesize: "Ukuran File Maximal 2MB"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+    });
+</script>

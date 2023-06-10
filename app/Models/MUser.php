@@ -10,6 +10,9 @@ class MUser extends Model
     {
         return $this->db->table('user')->get()->getResultArray();
     }
+    function getDataLevel(){
+        return $this->db->table('level_user')->get()->getResultArray();
+    }
     public function detail($id)
     {
         return $this->db

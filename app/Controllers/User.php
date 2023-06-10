@@ -23,8 +23,10 @@ class User extends BaseController
     }
     public function tambah()
     {
+        $user = new MUser();
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
+                'level' => $user->getDataLevel(),
                 'isi' => 'Master/User/Add'
             ];
             return view('Layout/Template', $data);
@@ -89,6 +91,7 @@ class User extends BaseController
         $request = \Config\Services::request();
         $id = $request->uri->getSegment(3);
         $data = [
+            'level' => $user->getDataLevel(),
             'isi' => 'Master/User/Edit',
             'data' => $user->detail($id)
         ];

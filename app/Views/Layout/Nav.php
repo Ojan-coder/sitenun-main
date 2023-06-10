@@ -2,6 +2,12 @@
 $request = \Config\Services::request();
 $id = $request->uri->getSegment(1);
 ?>
+<!-- 
+    1 = Super Admin
+    2 = Pimpinan
+    3 = Produksi
+    4 = Pelanggan
+-->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="index3.html" class="brand-link">
         <img src="<?= base_url('assets/') ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -40,10 +46,10 @@ $id = $request->uri->getSegment(1);
                     </a>
                 </li>
                 <!-- Master -->
-                <?php if (session()->get('akses1') == '0' || session()->get('akses1') == '1' || session()->get('akses1') == '2') { ?>
+                <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2' || session()->get('akses1') == '3') { ?>
 
-                    <li class="nav-item <?php if ($request->uri->getSegment(1) == 'Produksi' || $request->uri->getSegment(1) == 'Pelanggan' || $request->uri->getSegment(1) == 'Bahanbaku') {echo 'menu-open';} ?>">
-                        <a href="#" class="nav-link <?php if ($request->uri->getSegment(1) == 'Produksi' || $request->uri->getSegment(1) == 'Pelanggan' || $request->uri->getSegment(1) == 'Bahanbaku') {echo 'active';} ?>">
+                    <li class="nav-item <?php if ($request->uri->getSegment(1) == 'Produksi' ||$request->uri->getSegment(1) == 'Produk' || $request->uri->getSegment(1) == 'Pelanggan' || $request->uri->getSegment(1) == 'Bahanbaku') {echo 'menu-open';} ?>">
+                        <a href="#" class="nav-link <?php if ($request->uri->getSegment(1) == 'Produksi' || $request->uri->getSegment(1) == 'Produk' || $request->uri->getSegment(1) == 'Pelanggan' || $request->uri->getSegment(1) == 'Bahanbaku') {echo 'active';} ?>">
                             <i class="nav-icon fas fa-edit"></i>
                             <p>
                                 Master
@@ -52,7 +58,7 @@ $id = $request->uri->getSegment(1);
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="<?= base_url('Produksi') ?>" class="nav-link <?php if ($request->uri->getSegment(1) == 'Produksi') {echo 'active';} ?>">
+                                <a href="<?= base_url('Produksi') ?>" class="nav-link <?php if ($request->uri->getSegment(1) == 'Produksi' || $request->uri->getSegment(1) == 'Produk') {echo 'active';} ?>">
                                     <i class="fa fa-plus nav-icon"></i>
                                     <p>Produksi</p>
                                 </a>
@@ -77,7 +83,7 @@ $id = $request->uri->getSegment(1);
                         </ul>
                     </li>
                 <?php } ?>
-                <?php if (session()->get('akses1') == '0' || session()->get('akses1') == '1') { ?>
+                <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2') { ?>
                     
                     <li class="nav-header">Transaksi</li>
                     <li class="nav-item">
@@ -101,9 +107,9 @@ $id = $request->uri->getSegment(1);
 
                     <li class="nav-header">LAPORAN</li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="<?= base_url('LpProduksi') ?>" class="nav-link">
                             <i class="nav-icon fa fa-print text-danger"></i>
-                            <p>Produk</p>
+                            <p>Produksi</p>
                         </a>
                     </li>
                 <?php } ?>

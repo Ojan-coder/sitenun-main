@@ -46,19 +46,20 @@
                             </div>
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
-                                <input type="text" name="nama" id="nama" value="<?= $data['namauser'] ?>" class="form-control">
+                                <input type="text" name="nama" id="nama" value="<?= $data['fullname'] ?>" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Akses</label>
-                                <select name="cbakses" id="cbakses" class="form-control">
+                                <select name="cbakses" class="form-control">
                                     <option>-Pilih-</option>
-                                    <option value="0">Pimpinan</option>
-                                    <option value="1">Administrator</option>
-                                    <option value="2">Produksi</option>
-                                    <option value="3">Pelanggan</option>
+                                    <?php
+                                    foreach ($level as $r) {
+                                    ?>
+                                        <option value="<?= $r['id_level']?>"<?php if($r['id_level'] == $data['level_user'])echo "selected"; ?>><?= $r['nama_level'] ?></option>
+                                    <?php } ?>
                                 </select>
                                 <script>
-                                    document.getElementById('cbakses').value = '<?= $data['akses'] ?>'
+                                    document.getElementById('cbakses').value = '<?= $data['level_user'] ?>'
                                 </script>
                             </div>
                             <div class="form-group">

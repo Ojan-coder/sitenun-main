@@ -48,8 +48,11 @@ $routes->post('/Store-pelanggan', 'Pelanggan::add');
 
 // Produk
 $routes->get('/Produksi', 'Produk::index');
-$routes->get('/Produk-Tambah', 'Produk::tambah');
+$routes->get('/Produksi/Tambah', 'Produk::tambah');
 $routes->post('/Store-produk', 'Produk::add');
+
+// Laporan
+$routes->get('/LpProduksi', 'Laporan::LaporanProduk');
 
 
 

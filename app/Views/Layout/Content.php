@@ -1,11 +1,11 @@
 <?php
-if (session()->get('akses1') == '0') {
-    $akses = "Pimpinan";
-} else if (session()->get('akses1') == '1') {
-    $akses = "Administrator";
+if (session()->get('akses1') == '1') {
+    $akses = "Super Admin";
 } else if (session()->get('akses1') == '2') {
-    $akses = "Produksi";
+    $akses = "Pimpinan";
 } else if (session()->get('akses1') == '3') {
+    $akses = "Produksi";
+} else if (session()->get('akses1') == '4') {
     $akses = "Pelanggan";
 }
 ?>

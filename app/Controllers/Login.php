@@ -63,10 +63,10 @@ class Login extends BaseController
                 $veryfi = password_verify($password, $pass);
                 if ($veryfi) {
                     session()->set('iduser', $ceklogin['iduser']);
-                    session()->set('nama', $ceklogin['namauser']);
-                    session()->set('namaadmin', $ceklogin['username']);
+                    session()->set('nama', $ceklogin['fullname']);
+                    session()->set('username', $ceklogin['username']);
                     session()->set('status', $ceklogin['status']);
-                    session()->set('akses1', $ceklogin['akses']);
+                    session()->set('akses1', $ceklogin['level_user']);
                     session()->set('masuk', TRUE);
                     return redirect()->to(base_url('/Beranda'));
                 } else {
