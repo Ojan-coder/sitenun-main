@@ -32,14 +32,14 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/Admin', 'Login::index');
 $routes->get('/admin', 'Login::index');
-$routes->get('/Beranda', 'Home::home');
-$routes->post('/In', 'Login::ceklogin');
-$routes->get('/Logout', 'Login::Logout');
+$routes->get('/Admin/Beranda', 'Home::home');
+$routes->post('/Admin/In', 'Login::ceklogin');
+$routes->get('/Admin/Logout', 'Login::Logout');
 
 // User routes
-$routes->get('/User', 'User::index');
-$routes->get('/User-Tambah', 'User::tambah');
-$routes->post('/Store-user', 'User::add');
+$routes->get('/Admin/User', 'User::index');
+$routes->get('/Admin/User-Tambah', 'User::tambah');
+$routes->post('/Admin/Store-user', 'User::add');
 
 // Pelanggan
 $routes->get('/Pelanggan', 'Pelanggan::index');
@@ -47,9 +47,10 @@ $routes->get('/Pelanggan-Tambah', 'Pelanggan::tambah');
 $routes->post('/Store-pelanggan', 'Pelanggan::add');
 
 // Produk
-$routes->get('/Produksi', 'Produk::index');
-$routes->get('/Produksi/Tambah', 'Produk::tambah');
-$routes->post('/Store-produk', 'Produk::add');
+$routes->get('/Admin/Produk', 'Produk::index');
+$routes->get('/Admin/Produk/Tambah', 'Produk::tambah');
+// $routes->add('/Admin/Produk/edit/(:any)', 'Produk::edit/$id');
+$routes->post('/Admin/Store-produk', 'Produk::add');
 
 // Laporan
 $routes->get('/LpProduksi', 'Laporan::LaporanProduk');

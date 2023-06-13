@@ -74,9 +74,11 @@ class Produk extends BaseController
         ]);
 
         $produk = new MProduk();
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d:H:i:s');
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to('Produk/Tambah');
+            return redirect()->to(base_url('/Admin/Produk/Tambah'));
         } else {
             $image = $this->request->getFile('gambar');
             $img = $image->getName();
@@ -87,9 +89,10 @@ class Produk extends BaseController
                     'hargaproduk' => $this->request->getPost('harga'),
                     'jumlahproduk' => $this->request->getPost('jumlah'),
                     'deskripsiproduk' => $this->request->getPost('deskripsi'),
-                    'gambarproduk' => $img
+                    'gambarproduk' => $img,
+                    'created_at' => $date
                 ];
-                $image->move(ROOTPATH . 'public/produk/', $img);
+                $image->move(ROOTPATH . 'public/fotoproduk/', $img);
                 $produk = new MProduk();
                 $produk->insert_data($data);
             } else {
@@ -99,21 +102,23 @@ class Produk extends BaseController
                     'hargaproduk' => $this->request->getPost('harga'),
                     'jumlahproduk' => $this->request->getPost('jumlah'),
                     'deskripsiproduk' => $this->request->getPost('deskripsi'),
+                    'created_at' => $date
                 ];
                 $produk = new MProduk();
                 $produk->insert_data($data);
             }
             session()->setFlashdata('success', 'Data Produk Berhasil Ditambahkan');
-            return redirect()->to('Produk');
+            return redirect()->to(base_url('/Admin/Produk'));
         }
     }
 
-    public function edit()
+    public function edit($id)
     {
         $produk = new MProduk();
         $request = \Config\Services::request();
-        $id = $request->uri->getSegment(3);
+        // $id = $request->uri->getSegment(3);
         $data = [
+            // 'kodeproduk'=>$id,
             'isi' => 'Master/Produk/Edit',
             'data' => $produk->detail($id)
         ];
@@ -160,24 +165,31 @@ class Produk extends BaseController
                 ],
             ]
         ]);
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d:H:i:s');
         $kodeproduk = $this->request->getPost('kodeproduk');
         $produk = new MProduk();
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to('Produk/edit/'.$kodeproduk);
+            return redirect()->to(base_url('/Admin/Produk/edit/') . $kodeproduk);
         } else {
             $kodeproduk = $this->request->getPost('kodeproduk');
             $image = $this->request->getFile('gambar');
             $img = $image->getName();
+
             if ($image->isValid()) {
+
                 $data = [
                     'namaproduk' => $this->request->getPost('namaproduk'),
                     'hargaproduk' => $this->request->getPost('harga'),
                     'jumlahproduk' => $this->request->getPost('jumlah'),
                     'deskripsiproduk' => $this->request->getPost('deskripsi'),
-                    'gambarproduk' => $img
+                    'gambarproduk' => $img,
+                    'updated_at' => $date
                 ];
-                $image->move(ROOTPATH . 'public/produk/', $img);
+                $gambar = $this->request->getPost('foto');
+                unlink('fotoproduk/' . $gambar);
+                $image->move(ROOTPATH . 'public/fotoproduk/', $img);
                 $produk = new MProduk();
                 $produk->update_data($data, $kodeproduk);
             } else {
@@ -186,25 +198,28 @@ class Produk extends BaseController
                     'hargaproduk' => $this->request->getPost('harga'),
                     'jumlahproduk' => $this->request->getPost('jumlah'),
                     'deskripsiproduk' => $this->request->getPost('deskripsi'),
+                    'updated_at' => $date
                 ];
                 $produk = new MProduk();
                 $produk->update_data($data, $kodeproduk);
             }
             session()->setFlashdata('success', 'Data Produk Berhasil Di Update');
-            return redirect()->to('Produk');
+            return redirect()->to(base_url('/Admin/Produk'));
         }
     }
 
     public function delete()
     {
         $id = $this->request->getPost('iduser');
+        $foto = $this->request->getPost('foto');
         $usr = new MProduk();
+        unlink('fotoproduk/' . $foto);
         $usr->hapus($id);
         session()->setFlashdata('success', 'Data Produk Berhasil Di Hapus !!');
-        return redirect()->to('Produk');
+        return redirect()->to(base_url('/Admin/Produk'));
     }
 
-    public function laporan(){
-        
+    public function laporan()
+    {
     }
 }

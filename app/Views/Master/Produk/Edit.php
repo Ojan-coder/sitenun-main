@@ -7,7 +7,7 @@
                         <h3 class="card-title">Data Produk</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Produksi') ?>')" class="btn btn-outline-danger" title="Kembali">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('/Admin/Produk') ?>')" class="btn btn-outline-danger" title="Kembali">
                             <i class="fa fa-arrow-left"></i>
                         </button>
                     </div>
@@ -59,6 +59,7 @@
                             </div>
                             <div class="form-group">
                                 <label id="gambar">Upload Foto</label>
+                                <input type="hidden" value="<?= $data['gambarproduk'] ?>" name="foto">
                                 </br> <?= $data['gambarproduk'] ?>
                                 <input type="file" name="gambar" id="gambar" class="form-control">
                             </div>

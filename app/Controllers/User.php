@@ -38,6 +38,7 @@ class User extends BaseController
     {
         $user = new MUser();
         date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d:H:i:s');
         $valid = $this->validate([
             'username' => [
                 'label'  => 'Username',
@@ -66,22 +67,22 @@ class User extends BaseController
 
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to('User-Tambah');
+            return redirect()->to(base_url('Admin/User-Tambah'));
         } else {
-            $date = date('Y-m-d:H:i:s');
+
             $pas = $this->request->getVar('pass');
             $pw = password_hash($pas, PASSWORD_BCRYPT);
             $data = [
                 'username' => $this->request->getPost('username'),
-                'namauser' => $this->request->getPost('nama'),
-                'akses' => $this->request->getPost('cbakses'),
+                'fullname' => $this->request->getPost('nama'),
+                'level_user' => $this->request->getPost('cbakses'),
                 'password' => $pw,
                 'created_at' => $date,
                 'status' => 'N'
             ];
             $user->insert_data($data);
             session()->setFlashdata('success', 'Data User Berhasil Ditambahkan');
-            return redirect()->to('User');
+            return redirect()->to(base_url('Admin/User'));
         }
     }
 
@@ -101,7 +102,8 @@ class User extends BaseController
     public function update()
     {
         date_default_timezone_set('Asia/Jakarta');
-        $pas = $this->request->getVar('pass');
+        $date = date('Y-m-d:H:i:s');
+        $pass = $this->request->getVar('pass');
         if (empty($pass)) {
             $valid = $this->validate([
                 'username' => [
@@ -146,7 +148,6 @@ class User extends BaseController
             ]);
         }
 
-        $date = date('Y-m-d:H:i:s');
 
         if (!$valid) {
             $id = $this->request->getPost('iduser');
@@ -155,47 +156,74 @@ class User extends BaseController
         } else {
             if (empty($pass)) {
                 $id = $this->request->getPost('iduser');
-                $pas = $this->request->getVar('pass');
-                $pw = password_hash($pas, PASSWORD_BCRYPT);
+                $pw = password_hash($pass, PASSWORD_BCRYPT);
                 $data = [
                     'username' => $this->request->getPost('username'),
-                    'namauser' => $this->request->getPost('nama'),
-                    'akses' => $this->request->getPost('cbakses'),
+                    'fullname' => $this->request->getPost('nama'),
+                    'level_user' => $this->request->getPost('cbakses'),
                     'status' => $this->request->getPost('cbstatus'),
-                    'updated_at'=>$date
+                    'updated_at' => $date
                 ];
                 $user = new MUser();
                 $user->update_data($data, $id);
             } else {
                 $id = $this->request->getPost('iduser');
-                $pas = $this->request->getVar('pass');
-                $pw = password_hash($pas, PASSWORD_BCRYPT);
+                $pw = password_hash($pass, PASSWORD_BCRYPT);
                 $data = [
                     'username' => $this->request->getPost('username'),
-                    'namauser' => $this->request->getPost('nama'),
-                    'akses' => $this->request->getPost('cbakses'),
+                    'fullname' => $this->request->getPost('nama'),
+                    'level_user' => $this->request->getPost('cbakses'),
                     'status' => $this->request->getPost('cbstatus'),
                     'password' => $pw,
-                    'updated_at'=>$date
+                    'updated_at' => $date
                 ];
                 $user = new MUser();
                 $user->update_data($data, $id);
             }
 
             session()->setFlashdata('success', 'Data User Berhasil Di Update !!');
-            return redirect()->to('User');
+            return redirect()->to(base_url('Admin/User'));
         }
     }
 
-    public function changestatus()
+    public function changestatusy()
     {
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d:H:i:s');
+        $id = $this->request->getPost('idusery');
+        $data = [
+            'status' => 'N',
+            'updated_at' => $date
+        ];
+        $user = new MUser();
+        $user->update_data($data, $id);
+        session()->setFlashdata('success', 'Data User Di-Aktifkan !!');
+        return redirect()->to(base_url('Admin/User'));
     }
+
+
+    public function changestatusn()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d:H:i:s');
+        $id = $this->request->getPost('idusern');
+        $data = [
+            'status' => 'Y',
+            'updated_at' => $date
+        ];
+        $user = new MUser();
+        $user->update_data($data, $id);
+        session()->setFlashdata('success', 'Data User Di Non-Aktifkan !!');
+        return redirect()->to(base_url('Admin/User'));
+    }
+
+
     public function delete()
     {
         $id = $this->request->getPost('iduser');
         $usr = new MUser();
         $usr->hapus($id);
         session()->setFlashdata('success', 'Data User Berhasil Di Hapus !!');
-        return redirect()->to('User');
+        return redirect()->to(base_url('Admin/User'));
     }
 }

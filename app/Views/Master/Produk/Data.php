@@ -7,7 +7,7 @@
                         <h3 class="card-title">Data Produk</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Produksi/Tambah') ?>')" class="btn btn-outline-primary" title="Tambah Data User">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('/Admin/Produk/Tambah') ?>')" class="btn btn-outline-primary" title="Tambah Data Produk">
                             <i class="fa fa-plus-circle"></i>
                         </button>
                     </div>
@@ -43,13 +43,13 @@
                                         <td><?= $r['namaproduk'] ?></td>
                                         <td><?= $r['deskripsiproduk'] ?></td>
                                         <td><?= $r['jumlahproduk'] ?></td>
-                                        <td><?= $r['hargaproduk'] ?></td>
-                                        <td><img src="<?= base_url('produk/'.$r['gambarproduk']) ?>" width="50" height="50"></td>
+                                        <td><?= "Rp. ".number_format($r['hargaproduk'])  ?></td>
+                                        <td><img src="<?= base_url('fotoproduk/'.$r['gambarproduk']) ?>" width="50" height="50"></td>
                                         <td>
                                             <button type="button" onclick="location.href=('<?= base_url('Produk/edit') . '/' . $r['kodeproduk'] ?>')" class="btn btn-outline-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kodeproduk'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
+                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kodeproduk'] ?>','<?= $r['gambarproduk'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
                                                 <i class="fas fa-trash"></i>
                                             </button>
 
@@ -68,8 +68,6 @@
 </section>
 
 <!--Danger theme Modal -->
-
-
 <div class="modal fade" id="modal-danger">
     <div class="modal-dialog">
         <div class="modal-content bg-danger">
@@ -84,6 +82,7 @@
                     <div class="modal-body" style="color: black;">
                         Apakah Yakin Ingin Menghapus Data Produk Ini ?
                         <input type="hidden" id="iduser" name="iduser">
+                        <input type="text" id="foto" name="foto">
                     </div>
             </div>
             <div class="modal-footer justify-content-between" style="background-color: white;">
@@ -94,13 +93,13 @@
         </div>
 
     </div>
-
 </div>
 
 
 <script>
-    function ambil(id) {
+    function ambil(id,foto) {
         $('#iduser').val(id);
+        $('#foto').val(foto);
     }
     $(document).ready(function() {
         $.validator.setDefaults({

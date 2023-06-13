@@ -8,7 +8,11 @@ class MUser extends Model
 {
     function getAlldata()
     {
-        return $this->db->table('user')->get()->getResultArray();
+        return $this->db
+        ->table('user')
+        ->orderBy('username','ASC')
+        ->get()
+        ->getResultArray();
     }
     function getDataLevel(){
         return $this->db->table('level_user')->get()->getResultArray();

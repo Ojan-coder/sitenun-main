@@ -7,7 +7,7 @@
                         <h3 class="card-title">Data Produk</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Produksi') ?>')" class="btn btn-outline-danger" title="Kembali">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Produk') ?>')" class="btn btn-outline-danger" title="Kembali">
                             <i class="fa fa-arrow-left"></i>
                         </button>
                     </div>
@@ -38,7 +38,7 @@
                             </div>
                         <?php
                         } ?>
-                        <form id="form" action="<?= base_url('Store-produk') ?>" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="<?= base_url('/Admin/Store-produk') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Produk</label>

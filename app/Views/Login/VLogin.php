@@ -104,7 +104,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="<?= base_url('In') ?>" method="post">
+                <form action="<?= base_url('/Admin/In') ?>" method="post">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="username" placeholder="Email">
                         <div class="input-group-append">

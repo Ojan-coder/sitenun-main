@@ -7,7 +7,7 @@
                         <h3 class="card-title">Data User</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('User') ?>')" class="btn btn-outline-danger" title="Kembali">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/User') ?>')" class="btn btn-outline-danger" title="Kembali">
                             <i class="fa fa-arrow-left"></i>
                         </button>
                     </div>
@@ -67,7 +67,7 @@
                                 <select name="cbstatus" id="cbstatus" class="form-control">
                                     <option>-Pilih-</option>
                                     <option value="Y">Aktif</option>
-                                    <option value="N">Non-Aktifr</option>
+                                    <option value="N">Non-Aktif</option>
                                 </select>
                                 <script>
                                     document.getElementById('cbstatus').value = '<?= $data['status'] ?>'
