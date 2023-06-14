@@ -82,11 +82,11 @@
         <div class="error-page">
             <h2 class="headline text-danger">500</h2>
             <div class="error-content">
-                <h3><i class="fas fa-exclamation-triangle text-danger"></i> Oops! Something went wrong.</h3>
+                <h3><i class="fas fa-exclamation-triangle text-danger"></i> Oops! Maaf Session Login Anda Sudah Habis.</h3>
                 <p>
-                Please login first because you are entering a dangerous area<br> you may <a href="<?= base_url() ?>">return to dashboard</a> or try using the search form.
-                </p>
-                
+                    Silahkan Login Lagi <button class="btn btn-outline-primary" onclick="location.href=('<?= base_url('/Admin') ?>')"><i class="fa fa-sign-in" aria-hidden="true"></i> Click Here</button>
+                                </p>
+
             </div>
         </div>
     </div>

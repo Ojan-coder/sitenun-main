@@ -7,7 +7,7 @@
                         <h3 class="card-title">Tambah Pelanggan</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Pelanggan') ?>')" class="btn btn-outline-danger" title="Kembali">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Pelanggan') ?>')" class="btn btn-outline-danger" title="Kembali">
                             <i class="fa fa-arrow-left"></i>
                         </button>
                     </div>
@@ -37,11 +37,15 @@
                             </div>
                         <?php
                         } ?>
-                        <form id="form" action="<?= base_url('Store-pelanggan') ?>" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="<?= base_url('Admin/Store-pelanggan') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
                             <div class="form-group">
-                                <label>Nama Pelanggan</label>
+                                <label>Nama Lengkap</label>
                                 <input type="text" name="namapelanggan" id="namapelanggan" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Panggilan</label>
+                                <input type="text" name="username" id="username" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Lahir</label>

@@ -118,17 +118,17 @@
                                                     </ul>
                                                 </div>
                                                 <div class="col-5 text-center">
-                                                    <img src="<?= base_url('produk/').$r['gambarproduk'] ?>" alt="user-avatar" height="150" class="img-rectangle img-fit">
+                                                    <img src="<?= base_url('fotoproduk/').$r['gambarproduk'] ?>" alt="user-avatar" height="160" width="230" class="img-rectangle img-fit">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card-footer">
                                             <div class="text-right">
-                                                <a href="#" class="btn btn-sm bg-teal">
+                                                <!-- <a href="#" class="btn btn-sm bg-teal">
                                                     <i class="fas fa-comments"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-primary">
-                                                    <i class="fas fa-user"></i> View Profile
+                                                </a> -->
+                                                <a href="#" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-plus"></i> Tambah Pesanan
                                                 </a>
                                             </div>
                                         </div>

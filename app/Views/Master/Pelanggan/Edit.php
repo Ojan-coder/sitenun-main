@@ -7,12 +7,11 @@
                         <h3 class="card-title">Tambah Pelanggan</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Pelanggan') ?>')" class="btn btn-outline-danger" title="Kembali">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Pelanggan') ?>')" class="btn btn-outline-danger" title="Kembali">
                             <i class="fa fa-arrow-left"></i>
                         </button>
                     </div>
                     <div class="card-body">
-
                         <?php
                         $errors = session()->getFlashdata('errors');
                         if (!empty($errors)) { ?>

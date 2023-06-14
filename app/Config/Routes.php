@@ -42,9 +42,9 @@ $routes->get('/Admin/User-Tambah', 'User::tambah');
 $routes->post('/Admin/Store-user', 'User::add');
 
 // Pelanggan
-$routes->get('/Pelanggan', 'Pelanggan::index');
-$routes->get('/Pelanggan-Tambah', 'Pelanggan::tambah');
-$routes->post('/Store-pelanggan', 'Pelanggan::add');
+$routes->get('/Admin/Pelanggan', 'Pelanggan::index');
+$routes->get('/Admin/Pelanggan-Tambah', 'Pelanggan::tambah');
+$routes->post('/Admin/Store-pelanggan', 'Pelanggan::add');
 
 // Produk
 $routes->get('/Admin/Produk', 'Produk::index');

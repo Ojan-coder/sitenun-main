@@ -8,7 +8,7 @@ class Home extends BaseController
     {
         $produk = new MProduk();
         $session = session();
-        $session->destroy();
+        // $session->destroy();
         $data['produk'] = $produk->getAlldata();
         return view('Home',$data);
     }

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\MPelanggan;
+use App\Models\MUser;
 
 class Pelanggan extends BaseController
 {
@@ -63,13 +64,13 @@ class Pelanggan extends BaseController
         ]);
 
         $pelanggan = new MPelanggan();
+        $user = new MUser();
         date_default_timezone_set('Asia/Jakarta');
         $date = date('Y-m-d:H:i:s');
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
             return redirect()->to('Pelanggan/Tambah');
         } else {
-
             $data = [
                 'kodepelanggan' => $pelanggan->koderandom(),
                 'namapelanggan' => $this->request->getPost('namapelanggan'),
@@ -79,9 +80,19 @@ class Pelanggan extends BaseController
                 'notelp' => $this->request->getPost('notelp'),
                 'created_at' => $date
             ];
-
             $pelanggan->insert_data($data);
-            session()->setFlashdata('success', 'Data Pelanggan Berhasil Ditambahkan');
+            $pass = "12345678";
+            $pw = password_hash($pass, PASSWORD_BCRYPT);
+            $data1 = [
+                'username' => $this->request->getPost('username'),
+                'fullname' => $this->request->getPost('namapelanggan'),
+                'level_user' => '4',
+                'status' => 'N',
+                'password' => $pw,
+                'created_at' => $date
+            ];
+            $user->insert_data($data1);
+            session()->setFlashdata('success', 'Data Berhasil di Tambahkan');
             return redirect()->to('Pelanggan');
         }
     }

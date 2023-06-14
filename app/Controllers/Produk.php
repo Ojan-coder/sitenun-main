@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 use App\Models\MProduk;
 use Dompdf\Dompdf;
 
+use function PHPUnit\Framework\isEmpty;
+
 class Produk extends BaseController
 {
     public function index()
@@ -188,8 +190,12 @@ class Produk extends BaseController
                     'updated_at' => $date
                 ];
                 $gambar = $this->request->getPost('foto');
-                unlink('fotoproduk/' . $gambar);
-                $image->move(ROOTPATH . 'public/fotoproduk/', $img);
+                if ($gambar == isEmpty() || $gambar == '') {
+                    $image->move(ROOTPATH . 'public/fotoproduk/', $img);
+                } else {
+                    unlink('fotoproduk/' . $gambar);
+                    $image->move(ROOTPATH . 'public/fotoproduk/', $img);
+                }
                 $produk = new MProduk();
                 $produk->update_data($data, $kodeproduk);
             } else {
