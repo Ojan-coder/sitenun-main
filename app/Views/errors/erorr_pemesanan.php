@@ -4,38 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Si-Tenun | Dashboard</title>
-    <script src="<?= base_url('assets/') ?>plugins/jquery-validation/jquery-3.6.0.min.js"></script>
+    <title>Erorr</title>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
-    <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
-
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/select2/css/select2.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/jqvmap/jqvmap.min.css">
 
     <link rel="stylesheet" href="<?= base_url('assets/') ?>dist/css/adminlte.min.css?v=3.2.0">
-
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/daterangepicker/daterangepicker.css">
-
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
-
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/summernote/summernote-bs4.min.css">
-    <script nonce="9586d6e1-e20c-442d-bcbc-a3d91c0292ce">
+    <script nonce="8f08588c-9933-41fe-afb6-476a17783484">
         (function(w, d) {
             ! function(Y, Z, _, ba) {
                 Y[_] = Y[_] || {};
@@ -99,3 +75,24 @@
         })(window, document);
     </script>
 </head>
+
+<body class="container-fluid">
+
+    <div class="main">
+        <div class="error-page">
+            <h2 class="headline text-danger">500</h2>
+            <div class="error-content">
+                <h3><i class="fas fa-exclamation-triangle text-danger"></i> Oops! Silahkan Login / Register Akun dulu.</h3>
+                <p>
+                    Silahkan Register Terlebih dahulu <a href="<?= base_url('/Pelanggan/Register') ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a> Jika sudah memiliki akun silahkan Login Terlebih Dahulu 
+                    <a href="<?= base_url('/Pelanggan/Login') ?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></p>
+
+            </div>
+        </div>
+    </div>
+    <script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
+    <script src="<?= base_url('assets/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('assets/') ?>dist/js/adminlte.min.js?v=3.2.0"></script>
+</body>
+
+</html>

@@ -68,7 +68,11 @@ class Login extends BaseController
                     session()->set('status', $ceklogin['status']);
                     session()->set('akses1', $ceklogin['level_user']);
                     session()->set('masuk', TRUE);
-                    return redirect()->to(base_url('/Admin/Beranda'));
+                    if (session()->get('akses1') == '4') {
+                        return redirect()->to(base_url('/Pelanggan/Beranda'));
+                    } else {
+                        return redirect()->to(base_url('/Admin/Beranda'));
+                    }
                 } else {
                     $session_login = [
                         'error_login' => 'Password Tidak Valid !',

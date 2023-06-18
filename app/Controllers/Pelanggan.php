@@ -69,7 +69,7 @@ class Pelanggan extends BaseController
         $date = date('Y-m-d:H:i:s');
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to('Pelanggan/Tambah');
+            return redirect()->to(base_url('Pelanggan/Tambah'));
         } else {
             $data = [
                 'kodepelanggan' => $pelanggan->koderandom(),
@@ -81,19 +81,82 @@ class Pelanggan extends BaseController
                 'created_at' => $date
             ];
             $pelanggan->insert_data($data);
-            $pass = "12345678";
+            $pass = "pelanggan123";
             $pw = password_hash($pass, PASSWORD_BCRYPT);
             $data1 = [
                 'username' => $this->request->getPost('username'),
                 'fullname' => $this->request->getPost('namapelanggan'),
                 'level_user' => '4',
-                'status' => 'N',
+                'status' => 'Y',
                 'password' => $pw,
                 'created_at' => $date
             ];
             $user->insert_data($data1);
             session()->setFlashdata('success', 'Data Berhasil di Tambahkan');
-            return redirect()->to('Pelanggan');
+            session()->setFlashdata('successakun', 'Registrasi Berhasil, Password anda : pelanggan123');
+            return redirect()->to(base_url('Pelanggan'));
+        }
+    }
+
+    public function addregister()
+    {
+        $valid = $this->validate([
+            'namapelanggan' => [
+                'label'  => 'Nama Pelanggan',
+                'rules'   => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib Diisi'
+                ],
+            ],
+            'alamat' => [
+                'label'  => 'Alamat Pelanggan',
+                'rules'   => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib Diisi'
+                ],
+            ],
+            'notelp' => [
+                'label'  => 'No.Telp / Handphone',
+                'rules'   => 'required|max_length[12]',
+                'errors' => [
+                    'required' => '{field} Wajib Diisi',
+                    'max_length' => 'Maximal 12 Character'
+                ],
+            ]
+        ]);
+
+        $pelanggan = new MPelanggan();
+        $user = new MUser();
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d:H:i:s');
+        if (!$valid) {
+            session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
+            return redirect()->to(base_url('Pelanggan/Register'));
+        } else {
+            $data = [
+                'kodepelanggan' => $pelanggan->koderandom(),
+                'namapelanggan' => $this->request->getPost('namapelanggan'),
+                'tgl_lahir' => $this->request->getPost('tgllahir'),
+                'kodejenkel' => $this->request->getPost('cbjenkel'),
+                'alamat' => $this->request->getPost('alamat'),
+                'notelp' => $this->request->getPost('notelp'),
+                'created_at' => $date
+            ];
+            $pelanggan->insert_data($data);
+            $pass = "pelanggan123";
+            $pw = password_hash($pass, PASSWORD_BCRYPT);
+            $data1 = [
+                'username' => $this->request->getPost('username'),
+                'fullname' => $this->request->getPost('namapelanggan'),
+                'level_user' => '4',
+                'status' => 'Y',
+                'password' => $pw,
+                'created_at' => $date
+            ];
+            $user->insert_data($data1);
+            session()->setFlashdata('success', 'Data Berhasil di Tambahkan');
+            session()->setFlashdata('successakun', 'Registrasi Berhasil, Password anda : pelanggan123 ');
+            return redirect()->to(base_url('Pelanggan/Register'));
         }
     }
 
@@ -169,5 +232,10 @@ class Pelanggan extends BaseController
         $pelanggan->hapus($id);
         session()->setFlashdata('success', 'Data Pelanggan Berhasil Di Hapus !!');
         return redirect()->to('Pelanggan');
+    }
+
+    public function register()
+    {
+        return view('Master/Pelanggan/Register');
     }
 }

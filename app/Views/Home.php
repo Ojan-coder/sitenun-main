@@ -88,6 +88,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active"> <a href="<?= base_url('Pelanggan/Login') ?>">Login</a></li>
                                 <li class="breadcrumb-item active">Contacts</li>
                             </ol>
                         </div>
@@ -127,7 +128,7 @@
                                                 <!-- <a href="#" class="btn btn-sm bg-teal">
                                                     <i class="fas fa-comments"></i>
                                                 </a> -->
-                                                <a href="#" class="btn btn-sm btn-outline-primary">
+                                                <a href="<?= base_url('Tambah-Pesanan') ?>" class="btn btn-sm btn-outline-primary">
                                                     <i class="fas fa-plus"></i> Tambah Pesanan
                                                 </a>
                                             </div>

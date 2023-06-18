@@ -77,15 +77,40 @@
 </head>
 
 <body class="hold-transition login-page">
-    <?php $session = \Config\Services::session() ?>
+    <?php
+    $session = \Config\Services::session();
+    $request = \Config\Services::request();
+    $id = $request->uri->getSegment(1);
+    ?>
     <div class="login-box">
         <div class="card card-outline card-primary">
+
             <div class="card-header text-center">
+
                 <a href="<?= base_url() ?>" class="h1"><b>Si</b>Tenun</a>
+
             </div>
 
             <div class="card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <?php
+                if ($id == "Admin" || $id == "admin") {
+                ?>
+                    <p class="login-box-msg">
+                        <center>
+                            <h5>
+                                Login Admin
+                            </h5>
+                        </center>
+                    </p>
+                <?php } else { ?>
+                    <p class="login-box-msg">
+                        <center>
+                            <h5>
+                                Silahkan Login Pelanggan
+                            </h5>
+                        </center>
+                    </p>
+                <?php } ?>
 
                 <?php
                 if (session()->getFlashdata('error_username') || session()->getFlashdata('error_pass')) : ?>
@@ -103,6 +128,9 @@
                         <?= session()->getFlashdata('error_login') ?>
                     </div>
                 <?php endif; ?>
+
+                
+                <hr>
 
                 <form action="<?= base_url('/Admin/In') ?>" method="post">
                     <div class="input-group mb-3">
@@ -150,7 +178,7 @@
                     <a href="#">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="#" class="text-center">Register a new membership</a>
+                    <a href="<?= base_url('Pelanggan/Register') ?>" class="text-center">Register a new membership</a>
                 </p>
             </div>
 
