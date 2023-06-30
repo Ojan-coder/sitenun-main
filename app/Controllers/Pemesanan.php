@@ -10,7 +10,7 @@ class Pemesanan extends BaseController
     {
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
-                'isi' => ''
+                'isi' => 'Transaksi/Pemesanan/Data'
             ];
             return view('Layout/Template', $data);
         } else {

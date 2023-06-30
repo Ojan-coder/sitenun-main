@@ -8,7 +8,7 @@ class MProduk extends Model
 {
     function koderandom()
     {
-        $kode = $this->db->table('produk')
+        $kode = $this->db->table('tbl_produksi')
             ->select('RIGHT(kodeproduk,2) as iduser', false)
             ->orderBy('iduser', 'DESC')
             ->limit(1)
@@ -27,27 +27,27 @@ class MProduk extends Model
 
     function getAlldata()
     {
-        return $this->db->table('produk')->get()->getResultArray();
+        return $this->db->table('tbl_produksi')->get()->getResultArray();
     }
 
     public function detail($id)
     {
         return $this->db
-            ->table('produk')
+            ->table('tbl_produksi')
             ->where('kodeproduk', $id)->get()->getRowArray();
     }
 
     public function insert_data($data)
     {
-        return $this->db->table('produk')->insert($data);
+        return $this->db->table('tbl_produksi')->insert($data);
     }
     function update_data($data, $id)
     {
-        return $this->db->table('produk')->update($data, ['kodeproduk' => $id]);
+        return $this->db->table('tbl_produksi')->update($data, ['kodeproduk' => $id]);
     }
     public function hapus($id)
     {
-        return $this->db->table('produk')->delete(['kodeproduk' => $id]);
+        return $this->db->table('tbl_produksi')->delete(['kodeproduk' => $id]);
     }
 }
 // return $this->db

@@ -44,8 +44,10 @@ $routes->post('/Admin/Store-user', 'User::add');
 // Produk
 $routes->get('/Admin/Produk', 'Produk::index');
 $routes->get('/Admin/Produk/Tambah', 'Produk::tambah');
-// $routes->add('/Admin/Produk/edit/(:any)', 'Produk::edit/$id');
 $routes->post('/Admin/Store-produk', 'Produk::add');
+
+// Bahan Baku
+$routes->get('/Admin/Bahanbaku', 'Bahanbaku::index');
 
 // Laporan
 $routes->get('/LpProduksi', 'Laporan::LaporanProduk');
