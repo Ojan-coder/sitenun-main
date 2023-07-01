@@ -29,12 +29,24 @@ class MProduk extends Model
     {
         return $this->db->table('tbl_produksi')->get()->getResultArray();
     }
+    function getDataTableDetail()
+    {
+        $id = $this->koderandom();
+        return $this->db
+            ->table('tbl_produksi_detail')
+            ->where('kode_produksi_detail', $id)->get()->getResultArray();
+    }
 
     public function detail($id)
     {
         return $this->db
             ->table('tbl_produksi')
             ->where('kodeproduk', $id)->get()->getRowArray();
+    }
+
+    public function insert_data_temp($data)
+    {
+        return $this->db->table('tbl_produksi_detail')->insert($data);
     }
 
     public function insert_data($data)

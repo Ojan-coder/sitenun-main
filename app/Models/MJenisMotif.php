@@ -4,12 +4,12 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MBahanbaku extends Model
+class MJenisMotif extends Model
 {
     function koderandom()
     {
-        $kode = $this->db->table('tbl_bahan_baku')
-            ->select('RIGHT(kode_bahan_baku,2) as iduser', false)
+        $kode = $this->db->table('tbl_jenis_tenun')
+            ->select('RIGHT(kode_jenis,2) as iduser', false)
             ->orderBy('iduser', 'DESC')
             ->limit(1)
             ->get()->getRowArray();
@@ -19,7 +19,7 @@ class MBahanbaku extends Model
         } else if (empty($kode['iduser'])) {
             $no = "1";
         }
-        $huruf = "BB-";
+        $huruf = "PR-";
         $batas = str_pad($no, 2, "00", STR_PAD_LEFT);
         $kodeu = $huruf . $batas;
         return $kodeu;
@@ -27,26 +27,26 @@ class MBahanbaku extends Model
 
     function getAlldata()
     {
-        return $this->db->table('tbl_bahan_baku')->get()->getResultArray();
+        return $this->db->table('tbl_jenis_tenun')->get()->getResultArray();
     }
 
     public function detail($id)
     {
         return $this->db
-            ->table('tbl_bahan_baku')
-            ->where('kode_bahan_baku', $id)->get()->getRowArray();
+            ->table('tbl_jenis_tenun')
+            ->where('kode_jenis', $id)->get()->getRowArray();
     }
 
     public function insert_data($data)
     {
-        return $this->db->table('tbl_bahan_baku')->insert($data);
+        return $this->db->table('tbl_jenis_tenun')->insert($data);
     }
     function update_data($data, $id)
     {
-        return $this->db->table('tbl_bahan_baku')->update($data, ['kode_bahan_baku' => $id]);
+        return $this->db->table('tbl_jenis_tenun')->update($data, ['kode_jenis' => $id]);
     }
     public function hapus($id)
     {
-        return $this->db->table('tbl_bahan_baku')->delete(['kode_bahan_baku' => $id]);
+        return $this->db->table('tbl_jenis_tenun')->delete(['kode_jenis' => $id]);
     }
 }

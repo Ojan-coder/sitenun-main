@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\MBahanbaku;
 use App\Models\MProduk;
+use App\Models\MJenisMotif;
 use Dompdf\Dompdf;
 
 use function PHPUnit\Framework\isEmpty;
@@ -25,15 +27,35 @@ class Produk extends BaseController
     }
     public function tambah()
     {
+        $motif = new MJenisMotif();
+        $bahan = new MBahanbaku();
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
-                'isi' => 'Master/Produk/Add'
+                'isi' => 'Master/Produk/Add',
+                'jenismotif' => $motif->getAlldata(),
+                'bahanbaku' => $bahan->getAlldata()
             ];
             return view('Layout/Template', $data);
         } else {
             return view('errors/error_login.php');
         }
     }
+    public function simp_temp()
+    {
+        $spp = new MProduk();
+        date_default_timezone_set('Asia/Jakarta');
+        $data = [
+            'kode_produksi_detail' => $spp->koderandom(),
+            'kode_bahan_baku_detail' => $this->request->getPost('kode_bahan'),
+            'qty_bahan_baku_keluar_detail' => $this->request->getPost('jumlah'),
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+        $mhs = new MProduk();
+        $mhs->insert_datatemp($data);
+        session()->setFlashdata('success', 'Data Bahan Baku Berhasil Ditambahkan');
+        return redirect()->to(base_url('/Admin/Produk'));
+    }
+
     public function add()
     {
         $valid = $this->validate([

@@ -68,7 +68,7 @@ $id = $request->uri->getSegment(1);
                                                                                                 echo 'active';
                                                                                             } ?>">
                                     <i class="fa fa-plus nav-icon"></i>
-                                    <p>Produk</p>
+                                    <p>Produksi</p>
                                 </a>
 
                             </li>
@@ -136,21 +136,14 @@ $id = $request->uri->getSegment(1);
                                                                                         } ?>">
                             <i class="nav-icon fas fa-handshake"></i>
                             <p>
-                                Pembelian
+                                Pembelian Bahan Baku
                                 <!-- <span class="right badge badge-danger">New</span> -->
                             </p>
                         </a>
                     </li>
-                    <li class="nav-header">LAPORAN</li>
-                    <li class="nav-item">
-                        <a href="<?= base_url('LpProduksi') ?>" class="nav-link">
-                            <i class="nav-icon fa fa-print text-danger"></i>
-                            <p>Produksi</p>
-                        </a>
-                    </li>
                 <?php } ?>
 
-                <?php if (session()->get('akses1') == '4') { ?>
+                <?php if (session()->get('akses1') == '4' || session()->get('akses1') == '1') { ?>
                     <li class="nav-header">Transaksi</li>
 
                     <li class="nav-item">
@@ -166,8 +159,15 @@ $id = $request->uri->getSegment(1);
                     </li>
                 <?php } ?>
 
-                <li class="nav-header">SETTINGS</li>
-                <?php if (session()->get('akses1') == '0' || session()->get('akses1') == '1') { ?>
+                <?php if (session()->get('akses1') == '0' || session()->get('akses1') == '1' || session()->get('akses1') == '4') { ?>
+                    <li class="nav-header">LAPORAN</li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('LpProduksi') ?>" class="nav-link">
+                            <i class="nav-icon fa fa-print text-danger"></i>
+                            <p>Produksi</p>
+                        </a>
+                    </li>
+                    <li class="nav-header">SETTINGS</li>
                     <!-- User -->
                     <li class="nav-item">
                         <a href="<?= base_url('/Admin/User') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'User') {
@@ -175,7 +175,7 @@ $id = $request->uri->getSegment(1);
                                                                                     } ?>">
                             <i class="nav-icon fas fa-user"></i>
                             <p>
-                                User
+                                Pegawai
                                 <span class="right badge badge-danger">New</span>
                             </p>
                         </a>

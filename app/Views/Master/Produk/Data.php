@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Data Produk</h3>
+                        <h3 class="card-title">Data Produksi</h3>
                     </div>
                     <div class="card-body">
                         <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('/Admin/Produk/Tambah') ?>')" class="btn btn-outline-primary" title="Tambah Data Produk">
@@ -26,7 +26,6 @@
                                 <tr>
                                     <th>Kode Produk</th>
                                     <th>Nama Produk</th>
-                                    <!-- <th width="250px">Deskripsi</th> -->
                                     <th>Jumlah</th>
                                     <th>Harga</th>
                                     <th>Foto</th>
@@ -41,10 +40,9 @@
                                     <tr>
                                         <td><?= $r['kode_produksi'] ?></td>
                                         <td><?= $r['namaproduk'] ?></td>
-                                        <!-- <td><?= $r['deskripsiproduk'] ?></td> -->
                                         <td><?= $r['jumlahproduk'] ?></td>
-                                        <td><?= "Rp. ".number_format($r['hargaproduk'])  ?></td>
-                                        <td><img src="<?= base_url('fotoproduk/'.$r['gambarproduk']) ?>" width="50" height="50"></td>
+                                        <td><?= "Rp. " . number_format($r['hargaproduk'])  ?></td>
+                                        <td><img src="<?= base_url('fotoproduk/' . $r['gambarproduk']) ?>" width="50" height="50"></td>
                                         <td>
                                             <button type="button" onclick="location.href=('<?= base_url('Produk/edit') . '/' . $r['kode_produksi'] ?>')" class="btn btn-outline-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
@@ -97,9 +95,10 @@
 
 
 <script>
-    function ambil(id,foto) {
+    function ambil(id, foto) {
         $('#iduser').val(id);
         $('#foto').val(foto);
+        $('#modal-danger').modal('hide');
     }
     $(document).ready(function() {
         $.validator.setDefaults({

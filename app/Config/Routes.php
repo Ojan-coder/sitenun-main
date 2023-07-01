@@ -46,8 +46,15 @@ $routes->get('/Admin/Produk', 'Produk::index');
 $routes->get('/Admin/Produk/Tambah', 'Produk::tambah');
 $routes->post('/Admin/Store-produk', 'Produk::add');
 
+// Motif
+$routes->get('/Admin/JenisMotif', 'JenisMotif::index');
+$routes->get('/Admin/JenisMotif/Tambah', 'JenisMotif::tambah');
+$routes->post('/Admin/Store-jenismotif', 'JenisMotif::add');
+
 // Bahan Baku
 $routes->get('/Admin/Bahanbaku', 'Bahanbaku::index');
+$routes->get('/Admin/Bahanbaku/Bahanbaku-Tambah', 'Bahanbaku::tambah');
+$routes->post('/Admin/Bahanbaku/Store-Bahanbaku', 'Bahanbaku::add');
 
 // Laporan
 $routes->get('/LpProduksi', 'Laporan::LaporanProduk');

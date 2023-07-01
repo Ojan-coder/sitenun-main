@@ -8,8 +8,8 @@
                         <h3 class="card-title">Data Bahan Baku</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('PO/tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
-                            <i class="fa fa-cart-plus"></i>
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Bahanbaku/Bahanbaku-Tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </button>
                     </div>
                     <div class="card-body">
@@ -29,12 +29,28 @@
                                     <th>Nama Bahan Baku</th>
                                     <th>Jenis Bahan Baku</th>
                                     <th>Qty</th>
-                                    <th width="150px">#</th>
+                                    <th width="10px">#</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                foreach ($data as $r) {
+                                ?>
 
+                                    <tr>
+                                        <td><?= $r['kode_bahan_baku'] ?></td>
+                                        <td><?= $r['nama_bahan_baku'] ?></td>
+                                        <td><?= $r['satuan_bahan_baku'] ?></td>
+                                        <td><?= $r['jumlah_bahan_baku'] ?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="return ambil('<?= $r['kode_bahan_baku'] ?>')" data-target="#modal-danger">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
+
                         </table>
                     </div>
                 </div>
@@ -54,10 +70,10 @@
                 </button>
             </div>
             <div class="modal-body" style="background-color: white;">
-                <form method="POST" action="<?= base_url('Pelanggan/delete') ?>">
+                <form method="POST" action="<?= base_url('Bahanbaku/delete') ?>">
                     <div class="modal-body" style="color: black;">
-                        Apakah Yakin Ingin Menghapus Data Pelanggan Ini ?
-                        <input type="hidden" id="iduser" name="iduser">
+                        Apakah Yakin Ingin Menghapus Data Bahan Baku Ini ?
+                        <input type="text" id="iduser" name="iduser">
                     </div>
             </div>
             <div class="modal-footer justify-content-between" style="background-color: white;">
@@ -75,5 +91,6 @@
 <script>
     function ambil(id) {
         $('#iduser').val(id);
+        $('#modal-danger').hide();
     }
 </script>
