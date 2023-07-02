@@ -19,7 +19,7 @@ class MPelanggan extends Model
         } else if (empty($kode['iduser'])) {
             $no = "1";
         }
-        $huruf = "PR-";
+        $huruf = "PL-";
         $batas = str_pad($no, 2, "00", STR_PAD_LEFT);
         $kodeu = $huruf . $batas;
         return $kodeu;
@@ -28,7 +28,6 @@ class MPelanggan extends Model
     {
         return $this->db
         ->table('pelanggan')
-        ->join('tbl_jeniskelamin','kodejenkel=kode_jenkel')
         ->get()
         ->getResultArray();
     }

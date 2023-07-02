@@ -20,7 +20,10 @@ class Pemesanan extends BaseController
     public function tambah()
     {
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
-            echo "hello";
+            $data = [
+                'isi' => 'Transaksi/Pemesanan/Add'
+            ];
+            return view('Layout/Template', $data);
         } else {
             return view('errors/erorr_pemesanan.php');
         }

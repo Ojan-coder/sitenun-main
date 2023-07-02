@@ -47,7 +47,7 @@ $id = $request->uri->getSegment(1);
                         </p>
                     </a>
                 </li>
-                <!-- Master -->
+                <!-- Master Admin-->
                 <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2' || session()->get('akses1') == '3') { ?>
 
                     <li class="nav-item <?php if ($request->uri->getSegment(2) == 'Produk' || $request->uri->getSegment(2) == 'Pelanggan' || $request->uri->getSegment(2) == 'Bahanbaku' || $request->uri->getSegment(2) == 'JenisMotif') {
@@ -104,6 +104,7 @@ $id = $request->uri->getSegment(1);
                         </ul>
                     </li>
                 <?php } ?>
+                <!-- Transaksi Admin -->
                 <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2') { ?>
 
                     <li class="nav-header">Transaksi</li>
@@ -143,6 +144,7 @@ $id = $request->uri->getSegment(1);
                     </li>
                 <?php } ?>
 
+                <!-- Transaksi Pelanggan -->
                 <?php if (session()->get('akses1') == '4' || session()->get('akses1') == '1') { ?>
                     <li class="nav-header">Transaksi</li>
 
@@ -159,7 +161,8 @@ $id = $request->uri->getSegment(1);
                     </li>
                 <?php } ?>
 
-                <?php if (session()->get('akses1') == '0' || session()->get('akses1') == '1' || session()->get('akses1') == '4') { ?>
+                <!-- Settings -->
+                <?php if (session()->get('akses1') == '0' || session()->get('akses1') == '1') { ?>
                     <li class="nav-header">LAPORAN</li>
                     <li class="nav-item">
                         <a href="<?= base_url('LpProduksi') ?>" class="nav-link">
@@ -180,16 +183,28 @@ $id = $request->uri->getSegment(1);
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/Admin/Logout') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-sign-out"></i>
+                            <p>
+                                Logout
+                            </p>
+                        </a>
+                    </li>
                 <?php } ?>
-                <!-- Logout -->
-                <li class="nav-item">
-                    <a href="<?= base_url('/Admin/Logout') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-sign-out"></i>
-                        <p>
-                            Logout
-                        </p>
-                    </a>
-                </li>
+
+                <?php if (session()->get('akses1') == '4') { ?>
+                    <li class="nav-header">SETTINGS</li>
+                    <!-- Logout -->
+                    <li class="nav-item">
+                        <a href="<?= base_url('/Admin/Logout') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-sign-out"></i>
+                            <p>
+                                Logout
+                            </p>
+                        </a>
+                    </li>
+                <?php } ?>
             </ul>
         </nav>
 

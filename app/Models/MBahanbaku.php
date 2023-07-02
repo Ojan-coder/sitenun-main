@@ -41,9 +41,9 @@ class MBahanbaku extends Model
     {
         return $this->db->table('tbl_bahan_baku')->insert($data);
     }
-    function update_data($data, $id)
+    function update_data($dataudpate, $id)
     {
-        return $this->db->table('tbl_bahan_baku')->update($data, ['kode_bahan_baku' => $id]);
+        return $this->db->table('tbl_bahan_baku')->update($dataudpate, ['kode_bahan_baku' => $id]);
     }
     public function hapus($id)
     {

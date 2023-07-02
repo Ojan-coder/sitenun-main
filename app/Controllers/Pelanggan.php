@@ -27,7 +27,6 @@ class Pelanggan extends BaseController
         $pelanggan = new MPelanggan();
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
-                'jenkel' => $pelanggan->getAllJenkel(),
                 'isi' => 'Master/Pelanggan/Add'
             ];
             return view('Layout/Template', $data);
@@ -166,7 +165,6 @@ class Pelanggan extends BaseController
         $request = \Config\Services::request();
         $id = $request->uri->getSegment(3);
         $data = [
-            'jenkel' => $pelanggan->getAllJenkel(),
             'isi' => 'Master/Pelanggan/Edit',
             'data' => $pelanggan->detail($id)
         ];

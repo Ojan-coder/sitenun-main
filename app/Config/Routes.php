@@ -44,7 +44,7 @@ $routes->post('/Admin/Store-user', 'User::add');
 // Produk
 $routes->get('/Admin/Produk', 'Produk::index');
 $routes->get('/Admin/Produk/Tambah', 'Produk::tambah');
-$routes->post('/Admin/Store-produk', 'Produk::add');
+$routes->post('/Admin/Produk/Store-produk', 'Produk::add');
 
 // Motif
 $routes->get('/Admin/JenisMotif', 'JenisMotif::index');
@@ -67,8 +67,13 @@ $routes->get('/Admin/Pelanggan', 'Pelanggan::index');
 $routes->get('/Admin/Pelanggan-Tambah', 'Pelanggan::tambah');
 $routes->post('/Admin/Store-pelanggan', 'Pelanggan::add');
 
+// Pemesananan Admin
+$routes->get('/Admin/Tambah-Pesanan', 'Pemesanan::tambah');
+$routes->get('/Admin/PO', 'Pemesanan::index');
+
+
 // Pemesananan Pelanggan
-$routes->get('/Tambah-Pesanan', 'Pemesanan::tambah');
+$routes->get('/Pelanggan/Tambah-Pesanan', 'Pemesanan::tambah');
 $routes->get('/Pelanggan/PO', 'Pemesanan::index');
 
 

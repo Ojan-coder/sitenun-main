@@ -8,7 +8,7 @@
                         <h3 class="card-title">Data Pesanan</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('PO/tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Pemesanan/tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
                             <i class="fa fa-cart-plus"></i>
                         </button>
                     </div>

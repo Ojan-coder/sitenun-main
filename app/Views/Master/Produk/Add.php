@@ -41,7 +41,8 @@
                                         </div>
                                     <?php
                                     } ?>
-                                    <form id="form" action="<?= base_url('/Admin/Store-produk') ?>" method="POST" enctype="multipart/form-data">
+                                    <form id="form" action="<?= base_url('/Admin/Produk/Store-produk') ?>" method="POST" enctype="multipart/form-data">
+                                        <!-- <form id="form" action="<?= base_url('Produk/simp_detail') ?>" method="POST" enctype="multipart/form-data"> -->
                                         <?php csrf_field(); ?>
 
 
@@ -49,23 +50,25 @@
                                             <label>Nama Produk</label>
                                             <div class="input-group mb-3">
                                                 <input type="hidden" id="kodejenis" name="kodejenis">
-                                                <input type="text" class="form-control" name="namaproduk" value="<?= old('namaproduk') ?>" id="namaproduk" aria-describedby="button-addon2" required>
+                                                <input type="text" class="form-control" name="namaproduk" value="<?= old('namaproduk') ?>" id="namaproduk" aria-describedby="button-addon2">
                                                 <div class="input-group-append">
-                                                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-xl" type="button" id="button-addon2"><i class="fa fa-search-plus" aria-hidden="true"></i></button>
+                                                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-xl" type="button" id="button-addon2">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Deskripsi</label>
-                                            <textarea class="form-control" name="deskripsi" id="deskripsi"></textarea>
+                                            <textarea class="form-control" value="<?= old('deskripsi') ?>" name="deskripsi" id="deskripsi"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Harga Produk</label>
-                                            <input type="number" name="harga" id="harga" class="form-control" required>
+                                            <input type="number" name="harga" id="harga" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Jumlah Produk</label>
-                                            <input type="number" name="jumlah" id="jumlah" class="form-control" required>
+                                            <input type="number" name="jumlah" id="jumlah" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label id="gambar">Upload Foto</label>
@@ -80,6 +83,31 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Data Bahan</h3>
                                 </div>
+                                <br>
+                                <?php
+                                if (!empty(session()->getFlashdata('successbahanbaku'))) { ?>
+                                    <div class="row" style="align-items: center;">
+                                        <div class="col-md-10">
+                                            <div class="alert alert-success alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                <i class="icon fas fa-check"></i> Success.
+                                                <?= session()->getFlashdata('successbahanbaku'); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+                                } else if (!empty(session()->getFlashdata('deletebahanbaku'))) { ?>
+                                    <div class="row" style="align-items: center;">
+                                        <div class="col-md-10">
+                                            <div class="alert alert-danger alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                <i class="fa fa-warning" aria-hidden="true"></i> Delete.
+                                                <?= session()->getFlashdata('deletebahanbaku'); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+                                } ?>
                                 <div class="card-body">
                                     <table width="100%">
                                         <tr>
@@ -92,18 +120,18 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="hidden" class="form-control" name="kode_bahan_baku" id="kode_bahan_baku">
-
+                                                <input type="hidden" class="form-control kodebahanbaku" name="kodebahanbaku" id="kodebahanbaku">
                                                 <input type="text" class="form-control" id="nama_bahan_baku">
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control" name="jumlah" id="jumlah">
+                                                <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
+                                                <input type="text" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku">
                                             </td>
                                             <td width="100px">
                                                 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-bahanbaku" title="Cari Data Bahan Baku">
                                                     <i class="fa fa-search" aria-hidden="true"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-success" id="tambah" title="Tambah Bahan Baku">
+                                                <button type="button" class="btn btn-outline-success tambah" id="tambah" title="Tambah Bahan Baku">
                                                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                                                 </button>
                                             </td>
@@ -115,23 +143,35 @@
                                             <th width="200px">Kode Bahan Baku</th>
                                             <th>Bahan Baku</th>
                                             <th width="100px">Jumlah</th>
+                                            <th width="10px">#</th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                            <?php
+                                            foreach ($detailbahanbaku as $r) {
+                                            ?>
+                                                <tr>
+                                                    <td><?= $r['kode_bahan_baku_detail'] ?></td>
+                                                    <td><?= $r['nama_bahan_baku'] ?></td>
+                                                    <td><?= $r['qty_bahan_baku_keluar_detail'] ?> </td>
+                                                    <td>
+                                                        <a class="btn btn-outline-danger" id="hapus" href="<?= base_url('Produk/delete_bahanbaku/' . $r['kode_bahan_baku_detail']) . '/' . $r['qty_bahan_baku_keluar_detail'] . '/' . $r['jumlah_bahan_baku'] . '/' . $r['id'] ?>" title="Hapus Data Bahan Baku">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
                                         </tbody>
+                                    <?php } ?>
                                     </table>
                                     <br>
-                                    <button type="submit" id="submit" style="width:50px" class="btn btn-outline-primary">
-                                        <i class="fas fa-save"></i>
-                                    </button>
-                                    </form>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" id="submit" class="btn btn-outline-primary">
+                            <i class="fas fa-save"></i> Simpan
+                        </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -210,7 +250,7 @@
                                 <td><?= $r['nama_bahan_baku'] ?></td>
                                 <td><?= $r['jumlah_bahan_baku'] ?>/<?= $r['satuan_bahan_baku'] ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" onclick="return ambil1('<?= $r['kode_bahan_baku'] ?>','<?= $r['nama_bahan_baku'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
+                                    <button type="button" class="btn btn-primary" onclick="return ambil1('<?= $r['kode_bahan_baku'] ?>','<?= $r['nama_bahan_baku'] ?>','<?= $r['jumlah_bahan_baku'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -230,9 +270,10 @@
 <script>
     $(document).ready(function() {
         $('#tambah').click(function() {
-            var kode = $('#kode_bahan_baku').val();
-            var jumlah = $('#jumlah').val();
-            datanya = "&kode=" + kode + "&jumlah=" + jumlah;
+            var kode = $('#kodebahanbaku').val();
+            var jumlah = $('#jumlahbahanbaku').val();
+            var jumlah1 = $('#jumlah1').val();
+            datanya = "&kodebahanbaku=" + kode + "&jumlahbahanbaku=" + jumlah + "&jumlah1=" + jumlah1;
             $.ajax({
                 url: "<?php echo site_url('Produk/simp_detail') ?>",
                 data: datanya,
@@ -241,7 +282,6 @@
                 success: function(msg) {}
             })
         });
-
         $(document).ajaxStop(function() {
             window.location.reload();
         });
@@ -258,9 +298,10 @@
         $('#modal-xl').modal('hide');
     }
 
-    function ambil1(kode, nama) {
-        $('#kode_bahan_baku').val(kode);
+    function ambil1(kode, nama, jumlah) {
+        $('#kodebahanbaku').val(kode);
         $('#nama_bahan_baku').val(nama);
+        $('#jumlah1').val(jumlah);
         $('#modal-bahanbaku').modal('hide');
     }
 </script>

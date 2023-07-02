@@ -9,7 +9,7 @@ class MProduk extends Model
     function koderandom()
     {
         $kode = $this->db->table('tbl_produksi')
-            ->select('RIGHT(kodeproduk,2) as iduser', false)
+            ->select('RIGHT(kode_produksi,2) as iduser', false)
             ->orderBy('iduser', 'DESC')
             ->limit(1)
             ->get()->getRowArray();
@@ -27,13 +27,18 @@ class MProduk extends Model
 
     function getAlldata()
     {
-        return $this->db->table('tbl_produksi')->get()->getResultArray();
+        return $this->db
+        ->table('tbl_produksi')
+        ->join('tbl_jenis_tenun','tbl_jenis_tenun.kode_jenis=tbl_produksi.kode_jenis_motif')
+        ->get()->getResultArray();
     }
     function getDataTableDetail()
     {
         $id = $this->koderandom();
+        // $id="PR-02";
         return $this->db
             ->table('tbl_produksi_detail')
+            ->join('tbl_bahan_baku', 'tbl_bahan_baku.kode_bahan_baku = tbl_produksi_detail.kode_bahan_baku_detail')
             ->where('kode_produksi_detail', $id)->get()->getResultArray();
     }
 
@@ -41,7 +46,7 @@ class MProduk extends Model
     {
         return $this->db
             ->table('tbl_produksi')
-            ->where('kodeproduk', $id)->get()->getRowArray();
+            ->where('kode_produksi', $id)->get()->getRowArray();
     }
 
     public function insert_data_temp($data)
@@ -55,11 +60,15 @@ class MProduk extends Model
     }
     function update_data($data, $id)
     {
-        return $this->db->table('tbl_produksi')->update($data, ['kodeproduk' => $id]);
+        return $this->db->table('tbl_produksi')->update($data, ['kode_produksi' => $id]);
     }
     public function hapus($id)
     {
-        return $this->db->table('tbl_produksi')->delete(['kodeproduk' => $id]);
+        return $this->db->table('tbl_produksi')->delete(['kode_produksi' => $id]);
+    }
+    public function hapus_detail($id,$id_detail)
+    {
+        return $this->db->table('tbl_produksi_detail')->delete(['id' => $id_detail]);
     }
 }
 // return $this->db

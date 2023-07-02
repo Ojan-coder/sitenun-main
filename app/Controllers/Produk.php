@@ -29,31 +29,44 @@ class Produk extends BaseController
     {
         $motif = new MJenisMotif();
         $bahan = new MBahanbaku();
+        $produk = new MProduk();
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
                 'isi' => 'Master/Produk/Add',
                 'jenismotif' => $motif->getAlldata(),
-                'bahanbaku' => $bahan->getAlldata()
+                'bahanbaku' => $bahan->getAlldata(),
+                'detailbahanbaku' => $produk->getDataTableDetail(),
+
             ];
             return view('Layout/Template', $data);
         } else {
             return view('errors/error_login.php');
         }
     }
-    public function simp_temp()
+    public function simp_detail()
     {
         $spp = new MProduk();
         date_default_timezone_set('Asia/Jakarta');
+        $id = $this->request->getPost('kodebahanbaku');
+        $jumlahbhnbaku = intval($this->request->getPost('jumlah1') - $this->request->getPost('jumlahbahanbaku'));
+        // dd([$id,$jumlahbhnbaku]);
         $data = [
             'kode_produksi_detail' => $spp->koderandom(),
-            'kode_bahan_baku_detail' => $this->request->getPost('kode_bahan'),
-            'qty_bahan_baku_keluar_detail' => $this->request->getPost('jumlah'),
+            'kode_bahan_baku_detail' => $this->request->getPost('kodebahanbaku'),
+            'qty_bahan_baku_keluar_detail' => $this->request->getPost('jumlahbahanbaku'),
             'created_at' => date('Y-m-d H:i:s')
         ];
+        $dataupdate = [
+            'kode_bahan_baku' => $id,
+            'jumlah_bahan_baku' => $jumlahbhnbaku
+        ];
+        // dd($dataupdate);
+        $bahanbaku = new MBahanbaku();
+        $bahanbaku->update_data($dataupdate, $id);
+
         $mhs = new MProduk();
-        $mhs->insert_datatemp($data);
-        session()->setFlashdata('success', 'Data Bahan Baku Berhasil Ditambahkan');
-        return redirect()->to(base_url('/Admin/Produk'));
+        $mhs->insert_data_temp($data);
+        session()->setFlashdata('successbahanbaku', 'Data Bahan Baku Berhasil Ditambahkan');
     }
 
     public function add()
@@ -108,11 +121,11 @@ class Produk extends BaseController
             $img = $image->getName();
             if ($image->isValid()) {
                 $data = [
-                    'kodeproduk' => $produk->koderandom(),
-                    'namaproduk' => $this->request->getPost('namaproduk'),
-                    'hargaproduk' => $this->request->getPost('harga'),
-                    'jumlahproduk' => $this->request->getPost('jumlah'),
-                    'deskripsiproduk' => $this->request->getPost('deskripsi'),
+                    'kode_produksi' => $produk->koderandom(),
+                    'kode_jenis_motif' => $this->request->getPost('kodejenis'),
+                    'harga_produk' => $this->request->getPost('harga'),
+                    'satuan_produk' => 'Meter',
+                    'jumlah_produk' => $this->request->getPost('jumlah'),
                     'gambarproduk' => $img,
                     'created_at' => $date
                 ];
@@ -121,11 +134,11 @@ class Produk extends BaseController
                 $produk->insert_data($data);
             } else {
                 $data = [
-                    'kodeproduk' => $produk->koderandom(),
-                    'namaproduk' => $this->request->getPost('namaproduk'),
-                    'hargaproduk' => $this->request->getPost('harga'),
-                    'jumlahproduk' => $this->request->getPost('jumlah'),
-                    'deskripsiproduk' => $this->request->getPost('deskripsi'),
+                    'kode_produksi' => $produk->koderandom(),
+                    'kode_jenis_motif' => $this->request->getPost('kodejenis'),
+                    'harga_produk' => $this->request->getPost('harga'),
+                    'satuan_produk' => 'Meter',
+                    'jumlah_produk' => $this->request->getPost('jumlah'),
                     'created_at' => $date
                 ];
                 $produk = new MProduk();
@@ -212,7 +225,7 @@ class Produk extends BaseController
                     'updated_at' => $date
                 ];
                 $gambar = $this->request->getPost('foto');
-                if ($gambar == isEmpty() || $gambar == '') {
+                if ($gambar == NULL || $gambar == '') {
                     $image->move(ROOTPATH . 'public/fotoproduk/', $img);
                 } else {
                     unlink('fotoproduk/' . $gambar);
@@ -245,6 +258,28 @@ class Produk extends BaseController
         $usr->hapus($id);
         session()->setFlashdata('success', 'Data Produk Berhasil Di Hapus !!');
         return redirect()->to(base_url('/Admin/Produk'));
+    }
+
+    public function delete_bahanbaku()
+    {
+        $request = \Config\Services::request();
+        $id = $request->uri->getSegment(3);
+        $id_detail = $request->uri->getSegment(6);
+        $stokdipakai = $request->uri->getSegment(4);
+        $stokskrng = $request->uri->getSegment(5);
+
+        $jumlahbhnbaku = intval($stokdipakai + $stokskrng);
+        $dataupdate = [
+            'jumlah_bahan_baku' => $jumlahbhnbaku
+        ];
+        // dd([$dataupdate,$id_detail]);
+        $bahanbaku = new MBahanbaku();
+        $bahanbaku->update_data($dataupdate, $id);
+
+        $usr = new MProduk();
+        $usr->hapus_detail($id,$id_detail);
+        session()->setFlashdata('deletebahanbaku', 'Data Produk Berhasil Di Hapus !!');
+        return redirect()->to(base_url('/Admin/Produk/Tambah'));
     }
 
     public function laporan()

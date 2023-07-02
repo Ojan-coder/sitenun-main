@@ -110,11 +110,11 @@
                                             <div class="card-body pt-0">
                                                 <div class="row">
                                                     <div class="col-7">
-                                                        <h2 class="lead"><b><?= $r['namaproduk'] ?></b></h2>
-                                                        <p class="text-muted text-sm"><b>About: </b> <?= $r['deskripsiproduk'] ?> </p>
+                                                        <h2 class="lead"><b><?= $r['jenis_motif'] ?></b></h2>
+                                                        <p class="text-muted text-sm"><b>About: </b> <?= $r['deskripsi'] ?> </p>
                                                         <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-money-bill"></i></span> &nbsp;&nbsp;<?= "Rp. " . number_format($r['hargaproduk']) ?> / Meter</li>
-                                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-warehouse"></i></span> &nbsp; <?= $r['jumlahproduk'] ?></li>
+                                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-money-bill"></i></span> &nbsp;&nbsp;<?= "Rp. " . number_format($r['harga_produk']) ?> / Meter</li>
+                                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-warehouse"></i></span> &nbsp; <?= $r['jumlah_produk'] ?></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-5 text-center">
@@ -127,7 +127,7 @@
                                                     <!-- <a href="#" class="btn btn-sm bg-teal">
                                                     <i class="fas fa-comments"></i>
                                                 </a> -->
-                                                    <a href="<?= base_url('Tambah-Pesanan') ?>" class="btn btn-sm btn-outline-primary">
+                                                    <a href="<?= base_url('Pelanggan/Tambah-Pesanan') ?>" class="btn btn-sm btn-outline-primary">
                                                         <i class="fas fa-plus"></i> Tambah Pesanan
                                                     </a>
                                                 </div>

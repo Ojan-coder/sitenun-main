@@ -19,7 +19,7 @@ class MJenisMotif extends Model
         } else if (empty($kode['iduser'])) {
             $no = "1";
         }
-        $huruf = "PR-";
+        $huruf = "JT-";
         $batas = str_pad($no, 2, "00", STR_PAD_LEFT);
         $kodeu = $huruf . $batas;
         return $kodeu;
