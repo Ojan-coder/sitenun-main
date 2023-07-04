@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Data Produk</h3>
+                        <h3 class="card-title">Tambah Stok Produksi</h3>
                     </div>
                     <div class="card-body">
                         <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('/Admin/Produk') ?>')" class="btn btn-outline-danger" title="Kembali">
@@ -40,22 +40,27 @@
                         } ?>
                         <form id="form" action="<?= base_url('Produk/update') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
+                            <input type="hidden" name="kodeproduk" value="<?= $data['kode_produksi'] ?>">
                             <div class="form-group">
                                 <label>Nama Produk</label>
-                                <input type="hidden" name="kodeproduk" value="<?= $data['kodeproduk'] ?>">
-                                <input type="text" name="namaproduk" value="<?= $data['namaproduk']?>" id="namaproduk" class="form-control">
+                                <label class="form-control"><?= $data['jenis_motif'] ?></label>
                             </div>
                             <div class="form-group">
                                 <label>Deskripsi</label>
-                                <textarea class="form-control" name="deskripsi" id="deskripsi"><?= $data['deskripsiproduk'] ?></textarea>
+                                <textarea class="form-control" name="deskripsi" id="deskripsi"><?= $data['deskripsi'] ?></textarea>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>Harga Produk</label>
-                                <input type="number" value="<?= $data['hargaproduk'] ?>" name="harga" id="harga" class="form-control">
+                                <input type="number" value="<?= $data['harga_produk'] ?>" name="harga" id="harga" class="form-control">
+                            </div> -->
+                            <div class="form-group">
+                                <label>Sisa Produk</label>
+                                <label class="form-control"><?= $data['jumlah_produk'] ?></label>
+                                <input type="hidden" name="jumlahsisa" id="jumlahsisa" value="<?= $data['jumlah_produk'] ?>" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label>Jumlah Produk</label>
-                                <input type="number" value="<?=$data['jumlahproduk']?>" name="jumlah" id="jumlah" class="form-control">
+                                <label>Tambah Produk</label>
+                                <input type="number" name="jumlahtambah" id="jumlahtambah" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label id="gambar">Upload Foto</label>

@@ -44,9 +44,9 @@
                                         <td><?= "Rp. " . number_format($r['harga_produk'])  ?></td>
                                         <td><img src="<?= base_url('fotoproduk/' . $r['gambarproduk']) ?>" width="50" height="50"></td>
                                         <td>
-                                            <!-- <button type="button" onclick="location.href=('<?= base_url('Produk/edit') . '/' . $r['kode_produksi'] ?>')" class="btn btn-outline-warning" title="Edit Data">
-                                                <i class="fas fa-edit"></i>
-                                            </button> -->
+                                            <button type="button" onclick="location.href=('<?= base_url('Produk/edit') . '/' . $r['kode_produksi'] ?>')" class="btn btn-outline-warning" title="Edit Data">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
                                             <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kode_produksi'] ?>','<?= $r['gambarproduk'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
                                                 <i class="fas fa-trash"></i>
                                             </button>

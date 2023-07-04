@@ -10,7 +10,7 @@
                     </div>
                     <div class="row">
                         <!-- Form Produksi -->
-                        <div class="col-md-5">
+                        <div class="col-md-12" style="padding-left: 30px;padding-top:20px;padding-right:30px;">
                             <div class="card card-primary">
                                 <div class="card-header">
                                     <h3 class="card-title">Data Produksi</h3>
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <!-- Form Data Bahan Baku Dipakai -->
-                        <div class="col-md-7">
+                        <!-- <div class="col-md-7">
                             <div class="card card-success">
                                 <div class="card-header">
                                     <h3 class="card-title">Data Bahan</h3>
@@ -165,7 +165,7 @@
                                     <br>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-footer">
                         <button type="submit" id="submit" class="btn btn-outline-primary">

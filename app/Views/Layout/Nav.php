@@ -43,7 +43,6 @@ $id = $request->uri->getSegment(1);
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Dashboard
-                            <span class="right badge badge-danger">New</span>
                         </p>
                     </a>
                 </li>
@@ -81,14 +80,14 @@ $id = $request->uri->getSegment(1);
                                 </a>
 
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="<?= base_url('/Admin/Bahanbaku') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Bahanbaku') {
                                                                                                     echo 'active';
                                                                                                 } ?>">
                                     <i class="fa fa-plus nav-icon"></i>
                                     <p>Bahan Baku</p>
                                 </a>
-                            </li>
+                            </li> -->
                             <!-- Pelanggan -->
                             <li class="nav-item">
                                 <a href="<?= base_url('/Admin/Pelanggan') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Pelanggan') {
@@ -97,7 +96,6 @@ $id = $request->uri->getSegment(1);
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Pelanggan
-                                        <span class="right badge badge-danger">New</span>
                                     </p>
                                 </a>
                             </li>
@@ -115,7 +113,6 @@ $id = $request->uri->getSegment(1);
                             <i class="nav-icon fas fa-cart-shopping"></i>
                             <p>
                                 Penjualan
-                                <span class="right badge badge-danger">New</span>
                             </p>
                         </a>
                     </li>
@@ -131,36 +128,18 @@ $id = $request->uri->getSegment(1);
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="<?= base_url('/Admin/Pembelian') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Pembelian') {
                                                                                             echo 'active';
                                                                                         } ?>">
                             <i class="nav-icon fas fa-handshake"></i>
                             <p>
                                 Pembelian Bahan Baku
-                                <!-- <span class="right badge badge-danger">New</span> -->
-                            </p>
-                        </a>
+                                <span class="right badge badge-danger">New</span> -->
+                    </p>
+                    </a>
                     </li>
                 <?php } ?>
-
-                <!-- Transaksi Pelanggan -->
-                <?php if (session()->get('akses1') == '4' || session()->get('akses1') == '1') { ?>
-                    <li class="nav-header">Transaksi</li>
-
-                    <li class="nav-item">
-                        <a href="<?= base_url('/Pelanggan/PO') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'PO') {
-                                                                                        echo 'active';
-                                                                                    } ?>">
-                            <i class="nav-icon fa fa-cart-plus" aria-hidden="true"></i>
-                            <p>
-                                Pesanan Order
-                                <!-- <span class="right badge badge-danger">New</span> -->
-                            </p>
-                        </a>
-                    </li>
-                <?php } ?>
-
                 <!-- Settings -->
                 <?php if (session()->get('akses1') == '0' || session()->get('akses1') == '1') { ?>
                     <li class="nav-header">LAPORAN</li>
@@ -179,7 +158,6 @@ $id = $request->uri->getSegment(1);
                             <i class="nav-icon fas fa-user"></i>
                             <p>
                                 Pegawai
-                                <span class="right badge badge-danger">New</span>
                             </p>
                         </a>
                     </li>
@@ -188,6 +166,22 @@ $id = $request->uri->getSegment(1);
                             <i class="nav-icon fas fa-sign-out"></i>
                             <p>
                                 Logout
+                            </p>
+                        </a>
+                    </li>
+                <?php } ?>
+
+                <!-- Transaksi Pelanggan -->
+                <?php if (session()->get('akses1') == '4') { ?>
+                    <li class="nav-header">Transaksi</li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/Pelanggan/PO') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'PO') {
+                                                                                        echo 'active';
+                                                                                    } ?>">
+                            <i class="nav-icon fa fa-cart-plus" aria-hidden="true"></i>
+                            <p>
+                                Pesanan Order
+                                <!-- <span class="right badge badge-danger">New</span> -->
                             </p>
                         </a>
                     </li>

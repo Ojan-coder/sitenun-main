@@ -46,6 +46,7 @@ class MProduk extends Model
     {
         return $this->db
             ->table('tbl_produksi')
+            ->join('tbl_jenis_tenun','tbl_jenis_tenun.kode_jenis=tbl_produksi.kode_jenis_motif')
             ->where('kode_produksi', $id)->get()->getRowArray();
     }
 

@@ -206,6 +206,8 @@ class Produk extends BaseController
         $date = date('Y-m-d:H:i:s');
         $kodeproduk = $this->request->getPost('kodeproduk');
         $produk = new MProduk();
+        $qtyupdate = intval($this->request->getPost('jumlahsisa') + $this->request->getPost('jumlahtambah'));
+        // dd($qtyupdate);
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
             return redirect()->to(base_url('/Admin/Produk/edit/') . $kodeproduk);
@@ -219,7 +221,7 @@ class Produk extends BaseController
                 $data = [
                     'namaproduk' => $this->request->getPost('namaproduk'),
                     'hargaproduk' => $this->request->getPost('harga'),
-                    'jumlahproduk' => $this->request->getPost('jumlah'),
+                    'jumlahproduk' => $qtyupdate,
                     'deskripsiproduk' => $this->request->getPost('deskripsi'),
                     'gambarproduk' => $img,
                     'updated_at' => $date
@@ -237,7 +239,7 @@ class Produk extends BaseController
                 $data = [
                     'namaproduk' => $this->request->getPost('namaproduk'),
                     'hargaproduk' => $this->request->getPost('harga'),
-                    'jumlahproduk' => $this->request->getPost('jumlah'),
+                    'jumlahproduk' => $qtyupdate,
                     'deskripsiproduk' => $this->request->getPost('deskripsi'),
                     'updated_at' => $date
                 ];
@@ -277,7 +279,7 @@ class Produk extends BaseController
         $bahanbaku->update_data($dataupdate, $id);
 
         $usr = new MProduk();
-        $usr->hapus_detail($id,$id_detail);
+        $usr->hapus_detail($id, $id_detail);
         session()->setFlashdata('deletebahanbaku', 'Data Produk Berhasil Di Hapus !!');
         return redirect()->to(base_url('/Admin/Produk/Tambah'));
     }

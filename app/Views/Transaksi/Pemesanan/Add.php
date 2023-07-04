@@ -78,7 +78,7 @@
                             </div>
                         </div>
                         <!-- Form Data Bahan Baku Dipakai -->
-                        <div class="col-md-7">
+                        <!-- <div class="col-md-7">
                             <div class="card card-success">
                                 <div class="card-header">
                                     <h3 class="card-title">Data Bahan</h3>
@@ -152,7 +152,7 @@
                                     <br>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-footer">
                         <button type="submit" id="submit" class="btn btn-outline-primary">
