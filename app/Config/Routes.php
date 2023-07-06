@@ -41,6 +41,11 @@ $routes->get('/Admin/User', 'User::index');
 $routes->get('/Admin/User-Tambah', 'User::tambah');
 $routes->post('/Admin/Store-user', 'User::add');
 
+// Register Pelanggan With Login
+$routes->get('/Pelanggan/Register', 'Pelanggan::register');
+$routes->post('/Store-Register', 'Pelanggan::addregister');
+$routes->get('/Pelanggan/Logout', 'Login::Logout');
+
 // Produk
 $routes->get('/Admin/Produk', 'Produk::index');
 $routes->get('/Admin/Produk/Tambah', 'Produk::tambah');
@@ -75,12 +80,6 @@ $routes->get('/Admin/PO', 'Pemesanan::index');
 // Pemesananan Pelanggan
 $routes->get('/Pelanggan/Tambah-Pesanan', 'Pemesanan::tambah');
 $routes->get('/Pelanggan/PO', 'Pemesanan::index');
-
-
-// Register Pelanggan With Login
-$routes->get('/Pelanggan/Register', 'Pelanggan::register');
-$routes->post('/Store-Register', 'Pelanggan::addregister');
-
 
 
 /*
