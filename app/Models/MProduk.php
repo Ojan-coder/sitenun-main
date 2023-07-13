@@ -50,10 +50,3 @@ class MProduk extends Model
         return $this->db->table('tbl_produk')->delete(['kode_produk' => $id]);
     }
 }
-// return $this->db
-//             ->table($table)
-//             ->select('*')
-//             ->join('jenistransaksi', 'd_jenistransaksi=kodejenis')
-//             ->where($table . '.d_nisnsiswa', $id)
-//             ->where('d_tgltransaksi', $date)
-//             ->get()->getResultArray();

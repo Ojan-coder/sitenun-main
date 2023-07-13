@@ -48,6 +48,14 @@ class JenisMotif extends BaseController
                 'errors' => [
                     'required' => '{field} Wajib Diisi'
                 ],
+            ],
+            'gambar' => [
+                'label'  => 'Gambar Motif',
+                'rules'   => 'max_size[gambar,1024]|ext_in[gambar,png,jpg,jpeg]',
+                'errors' => [
+                    'max_size' => '{field} Tidak Boleh Melebihi 1 MB',
+                    'ext_int' => '{field} Format File Harus PNG,JPG,JPEG'
+                ],
             ]
         ]);
 
@@ -58,14 +66,31 @@ class JenisMotif extends BaseController
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
             return redirect()->to(base_url('/Admin/JenisMotif/Tambah'));
         } else {
-            $data = [
-                'kode_jenis' => $JenisMotif->koderandom(),
-                'jenis_motif' => $this->request->getPost('jenismotif'),
-                'deskripsi' => $this->request->getPost('deskripsi'),
-                'created_at' => $date
-            ];
-            $JenisMotif = new MJenisMotif();
-            $JenisMotif->insert_data($data);
+            $image = $this->request->getFile('gambar');
+            $img = $image->getName();
+
+            if ($image->isValid()) {
+                $data = [
+                    'kode_jenis' => $JenisMotif->koderandom(),
+                    'jenis_motif' => $this->request->getPost('jenismotif'),
+                    'deskripsi' => $this->request->getPost('deskripsi'),
+                    'gambar_motif' => $img,
+                    'created_at' => $date
+                ];
+                $image->move(ROOTPATH . 'public/fotojenismotif/', $img);
+                $JenisMotif = new MJenisMotif();
+                $JenisMotif->insert_data($data);
+            } else {
+                $data = [
+                    'kode_jenis' => $JenisMotif->koderandom(),
+                    'jenis_motif' => $this->request->getPost('jenismotif'),
+                    'deskripsi' => $this->request->getPost('deskripsi'),
+                    'created_at' => $date
+                ];
+                $JenisMotif = new MJenisMotif();
+                $JenisMotif->insert_data($data);
+            }
+
             session()->setFlashdata('success', 'Data Jenis Motif Berhasil Ditambahkan');
             return redirect()->to(base_url('/Admin/JenisMotif'));
         }
@@ -174,7 +199,9 @@ class JenisMotif extends BaseController
     public function delete()
     {
         $id = $this->request->getPost('iduser');
+        $foto = $this->request->getPost('foto');
         $usr = new MJenisMotif();
+        unlink('fotojenismotif/' . $foto);
         $usr->hapus($id);
         session()->setFlashdata('success', 'Data Jenis Motif Berhasil Di Hapus !!');
         return redirect()->to(base_url('/Admin/JenisMotif'));

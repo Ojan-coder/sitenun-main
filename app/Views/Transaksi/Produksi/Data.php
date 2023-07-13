@@ -1,14 +1,15 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
+
             <div class="col-md-12">
-                <div class="card">
+                <div class="card card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Data Jenis Motif</h3>
+                        <h3 class="card-title">Data Pembelian Bahan Baku</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('/Admin/JenisMotif/Tambah') ?>')" class="btn btn-outline-primary" title="Tambah Data Jenis Motif">
-                            <i class="fa fa-plus-circle"></i>
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Bahanbaku/Bahanbaku-Tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </button>
                     </div>
                     <div class="card-body">
@@ -24,34 +25,32 @@
                         <table id="example2" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <!-- <th width="70px">Kode Jenis Motif</th> -->
-                                    <th width="70px">Nama Motif</th>
-                                    <th width="400px">Deskripsi</th>
-                                    <th width="100px">Foto</th>
+                                    <th>Kode Bahan Baku</th>
+                                    <th>Nama Bahan Baku</th>
+                                    <th>Jenis Bahan Baku</th>
+                                    <th>Qty</th>
                                     <th width="10px">#</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 foreach ($data as $r) {
-
                                 ?>
-                                    <tr>
-                                        <!-- <td><?= $r['kode_jenis'] ?></td> -->
-                                        <td><?= $r['jenis_motif'] ?></td>
-                                        <td><?= $r['deskripsi'] ?></td>
-                                        <td><img src="<?= base_url('fotojenismotif/') . $r['gambar_motif'] ?>" width="350px" height="150px"></td>
-                                        <td>
-                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kode_jenis'] ?>','<?= $r['gambar_motif'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
 
+                                    <tr>
+                                        <td><?= $r['kode_bahan_baku'] ?></td>
+                                        <td><?= $r['nama_bahan_baku'] ?></td>
+                                        <td><?= $r['satuan_bahan_baku'] ?></td>
+                                        <td><?= $r['jumlah_bahan_baku'] ?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="return ambil('<?= $r['kode_bahan_baku'] ?>')" data-target="#modal-danger">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
                                         </td>
                                     </tr>
-                                <?php
-                                }
-                                ?>
+                                <?php } ?>
                             </tbody>
+
                         </table>
                     </div>
                 </div>
@@ -71,11 +70,10 @@
                 </button>
             </div>
             <div class="modal-body" style="background-color: white;">
-                <form method="POST" action="<?= base_url('JenisMotif/delete') ?>">
+                <form method="POST" action="<?= base_url('Bahanbaku/delete') ?>">
                     <div class="modal-body" style="color: black;">
-                        Apakah Yakin Ingin Menghapus Data Motif Ini ?
-                        <input type="hidden" id="iduser" name="iduser">
-                        <input type="hidden" id="foto" name="foto">
+                        Apakah Yakin Ingin Menghapus Data Bahan Baku Ini ?
+                        <input type="text" id="iduser" name="iduser">
                     </div>
             </div>
             <div class="modal-footer justify-content-between" style="background-color: white;">
@@ -86,12 +84,13 @@
         </div>
 
     </div>
+
 </div>
 
 
 <script>
-    function ambil(id, foto) {
+    function ambil(id) {
         $('#iduser').val(id);
-        $('#foto').val(foto);
+        $('#modal-danger').hide();
     }
 </script>

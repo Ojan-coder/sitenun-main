@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label>Nama Produk</label>
                                 <input type="hidden" name="kodeproduk" value="<?= $data['kodeproduk'] ?>">
-                                <input type="text" name="namaproduk" value="<?= $data['namaproduk']?>" id="namaproduk" class="form-control">
+                                <input type="text" name="namaproduk" value="<?= $data['namaproduk'] ?>" id="namaproduk" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Deskripsi</label>
@@ -55,13 +55,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Jumlah Produk</label>
-                                <input type="number" value="<?=$data['jumlahproduk']?>" name="jumlah" id="jumlah" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label id="gambar">Upload Foto</label>
-                                <input type="hidden" value="<?= $data['gambarproduk'] ?>" name="foto">
-                                </br> <?= $data['gambarproduk'] ?>
-                                <input type="file" name="gambar" id="gambar" class="form-control">
+                                <input type="number" value="<?= $data['jumlahproduk'] ?>" name="jumlah" id="jumlah" class="form-control">
                             </div>
                             <button type="submit" id="submit" style="width:50px" class="btn btn-outline-primary">
                                 <i class="fas fa-save"></i>

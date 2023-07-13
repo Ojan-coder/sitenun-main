@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\MJenisMotif;
 use App\Models\MProduk;
 use Dompdf\Dompdf;
 
@@ -25,8 +26,10 @@ class Produk extends BaseController
     }
     public function tambah()
     {
+        $jenismotif = new MJenisMotif();
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
+                'jenismotif'=>$jenismotif->getAlldata(),
                 'isi' => 'Master/Produk/Add'
             ];
             return view('Layout/Template', $data);
@@ -64,14 +67,6 @@ class Produk extends BaseController
                 'errors' => [
                     'required' => '{field} Wajib Diisi'
                 ],
-            ],
-            'gambar' => [
-                'label'  => 'Upload Formulir',
-                'rules'   => 'max_size[gambar,2048]|ext_in[gambar,jpg,jpeg,png]',
-                'errors' => [
-                    'max_size' => 'Ukuran gambar Formulir Maximal 2 MB',
-                    'ext_in' => 'Gambar Formulir Yang Di Upload Harus JPG,JPEG,PNG',
-                ],
             ]
         ]);
 
@@ -82,33 +77,16 @@ class Produk extends BaseController
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
             return redirect()->to(base_url('/Admin/Produk/Tambah'));
         } else {
-            $image = $this->request->getFile('gambar');
-            $img = $image->getName();
-            if ($image->isValid()) {
-                $data = [
-                    'kodeproduk' => $produk->koderandom(),
-                    'namaproduk' => $this->request->getPost('namaproduk'),
-                    'hargaproduk' => $this->request->getPost('harga'),
-                    'jumlahproduk' => $this->request->getPost('jumlah'),
-                    'deskripsiproduk' => $this->request->getPost('deskripsi'),
-                    'gambarproduk' => $img,
-                    'created_at' => $date
-                ];
-                $image->move(ROOTPATH . 'public/fotoproduk/', $img);
-                $produk = new MProduk();
-                $produk->insert_data($data);
-            } else {
-                $data = [
-                    'kodeproduk' => $produk->koderandom(),
-                    'namaproduk' => $this->request->getPost('namaproduk'),
-                    'hargaproduk' => $this->request->getPost('harga'),
-                    'jumlahproduk' => $this->request->getPost('jumlah'),
-                    'deskripsiproduk' => $this->request->getPost('deskripsi'),
-                    'created_at' => $date
-                ];
-                $produk = new MProduk();
-                $produk->insert_data($data);
-            }
+            $data = [
+                'kodeproduk' => $produk->koderandom(),
+                'kode_jenis_motif' => $this->request->getPost('harga'),
+                'nama_produk' => $this->request->getPost('jumlah'),
+                'harga_produk' => $this->request->getPost('deskripsi'),
+                'jumlah_produk' => $this->request->getPost('deskripsi'),
+                'created_at' => $date
+            ];
+            $produk = new MProduk();
+            $produk->insert_data($data);
             session()->setFlashdata('success', 'Data Produk Berhasil Ditambahkan');
             return redirect()->to(base_url('/Admin/Produk'));
         }
@@ -175,40 +153,17 @@ class Produk extends BaseController
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
             return redirect()->to(base_url('/Admin/Produk/edit/') . $kodeproduk);
         } else {
-            $kodeproduk = $this->request->getPost('kodeproduk');
-            $image = $this->request->getFile('gambar');
-            $img = $image->getName();
 
-            if ($image->isValid()) {
+            $data = [
+                'kode_produk' => $produk->koderandom(),
+                'kode_jenis_motif' => $this->request->getPost('harga'),
+                'nama_produk' => $this->request->getPost('jumlah'),
+                'harga_produk' => $this->request->getPost('deskripsi'),
+                'jumlah_produk' => $this->request->getPost('deskripsi'),
+                'updated_at' => $date
+            ];
 
-                $data = [
-                    'namaproduk' => $this->request->getPost('namaproduk'),
-                    'hargaproduk' => $this->request->getPost('harga'),
-                    'jumlahproduk' => $this->request->getPost('jumlah'),
-                    'deskripsiproduk' => $this->request->getPost('deskripsi'),
-                    'gambarproduk' => $img,
-                    'updated_at' => $date
-                ];
-                $gambar = $this->request->getPost('foto');
-                if ($gambar == isEmpty() || $gambar == '') {
-                    $image->move(ROOTPATH . 'public/fotoproduk/', $img);
-                } else {
-                    unlink('fotoproduk/' . $gambar);
-                    $image->move(ROOTPATH . 'public/fotoproduk/', $img);
-                }
-                $produk = new MProduk();
-                $produk->update_data($data, $kodeproduk);
-            } else {
-                $data = [
-                    'namaproduk' => $this->request->getPost('namaproduk'),
-                    'hargaproduk' => $this->request->getPost('harga'),
-                    'jumlahproduk' => $this->request->getPost('jumlah'),
-                    'deskripsiproduk' => $this->request->getPost('deskripsi'),
-                    'updated_at' => $date
-                ];
-                $produk = new MProduk();
-                $produk->update_data($data, $kodeproduk);
-            }
+            $produk->update_data($data, $kodeproduk);
             session()->setFlashdata('success', 'Data Produk Berhasil Di Update');
             return redirect()->to(base_url('/Admin/Produk'));
         }
