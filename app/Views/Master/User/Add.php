@@ -40,22 +40,45 @@
                         } ?>
                         <form action="<?= base_url('Admin/Store-user') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" name="username" id="username" class="form-control">
-                            </div>
+
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
                                 <input type="text" name="nama" id="nama" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tanggal Lahir</label>
+                                <input type="date" name="tgl" id="tgl" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Jenis Kelamin</label>
+                                <select name="cbjenkel" id="cbjenkel" class="form-control">
+                                    <option>-Pilih-</option>
+                                    <option value="L">Laki-Laki</option>
+                                    <option value="P">Perempuan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Alamat</label>
+                                <textarea name="alamat" id="alamat" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>No.Hp</label>
+                                <input type="number" name="nohp" id="nohp" class="form-control">
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" name="username" id="username" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Akses</label>
                                 <select name="cbakses" class="form-control">
                                     <option>-Pilih-</option>
                                     <?php
-                                    foreach($level as $r){
+                                    foreach ($level as $r) {
                                     ?>
-                                    <option value="<?= $r['id_level'] ?>"><?= $r['nama_level'] ?></option>
+                                        <option value="<?= $r['id_level'] ?>"><?= $r['nama_level'] ?></option>
                                     <?php } ?>
                                 </select>
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\MUser;
+use App\Models\MPegawai;
 
 class User extends BaseController
 {
@@ -37,6 +38,7 @@ class User extends BaseController
     public function add()
     {
         $user = new MUser();
+        $pegawai = new MPegawai();
         date_default_timezone_set('Asia/Jakarta');
         $date = date('Y-m-d:H:i:s');
         $valid = $this->validate([
@@ -53,6 +55,21 @@ class User extends BaseController
                 'rules'   => 'required',
                 'errors' => [
                     'required' => '{field} Wajib Diisi'
+                ],
+            ],
+            'alamat' => [
+                'label'  => 'Alamat',
+                'rules'   => 'required',
+                'errors' => [
+                    'required' => '{field} Wajib Diisi'
+                ],
+            ],
+            'nohp' => [
+                'label'  => 'No.Hp',
+                'rules'   => 'required|max_length[12]',
+                'errors' => [
+                    'required' => '{field} Wajib Diisi',
+                    'max_length' => '{field} Maximal 12 Karakter'
                 ],
             ],
             'pass' => [
@@ -73,15 +90,27 @@ class User extends BaseController
             $pas = $this->request->getVar('pass');
             $pw = password_hash($pas, PASSWORD_BCRYPT);
             $data = [
+                'kode_user' => $pegawai->koderandom(),
                 'username' => $this->request->getPost('username'),
                 'fullname' => $this->request->getPost('nama'),
                 'level_user' => $this->request->getPost('cbakses'),
                 'password' => $pw,
                 'created_at' => $date,
-                'status' => 'N'
+                'status' => 'Y'
             ];
             $user->insert_data($data);
-            session()->setFlashdata('success', 'Data User Berhasil Ditambahkan');
+
+            $datapegawai = [
+                'kode_pegawai' => $pegawai->koderandom(),
+                'nama_lengkap' => $this->request->getPost('nama'),
+                'tgl_lahir' => $this->request->getPost('tgl'),
+                'jenis_kelamin' => $this->request->getPost('cbjenkel'),
+                'alamat' => $this->request->getPost('alamat'),
+                'nohp' => $this->request->getPost('nohp'),
+                'created_at' => $date,
+            ];
+            $pegawai->insert_data($datapegawai);
+            session()->setFlashdata('success', 'Data Pegawai Berhasil Ditambahkan');
             return redirect()->to(base_url('Admin/User'));
         }
     }
@@ -104,6 +133,10 @@ class User extends BaseController
         date_default_timezone_set('Asia/Jakarta');
         $date = date('Y-m-d:H:i:s');
         $pass = $this->request->getVar('pass');
+        $kode = $this->request->getPost('kodepegawai');
+        $id = $this->request->getPost('iduser');
+        $user = new MUser();
+        $pegawai = new MPegawai();
         if (empty($pass)) {
             $valid = $this->validate([
                 'username' => [
@@ -119,6 +152,21 @@ class User extends BaseController
                     'errors' => [
                         'required' => '{field} Wajib Diisi'
                     ],
+                ],
+                'alamat' => [
+                    'label'  => 'Alamat',
+                    'rules'   => 'required',
+                    'errors' => [
+                        'required' => '{field} Wajib Diisi'
+                    ],
+                ],
+                'nohp' => [
+                    'label'  => 'No.Hp',
+                    'rules'   => 'required|max_length[12]',
+                    'errors' => [
+                        'required' => '{field} Wajib Diisi',
+                        'max_length' => '{field} Maximal 12 Karakter'
+                    ],
                 ]
             ]);
         } else {
@@ -137,6 +185,29 @@ class User extends BaseController
                         'required' => '{field} Wajib Diisi'
                     ],
                 ],
+                'alamat' => [
+                    'label'  => 'Alamat',
+                    'rules'   => 'required',
+                    'errors' => [
+                        'required' => '{field} Wajib Diisi'
+                    ],
+                ],
+                'nohp' => [
+                    'label'  => 'No.Hp',
+                    'rules'   => 'required|max_length[12]',
+                    'errors' => [
+                        'required' => '{field} Wajib Diisi',
+                        'max_length' => '{field} Maximal 12 Karakter'
+                    ],
+                ],
+                'pass' => [
+                    'label'  => 'Password',
+                    'rules'   => 'required|min_length[8]',
+                    'errors' => [
+                        'required' => '{field} Wajib Diisi',
+                        'min_length' => 'Password Minimal Character 8'
+                    ],
+                ],
                 'pass' => [
                     'label'  => 'Password',
                     'rules'   => 'required|min_length[8]',
@@ -150,12 +221,12 @@ class User extends BaseController
 
 
         if (!$valid) {
-            $id = $this->request->getPost('iduser');
+
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
             return redirect()->to('User/edit/' . $id);
         } else {
             if (empty($pass)) {
-                $id = $this->request->getPost('iduser');
+
                 $pw = password_hash($pass, PASSWORD_BCRYPT);
                 $data = [
                     'username' => $this->request->getPost('username'),
@@ -164,10 +235,18 @@ class User extends BaseController
                     'status' => $this->request->getPost('cbstatus'),
                     'updated_at' => $date
                 ];
-                $user = new MUser();
                 $user->update_data($data, $id);
+                $datapegawai = [
+                    'nama_lengkap' => $this->request->getPost('nama'),
+                    'tgl_lahir' => $this->request->getPost('tgl'),
+                    'jenis_kelamin' => $this->request->getPost('cbjenkel'),
+                    'alamat' => $this->request->getPost('alamat'),
+                    'nohp' => $this->request->getPost('nohp'),
+                    'updated_at' => $date,
+                ];
+                $pegawai->update_data($datapegawai, $kode);
             } else {
-                $id = $this->request->getPost('iduser');
+
                 $pw = password_hash($pass, PASSWORD_BCRYPT);
                 $data = [
                     'username' => $this->request->getPost('username'),
@@ -177,11 +256,19 @@ class User extends BaseController
                     'password' => $pw,
                     'updated_at' => $date
                 ];
-                $user = new MUser();
                 $user->update_data($data, $id);
+                $datapegawai = [
+                    'nama_lengkap' => $this->request->getPost('nama'),
+                    'tgl_lahir' => $this->request->getPost('tgl'),
+                    'jenis_kelamin' => $this->request->getPost('cbjenkel'),
+                    'alamat' => $this->request->getPost('alamat'),
+                    'nohp' => $this->request->getPost('nohp'),
+                    'updated_at' => $date,
+                ];
+                $pegawai->update_data($datapegawai, $kode);
             }
 
-            session()->setFlashdata('success', 'Data User Berhasil Di Update !!');
+            session()->setFlashdata('success', 'Data Pegawai Berhasil Di Update !!');
             return redirect()->to(base_url('Admin/User'));
         }
     }

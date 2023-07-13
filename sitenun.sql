@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.5.1 (64 bit)
-MySQL - 10.4.24-MariaDB : Database - sitenun
+MySQL - 10.4.28-MariaDB : Database - sitenun
 *********************************************************************
 */
 
@@ -12,122 +12,21 @@ MySQL - 10.4.24-MariaDB : Database - sitenun
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`sitenun` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`sitenun` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
 USE `sitenun`;
 
-/*Table structure for table `kota` */
+/*Table structure for table `level_status` */
 
-DROP TABLE IF EXISTS `kota`;
+DROP TABLE IF EXISTS `level_status`;
 
-CREATE TABLE `kota` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `namakota` varchar(50) DEFAULT NULL,
-  `provinsi` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `level_status` (
+  `kode_status` int(10) NOT NULL,
+  `nama_status` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`kode_status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Data for the table `kota` */
-
-insert  into `kota`(`id`,`namakota`,`provinsi`) values 
-(1,'Banda Aceh','Aceh'),
-(2,'Langsa','Aceh'),
-(3,'Lhokseumawe','Aceh'),
-(4,'Subulussalam','Aceh'),
-(5,'Denpasar','Bali'),
-(6,'Pangkal Pinang','Bangka Belitung'),
-(7,'Cilegon','Banten'),
-(8,'Serang','Banten'),
-(9,'Tangerang Selatan','Banten'),
-(10,'Tangerang','Banten'),
-(11,'Bengkulu','Bengkulu'),
-(12,'Yogyakarta','Daerah Istimewa Yogyakarta'),
-(13,'Gorontalo','Gorontalo'),
-(14,'Jakarta Barata','DKI Jakarta'),
-(15,'Jakarta Pusat','DKI Jakarta'),
-(16,'Jakarta Selatan','DKI Jakarta'),
-(17,'Jakarta Timur','DKI Jakarta'),
-(18,'Jakarta Utara','DKI Jakarta'),
-(19,'Sungai Penuh','Jambi'),
-(20,'Jambi','Jambi'),
-(21,'Bandung','Jawa Barat'),
-(22,'Bekasi','Jawa Barat'),
-(23,'Bogor','Jawa Barat'),
-(24,'Cimahi','Jawa Barat'),
-(25,'Cirebon','Jawa Barat'),
-(26,'Depok','Jawa Barat'),
-(27,'Sukabumi','Jawa Barat'),
-(28,'Tasikmalaya','Jawa Barat'),
-(29,'Banjar','Jawa Barat'),
-(30,'Magelang','Jawa Tengah'),
-(31,'Pekalongan','Jawa Tengah'),
-(32,'Salatiga','Jawa Tengah'),
-(33,'Semaran','Jawa Tengah'),
-(34,'Surakarta','Jawa Tengah'),
-(35,'Tegal','Jawa Tengah'),
-(36,'Batu','Jawa Timur'),
-(37,'Blitar','Jawa Timur'),
-(38,'Kediri','Jawa Timur'),
-(39,'Madiun','Jawa Timur'),
-(40,'Malang','Jawa Timur'),
-(41,'Mojokerto','Jawa Timur'),
-(42,'Pasuruan','Jawa Timur'),
-(43,'Probolinggo','Jawa Timur'),
-(44,'Surabaya','Jawa Timur'),
-(45,'Pontianak','Kalimantan Barat'),
-(46,'Singkawang','Kalimantan Barat'),
-(47,'Banjarbaru','Kalimantan Selatan'),
-(48,'Banjarmasin','Kalimantan Selatan'),
-(49,'Palangkaraya','Kalimantan Tengah'),
-(50,'Balikpapan','Kalimantan Timur'),
-(51,'Bontang','Kalimantan Timur'),
-(52,'Samarinda','Kalimantan Timur'),
-(53,'Tarakan','Kalimantan Utara'),
-(54,'Batam','Kepulauan Riau'),
-(55,'Tanjungpinang','Kepulauan Riau'),
-(56,'Bandar Lampung','Lampung'),
-(57,'Metro','Lampung'),
-(58,'Ternate','Maluku Utara'),
-(59,'Tidoro Kepulauan','Maluku Utara'),
-(60,'Ambon','Maluku'),
-(61,'Tual','Maluku'),
-(62,'Bima','Nusa Tenggara Barat'),
-(63,'Mataram','Nusa Tenggara Barat'),
-(64,'Kupang','Nusa Tenggara Timur'),
-(65,'Sorong','Papua Barat'),
-(66,'Jayapura','Papua'),
-(67,'Dumai','Riau'),
-(68,'Pekanbaru','Riau'),
-(69,'Makasar','Sulawesi Selatan'),
-(70,'Palopo','Sulawesi Selatan'),
-(71,'Parepare','Sulawesi Selatan'),
-(72,'Palu','Sulawesi Tengah'),
-(73,'Baubau','Sulawesi Tenggara'),
-(74,'Kendari','Sulawesi Tenggara'),
-(75,'Bitung','Sulawesi Utara'),
-(76,'Kotamobagu','Sulawesi Utara'),
-(77,'Manado','Sulawesi Utara'),
-(78,'Tomohon','Sulawesi Utara'),
-(79,'Bukittinggi','Sumatera Barat'),
-(80,'Padang','Sumatera Barat'),
-(81,'Padang Panjang','Sumatera Barat'),
-(82,'Pariaman','Sumatera Barat'),
-(83,'Payakumbuh','Sumatera Barat'),
-(84,'Sawahlunto','Sumatera Barat'),
-(85,'Solok','Sumatera Barat'),
-(86,'Lubuklinggau','Sumatera Selatan'),
-(87,'Pagar Alam','Sumatera Selatan'),
-(88,'Palembang','Sumatera Selatan'),
-(89,'Prabumulih','Sumatera Selatan'),
-(90,'Sekayu','Sumatera Selatan'),
-(91,'Binjai','Sumatera Utara'),
-(92,'Gunungsitoli','Sumatera Utara'),
-(93,'Medan','Sumatera Utara'),
-(94,'Padang Sidempuan','Sumatera Utara'),
-(95,'Pematangsiantar','Sumatera Utara'),
-(96,'Sibolga','Sumatera Utara'),
-(97,'Tanjungbalai','Sumatera Utara'),
-(98,'Tebing Tinggi','Sumatera Utara');
+/*Data for the table `level_status` */
 
 /*Table structure for table `level_user` */
 
@@ -137,7 +36,7 @@ CREATE TABLE `level_user` (
   `id_level` int(11) NOT NULL,
   `nama_level` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id_level`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `level_user` */
 
@@ -161,49 +60,190 @@ CREATE TABLE `pelanggan` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`kodepelanggan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `pelanggan` */
 
 insert  into `pelanggan`(`kodepelanggan`,`namapelanggan`,`tgl_lahir`,`kodejenkel`,`alamat`,`notelp`,`created_at`,`updated_at`) values 
 ('PR-01','Sesmita','2000-04-14','P','Jln.Olo Ladang No.9','0813323423','2023-06-10 22:54:04',NULL);
 
-/*Table structure for table `produk` */
+/*Table structure for table `tbl_bahan_baku` */
 
-DROP TABLE IF EXISTS `produk`;
+DROP TABLE IF EXISTS `tbl_bahan_baku`;
 
-CREATE TABLE `produk` (
-  `kodeproduk` char(7) NOT NULL,
-  `namaproduk` varchar(100) DEFAULT NULL,
-  `deskripsiproduk` text DEFAULT NULL,
-  `hargaproduk` int(11) DEFAULT NULL,
-  `jumlahproduk` int(11) DEFAULT NULL,
-  `gambarproduk` text DEFAULT NULL,
+CREATE TABLE `tbl_bahan_baku` (
+  `kode_bahan_baku` varchar(10) NOT NULL,
+  `nama_bahan_baku` varchar(50) DEFAULT NULL,
+  `satuan_bahan_baku` varchar(20) DEFAULT NULL,
+  `jumlah_bahan_baku` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`kode_bahan_baku`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_bahan_baku` */
+
+/*Table structure for table `tbl_bahan_baku_masuk` */
+
+DROP TABLE IF EXISTS `tbl_bahan_baku_masuk`;
+
+CREATE TABLE `tbl_bahan_baku_masuk` (
+  `kode_bahan_baku_masuk` varchar(10) NOT NULL,
+  `tgl_bahan_baku_masuk` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`kode_bahan_baku_masuk`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_bahan_baku_masuk` */
+
+/*Table structure for table `tbl_detail_bahan_baku_masuk` */
+
+DROP TABLE IF EXISTS `tbl_detail_bahan_baku_masuk`;
+
+CREATE TABLE `tbl_detail_bahan_baku_masuk` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kode_bahan_baku_masuk_detail` varchar(10) DEFAULT NULL,
+  `kode_bahan_baku_detail` varchar(10) DEFAULT NULL,
+  `qty_bahan_baku_masuk_detail` int(11) DEFAULT NULL,
+  `harga_bahan_baku_masuk_detail` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `kode_bahan_baku_masuk_detail` (`kode_bahan_baku_masuk_detail`),
+  KEY `kode_bahan_baku_detail` (`kode_bahan_baku_detail`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_detail_bahan_baku_masuk` */
+
+/*Table structure for table `tbl_jenis_tenun` */
+
+DROP TABLE IF EXISTS `tbl_jenis_tenun`;
+
+CREATE TABLE `tbl_jenis_tenun` (
+  `kode_jenis` varchar(10) NOT NULL,
+  `jenis_motif` varchar(50) DEFAULT NULL,
+  `deskripsi` text DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`kode_jenis`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_jenis_tenun` */
+
+/*Table structure for table `tbl_pegawai` */
+
+DROP TABLE IF EXISTS `tbl_pegawai`;
+
+CREATE TABLE `tbl_pegawai` (
+  `kode_pegawai` varchar(10) NOT NULL,
+  `nama_lengkap` varchar(100) DEFAULT NULL,
+  `tgl_lahir` date DEFAULT NULL,
+  `jenis_kelamin` varchar(5) DEFAULT NULL,
+  `alamat` varchar(100) DEFAULT NULL,
+  `nohp` varchar(15) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`kodeproduk`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`kode_pegawai`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*Data for the table `produk` */
+/*Data for the table `tbl_pegawai` */
 
-insert  into `produk`(`kodeproduk`,`namaproduk`,`deskripsiproduk`,`hargaproduk`,`jumlahproduk`,`gambarproduk`,`created_at`,`updated_at`) values 
-('PR-01','Tenun Pandai Singkek','Kain tenun terbuat dari',10000,10,'image.png','2023-06-10 21:00:49','2023-06-14 03:32:18');
+/*Table structure for table `tbl_pemesanan` */
 
-/*Table structure for table `tbl_jeniskelamin` */
+DROP TABLE IF EXISTS `tbl_pemesanan`;
 
-DROP TABLE IF EXISTS `tbl_jeniskelamin`;
+CREATE TABLE `tbl_pemesanan` (
+  `kode_pemesanan` varchar(10) NOT NULL,
+  `tgl_pemesanan` date DEFAULT NULL,
+  `kode_pelanggan` varchar(10) DEFAULT NULL,
+  `qty_pemesanan` int(11) DEFAULT NULL,
+  `dp_pemesanan` int(11) DEFAULT NULL,
+  `bukti_dp` varchar(100) DEFAULT NULL,
+  `status_pemesanan` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`kode_pemesanan`),
+  KEY `kode_pelanggan` (`kode_pelanggan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `tbl_jeniskelamin` (
-  `kode_jenkel` char(5) NOT NULL,
-  `jenis_kelamin` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`kode_jenkel`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*Data for the table `tbl_pemesanan` */
 
-/*Data for the table `tbl_jeniskelamin` */
+/*Table structure for table `tbl_penjualan` */
 
-insert  into `tbl_jeniskelamin`(`kode_jenkel`,`jenis_kelamin`) values 
-('L','Laki-Laki'),
-('P','Perempuan');
+DROP TABLE IF EXISTS `tbl_penjualan`;
+
+CREATE TABLE `tbl_penjualan` (
+  `no_transaksi_penjualan` varchar(10) NOT NULL,
+  `no_pemesanan_produk` varchar(10) DEFAULT NULL,
+  `tgl_penjualan` date DEFAULT NULL,
+  `kode_pelanggan` varchar(10) DEFAULT NULL,
+  `total_harga_penjualan` int(11) DEFAULT NULL,
+  PRIMARY KEY (`no_transaksi_penjualan`),
+  KEY `no_pemesanan_produk` (`no_pemesanan_produk`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_penjualan` */
+
+/*Table structure for table `tbl_penjualan_detail` */
+
+DROP TABLE IF EXISTS `tbl_penjualan_detail`;
+
+CREATE TABLE `tbl_penjualan_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `no_transaksi_penjualan_detail` varchar(10) DEFAULT NULL,
+  `kode_produk_penjualan_detail` varchar(10) DEFAULT NULL,
+  `qty_produk_penjualan_detail` int(11) DEFAULT NULL,
+  `harga_produk_penjualan_detail` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `no_transaksi_penjualan_detail` (`no_transaksi_penjualan_detail`),
+  KEY `kode_produk_penjualan_detail` (`kode_produk_penjualan_detail`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_penjualan_detail` */
+
+/*Table structure for table `tbl_produk` */
+
+DROP TABLE IF EXISTS `tbl_produk`;
+
+CREATE TABLE `tbl_produk` (
+  `kode_produk` char(7) NOT NULL,
+  `kode_jenis_motif` varchar(10) DEFAULT NULL,
+  `nama_produk` varchar(100) DEFAULT NULL,
+  `harga_produk` int(11) DEFAULT NULL,
+  `jumlah_produk` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`kode_produk`),
+  KEY `kode_jenis_motif` (`kode_jenis_motif`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_produk` */
+
+/*Table structure for table `tbl_produksi` */
+
+DROP TABLE IF EXISTS `tbl_produksi`;
+
+CREATE TABLE `tbl_produksi` (
+  `kode_produksi` varchar(10) NOT NULL,
+  `kode_produk` varchar(10) DEFAULT NULL,
+  `jumlah_produksi` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`kode_produksi`),
+  KEY `kode_produk` (`kode_produk`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_produksi` */
+
+/*Table structure for table `tbl_produksi_detail` */
+
+DROP TABLE IF EXISTS `tbl_produksi_detail`;
+
+CREATE TABLE `tbl_produksi_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kode_produksi_detail` varchar(10) DEFAULT NULL,
+  `kode_bahan_baku_detail` varchar(10) DEFAULT NULL,
+  `qty_bahan_baku_produksi` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `kode_produksi_detail` (`kode_produksi_detail`),
+  KEY `kode_bahan_baku_detail` (`kode_bahan_baku_detail`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_produksi_detail` */
 
 /*Table structure for table `user` */
 
@@ -219,7 +259,7 @@ CREATE TABLE `user` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 

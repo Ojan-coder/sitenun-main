@@ -9,13 +9,11 @@
                         </button>
                     </div>
                     <div class="row">
-                        <!-- Form Produksi -->
-
-                        <!-- Form Data Produksi -->
-                        <div class="col-md-12" style="padding-right: 20px;padding-top:10px;">
+                        <!-- Form Data Bahan Baku Dipakai -->
+                        <div class="col-md-12" style="padding-top:20px;padding-right:30px;">
                             <div class="card card-success">
                                 <div class="card-header">
-                                    <h3 class="card-title">Data Produksi</h3>
+                                    <h3 class="card-title">Data Bahan</h3>
                                 </div>
                                 <br>
                                 <?php
@@ -46,13 +44,10 @@
                                     <table width="100%">
                                         <tr>
                                             <th>
-                                                Nama Motif
+                                                Nama Bahan Baku
                                             </th>
                                             <th>
-                                                Qty
-                                            </th>
-                                            <th>
-                                                Harga
+                                                Jumlah Terpakai
                                             </th>
                                         </tr>
                                         <tr>
@@ -63,9 +58,6 @@
                                             <td>
                                                 <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
                                                 <input type="text" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control harga" name="harga" id="harga">
                                             </td>
                                             <td width="100px">
                                                 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-bahanbaku" title="Cari Data Bahan Baku">
@@ -86,8 +78,21 @@
                                             <th width="10px">#</th>
                                         </thead>
                                         <tbody>
-
+                                            <?php
+                                            foreach ($detailbahanbaku as $r) {
+                                            ?>
+                                                <tr>
+                                                    <td><?= $r['kode_bahan_baku_detail'] ?></td>
+                                                    <td><?= $r['nama_bahan_baku'] ?></td>
+                                                    <td><?= $r['qty_bahan_baku_keluar_detail'] ?> </td>
+                                                    <td>
+                                                        <a class="btn btn-outline-danger" id="hapus" href="<?= base_url('Produk/delete_bahanbaku/' . $r['kode_bahan_baku_detail']) . '/' . $r['qty_bahan_baku_keluar_detail'] . '/' . $r['jumlah_bahan_baku'] . '/' . $r['id'] ?>" title="Hapus Data Bahan Baku">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
                                         </tbody>
+                                    <?php } ?>
                                     </table>
                                     <br>
                                 </div>
@@ -106,36 +111,6 @@
     </div>
 </section>
 
-<!--Jenis Motif Modal -->
-<div class="modal fade" id="modal-xl">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Data Jenis Tenun</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <table id="example2" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Motif</th>
-                            <th width="20">#</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 <!--Bahan Baku Modal -->
 <div class="modal fade text-left" id="modal-bahanbaku" tabindex="-1" role="dialog" aria-labelledby="myModalLabel130" aria-hidden="true">
@@ -157,7 +132,17 @@
                         <th width="20">#</th>
                     </thead>
                     <tbody>
-
+                        <?php
+                        foreach ($bahanbaku as $r) {
+                        ?>
+                            <tr>
+                                <td><?= $r['nama_bahan_baku'] ?></td>
+                                <td><?= $r['jumlah_bahan_baku'] ?>/<?= $r['satuan_bahan_baku'] ?></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" onclick="return ambil1('<?= $r['kode_bahan_baku'] ?>','<?= $r['nama_bahan_baku'] ?>','<?= $r['jumlah_bahan_baku'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

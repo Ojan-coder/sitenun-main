@@ -60,6 +60,9 @@ $routes->post('/Admin/Store-jenismotif', 'JenisMotif::add');
 $routes->get('/Admin/Bahanbaku', 'Bahanbaku::index');
 $routes->get('/Admin/Bahanbaku/Bahanbaku-Tambah', 'Bahanbaku::tambah');
 $routes->post('/Admin/Bahanbaku/Store-Bahanbaku', 'Bahanbaku::add');
+$routes->get('/Admin/Pembelian', 'Bahanbaku::beli');
+$routes->post('/Admin/Pembelian', 'Bahanbaku::prosesbeli');
+
 
 // Laporan
 $routes->get('/LpProduksi', 'Laporan::LaporanProduk');

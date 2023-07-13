@@ -47,7 +47,7 @@ $id = $request->uri->getSegment(1);
                     </a>
                 </li>
                 <!-- Master Admin-->
-                <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2' || session()->get('akses1') == '3') { ?>
+                <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2') { ?>
 
                     <li class="nav-item <?php if ($request->uri->getSegment(2) == 'Produk' || $request->uri->getSegment(2) == 'Pelanggan' || $request->uri->getSegment(2) == 'Bahanbaku' || $request->uri->getSegment(2) == 'JenisMotif') {
                                             echo 'menu-open';
@@ -101,6 +101,26 @@ $id = $request->uri->getSegment(1);
                             </li>
                         </ul>
                     </li>
+
+                <?php } else if (session()->get('akses1') == '3') { ?>
+
+                    <li class="nav-item">
+                        <a href="<?= base_url('/Admin/Produk') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Produk') {
+                                                                                        echo 'active';
+                                                                                    } ?>">
+                            <i class="fa fa-plus nav-icon"></i>
+                            <p>Produksi</p>
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/Admin/Bahanbaku') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Bahanbaku') {
+                                                                                            echo 'active';
+                                                                                        } ?>">
+                            <i class="fa fa-plus nav-icon"></i>
+                            <p>Bahan Baku</p>
+                        </a>
+                    </li>
                 <?php } ?>
                 <!-- Transaksi Admin -->
                 <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2') { ?>
@@ -128,16 +148,15 @@ $id = $request->uri->getSegment(1);
                         </a>
                     </li>
 
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a href="<?= base_url('/Admin/Pembelian') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Pembelian') {
                                                                                             echo 'active';
                                                                                         } ?>">
-                            <i class="nav-icon fas fa-handshake"></i>
+                            <i class="nav-icon fas fa-cart-plus"></i>
                             <p>
                                 Pembelian Bahan Baku
-                                <span class="right badge badge-danger">New</span> -->
-                    </p>
-                    </a>
+                            </p>
+                        </a>
                     </li>
                 <?php } ?>
                 <!-- Settings -->

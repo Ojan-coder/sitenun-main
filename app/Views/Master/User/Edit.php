@@ -40,13 +40,38 @@
                         <form action="<?= base_url('User/Update') ?>" method="POST">
                             <?php csrf_field(); ?>
                             <div class="form-group">
+                                <label>Nama Lengkap</label>
+                                <input type="hidden" name="kodepegawai" value="<?= $data['kode_pegawai'] ?>">
+                                <input type="text" name="nama" id="nama" value="<?= $data['fullname'] ?>" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tanggal Lahir</label>
+                                <input type="date" name="tgl" id="tgl" value="<?= $data['tgl_lahir'] ?>" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Jenis Kelamin</label>
+                                <select name="cbjenkel" id="cbjenkel" class="form-control">
+                                    <option>-Pilih-</option>
+                                    <option value="L">Laki-Laki</option>
+                                    <option value="P">Perempuan</option>
+                                    <script>
+                                        document.getElementById('cbjenkel').value = '<?= $data['jenis_kelamin'] ?>'
+                                    </script>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Alamat</label>
+                                <textarea name="alamat" id="alamat" class="form-control"><?= $data['alamat'] ?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>No.Hp</label>
+                                <input type="number" name="nohp" id="nohp" value="<?= $data['nohp'] ?>" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <label>Username</label>
                                 <input type="hidden" name="iduser" value="<?= $data['iduser'] ?>" class="form-control">
                                 <input type="text" name="username" value="<?= $data['username'] ?>" id="username" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Nama Lengkap</label>
-                                <input type="text" name="nama" id="nama" value="<?= $data['fullname'] ?>" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Akses</label>
@@ -55,7 +80,7 @@
                                     <?php
                                     foreach ($level as $r) {
                                     ?>
-                                        <option value="<?= $r['id_level']?>"<?php if($r['id_level'] == $data['level_user'])echo "selected"; ?>><?= $r['nama_level'] ?></option>
+                                        <option value="<?= $r['id_level'] ?>" <?php if ($r['id_level'] == $data['level_user']) echo "selected"; ?>><?= $r['nama_level'] ?></option>
                                     <?php } ?>
                                 </select>
                                 <script>
@@ -63,7 +88,7 @@
                                 </script>
                             </div>
                             <div class="form-group">
-                                <label>Akses</label>
+                                <label>Status</label>
                                 <select name="cbstatus" id="cbstatus" class="form-control">
                                     <option>-Pilih-</option>
                                     <option value="Y">Aktif</option>
