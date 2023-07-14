@@ -41,31 +41,34 @@ $routes->get('/Admin/User', 'User::index');
 $routes->get('/Admin/User-Tambah', 'User::tambah');
 $routes->post('/Admin/Store-user', 'User::add');
 
-// Register Pelanggan With Login
-$routes->get('/Pelanggan/Register', 'Pelanggan::register');
-$routes->post('/Store-Register', 'Pelanggan::addregister');
-$routes->get('/Pelanggan/Logout', 'Login::Logout');
-
-// Produk
-$routes->get('/Admin/Produk', 'Produk::index');
-$routes->get('/Admin/Produk/Tambah', 'Produk::tambah');
-$routes->post('/Admin/Produk/Store-produk', 'Produk::add');
-
-// Motif
+// Jenis Motif
 $routes->get('/Admin/JenisMotif', 'JenisMotif::index');
 $routes->get('/Admin/JenisMotif/Tambah', 'JenisMotif::tambah');
-$routes->post('/Admin/Store-jenismotif', 'JenisMotif::add');
+$routes->post('/Admin/Store-JenisMotif', 'JenisMotif::add');
 
 // Bahan Baku
 $routes->get('/Admin/Bahanbaku', 'Bahanbaku::index');
 $routes->get('/Admin/Bahanbaku/Bahanbaku-Tambah', 'Bahanbaku::tambah');
 $routes->post('/Admin/Bahanbaku/Store-Bahanbaku', 'Bahanbaku::add');
-$routes->get('/Admin/Pembelian', 'Bahanbaku::beli');
-$routes->post('/Admin/Pembelian', 'Bahanbaku::prosesbeli');
 
+// Pembelian Bahan Baku
+$routes->get('/Admin/PembelianBahanBaku', 'PembelianBahanBaku::index');
+$routes->get('/Admin/PembelianBahanBaku/Bahanbaku-Tambah', 'PembelianBahanBaku::tambah');
+$routes->post('/Admin/PembelianBahanBaku/Store-Bahanbaku', 'PembelianBahanBaku::add');
+
+
+// Produk
+$routes->get('/Admin/Produk', 'Produk::index');
+$routes->get('/Admin/Produk/Tambah', 'Produk::tambah');
+$routes->post('/Admin/Store-produk', 'Produk::add');
+
+// Produksi
+$routes->get('/Admin/Produksi', 'Produksi::index');
+$routes->get('/Admin/Produksi/Tambah', 'Produksi::tambah');
+$routes->post('/Admin/Store-produksi', 'Produksi::add');
 
 // Laporan
-$routes->get('/LpProduksi', 'Laporan::LaporanProduk');
+$routes->get('/Admin/Laporan', 'Laporan::index');
 
 
 // Pelanggan
@@ -75,14 +78,15 @@ $routes->get('/Admin/Pelanggan', 'Pelanggan::index');
 $routes->get('/Admin/Pelanggan-Tambah', 'Pelanggan::tambah');
 $routes->post('/Admin/Store-pelanggan', 'Pelanggan::add');
 
-// Pemesananan Admin
-$routes->get('/Admin/Tambah-Pesanan', 'Pemesanan::tambah');
-$routes->get('/Admin/PO', 'Pemesanan::index');
-
-
 // Pemesananan Pelanggan
-$routes->get('/Pelanggan/Tambah-Pesanan', 'Pemesanan::tambah');
+$routes->get('/Tambah-Pesanan', 'Pemesanan::tambah');
 $routes->get('/Pelanggan/PO', 'Pemesanan::index');
+
+
+// Register Pelanggan With Login
+$routes->get('/Pelanggan/Register', 'Pelanggan::register');
+$routes->post('/Store-Register', 'Pelanggan::addregister');
+
 
 
 /*

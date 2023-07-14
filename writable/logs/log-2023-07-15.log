@@ -1,0 +1,191 @@
+INFO - 2023-07-15 01:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 01:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 01:24:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 01:25:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 01:25:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 01:27:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-15 01:38:44 --> mysqli_sql_exception: Unknown column 'qty_bahan_baku_keluar_detail' in 'field list' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MProduksi.php(55): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Produksi.php(65): App\Models\MProduksi->insert_data_temp(Array)
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Produksi->simp_detail()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-15 01:38:44 --> Unknown column 'qty_bahan_baku_keluar_detail' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (\'PS-01\', \'BB-02\', \'5\', \'2023-07-15 01:38:44\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (\'PS-01\', \'BB-02\', \'5\', \'2023-07-15 01:38:44\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (\'PS-01\', \'BB-02\', \'5\', \'2023-07-15 01:38:44\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (:kode_produksi_detail:, :kode_bahan_baku_detail:, :qty_bahan_baku_keluar_detail:, :created_at:)', [...], false)
+ 5 APPPATH\Models\MProduksi.php(55): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Produksi.php(65): App\Models\MProduksi->insert_data_temp([...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->simp_detail()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-15 01:39:37 --> mysqli_sql_exception: Unknown column 'qty_bahan_baku_keluar_detail' in 'field list' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MProduksi.php(55): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Produksi.php(65): App\Models\MProduksi->insert_data_temp(Array)
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Produksi->simp_detail()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-15 01:39:37 --> Unknown column 'qty_bahan_baku_keluar_detail' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (\'PS-01\', \'BB-01\', \'2\', \'2023-07-15 01:39:37\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (\'PS-01\', \'BB-01\', \'2\', \'2023-07-15 01:39:37\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (\'PS-01\', \'BB-01\', \'2\', \'2023-07-15 01:39:37\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (:kode_produksi_detail:, :kode_bahan_baku_detail:, :qty_bahan_baku_keluar_detail:, :created_at:)', [...], false)
+ 5 APPPATH\Models\MProduksi.php(55): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Produksi.php(65): App\Models\MProduksi->insert_data_temp([...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->simp_detail()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-15 01:40:54 --> mysqli_sql_exception: Unknown column 'qty_bahan_baku_keluar_detail' in 'field list' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MProduksi.php(55): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Produksi.php(65): App\Models\MProduksi->insert_data_temp(Array)
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Produksi->simp_detail()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-15 01:40:54 --> Unknown column 'qty_bahan_baku_keluar_detail' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (\'PS-01\', \'BB-01\', \'2\', \'2023-07-15 01:40:54\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (\'PS-01\', \'BB-01\', \'2\', \'2023-07-15 01:40:54\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (\'PS-01\', \'BB-01\', \'2\', \'2023-07-15 01:40:54\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_keluar_detail`, `created_at`) VALUES (:kode_produksi_detail:, :kode_bahan_baku_detail:, :qty_bahan_baku_keluar_detail:, :created_at:)', [...], false)
+ 5 APPPATH\Models\MProduksi.php(55): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Produksi.php(65): App\Models\MProduksi->insert_data_temp([...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->simp_detail()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-15 01:41:29 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MProduksi.php(55): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Produksi.php(65): App\Models\MProduksi->insert_data_temp(Array)
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Produksi->simp_detail()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-15 01:41:29 --> Unknown column 'created_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_produksi`, `created_at`) VALUES (\'PS-01\', \'BB-01\', \'2\', \'2023-07-15 01:41:29\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_produksi`, `created_at`) VALUES (\'PS-01\', \'BB-01\', \'2\', \'2023-07-15 01:41:29\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_produksi`, `created_at`) VALUES (\'PS-01\', \'BB-01\', \'2\', \'2023-07-15 01:41:29\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_produksi_detail` (`kode_produksi_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_produksi`, `created_at`) VALUES (:kode_produksi_detail:, :kode_bahan_baku_detail:, :qty_bahan_baku_produksi:, :created_at:)', [...], false)
+ 5 APPPATH\Models\MProduksi.php(55): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Produksi.php(65): App\Models\MProduksi->insert_data_temp([...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->simp_detail()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-15 01:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 01:50:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 01:50:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 01:51:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-15 01:51:36 --> mysqli_sql_exception: Unknown column 'kode_bahan_baku' in 'field list' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MProduksi.php(60): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Produksi.php(107): App\Models\MProduksi->insert_data(Array)
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Produksi->add()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-15 01:51:36 --> Unknown column 'kode_bahan_baku' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tbl_produksi` (`kode_bahan_baku`, `nama_bahan_baku`, `satuan_bahan_baku`, `jumlah_bahan_baku`, `created_at`) VALUES (\'PS-01\', NULL, NULL, NULL, \'2023-07-15:01:51:36\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_produksi` (`kode_bahan_baku`, `nama_bahan_baku`, `satuan_bahan_baku`, `jumlah_bahan_baku`, `created_at`) VALUES (\'PS-01\', NULL, NULL, NULL, \'2023-07-15:01:51:36\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_produksi` (`kode_bahan_baku`, `nama_bahan_baku`, `satuan_bahan_baku`, `jumlah_bahan_baku`, `created_at`) VALUES (\'PS-01\', NULL, NULL, NULL, \'2023-07-15:01:51:36\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_produksi` (`kode_bahan_baku`, `nama_bahan_baku`, `satuan_bahan_baku`, `jumlah_bahan_baku`, `created_at`) VALUES (:kode_bahan_baku:, :nama_bahan_baku:, :satuan_bahan_baku:, :jumlah_bahan_baku:, :created_at:)', [...], false)
+ 5 APPPATH\Models\MProduksi.php(60): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Produksi.php(107): App\Models\MProduksi->insert_data([...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->add()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-15 01:52:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 01:56:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 02:00:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 02:01:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 02:01:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 02:04:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 02:05:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 02:05:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-15 03:08:13 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MPembelianBahanBaku.php(47): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\PembelianBahanBaku.php(65): App\Models\MPembelianBahanBaku->insert_data_temp(Array)
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\PembelianBahanBaku->simp_detail()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianBahanBaku))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-15 03:08:13 --> Unknown column 'created_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tbl_detail_bahan_baku_masuk` (`kode_bahan_baku_masuk_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_masuk_detail`, `harga_bahan_baku_masuk_detail`, `created_at`) VALUES (\'FK-BM-001\', \'BB-01\', \'4\', \'5000\', \'2023-07-15 03:08:13\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_detail_bahan_baku_masuk` (`kode_bahan_baku_masuk_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_masuk_detail`, `harga_bahan_baku_masuk_detail`, `created_at`) VALUES (\'FK-BM-001\', \'BB-01\', \'4\', \'5000\', \'2023-07-15 03:08:13\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_detail_bahan_baku_masuk` (`kode_bahan_baku_masuk_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_masuk_detail`, `harga_bahan_baku_masuk_detail`, `created_at`) VALUES (\'FK-BM-001\', \'BB-01\', \'4\', \'5000\', \'2023-07-15 03:08:13\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_detail_bahan_baku_masuk` (`kode_bahan_baku_masuk_detail`, `kode_bahan_baku_detail`, `qty_bahan_baku_masuk_detail`, `harga_bahan_baku_masuk_detail`, `created_at`) VALUES (:kode_bahan_baku_masuk_detail:, :kode_bahan_baku_detail:, :qty_bahan_baku_masuk_detail:, :harga_bahan_baku_masuk_detail:, :created_at:)', [...], false)
+ 5 APPPATH\Models\MPembelianBahanBaku.php(47): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\PembelianBahanBaku.php(65): App\Models\MPembelianBahanBaku->insert_data_temp([...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PembelianBahanBaku->simp_detail()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianBahanBaku))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-15 03:08:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:22:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:23:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-15 03:24:40 --> Unsupported operand types: string + string
+in APPPATH\Controllers\PembelianBahanBaku.php on line 47.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\PembelianBahanBaku->simp_detail()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PembelianBahanBaku))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-15 03:24:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:25:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:29:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:31:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:31:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:32:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:34:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:34:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:34:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:35:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:35:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:36:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-15 03:37:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -54,10 +54,14 @@
                                     <option value="lbr">Lbr</option>
                                 </select>
                             </div>
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <label>Jumlah</label>
                                 <input type="numer" name="jumlah" value="<?= old('jumlah') ?>" id="jumlah" class="form-control" required>
-                            </div> -->
+                            </div>
+                            <div class="form-group">
+                                <label>Harga</label>
+                                <input type="numer" name="harga" value="<?= old('harga') ?>" id="harga" class="form-control" required>
+                            </div>
                             <button type="submit" id="submit" style="width:50px" class="btn btn-outline-primary">
                                 <i class="fas fa-save"></i>
                             </button>

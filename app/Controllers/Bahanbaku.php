@@ -57,6 +57,8 @@ class Bahanbaku extends BaseController
                 'kode_bahan_baku' => $bahanbaku->koderandom(),
                 'nama_bahan_baku' => $this->request->getPost('nama'),
                 'satuan_bahan_baku' => $this->request->getPost('cbsatuan'),
+                'jumlah_bahan_baku' => $this->request->getPost('jumlah'),
+                'harga_bahan_baku' => $this->request->getPost('harga'),
                 'created_at' => $date
             ];
             $bahanbaku = new MBahanbaku();

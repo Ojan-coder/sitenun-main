@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card card-outline card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Data Produksi</h3>
+                        <h3 class="card-title">Data Produk</h3>
                     </div>
                     <div class="card-body">
                         <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('/Admin/Produk/Tambah') ?>')" class="btn btn-outline-primary" title="Tambah Data Produk">
@@ -26,6 +26,7 @@
                                 <tr>
                                     <th>Kode Produk</th>
                                     <th>Nama Produk</th>
+                                    <th>Motif</th>
                                     <th>Jumlah</th>
                                     <th>Harga</th>
                                     <th>Foto</th>
@@ -38,16 +39,17 @@
 
                                 ?>
                                     <tr>
-                                        <td><?= $r['kode_produksi'] ?></td>
+                                        <td><?= $r['kode_produk'] ?></td>
+                                        <td><?= $r['nama_produk'] ?></td>
                                         <td><?= $r['jenis_motif'] ?></td>
                                         <td><?= $r['jumlah_produk'] ?></td>
                                         <td><?= "Rp. " . number_format($r['harga_produk'])  ?></td>
-                                        <td><img src="<?= base_url('fotoproduk/' . $r['gambarproduk']) ?>" width="50" height="50"></td>
+                                        <td><img src="<?= base_url('fotojenismotif/') . $r['gambar_motif'] ?>" width="250px" height="150px"></td>
                                         <td>
-                                            <button type="button" onclick="location.href=('<?= base_url('Produk/edit') . '/' . $r['kode_produksi'] ?>')" class="btn btn-outline-warning" title="Edit Data">
-                                                <i class="fas fa-plus"></i>
+                                            <button type="button" onclick="location.href=('<?= base_url('Produk/edit') . '/' . $r['kode_produk'] ?>')" class="btn btn-outline-warning" title="Edit Data">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kode_produksi'] ?>','<?= $r['gambarproduk'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
+                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['gambar_motif'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
                                                 <i class="fas fa-trash"></i>
                                             </button>
 

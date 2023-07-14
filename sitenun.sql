@@ -28,6 +28,12 @@ CREATE TABLE `level_status` (
 
 /*Data for the table `level_status` */
 
+insert  into `level_status`(`kode_status`,`nama_status`) values 
+(1,'Pending'),
+(2,'Di-Proses'),
+(3,'Lunas'),
+(4,'Pelunasan');
+
 /*Table structure for table `level_user` */
 
 DROP TABLE IF EXISTS `level_user`;
@@ -76,11 +82,20 @@ CREATE TABLE `tbl_bahan_baku` (
   `nama_bahan_baku` varchar(50) DEFAULT NULL,
   `satuan_bahan_baku` varchar(20) DEFAULT NULL,
   `jumlah_bahan_baku` int(11) DEFAULT NULL,
+  `harga_bahan_baku` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`kode_bahan_baku`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_bahan_baku` */
+
+insert  into `tbl_bahan_baku`(`kode_bahan_baku`,`nama_bahan_baku`,`satuan_bahan_baku`,`jumlah_bahan_baku`,`harga_bahan_baku`,`created_at`,`updated_at`) values 
+('BB-01','Kertas Motif','lbr',20,5000,'2023-07-13 15:42:33',NULL),
+('BB-02','Benang Biru Langt','Klos',20,30000,'2023-07-13 15:45:12',NULL),
+('BB-03','Benang Pakan Viscos rayon','Klos',8,25000,'2023-07-15 02:00:29',NULL),
+('BB-04','Benang Lusi Biru Tua','Klos',5,20000,'2023-07-15 02:01:25',NULL),
+('BB-05','Tali Pengikat Kartu','m',50,10000,'2023-07-15 02:01:44',NULL);
 
 /*Table structure for table `tbl_bahan_baku_masuk` */
 
@@ -89,11 +104,15 @@ DROP TABLE IF EXISTS `tbl_bahan_baku_masuk`;
 CREATE TABLE `tbl_bahan_baku_masuk` (
   `kode_bahan_baku_masuk` varchar(10) NOT NULL,
   `tgl_bahan_baku_masuk` date DEFAULT NULL,
+  `total_harga_bahan_baku_masuk` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`kode_bahan_baku_masuk`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_bahan_baku_masuk` */
+
+insert  into `tbl_bahan_baku_masuk`(`kode_bahan_baku_masuk`,`tgl_bahan_baku_masuk`,`total_harga_bahan_baku_masuk`,`created_at`) values 
+('FK-BM-001','2023-07-15',365000,'2023-07-15 03:37:14');
 
 /*Table structure for table `tbl_detail_bahan_baku_masuk` */
 
@@ -105,12 +124,32 @@ CREATE TABLE `tbl_detail_bahan_baku_masuk` (
   `kode_bahan_baku_detail` varchar(10) DEFAULT NULL,
   `qty_bahan_baku_masuk_detail` int(11) DEFAULT NULL,
   `harga_bahan_baku_masuk_detail` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `kode_bahan_baku_masuk_detail` (`kode_bahan_baku_masuk_detail`),
   KEY `kode_bahan_baku_detail` (`kode_bahan_baku_detail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_detail_bahan_baku_masuk` */
+
+insert  into `tbl_detail_bahan_baku_masuk`(`id`,`kode_bahan_baku_masuk_detail`,`kode_bahan_baku_detail`,`qty_bahan_baku_masuk_detail`,`harga_bahan_baku_masuk_detail`,`created_at`) values 
+(4,'FK-BM-001','BB-02',8,30000,'2023-07-15 03:24:50'),
+(5,'FK-BM-001','BB-03',5,25000,'2023-07-15 03:25:14');
+
+/*Table structure for table `tbl_detail_penjualan` */
+
+DROP TABLE IF EXISTS `tbl_detail_penjualan`;
+
+CREATE TABLE `tbl_detail_penjualan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kode_detail_penjualan` varchar(10) DEFAULT NULL,
+  `kode_produk_penjualan` varchar(10) DEFAULT NULL,
+  `qty_penjualan` int(11) DEFAULT NULL,
+  `harga_penjualan` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_detail_penjualan` */
 
 /*Table structure for table `tbl_jenis_tenun` */
 
@@ -120,11 +159,19 @@ CREATE TABLE `tbl_jenis_tenun` (
   `kode_jenis` varchar(10) NOT NULL,
   `jenis_motif` varchar(50) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL,
+  `gambar_motif` text DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`kode_jenis`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_jenis_tenun` */
+
+insert  into `tbl_jenis_tenun`(`kode_jenis`,`jenis_motif`,`deskripsi`,`gambar_motif`,`created_at`) values 
+('JT-01','Jacguard','Motif Jacquard dinamakan berdasarkan penemunya, Joseph Marie Jacquard, seorang penenun asal Prancis yang hidup pada abad ke-18. Jacquard mengembangkan mesin tenun Jacquard yang menggabungkan mekanisme kartu punch dan tenun manual. Mesin tersebut memungkinkan pembuatan pola dan motif yang rumit, detail, dan beragam. Penemuan ini membuka pintu bagi kreativitas dalam industri tenun','jaguard.jpg','2023-07-13 15:09:34'),
+('JT-02','Pucuak Rabuang','Motif ini memiliki makna bahwa hidup seseorang harus berguna sepanjang waktu. Motif ini bercerita bahwa hidup harus mencontoh falsafah bambu, dimana bambu selalu berguna sejak muda (rebung) untuk dimakan, dan saat tua (bambu) sebagai lantai rumah atau bahan bangunan. Motif rebung ini juga mengibaratkan bahwa tanaman ini berguna sepanjang hidupnya dan semua bagiannya memiliki banyak kegunaan','motif_pucuak_rabuang.jpg','2023-07-13 15:12:31'),
+('JT-03','Itiak Pulang Patang','Motif ini memiliki makna bahwa hidup dalam masyarakat haruslah seiya sekata, seiring sejalan dan mematuhi peraturan yang berlaku. Motif ini ingin mengajak masyarakat untuk bisa hidup bersama dan menggambarkan kerukunan masyarakat Minangkabau yang hidup dalam tatanan kegotongroyongan yang solid.','itiak-pulang-sanjo.jpeg','2023-07-13 15:13:44'),
+('JT-04','Kaluak Paku','Motif ini memiliki makna bahwa kita sebagai manusia haruslah mawas diri sejak kecil, dan perlu belajar sejak dini mulai dari keluarga. Pendidikan dalam keluarga menjadi bekal utama untuk menjalankan kehidupan di masyarakat. Setelah dewasa kita harus bergaul ke tengah masyarakat, sehingga bekal hidup dari keluarga bisa menjadikan diri lebih kuat dan tidak mudah terpengaruh hal negatif. Uniknya, motif ini juga memiliki makna lainnya, yaitu seorang pemimpin harus mampu menjadi teladan bagi masyarakat yang ada disekitarnya','Antara-Kaluak-Paku.jpg','2023-07-13 15:15:43'),
+('JT-05','Saluak Laka','Motif ini memiliki memiliki arti lambang kekerabatan. Hal ini akan memberi makna dalam kehidupan masyarakat, bahwa kekuatan akan terjalin dari kesatuan yang saling terikat sehingga akan terwujud kekuatan bersama dalam menghadapi bermacam masalah','motif_saluak_laka.jpg','2023-07-13 15:19:31');
 
 /*Table structure for table `tbl_pegawai` */
 
@@ -143,6 +190,27 @@ CREATE TABLE `tbl_pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_pegawai` */
+
+/*Table structure for table `tbl_pelanggan` */
+
+DROP TABLE IF EXISTS `tbl_pelanggan`;
+
+CREATE TABLE `tbl_pelanggan` (
+  `kodepelanggan` char(7) NOT NULL,
+  `namapelanggan` varchar(50) DEFAULT NULL,
+  `tgl_lahir` date DEFAULT NULL,
+  `kodejenkel` char(5) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
+  `notelp` char(10) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`kodepelanggan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `tbl_pelanggan` */
+
+insert  into `tbl_pelanggan`(`kodepelanggan`,`namapelanggan`,`tgl_lahir`,`kodejenkel`,`alamat`,`notelp`,`created_at`,`updated_at`) values 
+('PR-01','Sesmita','2000-04-14','P','Jln.Olo Ladang No.9','0813323423','2023-06-10 22:54:04',NULL);
 
 /*Table structure for table `tbl_pemesanan` */
 
@@ -213,6 +281,12 @@ CREATE TABLE `tbl_produk` (
 
 /*Data for the table `tbl_produk` */
 
+insert  into `tbl_produk`(`kode_produk`,`kode_jenis_motif`,`nama_produk`,`harga_produk`,`jumlah_produk`,`created_at`,`updated_at`) values 
+('PR-01','JT-01','Jacguard Benang Biru Langit',300000,5,'2023-07-15 01:04:44',NULL),
+('PR-02','JT-03','Itiak Pulang Patang Benang Biru',450000,5,'2023-07-15 01:14:48','2023-07-15 01:52:32'),
+('PR-03','JT-04','Kaluak Paku Benang Hijau daun',400000,3,'2023-07-15 01:27:11',NULL),
+('PR-04','JT-02','Pucuak Rabuang Benang Merah',400000,15,'2023-07-15 01:56:03','2023-07-15 02:05:27');
+
 /*Table structure for table `tbl_produksi` */
 
 DROP TABLE IF EXISTS `tbl_produksi`;
@@ -229,6 +303,10 @@ CREATE TABLE `tbl_produksi` (
 
 /*Data for the table `tbl_produksi` */
 
+insert  into `tbl_produksi`(`kode_produksi`,`kode_produk`,`jumlah_produksi`,`created_at`,`updated_at`) values 
+('PS-01','PR-02',2,'2023-07-15 01:52:32',NULL),
+('PS-02','PR-04',5,'2023-07-15 02:05:27',NULL);
+
 /*Table structure for table `tbl_produksi_detail` */
 
 DROP TABLE IF EXISTS `tbl_produksi_detail`;
@@ -238,12 +316,19 @@ CREATE TABLE `tbl_produksi_detail` (
   `kode_produksi_detail` varchar(10) DEFAULT NULL,
   `kode_bahan_baku_detail` varchar(10) DEFAULT NULL,
   `qty_bahan_baku_produksi` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `kode_produksi_detail` (`kode_produksi_detail`),
   KEY `kode_bahan_baku_detail` (`kode_bahan_baku_detail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_produksi_detail` */
+
+insert  into `tbl_produksi_detail`(`id`,`kode_produksi_detail`,`kode_bahan_baku_detail`,`qty_bahan_baku_produksi`,`created_at`) values 
+(2,'PS-01','BB-01',2,'2023-07-15 01:50:00'),
+(3,'PS-01','BB-02',3,'2023-07-15 01:50:17'),
+(4,'PS-02','BB-01',2,'2023-07-15 02:04:18'),
+(5,'PS-02','BB-03',2,'2023-07-15 02:05:09');
 
 /*Table structure for table `user` */
 

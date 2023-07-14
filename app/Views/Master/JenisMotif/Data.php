@@ -27,6 +27,7 @@
                                     <!-- <th width="70px">Kode Jenis Motif</th> -->
                                     <th width="70px">Nama Motif</th>
                                     <th width="400px">Deskripsi</th>
+                                    <th width="100px">Foto</th>
                                     <th width="10px">#</th>
                                 </tr>
                             </thead>
@@ -39,11 +40,9 @@
                                         <!-- <td><?= $r['kode_jenis'] ?></td> -->
                                         <td><?= $r['jenis_motif'] ?></td>
                                         <td><?= $r['deskripsi'] ?></td>
+                                        <td><img src="<?= base_url('fotojenismotif/') . $r['gambar_motif'] ?>" width="350px" height="150px"></td>
                                         <td>
-                                            <!-- <button type="button" onclick="location.href=('<?= base_url('JenisMotif/edit') . '/' . $r['kode_jenis'] ?>')" class="btn btn-outline-warning" title="Edit Data">
-                                                <i class="fas fa-edit"></i>
-                                            </button> -->
-                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kode_jenis'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
+                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kode_jenis'] ?>','<?= $r['gambar_motif'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
                                                 <i class="fas fa-trash"></i>
                                             </button>
 
@@ -76,6 +75,7 @@
                     <div class="modal-body" style="color: black;">
                         Apakah Yakin Ingin Menghapus Data Motif Ini ?
                         <input type="hidden" id="iduser" name="iduser">
+                        <input type="hidden" id="foto" name="foto">
                     </div>
             </div>
             <div class="modal-footer justify-content-between" style="background-color: white;">
@@ -92,54 +92,6 @@
 <script>
     function ambil(id, foto) {
         $('#iduser').val(id);
+        $('#foto').val(foto);
     }
-    // $(document).ready(function() {
-    //     $.validator.setDefaults({
-    //         submitHandler: function() {
-    //             alert("Form successful submitted!");
-    //         }
-    //     });
-
-    //     $("#Form").validate({
-    //         rules: {
-    //             username: {
-    //                 required: true,
-    //             },
-    //             nama: {
-    //                 required: true,
-    //             },
-    //             password: {
-    //                 required: true,
-    //                 minlength: 8
-    //             },
-    //             terms: {
-    //                 required: true
-    //             },
-    //         },
-    //         messages: {
-    //             username: {
-    //                 required: "Please enter a username",
-    //             },
-    //             nama: {
-    //                 required: "Please enter a Nama Lengkap"
-    //             },
-    //             password: {
-    //                 required: "Please provide a password",
-    //                 minlength: "Your password must be at least 5 characters long"
-    //             },
-    //             terms: "Please accept our terms"
-    //         },
-    //         errorElement: 'span',
-    //         errorPlacement: function(error, element) {
-    //             error.addClass('invalid-feedback');
-    //             element.closest('.form-group').append(error);
-    //         },
-    //         highlight: function(element, errorClass, validClass) {
-    //             $(element).addClass('is-invalid');
-    //         },
-    //         unhighlight: function(element, errorClass, validClass) {
-    //             $(element).removeClass('is-invalid');
-    //         }
-    //     });
-    // });
 </script>
