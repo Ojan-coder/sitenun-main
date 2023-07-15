@@ -11,18 +11,18 @@ class Pemesanan extends BaseController
 {
     public function index()
     {
-
-        $produk = new MProduk();
+        $pesanan = new MPemesanan();
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             if (session()->get('akses1') == '4') {
                 $data = [
                     'isi' => 'Transaksi/Pemesanan/Data',
-                    'dataproduk' => $produk->getAlldata()
+                    'datapesanan' => $pesanan->getAllDataByPelanggan()
                 ];
                 return view('Layout_pelanggan/Template', $data);
             } else {
                 $data1 = [
-                    'isi' => 'Transaksi/Pemesanan/Data'
+                    'isi' => 'Transaksi/Pemesanan/Data',
+                    'datapesanan' => $pesanan->getAllData()
                 ];
                 return view('Layout/Template', $data1);
             }
@@ -48,7 +48,10 @@ class Pemesanan extends BaseController
                 return view('Layout_pelanggan/Template', $data);
             } else {
                 $data = [
-                    'produk' => $produk->getAlldata(),
+                    'no_pemesanan' => $pemesanan->koderandom(),
+                    'tgl_pemesanan' => $date,
+                    'dataproduk' => $produk->getAlldata(),
+                    'detailpesanan' => $pemesanan->getDetailPemesanan(),
                     'isi' => 'Transaksi/Pemesanan/Add'
                 ];
                 return view('Layout/Template', $data);

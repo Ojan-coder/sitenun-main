@@ -8,9 +8,15 @@
                         <h3 class="card-title">Data Pesanan</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Pemesanan/tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
-                            <i class="fa fa-cart-plus"></i>
-                        </button>
+                        <?php if (session()->get('akses1') == '4') { ?>
+                            <button type="button" onclick="location.href=('<?= base_url('Pemesanan/tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
+                                <i class="fa fa-cart-plus"></i>
+                            </button>
+                        <?php } else if (session()->get('akses1') == '1' || session()->get('akses1') == '3') { ?>
+                            <button type="button" onclick="location.href=('<?= base_url('/Admin/Pemesanan/tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
+                                <i class="fa fa-cart-plus"></i>
+                            </button>
+                        <?php } ?>
                     </div>
                     <div class="card-body">
                         <?php
@@ -25,17 +31,57 @@
                         <table id="example2" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Kode PO</th>
+                                    <th>Kode Pesanan</th>
+                                    <th>Tanggal Pesanan</th>
                                     <th>Nama Produk</th>
-                                    <th>Tanggal PO</th>
-                                    <th>Jumlah PO</th>
-                                    <th>Alamat</th>
-                                    <th>No.Telp</th>
-                                    <th width="150px">#</th>
+                                    <th>Nama Pelanggan</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga</th>
+                                    <th>Dp</th>
+                                    <th>Sisa</th>
+                                    <th>Status Pemesanan</th>
+                                    <th width="80px">#</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                <tr>
+                                    <?php foreach ($datapesanan as $r) {
+                                        $sisa = $r['harga_produk'] * $r['qty_produk_penjualan_detail'] - $r['dp_pemesanan']
+                                    ?>
+                                        <td><?= $r['kode_pemesanan'] ?></td>
+                                        <td><?= $r['tgl_pemesanan'] ?></td>
+                                        <td><?= $r['nama_produk'] . ' (' . $r['jenis_motif'] . ')' ?></td>
+                                        <td><?= $r['namapelanggan'] ?></td>
+                                        <td><?= $r['qty_produk_penjualan_detail'] ?></td>
+                                        <td><?= "Rp. " . number_format($r['harga_produk']) ?></td>
+                                        <td><?= "Rp. " . number_format($r['dp_pemesanan']) ?></td>
+                                        <td><?= "Rp. " . number_format($sisa) ?></td>
+                                        <td><?= $r['nama_status'] ?></td>
+                                        <td>
+                                            <?php if ($r['status_pemesanan'] == '2' && session()->get('akses1') == '1' || session()->get('akses1') == '3') { ?>
+                                                <button class="btn btn-outline-success" data-toggle="modal" data_target="#modal-danger" title="Silahkan Bayar Sisanya">
+                                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                </button>
+                                            <?php } else if ($r['status_pemesanan'] == '2') { ?>
+                                                <button class="btn btn-outline-success" title="Silahkan Bayar Sisanya">
+                                                    <i class="fas fa-money-bill"></i>
+                                                </button>
+                                            <?php } else if ($sisa == 0) { ?>
+                                                <button class="btn btn-outline-success" title="Silahkan Bayar Sisanya">
+                                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                </button>
+                                            <?php } ?>
+                                            <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '3') { ?>
+                                                <button class="btn btn-outline-warning" data_target="_blank" onclick="location.href=('<?= base_url('fotobukti/') . $r['bukti_dp'] ?>')">
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                                </button>
+                                            <?php } ?>
+                                            <button class="btn btn-outline-primary" title="Cetak Faktur Pemesanan" onclick="location.href=('<?= base_url('Laporan/CetakFaktur/' . $r['kode_pemesanan'] . '/' . $r['kode_pelanggan']) ?>')">
+                                                <i class="fas fa-print"></i>
+                                            </button>
+                                        </td>
+                                </tr>
+                            <?php } ?>
                             </tbody>
                         </table>
                     </div>

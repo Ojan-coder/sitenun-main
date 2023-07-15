@@ -4,23 +4,35 @@
             <div class="col-md-12">
                 <div class="card card-outline card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Data Pemesanan</h3>
+                        <h3 class="card-title">Data Penjualan</h3>
                     </div>
-                    <form action="<?= base_url('Pemesanan/add') ?>" method="POST" enctype="multipart/form-data">
-                        <!-- <form action="<?= base_url('Pemesanan/simp_detail') ?>" method="POST" enctype="multipart/form-data"> -->
+                    <form action="<?= base_url('Penjualan/add') ?>" method="POST" enctype="multipart/form-data">
+                        <!-- <form action="<?= base_url('Penjualan/simp_detail') ?>" method="POST" enctype="multipart/form-data"> -->
                         <div class="card-body">
                             <div class="form-group">
-                                <label>No. Pemesanan</label>
+                                <label>No. Transaksi</label>
                                 <input type="text" class="form-control" value="<?= $no_pemesanan ?>">
                             </div>
                             <div class="form-group">
-                                <label>Tanggal Pemesanan</label>
+                                <label>Tanggal Penjualan</label>
                                 <input type="text" class="form-control" value="<?= $tgl_pemesanan ?>">
                             </div>
-                            <div class="form-group">
-                                <label>Nama Pelanggan</label>
-                                <input type="text" class="form-control" value="<?= session()->get('kode_user') ?>">
-                            </div>
+                            <table width="100%">
+                                <tr>
+                                    <th>Nama Pelanggan</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="hidden" class="form-control" id="kodepelanggan" name="kodepelanggan">
+                                        <input type="text" class="form-control" id="namapelanggan">
+                                    </td>
+                                    <td width="50px">
+                                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-pelanggan">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                         <div class="row">
                             <div style="padding-left: 30px;padding-right:30px;" class="col-md-12">
@@ -40,7 +52,7 @@
                                             </div>
                                         </div>
                                     <?php
-                                    } else if (!empty(session()->getFlashdata('delete'))) { ?>
+                                    } else if (!empty(session()->getFlashdata('delete'))) { ?>  
                                         <div class="row" style="align-items: center;">
                                             <div class="col-md-12">
                                                 <div class="alert alert-danger alert-dismissible">
@@ -115,25 +127,26 @@
                                                         <td><?= $r['qty_produk_penjualan_detail'] ?></td>
                                                         <td><?= $r['harga_produk_penjualan_detail'] ?></td>
                                                         <td>
-                                                            <a class="btn btn-outline-danger" id="hapus" href="<?= base_url('Pemesanan/delete_bahanbaku/' . $r['kode_produk_penjualan_detail']) . '/' . $r['qty_produk_penjualan_detail'] . '/' . $r['jumlah_produk'] . '/' . $r['id'] ?>" title="Hapus Data Bahan Baku">
+                                                            <a class="btn btn-outline-danger" id="hapus" href="<?= base_url('Penjualan/delete_bahanbaku/' . $r['kode_produk_penjualan_detail']) . '/' . $r['qty_produk_penjualan_detail'] . '/' . $r['jumlah_produk'] . '/' . $r['id'] ?>" title="Hapus Data Bahan Baku">
                                                                 <i class="fas fa-trash"></i>
                                                             </a>
                                                         </td>
                                                 </tr>
                                             <?php } ?>
                                             <tr>
-                                                <td colspan="3" align="center"><b>Total Semua :</b></td>
-                                                <td colspan="2"><?= "Rp. " . number_format($totalsemua) ?></td>
+                                                <td width="10%" align="center" colspan="2"><b>Total Semua </b></td>
+                                                <input type="hidden" id="totalbayar" name="totalbayar" value="<?= $totalsemua ?>" class="form-control" />
+                                                <td colspan="5"><?= "Rp. " . number_format($totalsemua) ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Bayar Dp :</td>
-                                                <td colspan="5"><input type="number" class="form-control" name="bayardp"></td>
+                                                <td width="10%">Bayar</td>
+                                                <td width="10%">Rp.</td>
+                                                <td colspan="4"><input type="number" id="bayar" class="form-control" name="bayar"></td>
                                             </tr>
                                             <tr>
-                                                <td>Upload Bukti Bayar :</td>
-                                                <td colspan="5">
-                                                    <input type="file" class="form-control" name="gambar" id="gambar">
-                                                    <span><i>Untuk Pembayaran Silahkan Ke Rekening BRI : 5418 0101 2437 534 a/n Novi Putri Sesmita</i></span>
+                                                <td colspan="2">Kembalian</td>
+                                                <td colspan="4">
+                                                    <span id="kemb"></span>
                                                 </td>
 
                                             </tr>
@@ -209,6 +222,55 @@
     </div>
 </div>
 
+<!-- Pelanggan -->
+
+<div class="modal fade" id="modal-pelanggan">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <h5 class="modal-title white" id="myModalLabel130">
+                    Data Pelanggan
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="example2" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nama Pelanggan</th>
+                            <th>Alamat</th>
+                            <th>No.Hp</th>
+                            <th width="20">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php foreach ($datapelanggan as $r) { ?>
+                                <td><?= $r['namapelanggan'] ?></td>
+                                <td><?= $r['alamat'] ?></td>
+                                <td><?= $r['notelp'] ?></td>
+                                <td>
+                                    <button class="btn btn-outline-success" onclick="return ambilpelanggan('<?= $r['kodepelanggan'] ?>','<?= $r['namapelanggan'] ?>')">
+                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     $(document).ready(function() {
         $('#tambah').click(function() {
@@ -219,7 +281,7 @@
             var harga = $('#harga').val();
             datanya = "&kodeproduk=" + kode + "&kodemotif=" + kodem + "&jumlahbahanbaku=" + jumlah + "&jumlah1=" + jumlah1 + "&harga=" + harga;
             $.ajax({
-                url: "<?php echo site_url('Pemesanan/simp_detail') ?>",
+                url: "<?php echo site_url('Penjualan/simp_detail') ?>",
                 data: datanya,
                 type: "POST",
                 cache: false,
@@ -228,6 +290,28 @@
         });
         $(document).ajaxStop(function() {
             window.location.reload();
+        });
+
+        $(document).on('keyup', '#bayar', function() {
+            var dis = $('#bayar').val();
+            var totalbayar = $('#totalbayar').val();
+            var t;
+            var kemb;
+            var kemb1;
+
+            if (dis > totalbayar) {
+                kemb = (parseInt(dis)) - totalbayar;
+                kemb1 = (parseInt(dis)) - totalbayar;
+                t = 0;
+            } else {
+                t = (parseInt(dis)) - totalbayar;
+                kemb = 0;
+                kemb1 = 0;
+            }
+            $('#tot1').html('Rp ' + t + ',');
+            $('#kemb').html('Rp ' + kemb + ',');
+            $('#kemb1').val(kemb1);
+            $('#bersih').val(t);
         });
     });
 
@@ -243,5 +327,11 @@
         $('#jumlah1').val(qty);
         $('#harga').val(harga);
         $('#modal-xl').modal('hide');
+    }
+
+    function ambilpelanggan(kodepelanggan, namapelanggan) {
+        $('#kodepelanggan').val(kodepelanggan);
+        $('#namapelanggan').val(namapelanggan);
+        $('#modal-pelanggan').modal('hide');
     }
 </script>
