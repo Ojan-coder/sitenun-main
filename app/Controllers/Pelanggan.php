@@ -86,6 +86,18 @@ class Pelanggan extends BaseController
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
             return redirect()->to(base_url('Pelanggan/Tambah'));
         } else {
+            $pass = "pelanggan123";
+            $pw = password_hash($pass, PASSWORD_BCRYPT);
+            $data1 = [
+                'username' => $this->request->getPost('username'),
+                'kode_user'=> $pelanggan->koderandom(),
+                'fullname' => $this->request->getPost('namapelanggan'),
+                'level_user' => '4',
+                'status' => 'Y',
+                'password' => $pw,
+                'created_at' => $date
+            ];
+            $user->insert_data($data1);
             $data = [
                 'kodepelanggan' => $pelanggan->koderandom(),
                 'namapelanggan' => $this->request->getPost('namapelanggan'),
@@ -96,17 +108,7 @@ class Pelanggan extends BaseController
                 'created_at' => $date
             ];
             $pelanggan->insert_data($data);
-            $pass = "pelanggan123";
-            $pw = password_hash($pass, PASSWORD_BCRYPT);
-            $data1 = [
-                'username' => $this->request->getPost('username'),
-                'fullname' => $this->request->getPost('namapelanggan'),
-                'level_user' => '4',
-                'status' => 'Y',
-                'password' => $pw,
-                'created_at' => $date
-            ];
-            $user->insert_data($data1);
+
             session()->setFlashdata('success', 'Data Berhasil di Tambahkan');
             session()->setFlashdata('successakun', 'Registrasi Berhasil, Password anda : pelanggan123');
             return redirect()->to(base_url('Pelanggan'));

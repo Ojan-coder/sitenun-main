@@ -71,6 +71,7 @@ CREATE TABLE `pelanggan` (
 /*Data for the table `pelanggan` */
 
 insert  into `pelanggan`(`kodepelanggan`,`namapelanggan`,`tgl_lahir`,`kodejenkel`,`alamat`,`notelp`,`created_at`,`updated_at`) values 
+('PL-02','Bayu',NULL,'L','Jln.Purus 1','0812660432','2023-07-15 10:28:30',NULL),
 ('PR-01','Sesmita','2000-04-14','P','Jln.Olo Ladang No.9','0813323423','2023-06-10 22:54:04',NULL);
 
 /*Table structure for table `tbl_bahan_baku` */
@@ -135,21 +136,6 @@ CREATE TABLE `tbl_detail_bahan_baku_masuk` (
 insert  into `tbl_detail_bahan_baku_masuk`(`id`,`kode_bahan_baku_masuk_detail`,`kode_bahan_baku_detail`,`qty_bahan_baku_masuk_detail`,`harga_bahan_baku_masuk_detail`,`created_at`) values 
 (4,'FK-BM-001','BB-02',8,30000,'2023-07-15 03:24:50'),
 (5,'FK-BM-001','BB-03',5,25000,'2023-07-15 03:25:14');
-
-/*Table structure for table `tbl_detail_penjualan` */
-
-DROP TABLE IF EXISTS `tbl_detail_penjualan`;
-
-CREATE TABLE `tbl_detail_penjualan` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kode_detail_penjualan` varchar(10) DEFAULT NULL,
-  `kode_produk_penjualan` varchar(10) DEFAULT NULL,
-  `qty_penjualan` int(11) DEFAULT NULL,
-  `harga_penjualan` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `tbl_detail_penjualan` */
 
 /*Table structure for table `tbl_jenis_tenun` */
 
@@ -220,15 +206,18 @@ CREATE TABLE `tbl_pemesanan` (
   `kode_pemesanan` varchar(10) NOT NULL,
   `tgl_pemesanan` date DEFAULT NULL,
   `kode_pelanggan` varchar(10) DEFAULT NULL,
-  `qty_pemesanan` int(11) DEFAULT NULL,
   `dp_pemesanan` int(11) DEFAULT NULL,
   `bukti_dp` varchar(100) DEFAULT NULL,
   `status_pemesanan` varchar(20) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`kode_pemesanan`),
   KEY `kode_pelanggan` (`kode_pelanggan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_pemesanan` */
+
+insert  into `tbl_pemesanan`(`kode_pemesanan`,`tgl_pemesanan`,`kode_pelanggan`,`dp_pemesanan`,`bukti_dp`,`status_pemesanan`,`created_at`) values 
+('FK-PO-001','2023-07-15','PL-02',500000,'matakuliah.png','2','2023-07-15 14:05:55');
 
 /*Table structure for table `tbl_penjualan` */
 
@@ -253,15 +242,20 @@ DROP TABLE IF EXISTS `tbl_penjualan_detail`;
 CREATE TABLE `tbl_penjualan_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `no_transaksi_penjualan_detail` varchar(10) DEFAULT NULL,
+  `no_pemesanan_detail` varchar(10) DEFAULT NULL,
   `kode_produk_penjualan_detail` varchar(10) DEFAULT NULL,
   `qty_produk_penjualan_detail` int(11) DEFAULT NULL,
   `harga_produk_penjualan_detail` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `no_transaksi_penjualan_detail` (`no_transaksi_penjualan_detail`),
   KEY `kode_produk_penjualan_detail` (`kode_produk_penjualan_detail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_penjualan_detail` */
+
+insert  into `tbl_penjualan_detail`(`id`,`no_transaksi_penjualan_detail`,`no_pemesanan_detail`,`kode_produk_penjualan_detail`,`qty_produk_penjualan_detail`,`harga_produk_penjualan_detail`,`created_at`) values 
+(7,NULL,'FK-PO-001','PR-04',5,400000,'2023-07-15 14:01:37');
 
 /*Table structure for table `tbl_produk` */
 
@@ -285,7 +279,7 @@ insert  into `tbl_produk`(`kode_produk`,`kode_jenis_motif`,`nama_produk`,`harga_
 ('PR-01','JT-01','Jacguard Benang Biru Langit',300000,5,'2023-07-15 01:04:44',NULL),
 ('PR-02','JT-03','Itiak Pulang Patang Benang Biru',450000,5,'2023-07-15 01:14:48','2023-07-15 01:52:32'),
 ('PR-03','JT-04','Kaluak Paku Benang Hijau daun',400000,3,'2023-07-15 01:27:11',NULL),
-('PR-04','JT-02','Pucuak Rabuang Benang Merah',400000,15,'2023-07-15 01:56:03','2023-07-15 02:05:27');
+('PR-04','JT-02','Pucuak Rabuang Benang Merah',400000,10,'2023-07-15 01:56:03','2023-07-15 02:05:27');
 
 /*Table structure for table `tbl_produksi` */
 
@@ -327,8 +321,7 @@ CREATE TABLE `tbl_produksi_detail` (
 insert  into `tbl_produksi_detail`(`id`,`kode_produksi_detail`,`kode_bahan_baku_detail`,`qty_bahan_baku_produksi`,`created_at`) values 
 (2,'PS-01','BB-01',2,'2023-07-15 01:50:00'),
 (3,'PS-01','BB-02',3,'2023-07-15 01:50:17'),
-(4,'PS-02','BB-01',2,'2023-07-15 02:04:18'),
-(5,'PS-02','BB-03',2,'2023-07-15 02:05:09');
+(4,'PS-02','BB-01',2,'2023-07-15 02:04:18');
 
 /*Table structure for table `user` */
 
@@ -336,6 +329,7 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `iduser` int(7) NOT NULL AUTO_INCREMENT,
+  `kode_user` varchar(10) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `fullname` varchar(50) DEFAULT NULL,
   `password` text DEFAULT NULL,
@@ -344,16 +338,15 @@ CREATE TABLE `user` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 
-insert  into `user`(`iduser`,`username`,`fullname`,`password`,`level_user`,`status`,`created_at`,`updated_at`) values 
-(1,'pimpinan','Novi Putri Sesmita','$2y$10$OCz92SujZJy1qnGd5BCc/.UpcR9vcWa81jBltECA7EaSE.n8M8Wc.',2,'Y',NULL,NULL),
-(2,'admin','Fauzan Adli','$2y$10$Wc8NNlkidR9VkecZXT7WzuhjudmEnEj.Fd4xpyHqI7pECKOcOX41i',1,'Y',NULL,'2023-06-10 19:57:56'),
-(3,'pelanggan','Bobi Situmorang','$2y$10$nP4Ce9d0iT9r3vjmXzx89eeHxAj3w.TTxUIWze2mDBmoCgsBw5NoG',4,'Y',NULL,'2023-06-10 19:57:33'),
-(4,'produksi','Ilham','$2y$10$jCqGEycSP.N/CNVfM0axCucPyGkQCvrVOsJwPVva0Zce1pDq.8r6K',3,'Y',NULL,'2023-06-10 19:57:18'),
-(7,'Pelanggan1','Zanku','$2y$10$uicAq/czp09bm3eyEZ7XO.gRs5u8iAwwpLy/b6E/RxfclpcRaFGCm',4,'N','2023-06-14 03:36:39','2023-06-14 03:59:52');
+insert  into `user`(`iduser`,`kode_user`,`username`,`fullname`,`password`,`level_user`,`status`,`created_at`,`updated_at`) values 
+(1,'USR-002','pimpinan','Novi Putri Sesmita','$2y$10$OCz92SujZJy1qnGd5BCc/.UpcR9vcWa81jBltECA7EaSE.n8M8Wc.',2,'Y',NULL,NULL),
+(2,'USR-001','admin','Fauzan Adli','$2y$10$Wc8NNlkidR9VkecZXT7WzuhjudmEnEj.Fd4xpyHqI7pECKOcOX41i',1,'Y',NULL,'2023-06-10 19:57:56'),
+(4,'USR-003','produksi','Novi','$2y$10$jCqGEycSP.N/CNVfM0axCucPyGkQCvrVOsJwPVva0Zce1pDq.8r6K',3,'Y',NULL,'2023-06-10 19:57:18'),
+(8,'PL-02','bayu','Bayu','$2y$10$RiN.4BKTwfb7kcnj/7K/h.4m2X1NV60vPOlVg0QqKtCCTNspNSDGi',4,'Y','2023-07-15 10:28:30',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

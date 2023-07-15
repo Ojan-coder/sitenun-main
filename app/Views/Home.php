@@ -4,14 +4,16 @@
             <?php
             foreach ($produk as $r) {
             ?>
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="card card-primary card-outline">
                         <div class="card-header">
                             <h5 class="card-title m-0"><b><?= $r['jenis_motif'] ?></b></h5>
                         </div>
                         <div class="card-body">
                             <div class="row">
-
+                                <div class="col-5 text-center">
+                                    <img src="<?= base_url('fotojenismotif/') . $r['gambar_motif'] ?>" alt="user-avatar" height="100" width="160" class="img-rectangle img-fit">
+                                </div>
                                 <div class="col-12">
                                     <h2 class="lead"></h2>
                                     <p class="text-muted text-sm"><b>About: </b> <?= $r['deskripsi'] ?> </p>
@@ -20,15 +22,13 @@
                                         <li class="small"><span class="fa-li"><i class="fas fa-lg fa-warehouse"></i></span> &nbsp; <?= $r['jumlah_produk'] ?></li>
                                     </ul>
                                 </div>
-                                <div class="col-5 text-center">
-                                    <img src="<?= base_url('fotoproduk/') . $r['gambarproduk'] ?>" alt="user-avatar" height="160" width="160" class="img-rectangle img-fit">
-                                </div>
+
                             </div>
-                        <?php } ?>
+
                         </div>
                     </div>
                 </div>
-
+            <?php } ?>
         </div>
     </div>
 </div>

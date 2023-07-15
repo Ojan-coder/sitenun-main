@@ -36,6 +36,7 @@ $routes->get('/Admin/Beranda', 'Home::home');
 $routes->post('/Admin/In', 'Login::ceklogin');
 $routes->get('/Admin/Logout', 'Login::Logout');
 
+
 // User routes
 $routes->get('/Admin/User', 'User::index');
 $routes->get('/Admin/User-Tambah', 'User::tambah');
@@ -77,6 +78,7 @@ $routes->get('/Pelanggan/Beranda', 'Home::home');
 $routes->get('/Admin/Pelanggan', 'Pelanggan::index');
 $routes->get('/Admin/Pelanggan-Tambah', 'Pelanggan::tambah');
 $routes->post('/Admin/Store-pelanggan', 'Pelanggan::add');
+$routes->get('/Pelanggan/Logout', 'Login::Logout');
 
 // Pemesananan Pelanggan
 $routes->get('/Tambah-Pesanan', 'Pemesanan::tambah');
