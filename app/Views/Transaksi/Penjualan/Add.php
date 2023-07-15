@@ -52,7 +52,7 @@
                                             </div>
                                         </div>
                                     <?php
-                                    } else if (!empty(session()->getFlashdata('delete'))) { ?>  
+                                    } else if (!empty(session()->getFlashdata('delete'))) { ?>
                                         <div class="row" style="align-items: center;">
                                             <div class="col-md-12">
                                                 <div class="alert alert-danger alert-dismissible">
@@ -113,7 +113,7 @@
                                                 <th>Motif Produk</th>
                                                 <th width="100px">Jumlah</th>
                                                 <th width="200px">Harga</th>
-                                                <th width="10px">#</th>
+                                                <th width="10px">Aksi</th>
                                             </thead>
                                             <tbody>
                                                 <tr>
@@ -242,7 +242,7 @@
                             <th>Nama Pelanggan</th>
                             <th>Alamat</th>
                             <th>No.Hp</th>
-                            <th width="20">#</th>
+                            <th width="20">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -299,15 +299,19 @@
             var kemb;
             var kemb1;
 
-            if (dis > totalbayar) {
-                kemb = (parseInt(dis)) - totalbayar;
-                kemb1 = (parseInt(dis)) - totalbayar;
-                t = 0;
-            } else {
-                t = (parseInt(dis)) - totalbayar;
-                kemb = 0;
-                kemb1 = 0;
-            }
+            kemb = (parseInt(dis)) - totalbayar;
+            kemb1 = (parseInt(dis)) - totalbayar;
+            t = 0;
+
+            // if (dis > totalbayar) {
+            //     kemb = (parseInt(dis)) - totalbayar;
+            //     kemb1 = (parseInt(dis)) - totalbayar;
+            //     t = 0;
+            // } else {
+            //     t = (parseInt(dis)) - totalbayar;
+            //     kemb = 0;
+            //     kemb1 = 0;
+            // }
             $('#tot1').html('Rp ' + t + ',');
             $('#kemb').html('Rp ' + kemb + ',');
             $('#kemb1').val(kemb1);

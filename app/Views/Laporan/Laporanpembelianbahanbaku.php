@@ -70,7 +70,7 @@
                                     <td><?= $r['nama_bahan_baku'] ?></td>
                                     <td><?= $r['jumlah_bahan_baku'] ?></td>
                                     <td><?= "Rp. " . number_format($r['total_harga_bahan_baku_masuk']) ?></td>
-                                    
+
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -93,7 +93,7 @@
                                     <br>
                                     <br>
                                     <br>
-                                    <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......</strong>
+                                    <strong>Yasril, S.Pd</strong>
                                 </td>
                             </tr>
                         </table>

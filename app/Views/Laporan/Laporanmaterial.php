@@ -48,29 +48,29 @@
                 <td align="center">
                     <br>
                     <table class="table table-bordered" width="100%" border="1">
-                            <thead>
+                        <thead>
+                            <tr>
+                                <th>Kode Bahan Baku</th>
+                                <th>Nama Bahan Baku</th>
+                                <th>Jenis Bahan Baku</th>
+                                <th>Qty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($data as $r) {
+                            ?>
+
                                 <tr>
-                                    <th>Kode Bahan Baku</th>
-                                    <th>Nama Bahan Baku</th>
-                                    <th>Jenis Bahan Baku</th>
-                                    <th>Qty</th>
+                                    <td><?= $r['kode_bahan_baku'] ?></td>
+                                    <td><?= $r['nama_bahan_baku'] ?></td>
+                                    <td><?= $r['satuan_bahan_baku'] ?></td>
+                                    <td><?= $r['jumlah_bahan_baku'] ?></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                foreach ($data as $r) {
-                                ?>
+                            <?php } ?>
+                        </tbody>
 
-                                    <tr>
-                                        <td><?= $r['kode_bahan_baku'] ?></td>
-                                        <td><?= $r['nama_bahan_baku'] ?></td>
-                                        <td><?= $r['satuan_bahan_baku'] ?></td>
-                                        <td><?= $r['jumlah_bahan_baku'] ?></td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-
-                        </table>
+                    </table>
                     <br>
                 </td>
             </tr>
@@ -87,7 +87,7 @@
                                     <br>
                                     <br>
                                     <br>
-                                    <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....</strong>
+                                    <strong>Yasril, S.Pd</strong>
                                 </td>
                             </tr>
                         </table>

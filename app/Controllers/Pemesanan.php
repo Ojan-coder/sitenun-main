@@ -88,6 +88,28 @@ class Pemesanan extends BaseController
         session()->setFlashdata('success', 'Data Bahan Baku Berhasil Ditambahkan');
     }
 
+    function bayarsisa()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d:H:i:s');
+        $image = $this->request->getFile('gambar');
+        $img = $image->getName();
+        $pemesanan = new MPemesanan();
+        $id = $this->request->getPost('kodepemesanan');
+        if ($image->isValid()) {
+            $data = [
+                'bayar_sisa' => $this->request->getPost('bayar_sisa'),
+                'bukti_sisa' => $img,
+                'updated_at' => $date,
+                'status_pemesanan'=>'3'
+            ];
+            $image->move(ROOTPATH . 'public/fotobukti2/', $img);
+            $pemesanan->update_data($data, $id);
+        }
+        session()->setFlashdata('delete', 'Data Produk Berhasil Di Hapus !!');
+        return redirect()->to(base_url('/Pemesanan'));
+    }
+
     function add()
     {
         $pesanan = new MPemesanan();

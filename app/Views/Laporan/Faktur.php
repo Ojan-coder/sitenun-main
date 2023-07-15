@@ -120,7 +120,7 @@
                                     <br>
                                     <br>
                                     <br>
-                                    <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mulhendri</strong>
+                                    <strong>Yasril, S.Pd</strong>
                                 </td>
                             </tr>
                         </table>

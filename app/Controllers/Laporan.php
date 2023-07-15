@@ -10,7 +10,7 @@ class Laporan extends BaseController
 {
     public function index()
     {
-        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y') && (session()->get('akses1') == '1')) {
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y') && (session()->get('akses1') == '1') || (session()->get('akses1') == '2')) {
             $data = [
                 'isi' => 'Laporan/Data'
             ];

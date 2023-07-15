@@ -48,7 +48,7 @@ $id = $request->uri->getSegment(1);
                     </a>
                 </li>
                 <!-- Master -->
-                <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2') { ?>
+                <?php if (session()->get('akses1') == '1') { ?>
 
                     <li class="nav-item <?php if ($request->uri->getSegment(2) == 'Produk' || $request->uri->getSegment(2) == 'JenisMotif' || $request->uri->getSegment(2) == 'Pelanggan' || $request->uri->getSegment(2) == 'Bahanbaku') {
                                             echo 'menu-open';
@@ -102,7 +102,7 @@ $id = $request->uri->getSegment(1);
                         </ul>
                     </li>
                 <?php } ?>
-                <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2') { ?>
+                <?php if (session()->get('akses1') == '1') { ?>
 
                     <li class="nav-header">Transaksi</li>
                     <li class="nav-item">
@@ -209,7 +209,15 @@ $id = $request->uri->getSegment(1);
                         </a>
                     </li>
                 <?php } ?>
-
+                <?php if (session()->get('akses1') == '2') { ?>
+                    <li class="nav-header">LAPORAN</li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/Admin/Laporan') ?>" class="nav-link">
+                            <i class="nav-icon fa fa-print text-primary"></i>
+                            <p>Laporan</p>
+                        </a>
+                    </li>
+                <?php } ?>
                 <?php if (session()->get('akses1') == '4') { ?>
                     <li class="nav-header">Transaksi</li>
 

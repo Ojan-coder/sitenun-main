@@ -69,10 +69,15 @@ class MPemesanan extends Model
 
     public function hapus($id)
     {
-        return $this->db->table('tbl_pemesanan')->delete(['kode_produksi' => $id]);
+        return $this->db->table('tbl_pemesanan')->delete(['kode_pemesanan' => $id]);
     }
     public function hapus_detail($id, $id_detail)
     {
         return $this->db->table('tbl_penjualan_detail')->delete(['id' => $id_detail]);
+    }
+
+    public function update_data($data,$id)
+    {
+        return $this->db->table('tbl_pemesanan')->update($data, ['kode_pemesanan' => $id]);
     }
 }
