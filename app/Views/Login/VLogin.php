@@ -92,25 +92,11 @@
             </div>
 
             <div class="card-body">
-                <?php
-                if ($id == "Admin" || $id == "admin") {
-                ?>
-                    <p class="login-box-msg">
-                        <center>
-                            <h5>
-                                Login Admin
-                            </h5>
-                        </center>
-                    </p>
-                <?php } else { ?>
-                    <p class="login-box-msg">
-                        <center>
-                            <h5>
-                                Silahkan Login Pelanggan
-                            </h5>
-                        </center>
-                    </p>
-                <?php } ?>
+                <center>
+                    <h5>
+                        Silahkan Login
+                    </h5>
+                </center>
 
                 <?php
                 if (session()->getFlashdata('error_username') || session()->getFlashdata('error_pass')) : ?>
@@ -129,15 +115,15 @@
                     </div>
                 <?php endif; ?>
 
-                
+
                 <hr>
 
                 <form action="<?= base_url('/Admin/In') ?>" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="username" placeholder="Email">
+                        <input type="text" class="form-control" name="username" placeholder="Username">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>

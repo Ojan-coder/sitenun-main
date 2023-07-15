@@ -28,15 +28,25 @@ class MProduksi extends Model
     function getAlldata()
     {
         return $this->db->table('tbl_produksi')
-        ->join('tbl_produk','tbl_produksi.kode_produk=tbl_produk.kode_produk')
-        ->get()->getResultArray();
+            ->join('tbl_produk', 'tbl_produksi.kode_produk=tbl_produk.kode_produk')
+            ->join('tbl_jenis_tenun', 'tbl_jenis_tenun.kode_jenis=tbl_produk.kode_jenis_motif')
+            ->get()->getResultArray();
     }
 
-    public function detail($id)
+    function getDataTableDetail()
     {
+        $id = $this->koderandom();
+        // $id="PR-02";
         return $this->db
-            ->table('tbl_produksi')
-            ->where('kode_produksi', $id)->get()->getRowArray();
+            ->table('tbl_produksi_detail')
+            ->join('tbl_bahan_baku', 'tbl_bahan_baku.kode_bahan_baku = tbl_produksi_detail.kode_bahan_baku_detail')
+            ->where('kode_produksi_detail', $id)->get()->getResultArray();
+    }
+
+
+    public function insert_data_temp($data)
+    {
+        return $this->db->table('tbl_produksi_detail')->insert($data);
     }
 
     public function insert_data($data)
@@ -50,5 +60,9 @@ class MProduksi extends Model
     public function hapus($id)
     {
         return $this->db->table('tbl_produksi')->delete(['kode_produksi' => $id]);
+    }
+    public function hapus_detail($id, $id_detail)
+    {
+        return $this->db->table('tbl_produksi_detail')->delete(['id' => $id_detail]);
     }
 }

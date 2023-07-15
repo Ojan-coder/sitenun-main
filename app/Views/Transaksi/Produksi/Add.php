@@ -2,15 +2,78 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card card-outline card-success">
                     <div class="card-header">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Produk') ?>')" class="btn btn-outline-danger" title="Kembali">
-                            <i class="fa fa-arrow-left"></i>
-                        </button>
+                        <h6>Tambah Produksi</h6>
                     </div>
                     <div class="row">
+                        <!-- Form Produksi -->
+                        <div class="col-md-6" style="padding-left: 30px;padding-top:20px;">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Data Produk</h3>
+                                </div>
+                                <div class="card-body">
+                                    <?php
+                                    $errors = session()->getFlashdata('errors');
+                                    if (!empty($errors)) { ?>
+                                        <div class="alert alert-danger alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                            <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                                            <h6><b>!! Ada Kesalahan Input Data :</b></h6>
+                                            <ul>
+                                                <?php foreach ($errors as $key => $error) { ?>
+                                                    <li><?= esc($error) ?></li>
+                                                <?php
+                                                }
+                                                ?>
+                                            </ul>
+                                        </div>
+                                    <?php } ?>
+                                    <?php
+                                    if (!empty(session()->getFlashdata('success'))) { ?>
+                                        <div class="alert alert-success alert-dismissible" style="padding-left: 30px;">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                            <i class="icon fas fa-check"></i> Success.
+                                            <?= session()->getFlashdata('success'); ?>
+                                        </div>
+                                    <?php
+                                    } ?>
+                                    <form id="form" action="<?= base_url('/Admin/Store-produksi') ?>" method="POST" enctype="multipart/form-data">
+                                        <!-- <form id="form" action="<?= base_url('Produksi/simp_detail') ?>" method="POST" enctype="multipart/form-data"> -->
+                                        <?php csrf_field(); ?>
+
+
+                                        <div class="form-group">
+                                            <label>Nama Produk</label>
+                                            <div class="input-group mb-3">
+                                                <input type="hidden" id="kodejenis" name="kodeproduk">
+                                                <input type="text" class="form-control" name="namaproduk" value="<?= old('namaproduk') ?>" id="namaproduk" aria-describedby="button-addon2">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-xl" type="button" id="button-addon2">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Jenis Motif</label>
+                                            <input type="text" id="motif" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Harga Produk</label>
+                                            <input type="number" name="harga" id="harga" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Jumlah Produk</label>
+                                            <input type="hidden" name="jumlahlama" id="jumlahlama" class="form-control">
+                                            <input type="number" name="jumlahbaru" id="jumlahbaru" class="form-control">
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Form Data Bahan Baku Dipakai -->
-                        <div class="col-md-12" style="padding-top:20px;padding-right:30px;">
+                        <div class="col-md-6" style="padding-top:20px;padding-right:30px;">
                             <div class="card card-success">
                                 <div class="card-header">
                                     <h3 class="card-title">Data Bahan</h3>
@@ -84,9 +147,9 @@
                                                 <tr>
                                                     <td><?= $r['kode_bahan_baku_detail'] ?></td>
                                                     <td><?= $r['nama_bahan_baku'] ?></td>
-                                                    <td><?= $r['qty_bahan_baku_keluar_detail'] ?> </td>
+                                                    <td><?= $r['qty_bahan_baku_produksi'] ?> </td>
                                                     <td>
-                                                        <a class="btn btn-outline-danger" id="hapus" href="<?= base_url('Produk/delete_bahanbaku/' . $r['kode_bahan_baku_detail']) . '/' . $r['qty_bahan_baku_keluar_detail'] . '/' . $r['jumlah_bahan_baku'] . '/' . $r['id'] ?>" title="Hapus Data Bahan Baku">
+                                                        <a class="btn btn-outline-danger" id="hapus" href="<?= base_url('Produksi/delete_bahanbaku/' . $r['kode_bahan_baku_detail']) . '/' . $r['qty_bahan_baku_produksi'] . '/' . $r['jumlah_bahan_baku'] . '/' . $r['id'] ?>" title="Hapus Data Bahan Baku">
                                                             <i class="fas fa-trash"></i>
                                                         </a>
                                                     </td>
@@ -100,6 +163,9 @@
                         </div>
                     </div>
                     <div class="card-footer">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Produksi') ?>')" class="btn btn-outline-danger" title="Kembali">
+                            <i class="fa fa-arrow-left"></i> Kembali
+                        </button>
                         <button type="submit" id="submit" class="btn btn-outline-primary">
                             <i class="fas fa-save"></i> Simpan
                         </button>
@@ -111,6 +177,55 @@
     </div>
 </section>
 
+<!--Produk Modal -->
+<div class="modal fade" id="modal-xl">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Data Produk</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="example2" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nama Produk</th>
+                            <th>Motif Produk</th>
+                            <th>Harga Produk</th>
+                            <th>Jumlah Produk</th>
+                            <th width="20">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($produk as $r) {
+
+                        ?>
+                            <tr>
+                                <td><?= $r['nama_produk'] ?></td>
+                                <td><?= $r['jenis_motif'] ?></td>
+                                <td><?= "Rp. " . number_format($r['harga_produk']) ?></td>
+                                <td><?= $r['jumlah_produk'] ?></td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['nama_produk'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['harga_produk'] ?>','<?= $r['jumlah_produk'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 <!--Bahan Baku Modal -->
 <div class="modal fade text-left" id="modal-bahanbaku" tabindex="-1" role="dialog" aria-labelledby="myModalLabel130" aria-hidden="true">
@@ -164,7 +279,7 @@
             var jumlah1 = $('#jumlah1').val();
             datanya = "&kodebahanbaku=" + kode + "&jumlahbahanbaku=" + jumlah + "&jumlah1=" + jumlah1;
             $.ajax({
-                url: "<?php echo site_url('Produk/simp_detail') ?>",
+                url: "<?php echo site_url('Produksi/simp_detail') ?>",
                 data: datanya,
                 type: "POST",
                 cache: false,
@@ -176,14 +291,16 @@
         });
     });
 
-    // function refreshPage() {
-    //     location.reload(true);
-    // }
+    function refreshPage() {
+        location.reload(true);
+    }
 
-    function ambil(kode, namaproduk, deskripsi) {
+    function ambil(kode, namaproduk, motif, harga, jumlah) {
         $('#kodejenis').val(kode);
         $('#namaproduk').val(namaproduk);
-        $('#deskripsi').val(deskripsi);
+        $('#motif').val(motif);
+        $('#harga').val(harga);
+        $('#jumlahlama').val(jumlah);
         $('#modal-xl').modal('hide');
     }
 

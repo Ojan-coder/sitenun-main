@@ -3,12 +3,12 @@
         <div class="row">
 
             <div class="col-md-12">
-                <div class="card card-success">
+                <div class="card card-outline card-success">
                     <div class="card-header">
                         <h3 class="card-title">Data Bahan Baku</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Bahanbaku/Tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Bahanbaku/Bahanbaku-Tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -28,7 +28,7 @@
                                     <th>Kode Bahan Baku</th>
                                     <th>Nama Bahan Baku</th>
                                     <th>Jenis Bahan Baku</th>
-                                    <th>Jumlah</th>
+                                    <th>Qty</th>
                                     <th width="10px">#</th>
                                 </tr>
                             </thead>
@@ -73,7 +73,7 @@
                 <form method="POST" action="<?= base_url('Bahanbaku/delete') ?>">
                     <div class="modal-body" style="color: black;">
                         Apakah Yakin Ingin Menghapus Data Bahan Baku Ini ?
-                        <input type="hidden" id="iduser" name="iduser">
+                        <input type="text" id="iduser" name="iduser">
                     </div>
             </div>
             <div class="modal-footer justify-content-between" style="background-color: white;">

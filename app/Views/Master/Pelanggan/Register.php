@@ -81,14 +81,6 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
                         <select class="form-control" name="cbjenkel">
                             <option value="">-Pilih Jenis Kelamin-</option>
                             <option value="L">Laki-Laki</option>
@@ -96,7 +88,7 @@
                         </select>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-genderless"></span>
+                                <span class="fas fa-venus-mars"></span>
                             </div>
                         </div>
                     </div>
@@ -120,6 +112,22 @@
                         </div>
                     </div>
                     <hr>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
                     <br>
                     <div class="row">
                         <div class="col-6">

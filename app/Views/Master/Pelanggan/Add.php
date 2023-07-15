@@ -55,11 +55,8 @@
                                 <label>Jenis Kelamin</label>
                                 <select name="cbjenkel" class="form-control">
                                     <option>-Pilih-</option>
-                                    <?php
-                                    foreach ($jenkel as $r) {
-                                    ?>
-                                        <option value="<?= $r['kode_jenkel'] ?>"><?= $r['jenis_kelamin'] ?></option>
-                                    <?php } ?>
+                                    <option value="L">Laki-Laki</option>
+                                    <option value="P">Perempuan</option>
                                 </select>
                             </div>
                             <div class="form-group">

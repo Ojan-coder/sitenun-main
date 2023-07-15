@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card card-outline card-success">
                     <div class="card-header">
                         <h3 class="card-title">Data Produk</h3>
                     </div>
@@ -26,11 +26,11 @@
                                 <tr>
                                     <th>Kode Produk</th>
                                     <th>Nama Produk</th>
-                                    <th>Deskripsi</th>
+                                    <th>Motif</th>
                                     <th>Jumlah</th>
                                     <th>Harga</th>
                                     <th>Foto</th>
-                                    <th width="150px">#</th>
+                                    <th width="70px">#</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,17 +39,17 @@
 
                                 ?>
                                     <tr>
-                                        <td><?= $r['kodeproduk'] ?></td>
-                                        <td><?= $r['namaproduk'] ?></td>
-                                        <td><?= $r['deskripsiproduk'] ?></td>
-                                        <td><?= $r['jumlahproduk'] ?></td>
-                                        <td><?= "Rp. ".number_format($r['hargaproduk'])  ?></td>
-                                        <td><img src="<?= base_url('fotoproduk/'.$r['gambarproduk']) ?>" width="50" height="50"></td>
+                                        <td><?= $r['kode_produk'] ?></td>
+                                        <td><?= $r['nama_produk'] ?></td>
+                                        <td><?= $r['jenis_motif'] ?></td>
+                                        <td><?= $r['jumlah_produk'] ?></td>
+                                        <td><?= "Rp. " . number_format($r['harga_produk'])  ?></td>
+                                        <td><img src="<?= base_url('fotojenismotif/') . $r['gambar_motif'] ?>" width="250px" height="150px"></td>
                                         <td>
-                                            <button type="button" onclick="location.href=('<?= base_url('Produk/edit') . '/' . $r['kodeproduk'] ?>')" class="btn btn-outline-warning" title="Edit Data">
-                                                <i class="fas fa-edit"></i>
+                                            <button type="button" onclick="location.href=('<?= base_url('Produk/edit') . '/' . $r['kode_produk'] ?>')" class="btn btn-outline-warning" title="Edit Data">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kodeproduk'] ?>','<?= $r['gambarproduk'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
+                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['gambar_motif'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
                                                 <i class="fas fa-trash"></i>
                                             </button>
 
@@ -97,9 +97,10 @@
 
 
 <script>
-    function ambil(id,foto) {
+    function ambil(id, foto) {
         $('#iduser').val(id);
         $('#foto').val(foto);
+        $('#modal-danger').modal('hide');
     }
     $(document).ready(function() {
         $.validator.setDefaults({

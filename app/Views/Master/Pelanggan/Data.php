@@ -36,12 +36,17 @@
                             <tbody>
                                 <?php
                                 foreach ($data as $r) {
+                                    if($r['kodejenkel']=='P'){
+                                        $jk = "Perempuan";
+                                    }else{
+                                        $jk="Laki-Laki";
+                                    }
                                 ?>
                                     <tr>
                                         <td><?= $r['kodepelanggan'] ?></td>
                                         <td><?= $r['namapelanggan'] ?></td>
                                         <td><?= $r['tgl_lahir'] ?></td>
-                                        <td><?= $r['jenis_kelamin'] ?></td>
+                                        <td><?= $jk ?></td>
                                         <td><?= $r['alamat'] ?></td>
                                         <td><?= $r['notelp'] ?></td>
                                         <td>

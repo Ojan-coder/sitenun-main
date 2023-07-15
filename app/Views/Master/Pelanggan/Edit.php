@@ -41,7 +41,7 @@
                             <?php csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Pelanggan</label>
-                                <input type="text" value="<?= $data['kodepelanggan'] ?>" name="kodepelanggan">
+                                <input type="hidden" value="<?= $data['kodepelanggan'] ?>" name="kodepelanggan">
                                 <input type="text" name="namapelanggan" value="<?= $data['namapelanggan'] ?>" id="namapelanggan" class="form-control" required>
                             </div>
                             <div class="form-group">
@@ -50,13 +50,13 @@
                             </div>
                             <div class="form-group">
                                 <label>Jenis Kelamin</label>
-                                <select name="cbjenkel" class="form-control">
+                                <select name="cbjenkel" id="cbjenkel" class="form-control">
                                     <option>-Pilih-</option>
-                                    <?php
-                                    foreach ($jenkel as $r) {
-                                    ?>
-                                        <option value="<?= $r['kode_jenkel'] ?>" <?php if ($data['kodejenkel'] == $r['kode_jenkel']) echo "selected"; ?>><?= $r['jenis_kelamin'] ?></option>
-                                    <?php } ?>
+                                    <option value="L">Laki-Laki</option>
+                                    <option value="P">Perempuan</option>
+                                    <script>
+                                        document.getElementById('cbjenkel').value = '<?php echo $data['kodejenkel'] ?>'
+                                    </script>
                                 </select>
                             </div>
                             <div class="form-group">

@@ -8,7 +8,7 @@
                         <h3 class="card-title">Data Pembelian Bahan Baku</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Bahanbaku/Bahanbaku-Tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/PembelianBahanBaku/Bahanbaku-Tambah') ?>')" class="btn btn-outline-success" title="Tambah Pembelian Bahan Baku">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -25,10 +25,9 @@
                         <table id="example2" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Kode Bahan Baku</th>
-                                    <th>Nama Bahan Baku</th>
-                                    <th>Jenis Bahan Baku</th>
-                                    <th>Qty</th>
+                                    <th>No. Transaksi</th>
+                                    <th>Tanggal Pembelian Bahan Baku</th>
+                                    <th>Total</th>
                                     <th width="10px">#</th>
                                 </tr>
                             </thead>
@@ -38,13 +37,12 @@
                                 ?>
 
                                     <tr>
-                                        <td><?= $r['kode_bahan_baku'] ?></td>
-                                        <td><?= $r['nama_bahan_baku'] ?></td>
-                                        <td><?= $r['satuan_bahan_baku'] ?></td>
-                                        <td><?= $r['jumlah_bahan_baku'] ?></td>
+                                        <td><?= $r['kode_bahan_baku_masuk'] ?></td>
+                                        <td><?= $r['tgl_bahan_baku_masuk'] ?></td>
+                                        <td><?= "Rp. " . number_format($r['total_harga_bahan_baku_masuk']) ?></td>
                                         <td>
-                                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="return ambil('<?= $r['kode_bahan_baku'] ?>')" data-target="#modal-danger">
-                                                <i class="fas fa-trash-alt"></i>
+                                            <button class="btn btn-outline-success" title="Detail" onclick="location.href=('<?= base_url('PembelianBahanBaku/Detail/').$r['kode_bahan_baku_masuk'] ?>')">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
                                             </button>
                                         </td>
                                     </tr>
@@ -72,8 +70,11 @@
             <div class="modal-body" style="background-color: white;">
                 <form method="POST" action="<?= base_url('Bahanbaku/delete') ?>">
                     <div class="modal-body" style="color: black;">
-                        Apakah Yakin Ingin Menghapus Data Bahan Baku Ini ?
-                        <input type="text" id="iduser" name="iduser">
+                        Apakah Yakin Ingin Menghapus Data Pembelian Bahan Baku Ini ?
+                        <input type="text" id="iduser" name="idmasuk">
+                        <input type="text" id="idbahan" name="idbahan">
+                        <input type="text" id="jumlahsekarang" name="sekarang">
+                        <input type="text" id="beli" name="jumlahbeli">
                     </div>
             </div>
             <div class="modal-footer justify-content-between" style="background-color: white;">
@@ -89,8 +90,11 @@
 
 
 <script>
-    function ambil(id) {
+    function ambil(id, idbahan, beli) {
         $('#iduser').val(id);
+        $('#idbahan').val(idbahan);
+        $('#jumlahsekarang').val(skrng);
+        $('#beli').val(skrng);
         $('#modal-danger').hide();
     }
 </script>

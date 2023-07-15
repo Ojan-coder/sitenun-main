@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card card-success card-outline">
+                <div class="card card-outline card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Tambah Produk</h3>
+                        Tambah Produk
                     </div>
                     <div class="card-body">
                         <?php
@@ -34,140 +34,105 @@
                         } ?>
                         <form id="form" action="<?= base_url('/Admin/Store-produk') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
-                            <div class="row">
-                                <!-- Data Motif -->
-                                <div class="col-md-6">
-                                    <div class="card card-success card-outline">
-                                        <div class="card-header">
-                                            <h3 class="card-title">Data Motif</h3>
-                                        </div>
-                                        <div class="card-body">
-                                            <table width="100%">
-                                                <tr>
-                                                    <td colspan="3"><label>Jenis Motif</label></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="100%">
-                                                        <input type="hidden" name="kode_motif" id="kode_motif" class="form-control" required>
-                                                        <input type="text" name="namaproduk" id="namaproduk" class="form-control" required>
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-outline-success" title="Cari Data Motif" type="button" data-toggle="modal" data-target="#modal-motif" id="button-addon2"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3"><label>Deskripsi</label></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <textarea class="form-control" name="deskripsi" id="deskripsi"></textarea>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Data Produk -->
-                                <div class="col-md-6">
-                                    <div class="card card-success card-outline">
-                                        <div class="card-header">
-                                            <h3 class="card-title">Data Produk</h3>
-                                        </div>
-                                        <div class="card-body">
-                                            <table width="100%">
-                                                <tr>
-                                                    <td><label>Nama Produk</label></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <input type="text" name="namaproduk" value="<?= old('namaproduk') ?>" id="namaproduk" class="form-control" required>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label>Harga Produk</label></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <input type="number" name="harga" id="harga" class="form-control" required>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td><label>Jumlah Produk</label></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <input type="number" name="jumlah" id="jumlah" class="form-control" required>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
+                            <div class="form-group">
+                                <label>Nama Motif</label>
+                                <div class="input-group mb-3">
+                                    <input type="hidden" id="kodejenis" name="kodejenis">
+                                    <input type="text" id="namajenis" class="form-control">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-xl" type="button" id="button-addon2">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label>Nama Produk</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="namaproduk" value="<?= old('namaproduk') ?>" id="namaproduk" aria-describedby="button-addon2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Deskripsi</label>
+                                <textarea class="form-control" value="<?= old('deskripsi') ?>" name="deskripsi" id="deskripsi"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Harga Produk</label>
+                                <input type="number" name="harga" id="harga" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Jumlah Produk</label>
+                                <input type="number" name="jumlah" id="jumlah" class="form-control">
+                            </div>
                     </div>
                     <div class="card-footer">
-                        <button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Produk') ?>')" title="Kembali">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Produk') ?>')" class="btn btn-outline-danger" title="Kembali">
                             <i class="fa fa-arrow-left"></i> Kembali
                         </button>
-                        &nbsp;
                         <button type="submit" id="submit" class="btn btn-outline-primary">
                             <i class="fas fa-save"></i> Simpan
                         </button>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    </div>
 </section>
 
-
-<!-- Modal Gangguan -->
-<div class="modal fade" id="modal-motif">
+<!--Jenis Motif Modal -->
+<div class="modal fade" id="modal-xl">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header outline-primary">
-                <h4 class="modal-title">Data Gangguan</h4>
+            <div class="modal-header">
+                <h4 class="modal-title">Data Jenis Tenun</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <table class="table table-bordered display">
+                <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <th>Kode Jenis Motif</th>
-                        <th>Motif</th>
-                        <th>Deskripsi</th>
-                        <th>#</th>
+                        <tr>
+                            <th>Motif</th>
+                            <th>Deskripsi</th>
+                            <th width="20">#</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($jenismotif as $r) { ?>
+                        <?php
+                        foreach ($jenismotif as $r) {
+
+                        ?>
                             <tr>
-                                <td><?= $r['kode_jenis'] ?></td>
                                 <td><?= $r['jenis_motif'] ?></td>
                                 <td><?= $r['deskripsi'] ?></td>
                                 <td>
-                                    <button type="button" onclick="return ambilmotif('<?= $r['kode_jenis'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['deskripsi'] ?>')" class="btn btn-outline-success">
-                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                    </button>
+                                    <button type="button" class="btn btn-primary" onclick="return ambil('<?= $r['kode_jenis'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['deskripsi'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
                                 </td>
-                            <?php } ?>
                             </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
+
     </div>
+
 </div>
 
+
+
 <script>
-    function ambilmotif(kode, keterangan, alamat) {
-        $('#kode_jenis').val(kode);
-        $('#keterangan').val(keterangan);
-        $('#alamat').val(alamat);
-        $('#modal-motif').modal('hide')
+    function ambil(kode, namaproduk, deskripsi) {
+        $('#kodejenis').val(kode);
+        $('#namajenis').val(namaproduk);
+        $('#deskripsi').val(deskripsi);
+        $('#modal-xl').modal('hide');
     }
 </script>

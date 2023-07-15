@@ -9,17 +9,16 @@ class Laporan extends BaseController
 {
     public function index()
     {
-    }
-    public function LaporanProduk()
-    {
-
-        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y') && (session()->get('akses1') == '1')) {
             $data = [
-                'isi' => 'Laporan/Produk/Data'
+                'isi' => 'Laporan/Data'
             ];
             return view('Layout/Template', $data);
         } else {
             return view('errors/error_login.php');
         }
+    }
+    public function LaporanProduk()
+    {
     }
 }

@@ -21,6 +21,7 @@ class MUser extends Model
     {
         return $this->db
             ->table('user')
+            ->join('tbl_pegawai','kode_pegawai=kode_user')
             ->where('iduser', $id)->get()->getRowArray();
     }
     public function insert_data($data)

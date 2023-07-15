@@ -117,7 +117,7 @@ $id = $request->uri->getSegment(1);
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/Admin/PO') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'PO') {
+                        <a href="<?= base_url('/Admin/Pemesanan') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Pemesanan') {
                                                                                     echo 'active';
                                                                                 } ?>">
                             <i class="nav-icon fa fa-cart-plus" aria-hidden="true"></i>
@@ -137,7 +137,7 @@ $id = $request->uri->getSegment(1);
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/Admin/Pembelian') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Pembelian') {
+                        <a href="<?= base_url('/Admin/PembelianBahanBaku') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'PembelianBahanBaku') {
                                                                                             echo 'active';
                                                                                         } ?>">
                             <i class="nav-icon fas fa-handshake"></i>
@@ -148,9 +148,9 @@ $id = $request->uri->getSegment(1);
                     </li>
                     <li class="nav-header">LAPORAN</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('LpProduksi') ?>" class="nav-link">
-                            <i class="nav-icon fa fa-print text-danger"></i>
-                            <p>Produksi</p>
+                        <a href="<?= base_url('/Admin/Laporan') ?>" class="nav-link">
+                            <i class="nav-icon fa fa-print text-primary"></i>
+                            <p>Laporan</p>
                         </a>
                     </li>
                 <?php } ?>
@@ -159,7 +159,7 @@ $id = $request->uri->getSegment(1);
                     <li class="nav-header">Transaksi</li>
 
                     <li class="nav-item">
-                        <a href="<?= base_url('/Pelanggan/PO') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'PO') {
+                        <a href="<?= base_url('/Pelanggan/Pemesanan') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'PO') {
                                                                                         echo 'active';
                                                                                     } ?>">
                             <i class="nav-icon fa fa-cart-plus" aria-hidden="true"></i>

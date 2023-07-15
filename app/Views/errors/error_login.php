@@ -84,7 +84,7 @@
             <div class="error-content">
                 <h3><i class="fas fa-exclamation-triangle text-danger"></i> Oops! Maaf Session Login Anda Sudah Habis.</h3>
                 <p>
-                    Silahkan Login Lagi <button class="btn btn-outline-primary" onclick="location.href=('<?= base_url('/Admin') ?>')"><i class="fa fa-sign-in" aria-hidden="true"></i> Click Here</button>
+                    Silahkan Login Lagi <button class="btn btn-outline-primary" onclick="location.href=('<?= base_url('') ?>')"><i class="fa fa-sign-in" aria-hidden="true"></i> Click Here</button>
                                 </p>
 
             </div>

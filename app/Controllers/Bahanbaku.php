@@ -4,23 +4,24 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\MBahanbaku;
-
+use App\Models\MBahanbakumasuk;
 
 class Bahanbaku extends BaseController
 {
     public function index()
     {
-        $Bahanbaku = new MBahanbaku();
-        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1')) {
+        $bahanbaku = new MBahanbaku();
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
-                'data' => $Bahanbaku->getAllData(),
-                'isi' => 'Master/Bahanbaku/Data'
+                'isi' => 'Master/Bahanbaku/Data',
+                'data' => $bahanbaku->getAlldata()
             ];
             return view('Layout/Template', $data);
         } else {
             return view('errors/error_login.php');
         }
     }
+
     public function tambah()
     {
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
@@ -33,53 +34,85 @@ class Bahanbaku extends BaseController
         }
     }
 
-    function add()
+    public function add()
     {
         $valid = $this->validate([
             'nama' => [
                 'label'  => 'Nama Bahan Baku',
                 'rules'   => 'required',
                 'errors' => [
-                    'required' => '{field} Wajib Diisi'
-                ],
-            ],
-            'jumlah' => [
-                'label'  => 'Jumlah Bahan Baku',
-                'rules'   => 'required|',
-                'errors' => [
-                    'required' => '{field} Wajib Diisi'
+                    'required' => '{field} Wajib Diisi !'
                 ],
             ]
         ]);
 
-        $Bahanbaku = new MBahanbaku();
+        $bahanbaku = new MBahanbaku();
         date_default_timezone_set('Asia/Jakarta');
         $date = date('Y-m-d:H:i:s');
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('/Admin/Bahanbaku/Tambah'));
+            return redirect()->to(base_url('/Admin/Bahanbaku-Tambah'));
         } else {
             $data = [
-                'kode_bahan_baku' => $Bahanbaku->koderandom(),
+                'kode_bahan_baku' => $bahanbaku->koderandom(),
                 'nama_bahan_baku' => $this->request->getPost('nama'),
                 'satuan_bahan_baku' => $this->request->getPost('cbsatuan'),
                 'jumlah_bahan_baku' => $this->request->getPost('jumlah'),
+                'harga_bahan_baku' => $this->request->getPost('harga'),
                 'created_at' => $date
             ];
-            $Bahanbaku = new MBahanbaku();
-            $Bahanbaku->insert_data($data);
-
+            $bahanbaku = new MBahanbaku();
+            $bahanbaku->insert_data($data);
             session()->setFlashdata('success', 'Data Bahan Baku Berhasil Ditambahkan');
             return redirect()->to(base_url('/Admin/Bahanbaku'));
         }
     }
-
     public function delete()
     {
         $id = $this->request->getPost('iduser');
-        $usr = new MBahanbaku();
-        $usr->hapus($id);
+        $pelanggan = new MBahanbaku();
+        $pelanggan->hapus($id);
         session()->setFlashdata('success', 'Data Bahan Baku Berhasil Di Hapus !!');
-        return redirect()->to(base_url('/Admin/Bahanbaku'));
+        return redirect()->to(base_url('Admin/Bahanbaku'));
+    }
+
+    public function beli()
+    {
+        $bahanbaku = new MBahanbaku();
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
+            $data = [
+                'isi' => 'Transaksi/Pembelian/Data',
+                'data' => $bahanbaku->getAlldata()
+            ];
+            return view('Layout/Template', $data);
+        } else {
+            return view('errors/error_login.php');
+        }
+    }
+
+    public function simp_detail()
+    {
+        $spp = new MBahanbakumasuk();
+        date_default_timezone_set('Asia/Jakarta');
+        $id = $this->request->getPost('kodebahanbaku');
+        $jumlahbhnbaku = intval($this->request->getPost('jumlah1') - $this->request->getPost('jumlahbahanbaku'));
+        // dd([$id,$jumlahbhnbaku]);
+        $data = [
+            'kode_produksi_detail' => $spp->koderandom(),
+            'kode_bahan_baku_detail' => $this->request->getPost('kodebahanbaku'),
+            'qty_bahan_baku_keluar_detail' => $this->request->getPost('jumlahbahanbaku'),
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+        $dataupdate = [
+            'kode_bahan_baku' => $id,
+            'jumlah_bahan_baku' => $jumlahbhnbaku
+        ];
+        // dd($dataupdate);
+        $bahanbaku = new MBahanbaku();
+        $bahanbaku->update_data($dataupdate, $id);
+
+        $mhs = new MBahanbakumasuk();
+        $mhs->insert_data_temp($data);
+        session()->setFlashdata('successbahanbaku', 'Data Bahan Baku Berhasil Ditambahkan');
     }
 }

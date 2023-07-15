@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\MJenisMotif;
+use App\Models\MBahanbaku;
 use App\Models\MProduk;
+use App\Models\MJenisMotif;
 use Dompdf\Dompdf;
 
 use function PHPUnit\Framework\isEmpty;
@@ -26,17 +27,19 @@ class Produk extends BaseController
     }
     public function tambah()
     {
-        $jenismotif = new MJenisMotif();
+        $motif = new MJenisMotif();
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
-                'jenismotif'=>$jenismotif->getAlldata(),
-                'isi' => 'Master/Produk/Add'
+                'isi' => 'Master/Produk/Add',
+                'jenismotif' => $motif->getAlldata()
+
             ];
             return view('Layout/Template', $data);
         } else {
             return view('errors/error_login.php');
         }
     }
+
     public function add()
     {
         $valid = $this->validate([
@@ -78,11 +81,11 @@ class Produk extends BaseController
             return redirect()->to(base_url('/Admin/Produk/Tambah'));
         } else {
             $data = [
-                'kodeproduk' => $produk->koderandom(),
-                'kode_jenis_motif' => $this->request->getPost('harga'),
-                'nama_produk' => $this->request->getPost('jumlah'),
-                'harga_produk' => $this->request->getPost('deskripsi'),
-                'jumlah_produk' => $this->request->getPost('deskripsi'),
+                'kode_produk' => $produk->koderandom(),
+                'nama_produk' => $this->request->getPost('namaproduk'),
+                'kode_jenis_motif' => $this->request->getPost('kodejenis'),
+                'harga_produk' => $this->request->getPost('harga'),
+                'jumlah_produk' => $this->request->getPost('jumlah'),
                 'created_at' => $date
             ];
             $produk = new MProduk();
@@ -95,11 +98,11 @@ class Produk extends BaseController
     public function edit($id)
     {
         $produk = new MProduk();
+        $motif = new MJenisMotif();
         $request = \Config\Services::request();
-        // $id = $request->uri->getSegment(3);
         $data = [
-            // 'kodeproduk'=>$id,
             'isi' => 'Master/Produk/Edit',
+            'jenismotif' => $motif->getAlldata(),
             'data' => $produk->detail($id)
         ];
         return view('Layout/Template', $data);
@@ -128,41 +131,26 @@ class Produk extends BaseController
                 'errors' => [
                     'required' => '{field} Wajib Diisi'
                 ],
-            ],
-            'jumlah' => [
-                'label'  => 'Jumlah Produk',
-                'rules'   => 'required|',
-                'errors' => [
-                    'required' => '{field} Wajib Diisi'
-                ],
-            ],
-            'gambar' => [
-                'label'  => 'Upload Formulir',
-                'rules'   => 'max_size[gambar,2048]|ext_in[gambar,jpg,jpeg,png]',
-                'errors' => [
-                    'max_size' => 'Ukuran gambar Formulir Maximal 2 MB',
-                    'ext_in' => 'Gambar Formulir Yang Di Upload Harus JPG,JPEG,PNG',
-                ],
             ]
         ]);
         date_default_timezone_set('Asia/Jakarta');
         $date = date('Y-m-d:H:i:s');
         $kodeproduk = $this->request->getPost('kodeproduk');
         $produk = new MProduk();
+        $qtyupdate = intval($this->request->getPost('jumlahsisa') + $this->request->getPost('jumlahtambah'));
+        // dd($qtyupdate);
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('/Admin/Produk/edit/') . $kodeproduk);
+            return redirect()->to(base_url('/Produk/edit/') . $kodeproduk);
         } else {
 
             $data = [
-                'kode_produk' => $produk->koderandom(),
-                'kode_jenis_motif' => $this->request->getPost('harga'),
-                'nama_produk' => $this->request->getPost('jumlah'),
-                'harga_produk' => $this->request->getPost('deskripsi'),
-                'jumlah_produk' => $this->request->getPost('deskripsi'),
+                'kode_jenis_motif' => $this->request->getPost('kodejenis'),
+                'nama_produk' => $this->request->getPost('namaproduk'),
+                'harga_produk' => $this->request->getPost('harga'),
                 'updated_at' => $date
             ];
-
+            $produk = new MProduk();
             $produk->update_data($data, $kodeproduk);
             session()->setFlashdata('success', 'Data Produk Berhasil Di Update');
             return redirect()->to(base_url('/Admin/Produk'));
@@ -178,9 +166,5 @@ class Produk extends BaseController
         $usr->hapus($id);
         session()->setFlashdata('success', 'Data Produk Berhasil Di Hapus !!');
         return redirect()->to(base_url('/Admin/Produk'));
-    }
-
-    public function laporan()
-    {
     }
 }

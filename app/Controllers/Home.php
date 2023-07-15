@@ -11,8 +11,12 @@ class Home extends BaseController
         $produk = new MProduk();
         $session = session();
         // $session->destroy();
-        $data['produk'] = $produk->getAlldata();
-        return view('Home', $data);
+        $data = [
+            'isi' => 'Home',
+            'produk' => $produk->getAlldata()
+        ];
+        return view('Layout_pelanggan/Template', $data);
+        // return view('Home', $data);
     }
     public function home()
     {
@@ -26,7 +30,7 @@ class Home extends BaseController
             $data = [
                 'isi' => 'BerandaPelanggan'
             ];
-            return view('Layout/Template', $data);
+            return view('Layout_pelanggan/Template', $data);
         } else {
             return view('errors/error_login.php');
         }

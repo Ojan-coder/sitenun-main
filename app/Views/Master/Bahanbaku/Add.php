@@ -38,7 +38,7 @@
                             </div>
                         <?php
                         } ?>
-                        <form id="form" action="<?= base_url('/Admin/Store-Bahanbaku') ?>" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="<?= base_url('/Admin/Bahanbaku/Store-Bahanbaku') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Bahan Baku</label>
@@ -58,6 +58,10 @@
                                 <label>Jumlah</label>
                                 <input type="numer" name="jumlah" value="<?= old('jumlah') ?>" id="jumlah" class="form-control" required>
                             </div>
+                            <div class="form-group">
+                                <label>Harga</label>
+                                <input type="numer" name="harga" value="<?= old('harga') ?>" id="harga" class="form-control" required>
+                            </div>
                             <button type="submit" id="submit" style="width:50px" class="btn btn-outline-primary">
                                 <i class="fas fa-save"></i>
                             </button>
@@ -70,5 +74,37 @@
 </section>
 
 <script>
-   
+    $(document).ready(function() {
+        // $.validator.setDefaults({
+        //     submitHandler: function() {
+        //         alert("Form successful submitted!");
+        //     }
+        // });
+
+        $("#form").validate({
+            rules: {
+                gambar: {
+                    mimes: "image/jpeg,image/png,image/jpg",
+                    filesize: 2000
+                },
+            },
+            messages: {
+                gambar: {
+                    mimes: "Extension gambar harus JPEG,JPG,PNG",
+                    filesize: "Ukuran File Maximal 2MB"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+    });
 </script>

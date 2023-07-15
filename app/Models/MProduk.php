@@ -27,16 +27,19 @@ class MProduk extends Model
 
     function getAlldata()
     {
-        return $this->db->table('tbl_produk')->get()->getResultArray();
+        return $this->db
+            ->table('tbl_produk')
+            ->join('tbl_jenis_tenun', 'tbl_jenis_tenun.kode_jenis=tbl_produk.kode_jenis_motif')
+            ->get()->getResultArray();
     }
 
     public function detail($id)
     {
         return $this->db
             ->table('tbl_produk')
+            ->join('tbl_jenis_tenun', 'tbl_jenis_tenun.kode_jenis=tbl_produk.kode_jenis_motif')
             ->where('kode_produk', $id)->get()->getRowArray();
     }
-
     public function insert_data($data)
     {
         return $this->db->table('tbl_produk')->insert($data);
