@@ -11,18 +11,18 @@ class Pemesanan extends BaseController
 {
     public function index()
     {
-
-        $produk = new MProduk();
+        $pesanan = new MPemesanan();
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             if (session()->get('akses1') == '4') {
                 $data = [
                     'isi' => 'Transaksi/Pemesanan/Data',
-                    'dataproduk' => $produk->getAlldata()
+                    'datapesanan' => $pesanan->getAllDataByPelanggan()
                 ];
                 return view('Layout_pelanggan/Template', $data);
             } else {
                 $data1 = [
-                    'isi' => 'Transaksi/Pemesanan/Data'
+                    'isi' => 'Transaksi/Pemesanan/Data',
+                    'datapesanan' => $pesanan->getAllData()
                 ];
                 return view('Layout/Template', $data1);
             }
@@ -42,12 +42,16 @@ class Pemesanan extends BaseController
                     'no_pemesanan' => $pemesanan->koderandom(),
                     'tgl_pemesanan' => $date,
                     'dataproduk' => $produk->getAlldata(),
+                    'detailpesanan' => $pemesanan->getDetailPemesanan(),
                     'isi' => 'Transaksi/Pemesanan/Add'
                 ];
                 return view('Layout_pelanggan/Template', $data);
             } else {
                 $data = [
-                    'produk' => $produk->getAlldata(),
+                    'no_pemesanan' => $pemesanan->koderandom(),
+                    'tgl_pemesanan' => $date,
+                    'dataproduk' => $produk->getAlldata(),
+                    'detailpesanan' => $pemesanan->getDetailPemesanan(),
                     'isi' => 'Transaksi/Pemesanan/Add'
                 ];
                 return view('Layout/Template', $data);
@@ -62,25 +66,83 @@ class Pemesanan extends BaseController
         $pemesanan = new MPemesanan();
         $produk = new MProduk();
         date_default_timezone_set('Asia/Jakarta');
-        $id = $this->request->getPost('kodebahanbaku');
+        $id = $this->request->getPost('kodeproduk');
+        $harga = $this->request->getPost('harga');
         $jumlahbhnbaku = intval($this->request->getPost('jumlah1') - $this->request->getPost('jumlahbahanbaku'));
-        
+        // dd($jumlahbhnbaku);
         $data = [
             'no_pemesanan_detail' => $pemesanan->koderandom(),
-            'kode_produk_penjualan_detail' => $this->request->getPost('kode_produk'),
+            'kode_produk_penjualan_detail' => $id,
             'qty_produk_penjualan_detail' => $this->request->getPost('jumlahbahanbaku'),
-            'harga_produk_penjualan_detail' => $this->request->getPost('harga'),
+            'harga_produk_penjualan_detail' => $harga,
             'created_at' => date('Y-m-d H:i:s')
         ];
+        // dd($data);
+        $pemesanan->insert_data_temp($data);
         $dataproduk = [
             'kode_produk' => $id,
             'jumlah_produk' => $jumlahbhnbaku
         ];
-        // dd($dataupdate);
-        
-        $produk->update_data($produk, $id);
+        // dd($dataproduk);
+        $produk->update_data($dataproduk, $id);
+        session()->setFlashdata('success', 'Data Bahan Baku Berhasil Ditambahkan');
+    }
 
-        $pemesanan->insert_data_temp($data);
-        session()->setFlashdata('successbahanbaku', 'Data Bahan Baku Berhasil Ditambahkan');
+    function add()
+    {
+        $pesanan = new MPemesanan();
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d:H:i:s');
+        $tgl = date('Y-m-d');
+
+        $image = $this->request->getFile('gambar');
+        $img = $image->getName();
+        if ($image->isValid()) {
+            $dataproduksi = [
+                'kode_pemesanan' => $pesanan->koderandom(),
+                'tgl_pemesanan' => $tgl,
+                'kode_pelanggan' => session()->get('kode_user'),
+                'dp_pemesanan' => $this->request->getPost('bayardp'),
+                'status_pemesanan' => '2',
+                'bukti_dp' => $img,
+                'created_at' => $date
+            ];
+            $pesanan->insert_data($dataproduksi);
+            $image->move(ROOTPATH . 'public/fotobukti/', $img);
+        } else {
+            $dataproduksi = [
+                'kode_pemesanan' => $pesanan->koderandom(),
+                'tgl_pemesanan' => $tgl,
+                'kode_pelanggan' => session()->get('kode_user'),
+                'dp_pemesanan' => $this->request->getPost('bayardp'),
+                'status_pemesanan' => '1',
+                'created_at' => $date
+            ];
+            $pesanan->insert_data($dataproduksi);
+        }
+        session()->setFlashdata('success', 'Data Pesanan Berhasil Ditambahkan');
+        return redirect()->to(base_url('/Pemesanan/tambah'));
+    }
+
+    public function delete_bahanbaku()
+    {
+        $request = \Config\Services::request();
+        $id = $request->uri->getSegment(3);
+        $id_detail = $request->uri->getSegment(6);
+        $stokdipakai = $request->uri->getSegment(4);
+        $stokskrng = $request->uri->getSegment(5);
+
+        $jumlahbhnbaku = intval($stokdipakai + $stokskrng);
+        $dataupdate = [
+            'jumlah_produk' => $jumlahbhnbaku
+        ];
+        // dd([$dataupdate,$id_detail]);
+        $bahanbaku = new MProduk();
+        $bahanbaku->update_data($dataupdate, $id);
+
+        $usr = new MPemesanan();
+        $usr->hapus_detail($id, $id_detail);
+        session()->setFlashdata('delete', 'Data Produk Berhasil Di Hapus !!');
+        return redirect()->to(base_url('/Pemesanan/tambah'));
     }
 }

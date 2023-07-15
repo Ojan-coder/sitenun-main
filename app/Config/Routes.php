@@ -36,6 +36,7 @@ $routes->get('/Admin/Beranda', 'Home::home');
 $routes->post('/Admin/In', 'Login::ceklogin');
 $routes->get('/Admin/Logout', 'Login::Logout');
 
+
 // User routes
 $routes->get('/Admin/User', 'User::index');
 $routes->get('/Admin/User-Tambah', 'User::tambah');
@@ -56,16 +57,26 @@ $routes->get('/Admin/PembelianBahanBaku', 'PembelianBahanBaku::index');
 $routes->get('/Admin/PembelianBahanBaku/Bahanbaku-Tambah', 'PembelianBahanBaku::tambah');
 $routes->post('/Admin/PembelianBahanBaku/Store-Bahanbaku', 'PembelianBahanBaku::add');
 
-
-// Produk
+// Admin - Penjualan
 $routes->get('/Admin/Produk', 'Produk::index');
 $routes->get('/Admin/Produk/Tambah', 'Produk::tambah');
 $routes->post('/Admin/Store-produk', 'Produk::add');
+
+
+// Produk
+$routes->get('/Admin/Penjualan', 'Penjualan::index');
+$routes->get('/Admin/Penjualan/Tambah', 'Penjualan::tambah');
+$routes->post('/Admin/Store-penjualan', 'Penjualan::add');
 
 // Produksi
 $routes->get('/Admin/Produksi', 'Produksi::index');
 $routes->get('/Admin/Produksi/Tambah', 'Produksi::tambah');
 $routes->post('/Admin/Store-produksi', 'Produksi::add');
+
+// Pemesanan Produksi dan Admin
+$routes->get('/Admin/Pemesanan', 'Pemesanan::index');
+$routes->get('/Admin/Pemesanan/tambah', 'Pemesanan::tambah');
+$routes->post('/Admin/Store-pemesanan', 'Pemesanan::add');
 
 // Laporan
 $routes->get('/Admin/Laporan', 'Laporan::index');
@@ -77,6 +88,7 @@ $routes->get('/Pelanggan/Beranda', 'Home::home');
 $routes->get('/Admin/Pelanggan', 'Pelanggan::index');
 $routes->get('/Admin/Pelanggan-Tambah', 'Pelanggan::tambah');
 $routes->post('/Admin/Store-pelanggan', 'Pelanggan::add');
+$routes->get('/Pelanggan/Logout', 'Login::Logout');
 
 // Pemesananan Pelanggan
 $routes->get('/Tambah-Pesanan', 'Pemesanan::tambah');

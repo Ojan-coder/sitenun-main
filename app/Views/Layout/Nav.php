@@ -48,7 +48,7 @@ $id = $request->uri->getSegment(1);
                     </a>
                 </li>
                 <!-- Master -->
-                <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2' || session()->get('akses1') == '3') { ?>
+                <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '2') { ?>
 
                     <li class="nav-item <?php if ($request->uri->getSegment(2) == 'Produk' || $request->uri->getSegment(2) == 'JenisMotif' || $request->uri->getSegment(2) == 'Pelanggan' || $request->uri->getSegment(2) == 'Bahanbaku') {
                                             echo 'menu-open';
@@ -118,8 +118,8 @@ $id = $request->uri->getSegment(1);
                     </li>
                     <li class="nav-item">
                         <a href="<?= base_url('/Admin/Pemesanan') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Pemesanan') {
-                                                                                    echo 'active';
-                                                                                } ?>">
+                                                                                            echo 'active';
+                                                                                        } ?>">
                             <i class="nav-icon fa fa-cart-plus" aria-hidden="true"></i>
                             <p>
                                 Pemesanan
@@ -138,19 +138,74 @@ $id = $request->uri->getSegment(1);
                     </li>
                     <li class="nav-item">
                         <a href="<?= base_url('/Admin/PembelianBahanBaku') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'PembelianBahanBaku') {
-                                                                                            echo 'active';
-                                                                                        } ?>">
+                                                                                                    echo 'active';
+                                                                                                } ?>">
                             <i class="nav-icon fas fa-handshake"></i>
                             <p>
                                 Pembelian
                             </p>
                         </a>
                     </li>
+
                     <li class="nav-header">LAPORAN</li>
                     <li class="nav-item">
                         <a href="<?= base_url('/Admin/Laporan') ?>" class="nav-link">
                             <i class="nav-icon fa fa-print text-primary"></i>
                             <p>Laporan</p>
+                        </a>
+                    </li>
+
+
+                <?php } else if (session()->get('akses1') == '3') { ?>
+                    <li class="nav-item <?php if ($request->uri->getSegment(2) == 'Produk' || $request->uri->getSegment(2) == 'JenisMotif' ||  $request->uri->getSegment(2) == 'Bahanbaku') {
+                                            echo 'menu-open';
+                                        } ?>">
+                        <a href="#" class="nav-link <?php if ($request->uri->getSegment(2) == 'Produk' || $request->uri->getSegment(2) == 'JenisMotif' || $request->uri->getSegment(2) == 'Pelanggan' || $request->uri->getSegment(2) == 'Bahanbaku') {
+                                                        echo 'active';
+                                                    } ?>">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Master
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('/Admin/JenisMotif') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'JenisMotif') {
+                                                                                                    echo 'active';
+                                                                                                } ?>">
+                                    <i class="fa fa-plus nav-icon"></i>
+                                    <p>Jenis Motif</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('/Admin/Produk') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Produk') {
+                                                                                                echo 'active';
+                                                                                            } ?>">
+                                    <i class="fa fa-plus nav-icon"></i>
+                                    <p>Produk</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= base_url('/Admin/Bahanbaku') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Bahanbaku') {
+                                                                                                    echo 'active';
+                                                                                                } ?>">
+                                    <i class="fa fa-plus nav-icon"></i>
+                                    <p>Bahan Baku</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-header">Transaksi</li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/Admin/Pemesanan') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Pemesanan') {
+                                                                                            echo 'active';
+                                                                                        } ?>">
+                            <i class="nav-icon fa fa-cart-plus" aria-hidden="true"></i>
+                            <p>
+                                Pemesanan
+                            </p>
                         </a>
                     </li>
                 <?php } ?>
@@ -160,8 +215,8 @@ $id = $request->uri->getSegment(1);
 
                     <li class="nav-item">
                         <a href="<?= base_url('/Pelanggan/Pemesanan') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'PO') {
-                                                                                        echo 'active';
-                                                                                    } ?>">
+                                                                                                echo 'active';
+                                                                                            } ?>">
                             <i class="nav-icon fa fa-cart-plus" aria-hidden="true"></i>
                             <p>
                                 Pesanan Order

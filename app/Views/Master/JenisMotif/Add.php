@@ -38,7 +38,7 @@
                             </div>
                         <?php
                         } ?>
-                        <form id="form" action="<?= base_url('/Admin/Store-jenismotif') ?>" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="<?= base_url('Admin/Store-JenisMotif') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
                             <div class="form-group">
                                 <label>Jenis Motif</label>
@@ -46,7 +46,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Deskripsi</label>
-                                <textarea class="form-control" name="deskripsi" id="deskripsi" ></textarea>
+                                <textarea class="form-control" name="deskripsi" id="deskripsi"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Jenis Motif</label>
+                                <input type="file" name="gambar" id="gambar" class="form-control" required>
                             </div>
                             <button type="submit" id="submit" style="width:50px" class="btn btn-outline-primary">
                                 <i class="fas fa-save"></i>

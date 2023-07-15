@@ -4,23 +4,34 @@
             <div class="col-md-12">
                 <div class="card card-outline card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Data Pemesanan</h3>
+                        <h3 class="card-title">Data Penjualan</h3>
                     </div>
-                    <form action="<?= base_url('Pemesanan/add') ?>" method="POST" enctype="multipart/form-data">
-                        <!-- <form action="<?= base_url('Pemesanan/simp_detail') ?>" method="POST" enctype="multipart/form-data"> -->
+                    <form action="<?= base_url('Penjualan/add') ?>" method="POST" enctype="multipart/form-data">
+                        <!-- <form action="<?= base_url('Penjualan/simp_detail') ?>" method="POST" enctype="multipart/form-data"> -->
                         <div class="card-body">
                             <div class="form-group">
-                                <label>No. Pemesanan</label>
+                                <label>No. Transaksi</label>
                                 <input type="text" class="form-control" value="<?= $no_pemesanan ?>">
                             </div>
                             <div class="form-group">
-                                <label>Tanggal Pemesanan</label>
+                                <label>Tanggal Penjualan</label>
                                 <input type="text" class="form-control" value="<?= $tgl_pemesanan ?>">
                             </div>
-                            <div class="form-group">
-                                <label>Nama Pelanggan</label>
-                                <input type="text" class="form-control" value="<?= session()->get('kode_user') ?>">
-                            </div>
+                            <table width="100%">
+                                <tr>
+                                    <th>Nama Pelanggan</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="text" class="form-control" value="<?= session()->get('kode_user') ?>">
+                                    </td>
+                                    <td width="50px">
+                                        <button class="btn btn-outline-success">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                         <div class="row">
                             <div style="padding-left: 30px;padding-right:30px;" class="col-md-12">
@@ -122,18 +133,19 @@
                                                 </tr>
                                             <?php } ?>
                                             <tr>
-                                                <td colspan="3" align="center"><b>Total Semua :</b></td>
-                                                <td colspan="2"><?= "Rp. " . number_format($totalsemua) ?></td>
+                                                <td width="10%" align="center"><b>Total Semua :</b></td>
+                                                <td colspan="5"><?= "Rp. " . number_format($totalsemua) ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Bayar Dp :</td>
-                                                <td colspan="5"><input type="number" class="form-control" name="bayardp"></td>
+                                                <td width="10%">Bayar</td>
+                                                <td width="10%">Rp.</td>
+                                                <td colspan="4"><input type="number" class="form-control" name="bayardp"></td>
                                             </tr>
                                             <tr>
-                                                <td>Upload Bukti Bayar :</td>
-                                                <td colspan="5">
-                                                    <input type="file" class="form-control" name="gambar" id="gambar">
-                                                    <span><i>Untuk Pembayaran Silahkan Ke Rekening BRI : 5418 0101 2437 534 a/n Novi Putri Sesmita</i></span>
+                                                <td>Kembalian</td>
+                                                <td>Rp.</td>
+                                                <td colspan="4">
+                                                    <input type="number" class="form-control" name="gambar" id="gambar">
                                                 </td>
 
                                             </tr>

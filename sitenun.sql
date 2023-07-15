@@ -137,21 +137,6 @@ insert  into `tbl_detail_bahan_baku_masuk`(`id`,`kode_bahan_baku_masuk_detail`,`
 (4,'FK-BM-001','BB-02',8,30000,'2023-07-15 03:24:50'),
 (5,'FK-BM-001','BB-03',5,25000,'2023-07-15 03:25:14');
 
-/*Table structure for table `tbl_detail_penjualan` */
-
-DROP TABLE IF EXISTS `tbl_detail_penjualan`;
-
-CREATE TABLE `tbl_detail_penjualan` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `kode_detail_penjualan` varchar(10) DEFAULT NULL,
-  `kode_produk_penjualan` varchar(10) DEFAULT NULL,
-  `qty_penjualan` int(11) DEFAULT NULL,
-  `harga_penjualan` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-/*Data for the table `tbl_detail_penjualan` */
-
 /*Table structure for table `tbl_jenis_tenun` */
 
 DROP TABLE IF EXISTS `tbl_jenis_tenun`;
@@ -221,16 +206,19 @@ CREATE TABLE `tbl_pemesanan` (
   `kode_pemesanan` varchar(10) NOT NULL,
   `tgl_pemesanan` date DEFAULT NULL,
   `kode_pelanggan` varchar(10) DEFAULT NULL,
-  `kode_produk` varchar(10) DEFAULT NULL,
-  `qty_pemesanan` int(11) DEFAULT NULL,
   `dp_pemesanan` int(11) DEFAULT NULL,
   `bukti_dp` varchar(100) DEFAULT NULL,
+  `bayar_sisa` int(11) DEFAULT NULL,
   `status_pemesanan` varchar(20) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`kode_pemesanan`),
   KEY `kode_pelanggan` (`kode_pelanggan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_pemesanan` */
+
+insert  into `tbl_pemesanan`(`kode_pemesanan`,`tgl_pemesanan`,`kode_pelanggan`,`dp_pemesanan`,`bukti_dp`,`bayar_sisa`,`status_pemesanan`,`created_at`) values 
+('FK-PO-001','2023-07-15','PL-02',500000,'matakuliah.png',NULL,'2','2023-07-15 14:05:55');
 
 /*Table structure for table `tbl_penjualan` */
 
@@ -238,12 +226,10 @@ DROP TABLE IF EXISTS `tbl_penjualan`;
 
 CREATE TABLE `tbl_penjualan` (
   `no_transaksi_penjualan` varchar(10) NOT NULL,
-  `no_pemesanan_produk` varchar(10) DEFAULT NULL,
   `tgl_penjualan` date DEFAULT NULL,
   `kode_pelanggan` varchar(10) DEFAULT NULL,
   `total_harga_penjualan` int(11) DEFAULT NULL,
-  PRIMARY KEY (`no_transaksi_penjualan`),
-  KEY `no_pemesanan_produk` (`no_pemesanan_produk`)
+  PRIMARY KEY (`no_transaksi_penjualan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_penjualan` */
@@ -259,12 +245,16 @@ CREATE TABLE `tbl_penjualan_detail` (
   `kode_produk_penjualan_detail` varchar(10) DEFAULT NULL,
   `qty_produk_penjualan_detail` int(11) DEFAULT NULL,
   `harga_produk_penjualan_detail` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `no_transaksi_penjualan_detail` (`no_transaksi_penjualan_detail`),
   KEY `kode_produk_penjualan_detail` (`kode_produk_penjualan_detail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tbl_penjualan_detail` */
+
+insert  into `tbl_penjualan_detail`(`id`,`no_transaksi_penjualan_detail`,`no_pemesanan_detail`,`kode_produk_penjualan_detail`,`qty_produk_penjualan_detail`,`harga_produk_penjualan_detail`,`created_at`) values 
+(7,NULL,'FK-PO-001','PR-04',5,400000,'2023-07-15 14:01:37');
 
 /*Table structure for table `tbl_produk` */
 
@@ -288,7 +278,7 @@ insert  into `tbl_produk`(`kode_produk`,`kode_jenis_motif`,`nama_produk`,`harga_
 ('PR-01','JT-01','Jacguard Benang Biru Langit',300000,5,'2023-07-15 01:04:44',NULL),
 ('PR-02','JT-03','Itiak Pulang Patang Benang Biru',450000,5,'2023-07-15 01:14:48','2023-07-15 01:52:32'),
 ('PR-03','JT-04','Kaluak Paku Benang Hijau daun',400000,3,'2023-07-15 01:27:11',NULL),
-('PR-04','JT-02','Pucuak Rabuang Benang Merah',400000,15,'2023-07-15 01:56:03','2023-07-15 02:05:27');
+('PR-04','JT-02','Pucuak Rabuang Benang Merah',400000,10,'2023-07-15 01:56:03','2023-07-15 02:05:27');
 
 /*Table structure for table `tbl_produksi` */
 
@@ -330,8 +320,7 @@ CREATE TABLE `tbl_produksi_detail` (
 insert  into `tbl_produksi_detail`(`id`,`kode_produksi_detail`,`kode_bahan_baku_detail`,`qty_bahan_baku_produksi`,`created_at`) values 
 (2,'PS-01','BB-01',2,'2023-07-15 01:50:00'),
 (3,'PS-01','BB-02',3,'2023-07-15 01:50:17'),
-(4,'PS-02','BB-01',2,'2023-07-15 02:04:18'),
-(5,'PS-02','BB-03',2,'2023-07-15 02:05:09');
+(4,'PS-02','BB-01',2,'2023-07-15 02:04:18');
 
 /*Table structure for table `user` */
 

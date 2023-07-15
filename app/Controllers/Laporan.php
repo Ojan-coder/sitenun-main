@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\MLaporan;
 use App\Models\MProduk;
 
 
@@ -18,7 +19,19 @@ class Laporan extends BaseController
             return view('errors/error_login.php');
         }
     }
-    public function LaporanProduk()
+    public function CetakFaktur()
     {
+        $laporan = new MLaporan();
+        $request = \Config\Services::request();
+        $kode = $request->uri->getSegment(3);
+        $kodepelanggan = $request->uri->getSegment(4);
+        // dd($kode);
+        $data = [
+            'kode'=>$kode,
+            'kodepelanggan'=>$kodepelanggan,
+            'detail' => $laporan->getDetailPemesanan($kode),
+            'pelanggan' => $laporan->detailpelanggan($kodepelanggan),
+        ];
+        return view('Laporan/Faktur', $data);
     }
 }
