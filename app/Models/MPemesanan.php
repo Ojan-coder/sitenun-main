@@ -24,6 +24,10 @@ class MPemesanan extends Model
         $kodeu = $huruf . $batas;
         return $kodeu;
     }
+    function getstatus()
+    {
+        return $this->db->table('level_status')->get()->getResultArray();
+    }
     function getAllDataByPelanggan()
     {
         $id = session()->get('kode_user');
@@ -76,7 +80,7 @@ class MPemesanan extends Model
         return $this->db->table('tbl_penjualan_detail')->delete(['id' => $id_detail]);
     }
 
-    public function update_data($data,$id)
+    public function update_data($data, $id)
     {
         return $this->db->table('tbl_pemesanan')->update($data, ['kode_pemesanan' => $id]);
     }

@@ -12,7 +12,7 @@ class PembelianBahanBaku extends BaseController
     public function index()
     {
         $pembelian = new MPembelianBahanBaku();
-        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1')) {
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1' || session()->get('akses1') == '3')) {
             $data = [
                 'data' => $pembelian->getAllData(),
                 'isi' => 'Transaksi/Pembelian/Data'

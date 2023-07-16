@@ -40,14 +40,14 @@
                                     <th>Dp</th>
                                     <th>Sisa</th>
                                     <th>Status Pemesanan</th>
-                                    <th width="80px">#</th>
+                                    <th width="130px">#</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <?php foreach ($datapesanan as $r) {
                                         $sisa = ($r['harga_produk'] * $r['qty_produk_penjualan_detail']) - $r['dp_pemesanan'] - $r['bayar_sisa'];
-                                        $dp = $r['dp_pemesanan']+$r['bayar_sisa'];
+                                        $dp = $r['dp_pemesanan'] + $r['bayar_sisa'];
                                     ?>
                                         <td><?= $r['kode_pemesanan'] ?></td>
                                         <td><?= $r['tgl_pemesanan'] ?></td>
@@ -59,8 +59,8 @@
                                         <td><?= "Rp. " . number_format($sisa) ?></td>
                                         <td><?= $r['nama_status'] ?></td>
                                         <td>
-                                            <?php if ($r['status_pemesanan'] == '2' && session()->get('akses1') == '1' || session()->get('akses1') == '3') { ?>
-                                                <button class="btn btn-outline-success" title="Silahkan Bayar Sisanya">
+                                            <?php if ($r['status_pemesanan'] == '1' && $r['bukti_dp'] != NULL && session()->get('akses1') == '1') { ?>
+                                                <button class="btn btn-outline-secondary" title="Check Pembayaran" onclick="location.href=('<?= base_url('Pemesanan/gantistatus/').$r['status_pemesanan'] ?>')">
                                                     <i class="fa fa-check-circle" aria-hidden="true"></i>
                                                 </button>
                                             <?php } else if ($r['status_pemesanan'] == '2') { ?>
@@ -73,12 +73,16 @@
                                                 </button>
                                             <?php } ?>
                                             <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '3') { ?>
-                                                <button class="btn btn-outline-warning" data_target="_blank" onclick="location.href=('<?= base_url('fotobukti/') . $r['bukti_dp'] ?>')">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </button>
-                                                <button class="btn btn-outline-warning" data_target="_blank" onclick="location.href=('<?= base_url('fotobukti2/') . $r['bukti_sisa'] ?>')">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </button>
+                                                <?php if ($r['bukti_dp'] != NULL) { ?>
+                                                    <button class="btn btn-outline-success" data_target="_blank" onclick="location.href=('<?= base_url('fotobukti/') . $r['bukti_dp'] ?>')" title="Check Bukti Pembayaran 1">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                <?php } ?>
+                                                <?php if ($r['bukti_sisa'] != NULL) { ?>
+                                                    <button class="btn btn-outline-primary" data_target="_blank" onclick="location.href=('<?= base_url('fotobukti2/') . $r['bukti_sisa'] ?>')" title="Check Bukti Pembayaran 2">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                <?php } ?>
                                             <?php } ?>
                                             <button class="btn btn-outline-primary" title="Cetak Faktur Pemesanan" onclick="location.href=('<?= base_url('Laporan/CetakFaktur/' . $r['kode_pemesanan'] . '/' . $r['kode_pelanggan']) ?>')">
                                                 <i class="fas fa-print"></i>
@@ -126,6 +130,62 @@
                         <tr>
                             <td><label>Upload Bukti Pembayaran</label></td>
                             <td><input type="file" id="gambar" name="gambar" class="form-control"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-outline-success" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Simpan</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Ganti Status -->
+<div class="modal fade text-left" id="modal-check" tabindex="-1" role="dialog" aria-labelledby="myModalLabel130" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <h5 class="modal-title white" id="myModalLabel130">
+                    Check Pembayaran
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="<?= base_url('Pemesanan/gantistatus') ?>" enctype="multipart/form-data" method="POST">
+                <div class="modal-body">
+                    <table width="100%">
+                        <input type="hidden" name="kodepemesanan" id="kodepemesanan">
+                        <tr>
+                            <td><label>Pembayaran Sebelumnya</label></td>
+                            <td><input type="text" class="form-control" name="pembayaran_sebelumnya" id="pembayaran_sebelumnya"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Sisa Pembayaran</label></td>
+                            <td><input type="text" name="sisa_pembayaran" class="form-control" id="sisa_pembayaran"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Bayar Sisa</label></td>
+                            <td><input type="text" name="bayar_sisa" id="bayar_sisa" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Status Proses</label></td>
+                            <td>
+                                <select class="form-control" name="cbstt">
+                                    <option value="">- Pilih Proses -</option>
+                                    <?php foreach ($datastatus as $r) { ?>
+                                        <option value="<?= $r['kode_status'] ?>"><?= $r['nama_status'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </td>
                         </tr>
                     </table>
                 </div>

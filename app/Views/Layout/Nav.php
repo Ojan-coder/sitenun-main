@@ -170,7 +170,7 @@ $id = $request->uri->getSegment(1);
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="<?= base_url('/Admin/JenisMotif') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'JenisMotif') {
                                                                                                     echo 'active';
                                                                                                 } ?>">
@@ -185,7 +185,7 @@ $id = $request->uri->getSegment(1);
                                     <i class="fa fa-plus nav-icon"></i>
                                     <p>Produk</p>
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a href="<?= base_url('/Admin/Bahanbaku') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Bahanbaku') {
                                                                                                     echo 'active';
@@ -199,12 +199,22 @@ $id = $request->uri->getSegment(1);
                     </li>
                     <li class="nav-header">Transaksi</li>
                     <li class="nav-item">
-                        <a href="<?= base_url('/Admin/Pemesanan') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Pemesanan') {
+                        <a href="<?= base_url('/Admin/Produksi') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'Produksi') {
                                                                                             echo 'active';
                                                                                         } ?>">
-                            <i class="nav-icon fa fa-cart-plus" aria-hidden="true"></i>
+                            <i class="nav-icon fas fa-sync" aria-hidden="true"></i>
                             <p>
-                                Pemesanan
+                                Produksi
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('/Admin/PembelianBahanBaku') ?>" class="nav-link <?php if ($request->uri->getSegment(2) == 'PembelianBahanBaku') {
+                                                                                                    echo 'active';
+                                                                                                } ?>">
+                            <i class="nav-icon fas fa-handshake"></i>
+                            <p>
+                                Pembelian
                             </p>
                         </a>
                     </li>

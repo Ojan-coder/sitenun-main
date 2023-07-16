@@ -12,7 +12,7 @@ class Produksi extends BaseController
     public function index()
     {
         $Produksi = new MProduksi();
-        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1')) {
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1' || session()->get('akses1') == '3')) {
             $data = [
                 'data' => $Produksi->getAllData(),
                 'isi' => 'Transaksi/Produksi/Data'
