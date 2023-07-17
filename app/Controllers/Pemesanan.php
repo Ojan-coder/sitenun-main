@@ -102,6 +102,7 @@ class Pemesanan extends BaseController
             $data = [
                 'bayar_sisa' => $this->request->getPost('bayar_sisa'),
                 'bukti_sisa' => $img,
+                'status_pemesanan' => '3',
                 'updated_at' => $date,
             ];
             $image->move(ROOTPATH . 'public/fotobukti2/', $img);
@@ -115,22 +116,24 @@ class Pemesanan extends BaseController
     {
         date_default_timezone_set('Asia/Jakarta');
         $date = date('Y-m-d:H:i:s');
-        $image = $this->request->getFile('gambar');
-        $img = $image->getName();
         $pemesanan = new MPemesanan();
-        $id = $this->request->getPost('kodepemesanan');
-        $stt = $this->request->getPost('cbstt');
-        if ($image->isValid()) {
+        $request = \Config\Services::request();
+        $status = $request->uri->getSegment(3);
+        $kode = $request->uri->getSegment(4);
+        // dd($status);
+        if ($status == '1') {
             $data = [
-                'bayar_sisa' => $this->request->getPost('bayar_sisa'),
-                'bukti_sisa' => $img,
-                'status_pemesanan' => '1',
-                'updated_at' => $date,
+                'status_pemesanan' => '2',
             ];
-            $image->move(ROOTPATH . 'public/fotobukti2/', $img);
-            $pemesanan->update_data($data, $id);
+            $pemesanan->update_data($data, $kode);
+            session()->setFlashdata('delete', 'Data Produk Berhasil Di Ganti !!');
+        } else if ($status == '3' || $status == '2') {
+            $data = [
+                'status_pemesanan' => '5',
+            ];
+            $pemesanan->update_data($data, $kode);
+            session()->setFlashdata('delete', 'Data Produk Berhasil Di Ganti !!');
         }
-        session()->setFlashdata('delete', 'Data Produk Berhasil Di Hapus !!');
         return redirect()->to(base_url('/Pemesanan'));
     }
 

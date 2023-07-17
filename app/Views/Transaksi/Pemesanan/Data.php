@@ -39,7 +39,7 @@
                                     <th>Harga</th>
                                     <th>Dp</th>
                                     <th>Sisa</th>
-                                    <th>Status Pemesanan</th>
+                                    <th>Status Pembayaran</th>
                                     <th width="130px">#</th>
                                 </tr>
                             </thead>
@@ -60,15 +60,15 @@
                                         <td><?= $r['nama_status'] ?></td>
                                         <td>
                                             <?php if ($r['status_pemesanan'] == '1' && $r['bukti_dp'] != NULL && session()->get('akses1') == '1') { ?>
-                                                <button class="btn btn-outline-secondary" title="Check Pembayaran" onclick="location.href=('<?= base_url('Pemesanan/gantistatus/').$r['status_pemesanan'] ?>')">
+                                                <button class="btn btn-outline-secondary" title="Check Status Pembayaran" onclick="location.href=('<?= base_url('Pemesanan/gantistatus/') . $r['status_pemesanan'] . '/' . $r['kode_pemesanan'] ?>')">
                                                     <i class="fa fa-check-circle" aria-hidden="true"></i>
                                                 </button>
-                                            <?php } else if ($r['status_pemesanan'] == '2') { ?>
-                                                <button class="btn btn-outline-success" onclick="return ambil('<?= $r['kode_pemesanan'] ?>','<?= $r['dp_pemesanan'] ?>','<?= $sisa ?>')" data-toggle="modal" data-target="#modal-bahanbaku" title="Silahkan Bayar Sisanya Pelanggan">
-                                                    <i class="fas fa-money-bill"></i>
+                                            <?php } else if ($r['bukti_dp'] != NULL && $r['bukti_sisa'] != NULL && session()->get('akses1') == '1') { ?>
+                                                <button class="btn btn-outline-secondary" title="Selesaikan Produk" onclick="location.href=('<?= base_url('Pemesanan/gantistatus/') . $r['status_pemesanan'] . '/' . $r['kode_pemesanan'] ?>')">
+                                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
                                                 </button>
-                                            <?php } else if ($sisa < 0) { ?>
-                                                <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-bahanbaku" title="Silahkan Bayar Sisanya">
+                                            <?php } else if ($sisa > 0 ) { ?>
+                                                <button type="button" class="btn btn-outline-success" data-toggle="modal" onclick="return ambil('<?= $r['kode_pemesanan'] ?>','<?= $r['dp_pemesanan'] ?>','<?= $sisa ?>')"  data-target="#modal-bahanbaku" title="Silahkan Bayar Sisanya">
                                                     <i class="fa fa-check-circle" aria-hidden="true"></i>
                                                 </button>
                                             <?php } ?>

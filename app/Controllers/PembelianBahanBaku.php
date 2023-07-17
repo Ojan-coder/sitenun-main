@@ -28,7 +28,7 @@ class PembelianBahanBaku extends BaseController
         $tgl = date('Y-m-d');
         $bahanbaku = new MBahanbaku();
         $pembelian = new MPembelianBahanBaku();
-        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1')) {
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1'|| session()->get('akses1') == '3')) {
             $data = [
                 'kodepembelian' => $pembelian->koderandom(),
                 'tanggalpembelian' => $tgl,
