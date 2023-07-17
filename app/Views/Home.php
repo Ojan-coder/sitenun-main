@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="container">
+    
         <div class="row">
             <?php
             foreach ($produk as $r) {
@@ -30,5 +30,5 @@
                 </div>
             <?php } ?>
         </div>
-    </div>
+    
 </div>

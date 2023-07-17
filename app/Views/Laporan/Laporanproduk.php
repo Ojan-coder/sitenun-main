@@ -28,7 +28,7 @@
                 <td align="center">
                     <table style="border-collapse: collapse; width: 100%;" border="0">
                         <tr>
-                            <td><img src="<?= base_url('assets/images/logo/logoSD.png') ?>" width="100px" height="80px" style="align-items:;"></td>
+                            <td><img src="<?= base_url('img/logotenun.png') ?>" width="100px" height="100px" style="align-items:;"></td>
                             <td style="text-align: center;">
                                 <span style="font-size: 20pt; font-weight: bold; color: black;">SENTRA TENUN LINTAU BUO</span><br>
                                 <span style="font-size: 12pt; font-weight: bold; color: black;">Taluak, Lintau Buo, Tanah Datar Regency, West Sumatra 27292</span><br>
@@ -38,7 +38,7 @@
                                     </span>
                                     <hr>
                             </td>
-                            <td><img src="<?= base_url('assets/images/logo/logotutwuri.png') ?>" width="100px" height="80px" style="align-items:;"></td>
+                            <td><img src="<?= base_url('img/tanahdatar.png') ?>" width="100px" height="100px" style="align-items:;"></td>
                         </tr>
                     </table>
                 </td>

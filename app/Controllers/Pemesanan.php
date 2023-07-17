@@ -158,7 +158,7 @@ class Pemesanan extends BaseController
             $pesanan->insert_data($dataproduksi);
             $image->move(ROOTPATH . 'public/fotobukti/', $img);
             session()->setFlashdata('success', 'Data Pesanan Berhasil Ditambahkan');
-            return redirect()->to(base_url('/Pemesanan/tambah'));
+            return redirect()->to(base_url('/Pemesanan'));
         } else {
             session()->setFlashdata('delete', 'Bukti Transfer Harus Di-lampirkan');
             return redirect()->to(base_url('/Pemesanan/tambah'));

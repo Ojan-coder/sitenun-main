@@ -11,17 +11,18 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>No. Pemesanan</label>
-                                <input type="text" class="form-control" value="<?= $no_pemesanan ?>">
+                                <input type="text" class="form-control" value="<?= $no_pemesanan ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Pemesanan</label>
-                                <input type="text" class="form-control" value="<?= $tgl_pemesanan ?>">
+                                <input type="text" class="form-control" value="<?= $tgl_pemesanan ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Nama Pelanggan</label>
-                                <input type="text" class="form-control" value="<?= session()->get('kode_user') ?>">
+                                <input type="text" class="form-control" value="<?= session()->get('kode_user').'-'.session()->get('nama') ?>">
                             </div>
                         </div>
+
                         <div class="row">
                             <div style="padding-left: 30px;padding-right:30px;" class="col-md-12">
                                 <div class="card card-outline card-success">
@@ -71,15 +72,15 @@
                                             <tr>
                                                 <td>
                                                     <input type="hidden" class="form-control kodeproduk" name="kodeproduk" id="kodeproduk">
-                                                    <input type="text" class="form-control" id="namaproduk">
+                                                    <input type="text" class="form-control" id="namaproduk" readonly>
                                                 </td>
                                                 <td>
                                                     <input type="hidden" class="form-control kodemotif" name="kodemotif" id="kodemotif">
-                                                    <input type="text" class="form-control namamotif" name="namamotif" id="namamotif">
+                                                    <input type="text" class="form-control namamotif" name="namamotif" id="namamotif" readonly>
                                                 </td>
                                                 <td>
                                                     <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
-                                                    <input type="text" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku">
+                                                    <input type="text" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku" required>
                                                 </td>
                                                 <td>
                                                     <input type="text" class="form-control" name="harga" id="harga">

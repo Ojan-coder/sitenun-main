@@ -14,17 +14,17 @@
                                 <th>Nama Tenun</th>
                                 <th>Qty</th>
                                 <th>Harga</th>
-                                <th>#</th>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <?php foreach ($datapesanan as $r) { ?>
+                                        <td><?= $r['kode_pemesanan'] ?></td>
+                                        <td><?= $r['tgl_pemesanan'] ?></td>
+                                        <td><?= $r['nama_produk'] ?></td>
+                                        <td><?= $r['qty_produk_penjualan_detail'] ?></td>
+                                        <td><?= "Rp. " . number_format($r['harga_produk_penjualan_detail']) ?></td>
                                 </tr>
+                            <?php } ?>
                             </tbody>
                         </table>
                     </div>

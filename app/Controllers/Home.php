@@ -2,7 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\MPemesanan;
 use App\Models\MProduk;
+
 
 class Home extends BaseController
 {
@@ -20,6 +22,7 @@ class Home extends BaseController
     }
     public function home()
     {
+        $pesanan = new MPemesanan();
 
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y') && (session()->get('akses1') == '1')  || (session()->get('akses1') == '2') || (session()->get('akses1') == '3')) {
             $data = [
@@ -28,7 +31,8 @@ class Home extends BaseController
             return view('Layout/Template', $data);
         } elseif ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y') && (session()->get('akses1') == '4')) {
             $data = [
-                'isi' => 'BerandaPelanggan'
+                'isi' => 'BerandaPelanggan',
+                'datapesanan' => $pesanan->getAllDataByPelanggan()
             ];
             return view('Layout_pelanggan/Template', $data);
         } else {
