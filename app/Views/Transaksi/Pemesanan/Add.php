@@ -19,7 +19,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Nama Pelanggan</label>
-                                <input type="text" class="form-control" value="<?= session()->get('kode_user').'-'.session()->get('nama') ?>">
+                                <input type="text" class="form-control" value="<?= session()->get('kode_user') . '-' . session()->get('nama') ?>" onkeydown="event.preventDefault()">
                             </div>
                         </div>
 
@@ -31,7 +31,7 @@
                                     </div>
                                     <?php
                                     if (!empty(session()->getFlashdata('success'))) { ?>
-                                        <div class="row" style="align-items: center;">
+                                        <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
                                             <div class="col-md-12">
                                                 <div class="alert alert-success alert-dismissible">
                                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -42,12 +42,23 @@
                                         </div>
                                     <?php
                                     } else if (!empty(session()->getFlashdata('delete'))) { ?>
-                                        <div class="row" style="align-items: center;">
+                                        <div class="row" style="align-items: center; padding-right:20px;padding-left:20px;padding-top:20px;">
                                             <div class="col-md-12">
                                                 <div class="alert alert-danger alert-dismissible">
                                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                                     <i class="fa fa-warning" aria-hidden="true"></i> Delete.
                                                     <?= session()->getFlashdata('delete'); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
+                                    } else if (session()->getFlashdata('qty')) { ?>
+                                        <div class="row" style="align-items: center; padding-right:20px;padding-left:20px;padding-top:20px;">
+                                            <div class="col-md-12">
+                                                <div class="alert alert-danger alert-dismissible">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                    <i class="fa fa-warning" aria-hidden="true"></i> Jumlah.
+                                                    <?= session()->getFlashdata('qty'); ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -72,15 +83,15 @@
                                             <tr>
                                                 <td>
                                                     <input type="hidden" class="form-control kodeproduk" name="kodeproduk" id="kodeproduk">
-                                                    <input type="text" class="form-control" id="namaproduk" readonly>
+                                                    <input type="text" class="form-control" id="namaproduk" onkeydown="event.preventDefault()">
                                                 </td>
                                                 <td>
                                                     <input type="hidden" class="form-control kodemotif" name="kodemotif" id="kodemotif">
-                                                    <input type="text" class="form-control namamotif" name="namamotif" id="namamotif" readonly>
+                                                    <input type="text" class="form-control namamotif" name="namamotif" id="namamotif" onkeydown="event.preventDefault()">
                                                 </td>
                                                 <td>
                                                     <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
-                                                    <input type="text" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku" required>
+                                                    <input type="text" class="form-control" name="jumlahbahanbaku" id="jumlahbahanbaku">
                                                 </td>
                                                 <td>
                                                     <input type="text" class="form-control" name="harga" id="harga">
@@ -114,7 +125,7 @@
                                                         <td><?= $r['kode_produk_penjualan_detail'] ?></td>
                                                         <td><?= $r['jenis_motif'] ?></td>
                                                         <td><?= $r['qty_produk_penjualan_detail'] ?></td>
-                                                        <td><?= $r['harga_produk_penjualan_detail'] ?></td>
+                                                        <td><?= "Rp. " . number_format($r['harga_produk_penjualan_detail']) ?></td>
                                                         <td>
                                                             <a class="btn btn-outline-danger" id="hapus" href="<?= base_url('Pemesanan/delete_bahanbaku/' . $r['kode_produk_penjualan_detail']) . '/' . $r['qty_produk_penjualan_detail'] . '/' . $r['jumlah_produk'] . '/' . $r['id'] ?>" title="Hapus Data Bahan Baku">
                                                                 <i class="fas fa-trash"></i>
@@ -126,7 +137,7 @@
                                                 <td colspan="3" align="center"><b>Total Semua :</b></td>
                                                 <td colspan="2"><?= "Rp. " . number_format($totalsemua) ?></td>
                                             </tr>
-                                            <tr>
+                                            <!-- <tr>
                                                 <td>Bayar Dp :</td>
                                                 <td colspan="5"><input type="number" class="form-control" name="bayardp"></td>
                                             </tr>
@@ -137,21 +148,21 @@
                                                     <span><i>Untuk Pembayaran Silahkan Ke Rekening BRI : 5418 0101 2437 534 a/n Novi Putri Sesmita</i></span>
                                                 </td>
 
-                                            </tr>
+                                            </tr> -->
                                             </tbody>
                                         </table>
                                         <br>
                                     </div>
                                 </div>
-
+                                <div class="card-footer">
+                                    <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Pelanggan/PO') ?>')" class="btn btn-outline-danger" title="Kembali">
+                                        <i class="fa fa-arrow-left"></i> Batal
+                                    </button>
+                                    <button type="submit" id="submit" class="btn btn-outline-primary">
+                                        <i class="fas fa-save"></i> Simpan
+                                    </button>
+                                </div>
                             </div>
-                            <div class="card-footer">
-                                <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Pelanggan/PO') ?>')" class="btn btn-outline-danger" title="Kembali">
-                                    <i class="fa fa-arrow-left"></i> Batal
-                                </button>
-                                <button type="submit" id="submit" class="btn btn-outline-primary">
-                                    <i class="fas fa-save"></i> Simpan
-                                </button>
                     </form>
                 </div>
             </div>
@@ -180,6 +191,7 @@
                         <tr>
                             <th>Nama Produk</th>
                             <th>Motif</th>
+                            <th>Stok</th>
                             <th>Harga</th>
                             <th width="20">#</th>
                         </tr>
@@ -188,12 +200,24 @@
                         <tr>
                             <?php foreach ($dataproduk as $r) { ?>
                                 <td><?= $r['nama_produk'] ?></td>
+                                <td><?= $r['jumlah_produk'] ?></td>
                                 <td><?= $r['jenis_motif'] ?></td>
                                 <td><?= "Rp. " . number_format($r['harga_produk']) ?></td>
                                 <td>
-                                    <button class="btn btn-outline-success" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['nama_produk'] ?>','<?= $r['kode_jenis_motif'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['jumlah_produk'] ?>','<?= $r['harga_produk'] ?>')">
-                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                    </button>
+                                    <?php if ($r['jumlah_produk'] < 5 && session()->get('akses1') == '4') { ?>
+                                        <button class="btn btn-danger" title="Stok Sudah Menipis">
+                                            <i class="fa fa-warning" aria-hidden="true"></i>
+                                        </button>
+                                    <?php } else if ($r['jumlah_produk'] < 5 && session()->get('akses1') == '1') { ?>
+                                        <button class="btn btn-warning" title="Stok Sudah Menipis">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                        </button>
+                                    <?php } else { ?>
+                                        <button class="btn btn-outline-success" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['nama_produk'] ?>','<?= $r['kode_jenis_motif'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['jumlah_produk'] ?>','<?= $r['harga_produk'] ?>')">
+                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        </button>
+                                    <?php } ?>
+
                                 </td>
                         </tr>
                     <?php } ?>

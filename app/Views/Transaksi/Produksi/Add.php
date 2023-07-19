@@ -8,7 +8,7 @@
                     </div>
                     <div class="row">
                         <!-- Form Produksi -->
-                        <div class="col-md-6" style="padding-left: 30px;padding-top:20px;">
+                        <div class="col-md-6" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
                             <div class="card card-primary">
                                 <div class="card-header">
                                     <h3 class="card-title">Data Produk</h3>
@@ -17,7 +17,7 @@
                                     <?php
                                     $errors = session()->getFlashdata('errors');
                                     if (!empty($errors)) { ?>
-                                        <div class="alert alert-danger alert-dismissible">
+                                        <div class="alert alert-danger alert-dismissible" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                             <h5><i class="icon fas fa-ban"></i> Alert!</h5>
                                             <h6><b>!! Ada Kesalahan Input Data :</b></h6>
@@ -32,7 +32,7 @@
                                     <?php } ?>
                                     <?php
                                     if (!empty(session()->getFlashdata('success'))) { ?>
-                                        <div class="alert alert-success alert-dismissible" style="padding-left: 30px;">
+                                        <div class="alert alert-success alert-dismissible" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                             <i class="icon fas fa-check"></i> Success.
                                             <?= session()->getFlashdata('success'); ?>
@@ -48,7 +48,7 @@
                                             <label>Nama Produk</label>
                                             <div class="input-group mb-3">
                                                 <input type="hidden" id="kodejenis" name="kodeproduk">
-                                                <input type="text" class="form-control" name="namaproduk" value="<?= old('namaproduk') ?>" id="namaproduk" aria-describedby="button-addon2">
+                                                <input type="text" class="form-control" name="namaproduk" id="namaproduk" aria-describedby="button-addon2">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-xl" type="button" id="button-addon2">
                                                         <i class="fa fa-search" aria-hidden="true"></i>
@@ -81,8 +81,8 @@
                                 <br>
                                 <?php
                                 if (!empty(session()->getFlashdata('successbahanbaku'))) { ?>
-                                    <div class="row" style="align-items: center;">
-                                        <div class="col-md-10">
+                                    <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
+                                        <div class="col-md-12">
                                             <div class="alert alert-success alert-dismissible">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                                 <i class="icon fas fa-check"></i> Success.
@@ -92,8 +92,8 @@
                                     </div>
                                 <?php
                                 } else if (!empty(session()->getFlashdata('deletebahanbaku'))) { ?>
-                                    <div class="row" style="align-items: center;">
-                                        <div class="col-md-10">
+                                    <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
+                                        <div class="col-md-12">
                                             <div class="alert alert-danger alert-dismissible">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                                 <i class="fa fa-warning" aria-hidden="true"></i> Delete.
@@ -140,7 +140,7 @@
                                             <th width="100px">Jumlah</th>
                                             <th width="10px">#</th>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="showdata">
                                             <?php
                                             foreach ($detailbahanbaku as $r) {
                                             ?>
@@ -283,17 +283,19 @@
                 data: datanya,
                 type: "POST",
                 cache: false,
-                success: function(msg) {}
+                success: function(msg) {
+                    $('#showdata').html(html);
+                }
             })
         });
-        $(document).ajaxStop(function() {
-            window.location.reload();
-        });
+        // $(document).ajaxStop(function() {
+        //     window.location.reload();
+        // });
     });
 
-    function refreshPage() {
-        location.reload(true);
-    }
+    // function refreshPage() {
+    //     location.reload(true);
+    // }
 
     function ambil(kode, namaproduk, motif, harga, jumlah) {
         $('#kodejenis').val(kode);

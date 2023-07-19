@@ -51,6 +51,15 @@ class MPemesanan extends Model
             ->join('level_status', 'kode_status=status_pemesanan')
             ->get()->getResultArray();
     }
+    function getDetailBayar($id)
+    {
+        return $this->db
+            ->table('tbl_penjualan_detail')
+            ->join('tbl_produk', 'tbl_produk.kode_produk = tbl_penjualan_detail.kode_produk_penjualan_detail')
+            ->join('tbl_pemesanan','tbl_pemesanan.kode_pemesanan=tbl_penjualan_detail.no_pemesanan_detail')
+            ->join('tbl_jenis_tenun', 'tbl_produk.kode_jenis_motif = tbl_jenis_tenun.kode_jenis')
+            ->where('no_pemesanan_detail', $id)->get()->getResultArray();
+    }
 
     function getDetailPemesanan()
     {

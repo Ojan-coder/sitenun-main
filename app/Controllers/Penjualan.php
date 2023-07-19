@@ -71,24 +71,29 @@ class Penjualan extends BaseController
         date_default_timezone_set('Asia/Jakarta');
         $id = $this->request->getPost('kodeproduk');
         $harga = $this->request->getPost('harga');
-        $jumlahbhnbaku = intval($this->request->getPost('jumlah1') - $this->request->getPost('jumlahbahanbaku'));
+        $jumlahstok = $this->request->getPost('jumlah1');
+        $jumlahbeli = $this->request->getPost('jumlahbahanbaku');
+        $jumlahbhnbaku = intval($jumlahstok - $jumlahbeli);
         // dd($jumlahbhnbaku);
-        $data = [
-            'no_transaksi_penjualan_detail' => $pemesanan->koderandom(),
-            'kode_produk_penjualan_detail' => $id,
-            'qty_produk_penjualan_detail' => $this->request->getPost('jumlahbahanbaku'),
-            'harga_produk_penjualan_detail' => $harga,
-            'created_at' => date('Y-m-d H:i:s')
-        ];
-        // dd($data);
-        $pemesanan->insert_data_temp($data);
-        $dataproduk = [
-            'kode_produk' => $id,
-            'jumlah_produk' => $jumlahbhnbaku
-        ];
-        // dd($dataproduk);
-        $produk->update_data($dataproduk, $id);
-        session()->setFlashdata('success', 'Data Penjualan Berhasil Ditambahkan');
+        if ($jumlahstok < $jumlahbeli) {
+            session()->setFlashdata('delete', 'Stok Produk Tidak Mencukupi');
+        } else {
+            $data = [
+                'no_transaksi_penjualan_detail' => $pemesanan->koderandom(),
+                'kode_produk_penjualan_detail' => $id,
+                'qty_produk_penjualan_detail' => $this->request->getPost('jumlahbahanbaku'),
+                'harga_produk_penjualan_detail' => $harga,
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+
+            $pemesanan->insert_data_temp($data);
+            $dataproduk = [
+                'kode_produk' => $id,
+                'jumlah_produk' => $jumlahbhnbaku
+            ];
+            $produk->update_data($dataproduk, $id);
+            session()->setFlashdata('success', 'Data Penjualan Berhasil Ditambahkan');
+        }
     }
     public function delete_bahanbaku()
     {

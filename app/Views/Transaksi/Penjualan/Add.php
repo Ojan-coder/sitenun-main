@@ -11,11 +11,11 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>No. Transaksi</label>
-                                <input type="text" class="form-control" value="<?= $no_pemesanan ?>">
+                                <input type="text" class="form-control" value="<?= $no_pemesanan ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Penjualan</label>
-                                <input type="text" class="form-control" value="<?= $tgl_pemesanan ?>">
+                                <input type="text" class="form-control" value="<?= $tgl_pemesanan ?>" readonly>
                             </div>
                             <table width="100%">
                                 <tr>
@@ -24,7 +24,7 @@
                                 <tr>
                                     <td>
                                         <input type="hidden" class="form-control" id="kodepelanggan" name="kodepelanggan">
-                                        <input type="text" class="form-control" id="namapelanggan">
+                                        <input type="text" class="form-control" id="namapelanggan" onkeydown="event.preventDefault()">
                                     </td>
                                     <td width="50px">
                                         <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-pelanggan">
@@ -42,7 +42,7 @@
                                     </div>
                                     <?php
                                     if (!empty(session()->getFlashdata('success'))) { ?>
-                                        <div class="row" style="align-items: center;">
+                                        <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
                                             <div class="col-md-12">
                                                 <div class="alert alert-success alert-dismissible">
                                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -53,7 +53,7 @@
                                         </div>
                                     <?php
                                     } else if (!empty(session()->getFlashdata('delete'))) { ?>
-                                        <div class="row" style="align-items: center;">
+                                        <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
                                             <div class="col-md-12">
                                                 <div class="alert alert-danger alert-dismissible">
                                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -83,15 +83,15 @@
                                             <tr>
                                                 <td>
                                                     <input type="hidden" class="form-control kodeproduk" name="kodeproduk" id="kodeproduk">
-                                                    <input type="text" class="form-control" id="namaproduk">
+                                                    <input type="text" class="form-control" id="namaproduk" onkeydown="event.preventDefault()">
                                                 </td>
                                                 <td>
                                                     <input type="hidden" class="form-control kodemotif" name="kodemotif" id="kodemotif">
-                                                    <input type="text" class="form-control namamotif" name="namamotif" id="namamotif">
+                                                    <input type="text" class="form-control namamotif" name="namamotif" id="namamotif" onkeydown="event.preventDefault()">
                                                 </td>
                                                 <td>
                                                     <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
-                                                    <input type="text" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku">
+                                                    <input type="text" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku" required>
                                                 </td>
                                                 <td>
                                                     <input type="text" class="form-control" name="harga" id="harga">
@@ -141,7 +141,7 @@
                                             <tr>
                                                 <td width="10%">Bayar</td>
                                                 <td width="10%">Rp.</td>
-                                                <td colspan="4"><input type="number" id="bayar" class="form-control" name="bayar"></td>
+                                                <td colspan="4"><input type="number" id="bayar" class="form-control" name="bayar" required></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2">Kembalian</td>
@@ -192,6 +192,7 @@
                         <tr>
                             <th>Nama Produk</th>
                             <th>Motif</th>
+                            <th>Stok</th>
                             <th>Harga</th>
                             <th width="20">#</th>
                         </tr>
@@ -200,12 +201,23 @@
                         <tr>
                             <?php foreach ($dataproduk as $r) { ?>
                                 <td><?= $r['nama_produk'] ?></td>
+                                <td><?= $r['jumlah_produk'] ?></td>
                                 <td><?= $r['jenis_motif'] ?></td>
                                 <td><?= "Rp. " . number_format($r['harga_produk']) ?></td>
                                 <td>
-                                    <button class="btn btn-outline-success" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['nama_produk'] ?>','<?= $r['kode_jenis_motif'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['jumlah_produk'] ?>','<?= $r['harga_produk'] ?>')">
-                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                    </button>
+                                    <?php if ($r['jumlah_produk'] < 5 && session()->get('akses1') == '4') { ?>
+                                        <button class="btn btn-danger" title="Stok Sudah Menipis">
+                                            <i class="fa fa-warning" aria-hidden="true"></i>
+                                        </button>
+                                    <?php } else if ($r['jumlah_produk'] < 5 && session()->get('akses1') == '1') { ?>
+                                        <button class="btn btn-warning" onclick="location.href=('<?= base_url('Admin/Produksi/Tambah') ?>')" title="Stok Sudah Menipis">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                        </button>
+                                    <?php } else { ?>
+                                        <button class="btn btn-outline-success" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['nama_produk'] ?>','<?= $r['kode_jenis_motif'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['jumlah_produk'] ?>','<?= $r['harga_produk'] ?>')">
+                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        </button>
+                                    <?php } ?>
                                 </td>
                         </tr>
                     <?php } ?>

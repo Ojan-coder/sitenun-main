@@ -10,11 +10,11 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>No.Pembelian Bahan Baku</label>
-                                <input type="text" id="notransaksi" class="form-control" value="<?= $kodepembelian ?>">
+                                <input type="text" id="notransaksi" class="form-control" value="<?= $kodepembelian ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Pembelian Bahan Baku</label>
-                                <input type="text" class="form-control" value="<?= $tanggalpembelian ?>">
+                                <input type="text" class="form-control" value="<?= $tanggalpembelian ?>" readonly>
                             </div>
                         </div>
 
@@ -29,7 +29,7 @@
 
                                 <?php
                                 if (!empty(session()->getFlashdata('successbahanbaku'))) { ?>
-                                    <div class="row" style="padding-right:20px;padding-left:20px; align-items: center;">
+                                    <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
                                         <div class="col-md-12">
                                             <div class="alert alert-success alert-dismissible">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -40,7 +40,7 @@
                                     </div>
                                 <?php
                                 } else if (!empty(session()->getFlashdata('deletebahanbaku'))) { ?>
-                                    <div class="row" style="padding-right:20px;padding-left:20px;align-items: center;">
+                                    <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
                                         <div class="col-md-12">
                                             <div class="alert alert-danger alert-dismissible">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -68,11 +68,11 @@
                                         <tr>
                                             <td>
                                                 <input type="hidden" class="form-control kodebahanbaku" name="kodebahanbaku" id="kodebahanbaku">
-                                                <input type="text" class="form-control" id="nama_bahan_baku">
+                                                <input type="text" class="form-control" id="nama_bahan_baku" onkeydown="event.preventDefault()">
                                             </td>
                                             <td>
                                                 <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
-                                                <input type="number" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku">
+                                                <input type="number" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku" required>
                                             </td>
                                             <td>
                                                 <input type="number" class="form-control harga" name="harga" id="harga">

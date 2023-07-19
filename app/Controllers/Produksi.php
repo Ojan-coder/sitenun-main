@@ -128,7 +128,7 @@ class Produksi extends BaseController
 
         $usr = new MProduksi();
         $usr->hapus_detail($id, $id_detail);
-        session()->setFlashdata('deletebahanbaku', 'Data Produk Berhasil Di Hapus !!');
+        session()->setFlashdata('deletebahanbaku', 'Data Bahan Baku Berhasil Di Hapus !!');
         return redirect()->to(base_url('/Admin/Produksi/Tambah'));
     }
 

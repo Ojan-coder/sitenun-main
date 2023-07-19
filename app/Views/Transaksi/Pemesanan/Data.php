@@ -12,10 +12,6 @@
                             <button type="button" onclick="location.href=('<?= base_url('Pemesanan/tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
                                 <i class="fa fa-cart-plus"></i>
                             </button>
-                        <?php } else if (session()->get('akses1') == '1' || session()->get('akses1') == '3') { ?>
-                            <button type="button" onclick="location.href=('<?= base_url('/Admin/Pemesanan/tambah') ?>')" class="btn btn-outline-success" title="Tambah Data PO">
-                                <i class="fa fa-cart-plus"></i>
-                            </button>
                         <?php } ?>
                     </div>
                     <div class="card-body">
@@ -67,8 +63,8 @@
                                                 <button class="btn btn-outline-secondary" title="Selesaikan Produk" onclick="location.href=('<?= base_url('Pemesanan/gantistatus/') . $r['status_pemesanan'] . '/' . $r['kode_pemesanan'] ?>')">
                                                     <i class="fa fa-check-circle" aria-hidden="true"></i>
                                                 </button>
-                                            <?php } else if ($sisa > 0 ) { ?>
-                                                <button type="button" class="btn btn-outline-success" data-toggle="modal" onclick="return ambil('<?= $r['kode_pemesanan'] ?>','<?= $r['dp_pemesanan'] ?>','<?= $sisa ?>')"  data-target="#modal-bahanbaku" title="Silahkan Bayar Sisanya">
+                                            <?php } else if ($sisa > 0 && session()->get('akses1')=='4') { ?>
+                                                <button type="button" class="btn btn-outline-success" onclick="location.href=('<?= base_url('Pemesanan/bayar/').$r['kode_pemesanan'] ?>')"  title="Silahkan Bayar Sisanya Pelanggan">
                                                     <i class="fa fa-check-circle" aria-hidden="true"></i>
                                                 </button>
                                             <?php } ?>
