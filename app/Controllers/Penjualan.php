@@ -77,6 +77,8 @@ class Penjualan extends BaseController
         // dd($jumlahbhnbaku);
         if ($jumlahstok < $jumlahbeli) {
             session()->setFlashdata('delete', 'Stok Produk Tidak Mencukupi');
+        } else if ($jumlahbeli == 0) {
+            session()->setFlashdata('qty', 'Silahkan Input Jumlah Pembelian Terlebih Dahulu');
         } else {
             $data = [
                 'no_transaksi_penjualan_detail' => $pemesanan->koderandom(),

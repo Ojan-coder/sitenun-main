@@ -47,8 +47,8 @@
                                         <div class="form-group">
                                             <label>Nama Produk</label>
                                             <div class="input-group mb-3">
-                                                <input type="hidden" id="kodejenis" name="kodeproduk">
-                                                <input type="text" class="form-control" name="namaproduk" id="namaproduk" aria-describedby="button-addon2">
+                                                <input type="hidden" id="kodejenis" name="kodeproduk" >
+                                                <input type="text" class="form-control" name="namaproduk" id="namaproduk" aria-describedby="button-addon2" onkeydown="event.preventDefault()">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-xl" type="button" id="button-addon2">
                                                         <i class="fa fa-search" aria-hidden="true"></i>
@@ -58,11 +58,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Jenis Motif</label>
-                                            <input type="text" id="motif" class="form-control">
+                                            <input type="text" id="motif" class="form-control" onkeydown="event.preventDefault()">
                                         </div>
                                         <div class="form-group">
                                             <label>Harga Produk</label>
-                                            <input type="number" name="harga" id="harga" class="form-control">
+                                            <input type="number" name="harga" id="harga" class="form-control" onkeydown="event.preventDefault()">
                                         </div>
                                         <div class="form-group">
                                             <label>Jumlah Produk</label>
@@ -116,7 +116,7 @@
                                         <tr>
                                             <td>
                                                 <input type="hidden" class="form-control kodebahanbaku" name="kodebahanbaku" id="kodebahanbaku">
-                                                <input type="text" class="form-control" id="nama_bahan_baku">
+                                                <input type="text" class="form-control" id="nama_bahan_baku" onkeydown="event.preventDefault()">
                                             </td>
                                             <td>
                                                 <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
@@ -133,14 +133,14 @@
                                         </tr>
                                     </table>
                                     <hr>
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" id="showdata">
                                         <thead>
                                             <th width="200px">Kode Bahan Baku</th>
                                             <th>Bahan Baku</th>
                                             <th width="100px">Jumlah</th>
                                             <th width="10px">#</th>
                                         </thead>
-                                        <tbody id="showdata">
+                                        <tbody>
                                             <?php
                                             foreach ($detailbahanbaku as $r) {
                                             ?>
@@ -274,17 +274,27 @@
 <script>
     $(document).ready(function() {
         $('#tambah').click(function() {
+            var id =1;
             var kode = $('#kodebahanbaku').val();
             var jumlah = $('#jumlahbahanbaku').val();
             var jumlah1 = $('#jumlah1').val();
-            datanya = "&kodebahanbaku=" + kode + "&jumlahbahanbaku=" + jumlah + "&jumlah1=" + jumlah1;
+
+            var kodeproduk = $('#kodeproduk').val();
+            var namaproduk = $('#namaproduk').val();
+            var motif = $('#motif').val();
+            var harga = $('#harga').val();
+            var jumlahbaru = $('#jumlahbaru').val();
+            var jumlahlama = $('#jumlahlama').val();
+            datanya = "&kodebahanbaku=" + kode + "&jumlahbahanbaku=" + jumlah + "&jumlah1=" + jumlah1 + "&kodeproduk=" + kodeproduk + "&namaproduk=" + namaproduk + "&motif=" + motif + "&harga=" + harga + "&jumlahbaru=" + jumlahbaru + "&jumlahlama=" + jumlahlama;
             $.ajax({
                 url: "<?php echo site_url('Produksi/simp_detail') ?>",
                 data: datanya,
                 type: "POST",
+                msg:{id:id},
                 cache: false,
                 success: function(msg) {
-                    $('#showdata').html(html);
+                    $('#showdata').html(msg);
+                    alert('Berhasil Refresh');
                 }
             })
         });

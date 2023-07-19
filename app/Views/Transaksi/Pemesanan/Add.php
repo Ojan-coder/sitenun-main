@@ -19,7 +19,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Nama Pelanggan</label>
-                                <input type="text" class="form-control" value="<?= session()->get('kode_user') . '-' . session()->get('nama') ?>" onkeydown="event.preventDefault()">
+                                <input type="text" class="form-control" value="<?= session()->get('nama') . ' (' . session()->get('kode_user') ?>)" onkeydown="event.preventDefault()">
                             </div>
                         </div>
 
@@ -52,7 +52,7 @@
                                             </div>
                                         </div>
                                     <?php
-                                    } else if (session()->getFlashdata('qty')) { ?>
+                                    } else if (!empty(session()->getFlashdata('qty'))) { ?>
                                         <div class="row" style="align-items: center; padding-right:20px;padding-left:20px;padding-top:20px;">
                                             <div class="col-md-12">
                                                 <div class="alert alert-danger alert-dismissible">
@@ -90,8 +90,8 @@
                                                     <input type="text" class="form-control namamotif" name="namamotif" id="namamotif" onkeydown="event.preventDefault()">
                                                 </td>
                                                 <td>
-                                                    <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
-                                                    <input type="text" class="form-control" name="jumlahbahanbaku" id="jumlahbahanbaku">
+                                                    <input type="hidden" class="form-control jumlah1" value="0" name="jumlah1" id="jumlah1">
+                                                    <input type="text" class="form-control" name="jumlahbahanbaku" value="0" id="jumlahbahanbaku">
                                                 </td>
                                                 <td>
                                                     <input type="text" class="form-control" name="harga" id="harga">

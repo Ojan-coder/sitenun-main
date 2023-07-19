@@ -63,6 +63,17 @@
                                             </div>
                                         </div>
                                     <?php
+                                    } else if (!empty(session()->getFlashdata('qty'))) { ?>
+                                        <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
+                                            <div class="col-md-12">
+                                                <div class="alert alert-danger alert-dismissible">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                    <i class="fa fa-warning" aria-hidden="true"></i> Qty.
+                                                    <?= session()->getFlashdata('qty'); ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php
                                     } ?>
                                     <div class="card-body">
                                         <table width="100%">
@@ -91,10 +102,10 @@
                                                 </td>
                                                 <td>
                                                     <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
-                                                    <input type="text" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku" required>
+                                                    <input type="text" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" value="0" id="jumlahbahanbaku">
                                                 </td>
                                                 <td>
-                                                    <input type="text" class="form-control" name="harga" id="harga">
+                                                    <input type="text" class="form-control" name="harga" id="harga" onkeydown="event.preventDefault()">
                                                 </td>
                                                 <td width="100px">
                                                     <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-xl" title="Cari Data Bahan Baku">
@@ -154,16 +165,16 @@
                                         </table>
                                         <br>
                                     </div>
+                                    <div class="card-footer">
+                                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Pelanggan/PO') ?>')" class="btn btn-outline-danger" title="Kembali">
+                                            <i class="fa fa-arrow-left"></i> Batal
+                                        </button>
+                                        <button type="submit" id="submit" class="btn btn-outline-primary">
+                                            <i class="fas fa-save"></i> Simpan
+                                        </button>
+                                    </div>
                                 </div>
-
                             </div>
-                            <div class="card-footer">
-                                <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Pelanggan/PO') ?>')" class="btn btn-outline-danger" title="Kembali">
-                                    <i class="fa fa-arrow-left"></i> Batal
-                                </button>
-                                <button type="submit" id="submit" class="btn btn-outline-primary">
-                                    <i class="fas fa-save"></i> Simpan
-                                </button>
                     </form>
                 </div>
             </div>
@@ -241,14 +252,17 @@
         <div class="modal-content">
             <div class="modal-header bg-info">
                 <h5 class="modal-title white" id="myModalLabel130">
-                    Data Pelanggan
+                    Data Pelanggan ||
+                    <a class="btn btn-primary" href="<?= base_url('Pelanggan/tambah') ?>">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </a>
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <table id="example2" class="table table-bordered table-striped">
+                <table id="example2" class="table table-bordered table-striped display">
                     <thead>
                         <tr>
                             <th>Nama Pelanggan</th>

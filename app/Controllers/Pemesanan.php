@@ -90,8 +90,8 @@ class Pemesanan extends BaseController
         } else {
             if ($jumlahdibeli > $jumlahstok) {
                 session()->setFlashdata('delete', 'Stok Produk Tidak Mencukupi');
-            } elseif ($jumlahdibeli == "" || $jumlahstok == "") {
-                session()->setFlashdata('delete', 'Stok Produk Tidak Mencukupi');
+            } elseif ($jumlahdibeli == 0) {
+                session()->setFlashdata('qty', 'Masukkan Jumlah Produk Yang Ingin Di beli !! ');
             } else {
                 $data = [
                     'no_pemesanan_detail' => $pemesanan->koderandom(),
@@ -111,54 +111,77 @@ class Pemesanan extends BaseController
         }
     }
 
-    function bayardp()
+    function prosesbayar()
     {
         date_default_timezone_set('Asia/Jakarta');
         $date = date('Y-m-d:H:i:s');
-        $request = \Config\Services::request();
-        $id = $request->uri->getSegment(3);
-        // dd($id);
+
+        $id = $this->request->getPost('kodepesanan');
+        $bayardp = $this->request->getPost('buktidp');
+        $bayarsisa = $this->request->getPost('buktisisa');
         $pemesanan = new MPemesanan();
         $image = $this->request->getFile('gambar');
         $img = $image->getName();
-        if ($image->isValid()) {
-            $data = [
-                // 'bayar_sisa' => $this->request->getPost('bayardp'),
-                'bukti_dp' => $img,
-                'dp_pemesanan'=>$this->request->getPost('bayardp'),
-                'status_pemesanan' => '2',
-                'updated_at' => $date,
-            ];
-            $image->move(ROOTPATH . 'public/fotobukti/', $img);
-            $pemesanan->update_data($data, $id);
+        if ($bayardp == NULL && $bayarsisa == NULL) {
+            if ($image->isValid()) {
+                $data = [
+                    // 'bayar_sisa' => $this->request->getPost('bayardp'),
+                    'bukti_dp' => $img,
+                    'dp_pemesanan' => $this->request->getPost('bayardp'),
+                    'status_pemesanan' => '2',
+                    'updated_at' => $date,
+                ];
+                // dd($data,$id);
+                $image->move(ROOTPATH . 'public/fotobukti/', $img);
+                $pemesanan->update_data($data, $id);
+                session()->setFlashdata('success', 'Data Pembayaran 1 Berhasil Di Lakukan !!');
+                return redirect()->to(base_url('/Pemesanan'));
+            } else {
+                session()->setFlashdata('delete', 'Bukti Transfer Belum Di Upload !!');
+            }
+        } else if ($bayardp != NULL && $bayarsisa == NULL) {
+            if ($image->isValid()) {
+                $data = [
+                    // 'bayar_sisa' => $this->request->getPost('bayardp'),
+                    'bukti_sisa' => $img,
+                    'bayar_sisa' => $this->request->getPost('bayardp'),
+                    'status_pemesanan' => '3',
+                    'updated_at' => $date,
+                ];
+                $image->move(ROOTPATH . 'public/fotobukti2/', $img);
+                $pemesanan->update_data($data, $id);
+                session()->setFlashdata('success', 'Data Pembayaran 2 Berhasil Di Lakukan !!');
+                return redirect()->to(base_url('/Pemesanan'));
+            } else {
+                session()->setFlashdata('delete', 'Bukti Transfer Belum Di Upload !!');
+            }
         }
-        session()->setFlashdata('delete', 'Data Produk Berhasil Di Hapus !!');
-        return redirect()->to(base_url('/Pemesanan'));
     }
-    function bayarsisa()
-    {
-        date_default_timezone_set('Asia/Jakarta');
-        $date = date('Y-m-d:H:i:s');
-        $request = \Config\Services::request();
-        $id = $request->uri->getSegment(3);
-        // dd($id);
-        $pemesanan = new MPemesanan();
-        $image = $this->request->getFile('gambar');
-        $img = $image->getName();
-        if ($image->isValid()) {
-            $data = [
-                // 'bayar_sisa' => $this->request->getPost('bayardp'),
-                'bukti_sisa' => $img,
-                'bayar_sisa'=>$this->request->getPost('bayardp'),
-                'status_pemesanan' => '3',
-                'updated_at' => $date,
-            ];
-            $image->move(ROOTPATH . 'public/fotobukti/', $img);
-            $pemesanan->update_data($data, $id);
-        }
-        session()->setFlashdata('delete', 'Data Produk Berhasil Di Hapus !!');
-        return redirect()->to(base_url('/Pemesanan'));
-    }
+
+    // function bayarsisa()
+    // {
+    //     date_default_timezone_set('Asia/Jakarta');
+    //     $date = date('Y-m-d:H:i:s');
+    //     $request = \Config\Services::request();
+    //     $id = $request->uri->getSegment(3);
+    //     // dd($id);
+    //     $pemesanan = new MPemesanan();
+    //     $image = $this->request->getFile('gambar');
+    //     $img = $image->getName();
+    //     if ($image->isValid()) {
+    //         $data = [
+    //             // 'bayar_sisa' => $this->request->getPost('bayardp'),
+    //             'bukti_sisa' => $img,
+    //             'bayar_sisa' => $this->request->getPost('bayardp'),
+    //             'status_pemesanan' => '3',
+    //             'updated_at' => $date,
+    //         ];
+    //         $image->move(ROOTPATH . 'public/fotobukti2/', $img);
+    //         $pemesanan->update_data($data, $id);
+    //     }
+    //     session()->setFlashdata('delete', 'Data Produk Berhasil Di Hapus !!');
+    //     return redirect()->to(base_url('/Pemesanan'));
+    // }
 
     function bayar()
     {
@@ -169,7 +192,8 @@ class Pemesanan extends BaseController
         // dd($id);
         $pemesanan = new MPemesanan();
         $data = [
-            'no_pemesanan' => $pemesanan->koderandom(),
+            'detail' => $pemesanan->detail($id),
+            'no_pemesanan' => $id,
             'tgl_pemesanan' => $date,
             'detailpesanan' => $pemesanan->getDetailBayar($id),
             'isi' => 'Transaksi/Pemesanan/Bayar'

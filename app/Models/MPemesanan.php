@@ -56,7 +56,7 @@ class MPemesanan extends Model
         return $this->db
             ->table('tbl_penjualan_detail')
             ->join('tbl_produk', 'tbl_produk.kode_produk = tbl_penjualan_detail.kode_produk_penjualan_detail')
-            ->join('tbl_pemesanan','tbl_pemesanan.kode_pemesanan=tbl_penjualan_detail.no_pemesanan_detail')
+            ->join('tbl_pemesanan', 'tbl_pemesanan.kode_pemesanan=tbl_penjualan_detail.no_pemesanan_detail')
             ->join('tbl_jenis_tenun', 'tbl_produk.kode_jenis_motif = tbl_jenis_tenun.kode_jenis')
             ->where('no_pemesanan_detail', $id)->get()->getResultArray();
     }
@@ -70,6 +70,14 @@ class MPemesanan extends Model
             ->join('tbl_jenis_tenun', 'tbl_produk.kode_jenis_motif = tbl_jenis_tenun.kode_jenis')
             ->where('no_pemesanan_detail', $id)->get()->getResultArray();
     }
+
+    function detail($id)
+    {
+        return $this->db->table('tbl_pemesanan')
+            ->where('kode_pemesanan',$id)
+            ->get()->getRowArray();
+    }
+
     public function insert_data_temp($data)
     {
         return $this->db->table('tbl_penjualan_detail')->insert($data);
