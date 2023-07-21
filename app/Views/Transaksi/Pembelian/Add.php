@@ -72,7 +72,7 @@
                                             </td>
                                             <td>
                                                 <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
-                                                <input type="number" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku" required>
+                                                <input type="number" class="form-control jumlahbahanbaku" value="0" name="jumlahbahanbaku" id="jumlahbahanbaku" required>
                                             </td>
                                             <td>
                                                 <input type="number" class="form-control harga" name="harga" id="harga">
@@ -170,9 +170,9 @@
                             <tr>
                                 <td><?= $r['nama_bahan_baku'] ?></td>
                                 <td><?= $r['jumlah_bahan_baku'] ?>/<?= $r['satuan_bahan_baku'] ?></td>
-                                <td><?= $r['nama_bahan_baku'] ?></td>
+                                <td><?= "Rp. " . number_format($r['harga_bahan_baku']) ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" onclick="return ambil1('<?= $r['kode_bahan_baku'] ?>','<?= $r['nama_bahan_baku'] ?>','<?= $r['jumlah_bahan_baku'] ?>','<?= $r['harga_bahan_baku'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
+                                    <button type="button" class="btn btn-primary" onclick="return ambil1('<?= $r['kode_bahan_baku'] ?>','<?= $r['nama_bahan_baku'] ?>','<?= $r['jumlah_bahan_baku'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -215,11 +215,10 @@
     }
 
 
-    function ambil1(kode, nama, jumlah, harga) {
+    function ambil1(kode, nama, jumlah) {
         $('#kodebahanbaku').val(kode);
         $('#nama_bahan_baku').val(nama);
         $('#jumlah1').val(jumlah);
-        $('#harga').val(harga);
         $('#modal-bahanbaku').modal('hide');
     }
 </script>

@@ -71,7 +71,8 @@ class PembelianBahanBaku extends BaseController
         ];
         $dataupdate = [
             'kode_bahan_baku' => $id,
-            'jumlah_bahan_baku' => $jumlahbhnbaku
+            'jumlah_bahan_baku' => $jumlahbhnbaku,
+            'harga_bahan_baku' => $this->request->getPost('harga'),
         ];
         // dd($dataupdate);
         $bahanbaku = new MBahanbaku();

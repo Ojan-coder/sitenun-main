@@ -68,6 +68,24 @@ class Laporan extends BaseController
                 'data' => $laporan->getpenjualan($tglawal, $tglakhir),
             ];
             return view('Laporan/Laporanpenjualan', $data);
+        } else if ($jenis == '7') {
+            $tglawal = $this->request->getPost('tglawal');
+            $tglakhir = $this->request->getPost('tglakhir');
+            $data = [
+                'tglawal' => $tglawal,
+                'tglakhir' => $tglakhir,
+                'data' => $laporan->getkaryawan(),
+            ];
+            return view('Laporan/Laporankaryawan', $data);
+        } else if ($jenis == '8') {
+            $tglawal = $this->request->getPost('tglawal');
+            $tglakhir = $this->request->getPost('tglakhir');
+            $data = [
+                'tglawal' => $tglawal,
+                'tglakhir' => $tglakhir,
+                'data' => $laporan->getProduksi($tglawal,$tglakhir),
+            ];
+            return view('Laporan/Laporanproduksi', $data);
         }
     }
 
@@ -77,9 +95,11 @@ class Laporan extends BaseController
         $request = \Config\Services::request();
         $kode = $request->uri->getSegment(3);
         $kodepelanggan = $request->uri->getSegment(4);
+        $tgl = $request->uri->getSegment(5);
         // dd($kode);
         $data = [
             'kode' => $kode,
+            'tgl' => $tgl,
             'kodepelanggan' => $kodepelanggan,
             'detail' => $laporan->getDetailPemesanan($kode),
             'pelanggan' => $laporan->detailpelanggan($kodepelanggan),

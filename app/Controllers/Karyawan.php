@@ -72,10 +72,10 @@ class Karyawan extends BaseController
             ],
             'password' => [
                 'label'  => 'Password',
-                'rules'   => 'required|max_length[8]',
+                'rules'   => 'required|min_length[8]',
                 'errors' => [
                     'required' => '{field} Wajib Diisi',
-                    'max_length' => '{field} Maximal 8 Character'
+                    'min_length' => '{field} Maximal 8 Character'
                 ],
             ]
         ]);
@@ -86,7 +86,7 @@ class Karyawan extends BaseController
         $date = date('Y-m-d:H:i:s');
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to(base_url('Pelanggan/Tambah'));
+            return redirect()->to(base_url('Karyawan/Tambah'));
         } else {
             $pass = "pelanggan123";
             $pw = password_hash($pass, PASSWORD_BCRYPT);
@@ -101,19 +101,19 @@ class Karyawan extends BaseController
             ];
             $user->insert_data($data1);
             $data = [
-                'kodepelanggan' => $pelanggan->koderandom(),
-                'namapelanggan' => $this->request->getPost('namapelanggan'),
+                'kodekaryawan' => $pelanggan->koderandom(),
+                'namalengkap' => $this->request->getPost('namapelanggan'),
                 'tgl_lahir' => $this->request->getPost('tgllahir'),
                 'kodejenkel' => $this->request->getPost('cbjenkel'),
                 'alamat' => $this->request->getPost('alamat'),
-                'notelp' => $this->request->getPost('notelp'),
+                'nohp' => $this->request->getPost('notelp'),
                 'created_at' => $date
             ];
             $pelanggan->insert_data($data);
 
             session()->setFlashdata('success', 'Data Berhasil di Tambahkan');
-            session()->setFlashdata('successakun', 'Registrasi Berhasil, Password anda : pelanggan123');
-            return redirect()->to(base_url('Pelanggan'));
+            // session()->setFlashdata('successakun', 'Registrasi Berhasil, Password anda : pelanggan123');
+            return redirect()->to(base_url('Karyawan'));
         }
     }
 

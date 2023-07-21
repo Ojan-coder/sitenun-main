@@ -107,7 +107,41 @@ class Pemesanan extends BaseController
                 ];
                 $produk->update_data($dataproduk, $id);
                 session()->setFlashdata('success', 'Data Pesanan Berhasil Ditambahkan');
+                return redirect()->to(base_url('Pemesanan/Tambah'));
             }
+        }
+    }
+
+    function simp_detail_home()
+    {
+        $request = \Config\Services::request();
+        $id = $request->uri->getSegment(3);
+        $produk = new MProduk();
+        $pemesanan = new MPemesanan();
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d');
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
+            if (session()->get('akses1') == '4') {
+                $data = [
+                    'no_pemesanan' => $pemesanan->koderandom(),
+                    'tgl_pemesanan' => $date,
+                    'dataproduk' => $produk->getAlldata(),
+                    'detailpesanan' => $pemesanan->getDetailPemesanan(),
+                    'isi' => 'Transaksi/Pemesanan/Add'
+                ];
+                return view('Layout_pelanggan/Template', $data);
+            } else {
+                $data = [
+                    'no_pemesanan' => $pemesanan->koderandom(),
+                    'tgl_pemesanan' => $date,
+                    'dataproduk' => $produk->getAlldata(),
+                    'detailpesanan' => $pemesanan->getDetailPemesanan(),
+                    'isi' => 'Transaksi/Pemesanan/Add'
+                ];
+                return view('Layout/Template', $data);
+            }
+        } else {
+            return view('errors/erorr_pemesanan.php');
         }
     }
 

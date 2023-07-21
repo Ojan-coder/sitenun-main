@@ -47,13 +47,19 @@
             <tr>
                 <td>
                     <br>
-                    <table style="border-collapse: collapse; width: 60%; font-weight: bold;" border="0">
+                    <table style="border-collapse: collapse; width: 100%; font-weight: bold;" align="" border="0">
                         <tr>
+                            <td>No. Transaksi</td>
+                            <td>:</td>
+                            <td><?= $kode ?></td>
                             <td>No. Pelanggan</td>
                             <td>:</td>
                             <td><?= $pelanggan['kodepelanggan'] ?></td>
                         </tr>
                         <tr>
+                            <td>Tanggal Pemesanan</td>
+                            <td>:</td>
+                            <td><?= date('d M Y',strtotime($tgl))?></td>
                             <td>Nama Pelanggan</td>
                             <td>:</td>
                             <td><?= $pelanggan['namapelanggan'] ?></td>
@@ -70,9 +76,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>No.Transaki</th>
-                                <th>Tanggal Pemesanan</th>
                                 <th>Nama Produk</th>
+                                <th>Qty</th>
+                                <th>Harga</th>
                                 <th>Dp</th>
                                 <th>Sisa</th>
                                 <th>Total Bayar</th>
@@ -82,15 +88,15 @@
                             <?php
                             $no = 0;
                             foreach ($detail as $r) {
-                                $total = $r['qty_produk_penjualan_detail'] * $r['harga_produk_penjualan_detail'];
                                 $sisa = $r['qty_produk_penjualan_detail'] * $r['harga_produk_penjualan_detail'] - $r['dp_pemesanan'];
+                                $total = $r['qty_produk_penjualan_detail'] * $r['harga_produk_penjualan_detail'];
                                 $no++;
                             ?>
                                 <tr>
                                     <td><?= $no; ?></td>
-                                    <td><?= $r['no_pemesanan_detail'] ?></td>
-                                    <td><?= $r['tgl_pemesanan'] ?></td>
                                     <td><?= $r['nama_produk'] ?></td>
+                                    <td><?= $r['qty_produk_penjualan_detail']?></td>
+                                    <td><?= "Rp. " . number_format($r['harga_produk_penjualan_detail']) ?></td>
                                     <td><?= "Rp. " . number_format($r['dp_pemesanan']) ?></td>
                                     <td><?= "Rp. " . number_format($sisa) ?></td>
                                     <td><?= "Rp. " . number_format($total) ?></td>

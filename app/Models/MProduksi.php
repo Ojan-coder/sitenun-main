@@ -43,6 +43,15 @@ class MProduksi extends Model
             ->where('kode_produksi_detail', $id)->get()->getResultArray();
     }
 
+    function detail($id)
+    {
+        return $this->db
+            ->table('tbl_produksi_detail')
+            ->join('tbl_produksi', 'tbl_produksi.kode_produksi = tbl_produksi_detail.kode_produksi_detail')
+            ->join('tbl_bahan_baku', 'tbl_bahan_baku.kode_bahan_baku = tbl_produksi_detail.kode_bahan_baku_detail')
+            ->where('kode_produk', $id)->get()->getResultArray();
+    }
+
 
     public function insert_data_temp($data)
     {

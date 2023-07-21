@@ -4,10 +4,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Tambah Pelanggan</h3>
+                        <h3 class="card-title">Tambah Karyawan</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Pelanggan') ?>')" class="btn btn-outline-danger" title="Kembali">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Karyawan') ?>')" class="btn btn-outline-danger" title="Kembali">
                             <i class="fa fa-arrow-left"></i>
                         </button>
                     </div>
@@ -37,7 +37,7 @@
                             </div>
                         <?php
                         } ?>
-                        <form id="form" action="<?= base_url('Admin/Store-pelanggan') ?>" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="<?= base_url('Admin/Store-karyawan') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Lengkap</label>

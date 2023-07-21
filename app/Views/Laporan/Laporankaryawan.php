@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Cetak Bahan Baku</title>
+    <title>Cetak</title>
 </head>
 <style>
     #tabel {
@@ -33,7 +33,7 @@
                                 <span style="font-size: 20pt; font-weight: bold; color: black;">SENTRA TENUN LINTAU BUO</span><br>
                                 <span style="font-size: 12pt; font-weight: bold; color: black;">Taluak, Lintau Buo, Tanah Datar Regency, West Sumatra 27292</span><br>
                                 <p>
-                                    <span style="font-size: 18pt; font-weight: bold; color: black;">Laporan Pembelian Bahan Baku</span><br>
+                                    <span style="font-size: 18pt; font-weight: bold; color: black;">Laporan Karyawan</span><br>
                                     <span style="font-size: 12pt; font-weight: bold; font-style: italic;">
                                     </span>
                                     <hr>
@@ -43,46 +43,42 @@
                     </table>
                 </td>
             </tr>
-            <tr>
-                <td>Periode : <?= $tglawal ?> s/d <?= $tglakhir ?></td>
-            </tr>
+
             <tr>
                 <td align="center">
                     <br>
                     <table class="table table-bordered" width="100%" border="1">
                         <thead>
                             <tr>
-                                <th>No. Transaksi</th>
-                                <th>Tanggal Pembelian Bahan Baku</th>
-                                <th>Nama Bahan Baku</th>
-                                <th>Stok</th>
-                                <th>Harga</th>
-                                <th>Total</th>
+                                <th>Kode Karyawan</th>
+                                <th>Nama Karyawan</th>
+                                <th>Tanggal Lahir</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Alamat</th>
+                                <th>No.Telp</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $totalsemua = 0;
                             foreach ($data as $r) {
-                                $totalsemua = $totalsemua + $r['total_harga_bahan_baku_masuk'];
+                                if ($r['kodejenkel'] == 'P') {
+                                    $jk = "Perempuan";
+                                } else {
+                                    $jk = "Laki-Laki";
+                                }
                             ?>
-
                                 <tr>
-                                    <td><?= $r['kode_bahan_baku_masuk'] ?></td>
-                                    <td><?= $r['tgl_bahan_baku_masuk'] ?></td>
-                                    <td><?= $r['nama_bahan_baku'] ?></td>
-                                    <td><?= $r['jumlah_bahan_baku'] ?></td>
-                                    <td><?= "Rp. " . number_format($r['harga_bahan_baku_masuk_detail']) ?></td>
-                                    <td><?= "Rp. " . number_format($r['total_harga_bahan_baku_masuk']) ?></td>
-
+                                    <td><?= $r['kodekaryawan'] ?></td>
+                                    <td><?= $r['namalengkap'] ?></td>
+                                    <td><?= $r['tgl_lahir'] ?></td>
+                                    <td><?= $jk ?></td>
+                                    <td><?= $r['alamat'] ?></td>
+                                    <td><?= $r['nohp'] ?></td>
                                 </tr>
-                            <?php } ?>
-                            <tr>
-                                <td colspan="5"><b>Total Semua</b></td>
-                                <td><?= "Rp. " . number_format($totalsemua) ?></td>
-                            </tr>
+                            <?php
+                            }
+                            ?>
                         </tbody>
-
 
                     </table>
                     <br>

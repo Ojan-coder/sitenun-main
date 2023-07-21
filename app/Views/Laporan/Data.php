@@ -26,6 +26,8 @@
                                     <option value="4">Laporan Pembelian Bahan Baku</option>
                                     <option value="5">Laporan Pemesanan</option>
                                     <option value="6">Laporan Penjualan</option>
+                                    <option value="7">Laporan Karyawan</option>
+                                    <option value="8">Laporan Produksi</option>
                                 </select>
                             </div>
                         </div>

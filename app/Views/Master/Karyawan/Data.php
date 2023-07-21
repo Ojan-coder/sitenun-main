@@ -7,7 +7,7 @@
                         <h3 class="card-title">Data Karyawan</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Karyawan/tambah') ?>')" class="btn btn-outline-primary" title="Tambah Data Pelanggan">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Karyawan/tambah') ?>')" class="btn btn-outline-primary" title="Tambah Data Karyawan">
                             <i class="fa fa-plus-circle"></i>
                         </button>
                     </div>
@@ -43,17 +43,17 @@
                                     }
                                 ?>
                                     <tr>
-                                        <td><?= $r['kodepelanggan'] ?></td>
-                                        <td><?= $r['namapelanggan'] ?></td>
+                                        <td><?= $r['kodekaryawan'] ?></td>
+                                        <td><?= $r['namalengkap'] ?></td>
                                         <td><?= $r['tgl_lahir'] ?></td>
                                         <td><?= $jk ?></td>
                                         <td><?= $r['alamat'] ?></td>
-                                        <td><?= $r['notelp'] ?></td>
+                                        <td><?= $r['nohp'] ?></td>
                                         <td>
-                                            <button type="button" onclick="location.href=('<?= base_url('Pelanggan/edit') . '/' . $r['kodepelanggan'] ?>')" class="btn btn-outline-warning" title="Edit Data">
+                                            <button type="button" onclick="location.href=('<?= base_url('Karyawan/edit') . '/' . $r['kodekaryawan'] ?>')" class="btn btn-outline-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kodepelanggan'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
+                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kodekaryawan'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
                                                 <i class="fas fa-trash"></i>
                                             </button>
 

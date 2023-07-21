@@ -80,7 +80,7 @@
                                                     </a>
                                                 <?php } ?>
                                             <?php } ?>
-                                            <a class="btn btn-outline-primary" target="_blank" title="Cetak Faktur Pemesanan" href="<?= base_url('Laporan/CetakFaktur/' . $r['kode_pemesanan'] . '/' . $r['kode_pelanggan']) ?>">
+                                            <a class="btn btn-outline-primary" target="_blank" title="Cetak Faktur Pemesanan" href="<?= base_url('Laporan/CetakFaktur/' . $r['kode_pemesanan'] . '/' . $r['kode_pelanggan'] . '/' . $r['tgl_pemesanan']) ?>">
                                                 <i class="fas fa-print"></i>
                                             </a>
                                         </td>

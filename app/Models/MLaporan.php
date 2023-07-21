@@ -58,9 +58,17 @@ class MLaporan extends Model
             ->join('pelanggan', 'tbl_penjualan.kode_pelanggan = pelanggan.kodepelanggan')
             ->join('tbl_produk', 'tbl_produk.kode_produk = tbl_penjualan_detail.kode_produk_penjualan_detail')
             ->join('tbl_jenis_tenun', 'tbl_produk.kode_jenis_motif = tbl_jenis_tenun.kode_jenis')
-            ->where('tgl_penjualan >=',$tglawal)
-            ->where('tgl_penjualan <=',$tglakhir)
+            ->where('tgl_penjualan >=', $tglawal)
+            ->where('tgl_penjualan <=', $tglakhir)
             ->get()->getResultArray();
+    }
+
+    function getkaryawan()
+    {
+        return $this->db
+            ->table('tbl_karyawan')
+            ->get()
+            ->getResultArray();
     }
 
     function detailpelanggan($id)
@@ -87,5 +95,18 @@ class MLaporan extends Model
             ->join('tbl_produk', 'tbl_produk.kode_produk = tbl_penjualan_detail.kode_produk_penjualan_detail')
             ->join('tbl_jenis_tenun', 'tbl_produk.kode_jenis_motif = tbl_jenis_tenun.kode_jenis')
             ->where('no_transaksi_penjualan_detail', $id)->get()->getResultArray();
+    }
+
+    function getProduksi($tglawal, $tglakhir)
+    {
+        return $this->db
+            ->table('tbl_produksi_detail')
+            ->join('tbl_produksi', 'tbl_produksi_detail.kode_produksi_detail=tbl_produksi.kode_produksi')
+            ->join('tbl_produk', 'tbl_produksi.kode_produk=tbl_produk.kode_produk')
+            ->join('tbl_jenis_tenun', 'tbl_jenis_tenun.kode_jenis=tbl_produk.kode_jenis_motif')
+            ->join('tbl_bahan_baku', 'tbl_bahan_baku.kode_bahan_baku = tbl_produksi_detail.kode_bahan_baku_detail')
+            ->where('tbl_produksi_detail.created_at >=', $tglawal)
+            ->where('tbl_produksi_detail.created_at <=', $tglakhir)
+            ->get()->getResultArray();
     }
 }

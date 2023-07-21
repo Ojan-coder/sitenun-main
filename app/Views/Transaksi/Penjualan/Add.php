@@ -24,7 +24,7 @@
                                 <tr>
                                     <td>
                                         <input type="hidden" class="form-control" id="kodepelanggan" name="kodepelanggan">
-                                        <input type="text" class="form-control" id="namapelanggan" onkeydown="event.preventDefault()">
+                                        <input type="text" class="form-control" id="namapelanggan" name="namapelanggan">
                                     </td>
                                     <td width="50px">
                                         <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-pelanggan">

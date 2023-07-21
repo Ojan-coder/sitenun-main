@@ -9,7 +9,7 @@ class MKaryawan extends Model
     function koderandom()
     {
         $kode = $this->db->table('tbl_karyawan')
-            ->select('RIGHT(kode_pegawai,2) as iduser', false)
+            ->select('RIGHT(kodekaryawan,2) as iduser', false)
             ->orderBy('iduser', 'DESC')
             ->limit(1)
             ->get()->getRowArray();
@@ -19,8 +19,8 @@ class MKaryawan extends Model
         } else if (empty($kode['iduser'])) {
             $no = "1";
         }
-        $huruf = "PG-";
-        $batas = str_pad($no, 2, "00", STR_PAD_LEFT);
+        $huruf = "USR-";
+        $batas = str_pad($no, 2, "000", STR_PAD_LEFT);
         $kodeu = $huruf . $batas;
         return $kodeu;
     }
@@ -40,7 +40,7 @@ class MKaryawan extends Model
     {
         return $this->db
             ->table('tbl_karyawan')
-            ->where('kode_pegawai', $id)->get()->getRowArray();
+            ->where('kodekaryawan', $id)->get()->getRowArray();
     }
     public function insert_data($data)
     {
@@ -48,10 +48,10 @@ class MKaryawan extends Model
     }
     function update_data($data, $id)
     {
-        return $this->db->table('tbl_karyawan')->update($data, ['kode_pegawai' => $id]);
+        return $this->db->table('tbl_karyawan')->update($data, ['kodekaryawan' => $id]);
     }
     public function hapus($id)
     {
-        return $this->db->table('tbl_karyawan')->delete(['kode_pegawai' => $id]);
+        return $this->db->table('tbl_karyawan')->delete(['kodekaryawan' => $id]);
     }
 }

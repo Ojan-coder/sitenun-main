@@ -6,74 +6,66 @@
                     <div class="card-header">
                         <h6>Tambah Produksi</h6>
                     </div>
-                    <div class="row">
-                        <!-- Form Produksi -->
-                        <div class="col-md-6" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Data Produk</h3>
-                                </div>
-                                <div class="card-body">
+                    <div class="card-body">
+                        <?php
+                        $errors = session()->getFlashdata('errors');
+                        if (!empty($errors)) { ?>
+                            <div class="alert alert-danger alert-dismissible" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                                <h6><b>!! Ada Kesalahan Input Data :</b></h6>
+                                <ul>
+                                    <?php foreach ($errors as $key => $error) { ?>
+                                        <li><?= esc($error) ?></li>
                                     <?php
-                                    $errors = session()->getFlashdata('errors');
-                                    if (!empty($errors)) { ?>
-                                        <div class="alert alert-danger alert-dismissible" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                            <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-                                            <h6><b>!! Ada Kesalahan Input Data :</b></h6>
-                                            <ul>
-                                                <?php foreach ($errors as $key => $error) { ?>
-                                                    <li><?= esc($error) ?></li>
-                                                <?php
-                                                }
-                                                ?>
-                                            </ul>
-                                        </div>
-                                    <?php } ?>
-                                    <?php
-                                    if (!empty(session()->getFlashdata('success'))) { ?>
-                                        <div class="alert alert-success alert-dismissible" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                            <i class="icon fas fa-check"></i> Success.
-                                            <?= session()->getFlashdata('success'); ?>
-                                        </div>
-                                    <?php
-                                    } ?>
-                                    <form id="form" action="<?= base_url('/Admin/Store-produksi') ?>" method="POST" enctype="multipart/form-data">
-                                        <!-- <form id="form" action="<?= base_url('Produksi/simp_detail') ?>" method="POST" enctype="multipart/form-data"> -->
-                                        <?php csrf_field(); ?>
+                                    }
+                                    ?>
+                                </ul>
+                            </div>
+                        <?php } ?>
+                        <?php
+                        if (!empty(session()->getFlashdata('success'))) { ?>
+                            <div class="alert alert-success alert-dismissible" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <i class="icon fas fa-check"></i> Success.
+                                <?= session()->getFlashdata('success'); ?>
+                            </div>
+                        <?php
+                        } ?>
+                        <form id="form" action="<?= base_url('/Admin/Store-produksi') ?>" method="POST" enctype="multipart/form-data">
+                            <!-- <form id="form" action="<?= base_url('Produksi/simp_detail') ?>" method="POST" enctype="multipart/form-data"> -->
+                            <?php csrf_field(); ?>
 
 
-                                        <div class="form-group">
-                                            <label>Nama Produk</label>
-                                            <div class="input-group mb-3">
-                                                <input type="hidden" id="kodejenis" name="kodeproduk">
-                                                <input type="text" class="form-control" name="namaproduk" id="namaproduk" aria-describedby="button-addon2" onkeydown="event.preventDefault()">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-xl" type="button" id="button-addon2">
-                                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Jenis Motif</label>
-                                            <input type="text" id="motif" class="form-control" onkeydown="event.preventDefault()">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Harga Produk</label>
-                                            <input type="number" name="harga" id="harga" class="form-control" onkeydown="event.preventDefault()">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Jumlah Produk</label>
-                                            <input type="hidden" name="jumlahlama" id="jumlahlama" class="form-control">
-                                            <input type="number" name="jumlahbaru" id="jumlahbaru" class="form-control">
-                                        </div>
+                            <div class="form-group">
+                                <label>Nama Produk</label>
+                                <div class="input-group mb-3">
+                                    <input type="hidden" id="kodejenis" name="kodeproduk" value="<?= $produk['kode_produk'] ?>">
+                                    <input type="text" class="form-control" name="namaproduk" value="<?= $produk['nama_produk'] ?>" id="namaproduk" aria-describedby="button-addon2" onkeydown="event.preventDefault()">
+                                    <!-- <div class="input-group-append">
+                                        <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-xl" type="button" id="button-addon2">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </button>
+                                    </div> -->
                                 </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label>Jenis Motif</label>
+                                <input type="text" id="motif" class="form-control" value="<?= $produk['jenis_motif'] ?>" onkeydown="event.preventDefault()">
+                            </div>
+                            <div class="form-group">
+                                <label>Harga Produk</label>
+                                <input type="number" name="harga" id="harga" class="form-control" value="<?= $produk['harga_produk'] ?>" onkeydown="event.preventDefault()">
+                            </div>
+                            <div class="form-group">
+                                <label>Jumlah Produk</label>
+                                <input type="hidden" name="jumlahlama" id="jumlahlama" value="<?= $produk['jumlah_produk'] ?>" class="form-control">
+                                <input type="number" name="jumlahbaru" id="jumlahbaru" required class="form-control">
+                            </div>
+                    </div>
+                    <div class="row">
                         <!-- Form Data Bahan Baku Dipakai -->
-                        <div class="col-md-6" style="padding-top:20px;padding-right:30px;">
+                        <div class="col-md-12" style="padding-top:20px;padding-right:30px;padding-left:30px;">
                             <div class="card card-success">
                                 <div class="card-header">
                                     <h3 class="card-title">Data Bahan</h3>
@@ -177,55 +169,7 @@
     </div>
 </section>
 
-<!--Produk Modal -->
-<div class="modal fade" id="modal-xl">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Data Produk</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <table id="example2" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nama Produk</th>
-                            <th>Motif Produk</th>
-                            <th>Harga Produk</th>
-                            <th>Jumlah Produk</th>
-                            <th width="20">#</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($produk as $r) {
 
-                        ?>
-                            <tr>
-                                <td><?= $r['nama_produk'] ?></td>
-                                <td><?= $r['jenis_motif'] ?></td>
-                                <td><?= "Rp. " . number_format($r['harga_produk']) ?></td>
-                                <td><?= $r['jumlah_produk'] ?></td>
-                                <td>
-                                    <button type="button" class="btn btn-primary" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['nama_produk'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['harga_produk'] ?>','<?= $r['jumlah_produk'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
-                                </td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-
-</div>
 
 <!--Bahan Baku Modal -->
 <div class="modal fade text-left" id="modal-bahanbaku" tabindex="-1" role="dialog" aria-labelledby="myModalLabel130" aria-hidden="true">

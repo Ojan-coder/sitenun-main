@@ -38,8 +38,8 @@ $routes->get('/Admin/Logout', 'Login::Logout');
 
 // Karyawan
 $routes->get('/Admin/Karyawan', 'Karyawan::index');
-$routes->get('/Admin/Karyawan-Tambah', 'User::tambah');
-$routes->post('/Admin/Store-user', 'User::add');
+$routes->get('/Admin/Karyawan-Tambah', 'Karyawan::tambah');
+$routes->post('/Admin/Store-karyawan', 'Karyawan::add');
 
 // User routes
 $routes->get('/Admin/User', 'User::index');

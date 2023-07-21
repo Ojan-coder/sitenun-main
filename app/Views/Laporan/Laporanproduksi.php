@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Cetak Bahan Baku</title>
+    <title>Cetak Laporan Produksi</title>
 </head>
 <style>
     #tabel {
@@ -33,7 +33,7 @@
                                 <span style="font-size: 20pt; font-weight: bold; color: black;">SENTRA TENUN LINTAU BUO</span><br>
                                 <span style="font-size: 12pt; font-weight: bold; color: black;">Taluak, Lintau Buo, Tanah Datar Regency, West Sumatra 27292</span><br>
                                 <p>
-                                    <span style="font-size: 18pt; font-weight: bold; color: black;">Laporan Pembelian Bahan Baku</span><br>
+                                    <span style="font-size: 18pt; font-weight: bold; color: black;">Laporan Produksi</span><br>
                                     <span style="font-size: 12pt; font-weight: bold; font-style: italic;">
                                     </span>
                                     <hr>
@@ -52,38 +52,33 @@
                     <table class="table table-bordered" width="100%" border="1">
                         <thead>
                             <tr>
-                                <th>No. Transaksi</th>
-                                <th>Tanggal Pembelian Bahan Baku</th>
-                                <th>Nama Bahan Baku</th>
+                                <th>Kode Produksi</th>
+                                <th>Tanggal Produksi</th>
+                                <th>Nama Produk</th>
                                 <th>Stok</th>
                                 <th>Harga</th>
-                                <th>Total</th>
+                                <th width="200px">Foto</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $totalsemua = 0;
                             foreach ($data as $r) {
-                                $totalsemua = $totalsemua + $r['total_harga_bahan_baku_masuk'];
+
                             ?>
-
                                 <tr>
-                                    <td><?= $r['kode_bahan_baku_masuk'] ?></td>
-                                    <td><?= $r['tgl_bahan_baku_masuk'] ?></td>
-                                    <td><?= $r['nama_bahan_baku'] ?></td>
-                                    <td><?= $r['jumlah_bahan_baku'] ?></td>
-                                    <td><?= "Rp. " . number_format($r['harga_bahan_baku_masuk_detail']) ?></td>
-                                    <td><?= "Rp. " . number_format($r['total_harga_bahan_baku_masuk']) ?></td>
-
+                                    <td><?= $r['kode_produksi'] ?></td>
+                                    <td><?= $r['created_at'] ?></td>
+                                    <td><?= $r['jenis_motif'] ?></td>
+                                    <td><?= $r['jumlah_produk'] ?></td>
+                                    <td><?= "Rp. " . number_format($r['harga_produk'])  ?></td>
+                                    <td><img src="<?= base_url('fotojenismotif/') . $r['gambar_motif'] ?>" width="250px" height="150px"></td>
+                                    
                                 </tr>
-                            <?php } ?>
-                            <tr>
-                                <td colspan="5"><b>Total Semua</b></td>
-                                <td><?= "Rp. " . number_format($totalsemua) ?></td>
-                            </tr>
+                            <?php
+                            }
+                            ?>
                         </tbody>
-
-
+                        
                     </table>
                     <br>
                 </td>

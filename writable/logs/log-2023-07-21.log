@@ -45,3 +45,760 @@ INFO - 2023-07-21 01:16:16 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-07-21 01:16:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-07-21 01:16:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-07-21 01:16:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 01:27:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 01:27:58 --> Undefined array key "kodejenkel"
+in APPPATH\Views\Master\Karyawan\Data.php on line 39.
+ 1 APPPATH\Views\Master\Karyawan\Data.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "kodejenkel"', 'C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Master\\Karyawan\\Data.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Master\\Karyawan\\Data.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Master/Karyawan/Data', [], true)
+ 5 APPPATH\Views\Layout\Content.php(30): view('Master/Karyawan/Data')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 9 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+13 APPPATH\Controllers\Karyawan.php(19): view('Layout/Template', [...])
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Karyawan->index()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 01:28:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 01:28:26 --> Undefined array key "kodepelanggan"
+in APPPATH\Views\Master\Karyawan\Data.php on line 46.
+ 1 APPPATH\Views\Master\Karyawan\Data.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "kodepelanggan"', 'C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Master\\Karyawan\\Data.php', 46)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Master\\Karyawan\\Data.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Master/Karyawan/Data', [], true)
+ 5 APPPATH\Views\Layout\Content.php(30): view('Master/Karyawan/Data')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 9 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+13 APPPATH\Controllers\Karyawan.php(19): view('Layout/Template', [...])
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Karyawan->index()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 01:28:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 01:28:44 --> Undefined array key "kodekaryawan"
+in APPPATH\Views\Master\Karyawan\Data.php on line 46.
+ 1 APPPATH\Views\Master\Karyawan\Data.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "kodekaryawan"', 'C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Master\\Karyawan\\Data.php', 46)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Master\\Karyawan\\Data.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Master/Karyawan/Data', [], true)
+ 5 APPPATH\Views\Layout\Content.php(30): view('Master/Karyawan/Data')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 9 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+13 APPPATH\Controllers\Karyawan.php(19): view('Layout/Template', [...])
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Karyawan->index()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 01:29:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 01:29:59 --> Undefined array key "namakaryawan"
+in APPPATH\Views\Master\Karyawan\Data.php on line 47.
+ 1 APPPATH\Views\Master\Karyawan\Data.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "namakaryawan"', 'C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Master\\Karyawan\\Data.php', 47)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Master\\Karyawan\\Data.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Master/Karyawan/Data', [], true)
+ 5 APPPATH\Views\Layout\Content.php(30): view('Master/Karyawan/Data')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 9 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+13 APPPATH\Controllers\Karyawan.php(19): view('Layout/Template', [...])
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Karyawan->index()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 01:30:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 01:30:32 --> Undefined array key "notelp"
+in APPPATH\Views\Master\Karyawan\Data.php on line 51.
+ 1 APPPATH\Views\Master\Karyawan\Data.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "notelp"', 'C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Master\\Karyawan\\Data.php', 51)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Master\\Karyawan\\Data.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Master/Karyawan/Data', [], true)
+ 5 APPPATH\Views\Layout\Content.php(30): view('Master/Karyawan/Data')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 9 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+13 APPPATH\Controllers\Karyawan.php(19): view('Layout/Template', [...])
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Karyawan->index()
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 01:30:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 01:30:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 01:30:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 01:31:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 01:31:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 01:31:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 01:31:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 01:31:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 01:31:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:06:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:06:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:06:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:07:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:07:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:08:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:08:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:08:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:08:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:09:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:09:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:09:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:09:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 10:10:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:10:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:11:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:11:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:11:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:11:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 10:12:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:12:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:12:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:12:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:12:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 10:15:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:15:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:17:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 10:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:17:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:18:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-21 10:19:13 --> mysqli_sql_exception: Unknown column 'kode_pegawai' in 'field list' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT RIGHT(ko...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT RIGHT(ko...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT RIGHT(ko...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT RIGHT(ko...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MKaryawan.php(15): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Karyawan.php(95): App\Models\MKaryawan->koderandom()
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Karyawan->add()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-21 10:19:13 --> Unknown column 'kode_pegawai' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1', [], false)
+ 5 APPPATH\Models\MKaryawan.php(15): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Karyawan.php(95): App\Models\MKaryawan->koderandom()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Karyawan->add()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-21 10:19:38 --> mysqli_sql_exception: Unknown column 'kode_pegawai' in 'field list' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT RIGHT(ko...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT RIGHT(ko...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT RIGHT(ko...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT RIGHT(ko...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MKaryawan.php(15): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Karyawan.php(95): App\Models\MKaryawan->koderandom()
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Karyawan->add()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-21 10:19:38 --> Unknown column 'kode_pegawai' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1', [], false)
+ 5 APPPATH\Models\MKaryawan.php(15): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Karyawan.php(95): App\Models\MKaryawan->koderandom()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Karyawan->add()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-21 10:25:06 --> mysqli_sql_exception: Unknown column 'kode_pegawai' in 'field list' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT RIGHT(ko...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT RIGHT(ko...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT RIGHT(ko...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT RIGHT(ko...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MKaryawan.php(15): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Karyawan.php(95): App\Models\MKaryawan->koderandom()
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Karyawan->add()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-21 10:25:06 --> Unknown column 'kode_pegawai' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT RIGHT(kode_pegawai,2) as iduser
+FROM `tbl_karyawan`
+ORDER BY `iduser` DESC
+ LIMIT 1', [], false)
+ 5 APPPATH\Models\MKaryawan.php(15): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Karyawan.php(95): App\Models\MKaryawan->koderandom()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Karyawan->add()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-21 10:25:31 --> mysqli_sql_exception: Unknown column 'notelp' in 'field list' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MKaryawan.php(47): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Karyawan.php(112): App\Models\MKaryawan->insert_data(Array)
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Karyawan->add()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-21 10:25:31 --> Unknown column 'notelp' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tbl_karyawan` (`kodekaryawan`, `namalengkap`, `tgl_lahir`, `kodejenkel`, `alamat`, `notelp`, `created_at`) VALUES (\'USR-04\', \'alif\', \'2001-01-01\', \'L\', \'Padang\', \'081266053442\', \'2023-07-21:10:25:31\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_karyawan` (`kodekaryawan`, `namalengkap`, `tgl_lahir`, `kodejenkel`, `alamat`, `notelp`, `created_at`) VALUES (\'USR-04\', \'alif\', \'2001-01-01\', \'L\', \'Padang\', \'081266053442\', \'2023-07-21:10:25:31\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_karyawan` (`kodekaryawan`, `namalengkap`, `tgl_lahir`, `kodejenkel`, `alamat`, `notelp`, `created_at`) VALUES (\'USR-04\', \'alif\', \'2001-01-01\', \'L\', \'Padang\', \'081266053442\', \'2023-07-21:10:25:31\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_karyawan` (`kodekaryawan`, `namalengkap`, `tgl_lahir`, `kodejenkel`, `alamat`, `notelp`, `created_at`) VALUES (:kodekaryawan:, :namalengkap:, :tgl_lahir:, :kodejenkel:, :alamat:, :notelp:, :created_at:)', [...], false)
+ 5 APPPATH\Models\MKaryawan.php(47): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Karyawan.php(112): App\Models\MKaryawan->insert_data([...])
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Karyawan->add()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Karyawan))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 10:25:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:25:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:25:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:26:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:27:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:30:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 10:31:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:31:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:31:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:32:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:34:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:34:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:35:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:35:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:36:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:37:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:37:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:37:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:37:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:37:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:39:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:39:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:39:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:39:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:41:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 03:41:48 --> Cannot access offset of type string on string
+in APPPATH\Views\Transaksi\Produksi\Add.php on line 199.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Transaksi/Produksi/Add', [], true)
+ 4 APPPATH\Views\Layout\Content.php(30): view('Transaksi/Produksi/Add')
+ 5 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 6 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 7 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 8 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 9 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+10 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+11 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+12 APPPATH\Controllers\Produksi.php(40): view('Layout/Template', [...])
+13 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->tambah('PR-02')
+14 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+15 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+16 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 03:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:42:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:42:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:42:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:43:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 10:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 10:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 03:43:43 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Produksi.php on line 86.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->add()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 03:43:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:44:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 03:44:08 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Produksi.php on line 86.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->add()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 03:44:16 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Produksi.php on line 86.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->add()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 03:44:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:44:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:44:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:44:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:45:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:46:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:46:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:46:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:46:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:46:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:47:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:48:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 03:48:11 --> syntax error, unexpected identifier "s", expecting "," or ";"
+in APPPATH\Views\Transaksi\Produksi\Add.php on line 62.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Transaksi/Produksi/Add', [], true)
+ 3 APPPATH\Views\Layout\Content.php(30): view('Transaksi/Produksi/Add')
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 7 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+ 8 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+ 9 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+11 APPPATH\Controllers\Produksi.php(40): view('Layout/Template', [...])
+12 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->tambah('PR-02')
+13 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+14 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 03:48:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:48:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 10:48:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:48:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:54:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:59:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 03:59:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:00:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:00:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 04:00:38 --> Undefined array key "nama_bahan_baku"
+in APPPATH\Views\Transaksi\Produksi\Detail.php on line 42.
+ 1 APPPATH\Views\Transaksi\Produksi\Detail.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_bahan_baku"', 'C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Transaksi\\Produksi\\Detail.php', 42)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Transaksi\\Produksi\\Detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Transaksi/Produksi/Detail', [], true)
+ 5 APPPATH\Views\Layout\Content.php(30): view('Transaksi/Produksi/Detail')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 9 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+13 APPPATH\Controllers\Produksi.php(59): view('Layout/Template', [...])
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->detail('PR-02')
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 04:00:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-07-21 04:00:56 --> Undefined array key "harga_bahan_baku_masuk_detail"
+in APPPATH\Views\Transaksi\Produksi\Detail.php on line 44.
+ 1 APPPATH\Views\Transaksi\Produksi\Detail.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "harga_bahan_baku_masuk_detail"', 'C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Transaksi\\Produksi\\Detail.php', 44)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Transaksi\\Produksi\\Detail.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Transaksi/Produksi/Detail', [], true)
+ 5 APPPATH\Views\Layout\Content.php(30): view('Transaksi/Produksi/Detail')
+ 6 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Content.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Content', [], true)
+ 9 APPPATH\Views\Layout\Template.php(5): view('Layout/Content')
+10 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Layout\\Template.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Layout/Template', [], true)
+13 APPPATH\Controllers\Produksi.php(59): view('Layout/Template', [...])
+14 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Produksi->detail('PR-02')
+15 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produksi))
+16 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 04:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:02:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:03:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:04:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:04:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:04:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:05:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:05:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:05:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:05:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:05:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:05:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:05:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:06:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:06:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:06:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:06:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:06:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:07:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:07:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:07:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:07:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:07:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:07:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:08:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:08:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:08:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:08:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:08:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:10:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:10:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:10:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:10:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:11:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:11:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:14:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:14:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:15:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:15:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:15:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:15:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:21:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:21:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:21:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:21:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:21:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:21:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:21:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:24:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:24:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:25:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:25:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:25:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:25:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:25:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:25:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:25:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:25:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:25:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:25:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:26:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:26:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:26:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:26:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:28:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:30:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:30:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:36:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:37:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 11:38:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:38:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:38:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:38:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:38:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:38:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:39:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:41:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:41:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 04:41:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 05:44:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 05:44:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 05:44:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 05:44:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 05:44:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 05:44:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 05:44:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 05:44:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 05:48:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 06:05:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 06:05:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 06:05:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 06:05:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 06:05:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 06:05:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 06:05:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 06:10:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 06:10:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-21 06:10:59 --> mysqli_sql_exception: Column 'created_at' in where clause is ambiguous in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MLaporan.php(107): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Laporan.php(86): App\Models\MLaporan->getProduksi('2023-07-01', '2023-07-31')
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-21 06:10:59 --> Column 'created_at' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_produksi`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_jenis_tenun` ON `tbl_jenis_tenun`.`kode_jenis`=`tbl_produk`.`kode_jenis_motif`
+WHERE `created_at` >= \'2023-07-01\'
+AND `created_at` <= \'2023-07-31\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_produksi`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_jenis_tenun` ON `tbl_jenis_tenun`.`kode_jenis`=`tbl_produk`.`kode_jenis_motif`
+WHERE `created_at` >= \'2023-07-01\'
+AND `created_at` <= \'2023-07-31\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_produksi`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_jenis_tenun` ON `tbl_jenis_tenun`.`kode_jenis`=`tbl_produk`.`kode_jenis_motif`
+WHERE `created_at` >= \'2023-07-01\'
+AND `created_at` <= \'2023-07-31\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_produksi`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_jenis_tenun` ON `tbl_jenis_tenun`.`kode_jenis`=`tbl_produk`.`kode_jenis_motif`
+WHERE `created_at` >= :created_at:
+AND `created_at` <= :created_at.1:', [...], false)
+ 5 APPPATH\Models\MLaporan.php(107): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Laporan.php(86): App\Models\MLaporan->getProduksi('2023-07-01', '2023-07-31')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-21 06:12:33 --> mysqli_sql_exception: Column 'created_at' in where clause is ambiguous in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MLaporan.php(109): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Laporan.php(86): App\Models\MLaporan->getProduksi('2023-07-01', '2023-07-31')
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-21 06:12:33 --> Column 'created_at' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi`.`kode_produksi` = `tbl_produksi_detail`.`kode_produksi_detail`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `created_at` >= \'2023-07-01\'
+AND `created_at` <= \'2023-07-31\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi`.`kode_produksi` = `tbl_produksi_detail`.`kode_produksi_detail`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `created_at` >= \'2023-07-01\'
+AND `created_at` <= \'2023-07-31\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi`.`kode_produksi` = `tbl_produksi_detail`.`kode_produksi_detail`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `created_at` >= \'2023-07-01\'
+AND `created_at` <= \'2023-07-31\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi`.`kode_produksi` = `tbl_produksi_detail`.`kode_produksi_detail`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `created_at` >= :created_at:
+AND `created_at` <= :created_at.1:', [...], false)
+ 5 APPPATH\Models\MLaporan.php(109): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Laporan.php(86): App\Models\MLaporan->getProduksi('2023-07-01', '2023-07-31')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-21 06:12:42 --> mysqli_sql_exception: Unknown column 'tbl_penjualan_detail.created_at' in 'where clause' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MLaporan.php(109): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Laporan.php(86): App\Models\MLaporan->getProduksi('2023-07-01', '2023-07-31')
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-21 06:12:42 --> Unknown column 'tbl_penjualan_detail.created_at' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi`.`kode_produksi` = `tbl_produksi_detail`.`kode_produksi_detail`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `tbl_penjualan_detail`.`created_at` >= \'2023-07-01\'
+AND `tbl_penjualan_detail`.`created_at` <= \'2023-07-31\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi`.`kode_produksi` = `tbl_produksi_detail`.`kode_produksi_detail`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `tbl_penjualan_detail`.`created_at` >= \'2023-07-01\'
+AND `tbl_penjualan_detail`.`created_at` <= \'2023-07-31\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi`.`kode_produksi` = `tbl_produksi_detail`.`kode_produksi_detail`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `tbl_penjualan_detail`.`created_at` >= \'2023-07-01\'
+AND `tbl_penjualan_detail`.`created_at` <= \'2023-07-31\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi`.`kode_produksi` = `tbl_produksi_detail`.`kode_produksi_detail`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `tbl_penjualan_detail`.`created_at` >= :tbl_penjualan_detail.created_at:
+AND `tbl_penjualan_detail`.`created_at` <= :tbl_penjualan_detail.created_at.1:', [...], false)
+ 5 APPPATH\Models\MLaporan.php(109): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Laporan.php(86): App\Models\MLaporan->getProduksi('2023-07-01', '2023-07-31')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-07-21 06:14:39 --> mysqli_sql_exception: Unknown column 'tbl_penjualan_detail.created_at' in 'where clause' in C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\sitenun-main\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sitenun-main\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sitenun-main\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sitenun-main\app\Models\MLaporan.php(109): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sitenun-main\app\Controllers\Laporan.php(86): App\Models\MLaporan->getProduksi('2023-07-01', '2023-07-31')
+#6 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+#7 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+#8 C:\xampp\htdocs\sitenun-main\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sitenun-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-07-21 06:14:39 --> Unknown column 'tbl_penjualan_detail.created_at' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi_detail`.`kode_produksi_detail`=`tbl_produksi`.`kode_produksi`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `tbl_penjualan_detail`.`created_at` >= \'2023-07-01\'
+AND `tbl_penjualan_detail`.`created_at` <= \'2023-07-31\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi_detail`.`kode_produksi_detail`=`tbl_produksi`.`kode_produksi`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `tbl_penjualan_detail`.`created_at` >= \'2023-07-01\'
+AND `tbl_penjualan_detail`.`created_at` <= \'2023-07-31\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi_detail`.`kode_produksi_detail`=`tbl_produksi`.`kode_produksi`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `tbl_penjualan_detail`.`created_at` >= \'2023-07-01\'
+AND `tbl_penjualan_detail`.`created_at` <= \'2023-07-31\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_produksi_detail`
+JOIN `tbl_produksi` ON `tbl_produksi_detail`.`kode_produksi_detail`=`tbl_produksi`.`kode_produksi`
+JOIN `tbl_produk` ON `tbl_produksi`.`kode_produk`=`tbl_produk`.`kode_produk`
+JOIN `tbl_bahan_baku` ON `tbl_bahan_baku`.`kode_bahan_baku` = `tbl_produksi_detail`.`kode_bahan_baku_detail`
+WHERE `tbl_penjualan_detail`.`created_at` >= :tbl_penjualan_detail.created_at:
+AND `tbl_penjualan_detail`.`created_at` <= :tbl_penjualan_detail.created_at.1:', [...], false)
+ 5 APPPATH\Models\MLaporan.php(109): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Laporan.php(86): App\Models\MLaporan->getProduksi('2023-07-01', '2023-07-31')
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 06:14:45 --> Undefined array key "kodejenkel"
+in APPPATH\Views\Laporan\Laporankaryawan.php on line 64.
+ 1 APPPATH\Views\Laporan\Laporankaryawan.php(64): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "kodejenkel"', 'C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Laporan\\Laporankaryawan.php', 64)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Laporan\\Laporankaryawan.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Laporan/Laporankaryawan', [], true)
+ 5 APPPATH\Controllers\Laporan.php(88): view('Laporan/Laporankaryawan', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-07-21 06:15:03 --> Undefined array key "jenis_motif"
+in APPPATH\Views\Laporan\Laporanproduksi.php on line 71.
+ 1 APPPATH\Views\Laporan\Laporanproduksi.php(71): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "jenis_motif"', 'C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Laporan\\Laporanproduksi.php', 71)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp\\htdocs\\sitenun-main\\app\\Views\\Laporan\\Laporanproduksi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Laporan/Laporanproduksi', [], true)
+ 5 APPPATH\Controllers\Laporan.php(88): view('Laporan/Laporanproduksi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-21 06:17:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-21 06:19:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
