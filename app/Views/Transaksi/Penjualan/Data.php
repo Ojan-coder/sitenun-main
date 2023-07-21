@@ -48,9 +48,6 @@
                                         <td><?= "Rp. " . number_format($r['harga_produk']) ?></td>
                                         <td><?= "Rp. " . number_format($sisa) ?></td>
                                         <td>
-                                            <button class="btn btn-outline-success">
-                                                <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                            </button>
                                             <button class="btn btn-outline-primary" title="Cetak Faktur Pemesanan" onclick="location.href=('<?= base_url('Laporan/CetakFakturPenjualan/' . $r['no_transaksi_penjualan'] . '/' . $r['kode_pelanggan']) ?>')">
                                                 <i class="fas fa-print"></i>
                                             </button>

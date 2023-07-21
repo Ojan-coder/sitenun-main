@@ -200,12 +200,12 @@
                         <tr>
                             <?php foreach ($dataproduk as $r) { ?>
                                 <td><?= $r['nama_produk'] ?></td>
-                                <td><?= $r['jumlah_produk'] ?></td>
                                 <td><?= $r['jenis_motif'] ?></td>
+                                <td><?= $r['jumlah_produk'] ?></td>
                                 <td><?= "Rp. " . number_format($r['harga_produk']) ?></td>
                                 <td>
-                                    <?php if ($r['jumlah_produk'] < 5 && session()->get('akses1') == '4') { ?>
-                                        <button class="btn btn-danger" title="Stok Sudah Menipis">
+                                    <?php if ($r['jumlah_produk'] == 0 && session()->get('akses1') == '4') { ?>
+                                        <button class="btn btn-danger" title="Stok Sudah Habis">
                                             <i class="fa fa-warning" aria-hidden="true"></i>
                                         </button>
                                     <?php } else if ($r['jumlah_produk'] < 5 && session()->get('akses1') == '1') { ?>

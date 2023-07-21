@@ -36,6 +36,10 @@ $routes->get('/Admin/Beranda', 'Home::home');
 $routes->post('/Admin/In', 'Login::ceklogin');
 $routes->get('/Admin/Logout', 'Login::Logout');
 
+// Karyawan
+$routes->get('/Admin/Karyawan', 'Karyawan::index');
+$routes->get('/Admin/Karyawan-Tambah', 'User::tambah');
+$routes->post('/Admin/Store-user', 'User::add');
 
 // User routes
 $routes->get('/Admin/User', 'User::index');

@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Cetak Bahan Baku</title>
+    <title>Cetak Laporan Penjualan</title>
 </head>
 <style>
     #tabel {

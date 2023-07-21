@@ -55,7 +55,7 @@
                                 <th>No. Transaksi</th>
                                 <th>Tanggal Pembelian Bahan Baku</th>
                                 <th>Nama Bahan Baku</th>
-                                <th>Qty</th>
+                                <th>Stok</th>
                                 <th>Total</th>
                             </tr>
                         </thead>

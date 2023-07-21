@@ -6,7 +6,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Laporan</h3>
                     </div>
-                    <form action="<?= base_url('Laporan/Cetak') ?>" data_target="_blank" method="POST" enctype="multipart/form-data">
+                    <form action="<?= base_url('Laporan/Cetak') ?>" target="_blank" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tanggal Periode</label>

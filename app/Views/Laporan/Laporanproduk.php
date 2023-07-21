@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Cetak Bahan Baku</title>
+    <title>Cetak Produk</title>
 </head>
 <style>
     #tabel {
@@ -53,7 +53,7 @@
                                 <th>Kode Produk</th>
                                 <th>Nama Produk</th>
                                 <th>Motif</th>
-                                <th>Jumlah</th>
+                                <th>Stok</th>
                                 <th>Harga</th>
                                 <th>Foto</th>
                             </tr>
