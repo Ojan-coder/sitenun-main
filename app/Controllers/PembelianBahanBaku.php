@@ -48,6 +48,7 @@ class PembelianBahanBaku extends BaseController
         $request = \Config\Services::request();
         $id = $request->uri->getSegment(3);
         $data = [
+            'kode'=>$id,
             'isi' => 'Transaksi/Pembelian/Detail',
             'data' => $pembelian->getDetail($id)
         ];

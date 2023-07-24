@@ -83,7 +83,7 @@ class Laporan extends BaseController
             $data = [
                 'tglawal' => $tglawal,
                 'tglakhir' => $tglakhir,
-                'data' => $laporan->getProduksi($tglawal,$tglakhir),
+                'data' => $laporan->getProduksi($tglawal, $tglakhir),
             ];
             return view('Laporan/Laporanproduksi', $data);
         }
@@ -105,6 +105,18 @@ class Laporan extends BaseController
             'pelanggan' => $laporan->detailpelanggan($kodepelanggan),
         ];
         return view('Laporan/Faktur', $data);
+    }
+    public function BahanBakuFaktur()
+    {
+        $laporan = new MLaporan();
+        $request = \Config\Services::request();
+        $kode = $request->uri->getSegment(3);
+
+        $data = [
+            'kode'=>$kode,
+            'data' => $laporan->getDetailFakturPembelianBahanBaku($kode),
+        ];
+        return view('Laporan/Laporanpembelianbahanbaku_faktur', $data);
     }
     public function CetakFakturPenjualan()
     {
