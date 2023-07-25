@@ -31,7 +31,7 @@
                                     <i class="fa fa-warning" aria-hidden="true"></i>
                                 </button>
                             <?php } else if (session()->get('masuk') == TRUE) { ?>
-                                <button type="button" onclick="location.href=('<?= base_url('Pemesanan/simp_detail_home/' . $r['kode_produk'] . '/' . $r['nama_produk'] . '/' . $r['harga_produk']) ?>')" class="btn btn-outline-success" title="Tambah Pesanan">
+                                <button type="button" onclick="location.href=('<?= base_url('Pemesanan/simp_detail_home/' . $r['kode_produk'] . '/' . $r['nama_produk'] . '/' . $r['harga_produk']) ?>')" class="btn btn-outline-success" title="Masuk Pesanan">
                                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                 </button>
                             <?php } ?>
