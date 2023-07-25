@@ -181,7 +181,7 @@ class Pelanggan extends BaseController
             $data = [
                 'kodepelanggan' => $pelanggan->koderandom(),
                 'namapelanggan' => $this->request->getPost('namapelanggan'),
-                'tgl_lahir' => $this->request->getPost('tgllahir'),
+                'tgl_lahir' => $this->request->getPost('tgl'),
                 'kodejenkel' => $this->request->getPost('cbjenkel'),
                 'alamat' => $this->request->getPost('alamat'),
                 'notelp' => $this->request->getPost('notelp'),

@@ -6,32 +6,35 @@
                     <div class="card-header">
                         <h3 class="card-title">Laporan</h3>
                     </div>
-                    <form action="<?= base_url('Laporan/Cetak') ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= base_url('Laporan/Cetak') ?>" target="_blank" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tanggal Periode</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                <input type="date" class="form-control" name="tglawal">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Tanggal Periode</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input type="date" class="form-control" name="tglakhir">
                             </div>
                             <div class="form-group">
                                 <label>Pilih Laporan</label>
                                 <select class="form-control" name="cbjenislaporan">
                                     <option>-Pilih Laporan-</option>
-                                    <option value="1">Laporan Material</option>
+                                    <option value="1">Laporan Bahan Baku</option>
                                     <option value="2">Laporan Produk</option>
                                     <option value="3">Laporan Pelanggan</option>
-                                    <option value="4">Laporan Bahan Baku</option>
-                                    <option value="5">Laporan Pembelian Bahan Baku</option>
-                                    <option value="6">Laporan Pemesanan</option>
-                                    <option value="7">Laporan Penjualan</option>
+                                    <option value="4">Laporan Pembelian Bahan Baku</option>
+                                    <option value="5">Laporan Pemesanan</option>
+                                    <option value="6">Laporan Penjualan</option>
+                                    <option value="7">Laporan Karyawan</option>
+                                    <option value="8">Laporan Produksi</option>
                                 </select>
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-outline-primary">
+                                <i class="fa fa-print" aria-hidden="true"></i> Cetak
+                            </button>
                         </div>
                     </form>
                 </div>

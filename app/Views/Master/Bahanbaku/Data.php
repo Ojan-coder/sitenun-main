@@ -28,7 +28,7 @@
                                     <th>Kode Bahan Baku</th>
                                     <th>Nama Bahan Baku</th>
                                     <th>Jenis Bahan Baku</th>
-                                    <th>Qty</th>
+                                    <th>Stok</th>
                                     <th width="10px">#</th>
                                 </tr>
                             </thead>

@@ -12,7 +12,7 @@ class PembelianBahanBaku extends BaseController
     public function index()
     {
         $pembelian = new MPembelianBahanBaku();
-        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1')) {
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1' || session()->get('akses1') == '3')) {
             $data = [
                 'data' => $pembelian->getAllData(),
                 'isi' => 'Transaksi/Pembelian/Data'
@@ -28,7 +28,7 @@ class PembelianBahanBaku extends BaseController
         $tgl = date('Y-m-d');
         $bahanbaku = new MBahanbaku();
         $pembelian = new MPembelianBahanBaku();
-        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1')) {
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1'|| session()->get('akses1') == '3')) {
             $data = [
                 'kodepembelian' => $pembelian->koderandom(),
                 'tanggalpembelian' => $tgl,
@@ -48,6 +48,7 @@ class PembelianBahanBaku extends BaseController
         $request = \Config\Services::request();
         $id = $request->uri->getSegment(3);
         $data = [
+            'kode'=>$id,
             'isi' => 'Transaksi/Pembelian/Detail',
             'data' => $pembelian->getDetail($id)
         ];
@@ -71,7 +72,8 @@ class PembelianBahanBaku extends BaseController
         ];
         $dataupdate = [
             'kode_bahan_baku' => $id,
-            'jumlah_bahan_baku' => $jumlahbhnbaku
+            'jumlah_bahan_baku' => $jumlahbhnbaku,
+            'harga_bahan_baku' => $this->request->getPost('harga'),
         ];
         // dd($dataupdate);
         $bahanbaku = new MBahanbaku();

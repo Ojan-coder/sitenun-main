@@ -10,11 +10,11 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>No.Pembelian Bahan Baku</label>
-                                <input type="text" id="notransaksi" class="form-control" value="<?= $kodepembelian ?>">
+                                <input type="text" id="notransaksi" class="form-control" value="<?= $kodepembelian ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Pembelian Bahan Baku</label>
-                                <input type="text" class="form-control" value="<?= $tanggalpembelian ?>">
+                                <input type="text" class="form-control" value="<?= $tanggalpembelian ?>" readonly>
                             </div>
                         </div>
 
@@ -29,7 +29,7 @@
 
                                 <?php
                                 if (!empty(session()->getFlashdata('successbahanbaku'))) { ?>
-                                    <div class="row" style="padding-right:20px;padding-left:20px; align-items: center;">
+                                    <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
                                         <div class="col-md-12">
                                             <div class="alert alert-success alert-dismissible">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -40,7 +40,7 @@
                                     </div>
                                 <?php
                                 } else if (!empty(session()->getFlashdata('deletebahanbaku'))) { ?>
-                                    <div class="row" style="padding-right:20px;padding-left:20px;align-items: center;">
+                                    <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">
                                         <div class="col-md-12">
                                             <div class="alert alert-danger alert-dismissible">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -68,11 +68,11 @@
                                         <tr>
                                             <td>
                                                 <input type="hidden" class="form-control kodebahanbaku" name="kodebahanbaku" id="kodebahanbaku">
-                                                <input type="text" class="form-control" id="nama_bahan_baku">
+                                                <input type="text" class="form-control" id="nama_bahan_baku" onkeydown="event.preventDefault()">
                                             </td>
                                             <td>
                                                 <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
-                                                <input type="number" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku">
+                                                <input type="number" class="form-control jumlahbahanbaku" value="0" name="jumlahbahanbaku" id="jumlahbahanbaku" required>
                                             </td>
                                             <td>
                                                 <input type="number" class="form-control harga" name="harga" id="harga">
@@ -170,9 +170,9 @@
                             <tr>
                                 <td><?= $r['nama_bahan_baku'] ?></td>
                                 <td><?= $r['jumlah_bahan_baku'] ?>/<?= $r['satuan_bahan_baku'] ?></td>
-                                <td><?= $r['nama_bahan_baku'] ?></td>
+                                <td><?= "Rp. " . number_format($r['harga_bahan_baku']) ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" onclick="return ambil1('<?= $r['kode_bahan_baku'] ?>','<?= $r['nama_bahan_baku'] ?>','<?= $r['jumlah_bahan_baku'] ?>','<?= $r['harga_bahan_baku'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
+                                    <button type="button" class="btn btn-primary" onclick="return ambil1('<?= $r['kode_bahan_baku'] ?>','<?= $r['nama_bahan_baku'] ?>','<?= $r['jumlah_bahan_baku'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -215,11 +215,10 @@
     }
 
 
-    function ambil1(kode, nama, jumlah, harga) {
+    function ambil1(kode, nama, jumlah) {
         $('#kodebahanbaku').val(kode);
         $('#nama_bahan_baku').val(nama);
         $('#jumlah1').val(jumlah);
-        $('#harga').val(harga);
         $('#modal-bahanbaku').modal('hide');
     }
 </script>

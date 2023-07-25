@@ -66,6 +66,11 @@
 <script src="<?= base_url('assets/') ?>dist/js/pages/dashboard.js"></script>
 
 <script>
+    $().ready(function() {
+        $('table.display').DataTable({
+            "pageLength": "10",
+        });
+    })
     $(function() {
         $("#example1").DataTable({
             "responsive": true,

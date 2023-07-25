@@ -18,6 +18,9 @@
                     <li class="nav-item">
                         <a href="<?= base_url('Pelanggan/PO') ?>" class="nav-link">Pesanan Order</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url('Pelanggan/Beranda') ?>" class="nav-link">History</a>
+                    </li>
                     <!-- <li class="nav-item dropdown">
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"></a>
                         <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">

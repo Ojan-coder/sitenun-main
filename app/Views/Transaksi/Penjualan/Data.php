@@ -31,39 +31,24 @@
                                     <th>Nama Pelanggan</th>
                                     <th>Jumlah</th>
                                     <th>Harga</th>
+                                    <th>Total</th>
                                     <th width="80px">#</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <?php foreach ($datapesanan as $r) {
-                                        $sisa = $r['harga_produk'] * $r['qty_produk_penjualan_detail'] - $r['dp_pemesanan']
+                                        $sisa = $r['harga_produk'] * $r['qty_produk_penjualan_detail'];
                                     ?>
-                                        <td><?= $r['kode_pemesanan'] ?></td>
-                                        <td><?= $r['tgl_pemesanan'] ?></td>
+                                        <td><?= $r['no_transaksi_penjualan'] ?></td>
+                                        <td><?= $r['tgl_penjualan'] ?></td>
                                         <td><?= $r['nama_produk'] . ' (' . $r['jenis_motif'] . ')' ?></td>
                                         <td><?= $r['namapelanggan'] ?></td>
                                         <td><?= $r['qty_produk_penjualan_detail'] ?></td>
                                         <td><?= "Rp. " . number_format($r['harga_produk']) ?></td>
-                                        <td><?= "Rp. " . number_format($r['dp_pemesanan']) ?></td>
                                         <td><?= "Rp. " . number_format($sisa) ?></td>
-                                        <td><?= $r['nama_status'] ?></td>
                                         <td>
-                                            <?php if ($r['status_pemesanan'] == '2') { ?>
-                                                <button class="btn btn-outline-success">
-                                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                                </button>
-                                            <?php } else if ($r['status_pemesanan'] == '2') { ?>
-                                                <button class="btn btn-outline-success">
-                                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                                </button>
-                                            <?php } ?>
-                                            <?php if (session()->get('akses1') == '1' || session()->get('akses1') == '3') { ?>
-                                                <button class="btn btn-outline-warning" data_target="_blank" onclick="location.href=('<?= base_url('fotobukti/') . $r['bukti_dp'] ?>')">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </button>
-                                            <?php } ?>
-                                            <button class="btn btn-outline-primary" title="Cetak Faktur Pemesanan" onclick="location.href=('<?= base_url('Laporan/CetakFaktur/' . $r['kode_pemesanan'] . '/' . $r['kode_pelanggan']) ?>')">
+                                            <button class="btn btn-outline-primary" title="Cetak Faktur Pemesanan" onclick="location.href=('<?= base_url('Laporan/CetakFakturPenjualan/' . $r['no_transaksi_penjualan'] . '/' . $r['kode_pelanggan']) ?>')">
                                                 <i class="fas fa-print"></i>
                                             </button>
                                         </td>

@@ -8,9 +8,12 @@
                         <h3 class="card-title">Detail Pembelian Bahan Baku</h3>
                     </div>
                     <div class="card-body">
-                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/PembelianBahanBaku/Bahanbaku-Tambah') ?>')" class="btn btn-outline-danger" title="Tambah Pembelian Bahan Baku">
+                        <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/PembelianBahanBaku') ?>')" class="btn btn-outline-danger" title="Pembelian Bahan Baku">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         </button>
+                        <a type="button" href="<?= base_url('Laporan/BahanBakuFaktur') . '/' . $kode ?>" target="_blank" class="btn btn-outline-primary" title="Cetak Laporan Per-Faktur">
+                            <i class="fa fa-print" aria-hidden="true"></i>
+                        </a>
                     </div>
                     <div class="card-body">
                         <?php

@@ -24,6 +24,10 @@ class MPemesanan extends Model
         $kodeu = $huruf . $batas;
         return $kodeu;
     }
+    function getstatus()
+    {
+        return $this->db->table('level_status')->get()->getResultArray();
+    }
     function getAllDataByPelanggan()
     {
         $id = session()->get('kode_user');
@@ -47,6 +51,15 @@ class MPemesanan extends Model
             ->join('level_status', 'kode_status=status_pemesanan')
             ->get()->getResultArray();
     }
+    function getDetailBayar($id)
+    {
+        return $this->db
+            ->table('tbl_penjualan_detail')
+            ->join('tbl_produk', 'tbl_produk.kode_produk = tbl_penjualan_detail.kode_produk_penjualan_detail')
+            ->join('tbl_pemesanan', 'tbl_pemesanan.kode_pemesanan=tbl_penjualan_detail.no_pemesanan_detail')
+            ->join('tbl_jenis_tenun', 'tbl_produk.kode_jenis_motif = tbl_jenis_tenun.kode_jenis')
+            ->where('no_pemesanan_detail', $id)->get()->getResultArray();
+    }
 
     function getDetailPemesanan()
     {
@@ -57,6 +70,14 @@ class MPemesanan extends Model
             ->join('tbl_jenis_tenun', 'tbl_produk.kode_jenis_motif = tbl_jenis_tenun.kode_jenis')
             ->where('no_pemesanan_detail', $id)->get()->getResultArray();
     }
+
+    function detail($id)
+    {
+        return $this->db->table('tbl_pemesanan')
+            ->where('kode_pemesanan',$id)
+            ->get()->getRowArray();
+    }
+
     public function insert_data_temp($data)
     {
         return $this->db->table('tbl_penjualan_detail')->insert($data);
@@ -69,10 +90,15 @@ class MPemesanan extends Model
 
     public function hapus($id)
     {
-        return $this->db->table('tbl_pemesanan')->delete(['kode_produksi' => $id]);
+        return $this->db->table('tbl_pemesanan')->delete(['kode_pemesanan' => $id]);
     }
     public function hapus_detail($id, $id_detail)
     {
         return $this->db->table('tbl_penjualan_detail')->delete(['id' => $id_detail]);
+    }
+
+    public function update_data($data, $id)
+    {
+        return $this->db->table('tbl_pemesanan')->update($data, ['kode_pemesanan' => $id]);
     }
 }

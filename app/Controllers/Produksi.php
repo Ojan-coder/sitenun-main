@@ -12,7 +12,7 @@ class Produksi extends BaseController
     public function index()
     {
         $Produksi = new MProduksi();
-        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1')) {
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1' || session()->get('akses1') == '3')) {
             $data = [
                 'data' => $Produksi->getAllData(),
                 'isi' => 'Transaksi/Produksi/Data'
@@ -27,12 +27,34 @@ class Produksi extends BaseController
         $produk = new MProduk();
         $bahan = new MBahanbaku();
         $produksi = new MProduksi();
+        $request = \Config\Services::request();
+        $id = $request->uri->getSegment(3);
+        // dd($id);
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
                 'isi' => 'Transaksi/Produksi/Add',
-                'produk' => $produk->getAlldata(),
+                'produk' => $produk->detail($id),
                 'bahanbaku' => $bahan->getAlldata(),
                 'detailbahanbaku' => $produksi->getDataTableDetail(),
+            ];
+            return view('Layout/Template', $data);
+        } else {
+            return view('errors/error_login.php');
+        }
+    }
+
+    function detail()
+    {
+        $produksi = new MProduksi();
+        $produk = new MProduk();
+        $request = \Config\Services::request();
+        $id = $request->uri->getSegment(3);
+        // dd($id);
+        if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
+            $data = [
+                'isi' => 'Transaksi/Produksi/Detail',
+                'produk'=>$produk->detail($id),
+                'data' => $produksi->detail($id),
             ];
             return view('Layout/Template', $data);
         } else {
@@ -92,10 +114,10 @@ class Produksi extends BaseController
 
             $dataproduk = [
                 'jumlah_produk' => $jumlah,
-                'updated_at'=>$date
+                'updated_at' => $date
             ];
             // dd($dataproduk);
-            $produk->update_data($dataproduk,$kodeproduk);
+            $produk->update_data($dataproduk, $kodeproduk);
 
             $dataproduksi = [
                 'kode_produksi' => $produksi->koderandom(),
@@ -128,7 +150,7 @@ class Produksi extends BaseController
 
         $usr = new MProduksi();
         $usr->hapus_detail($id, $id_detail);
-        session()->setFlashdata('deletebahanbaku', 'Data Produk Berhasil Di Hapus !!');
+        session()->setFlashdata('deletebahanbaku', 'Data Bahan Baku Berhasil Di Hapus !!');
         return redirect()->to(base_url('/Admin/Produksi/Tambah'));
     }
 

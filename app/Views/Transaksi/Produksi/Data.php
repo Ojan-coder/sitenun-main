@@ -6,11 +6,11 @@
                     <div class="card-header">
                         <h3 class="card-title">Data Produksi</h3>
                     </div>
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                         <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('/Admin/Produksi/Tambah') ?>')" class="btn btn-outline-primary" title="Tambah Data Produk">
                             <i class="fa fa-plus-circle"></i>
                         </button>
-                    </div>
+                    </div> -->
                     <div class="card-body">
                         <?php
                         if (!empty(session()->getFlashdata('success'))) { ?>
@@ -26,10 +26,10 @@
                                 <tr>
                                     <th>Kode Produksi</th>
                                     <th>Nama Produk</th>
-                                    <th>Jumlah</th>
+                                    <th>Stok</th>
                                     <th>Harga</th>
                                     <th>Foto</th>
-                                    <th width="70px">#</th>
+                                    <th width="90px">#</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,16 +40,19 @@
                                     <tr>
                                         <td><?= $r['kode_produksi'] ?></td>
                                         <td><?= $r['jenis_motif'] ?></td>
-                                        <td><?= $r['jumlah_produksi'] ?></td>
+                                        <td><?= $r['jumlah_produk'] ?></td>
                                         <td><?= "Rp. " . number_format($r['harga_produk'])  ?></td>
                                         <td><img src="<?= base_url('fotojenismotif/') . $r['gambar_motif'] ?>" width="250px" height="150px"></td>
                                         <td>
-                                            <!-- <button type="button" onclick="location.href=('<?= base_url('Produk/edit') . '/' . $r['kode_produksi'] ?>')" class="btn btn-outline-warning" title="Edit Data">
-                                                <i class="fas fa-plus"></i>
-                                            </button> -->
-                                            <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['kode_produksi'] ?>','<?= $r['gambar_motif'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
-                                                <i class="fas fa-trash"></i>
+                                            <button type="button" onclick="location.href=('<?= base_url('Produksi/detail') . '/' . $r['kode_produk'] ?>')" class="btn btn-outline-success" title="Detail Data">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
                                             </button>
+                                            <button type="button" class="btn btn-outline-primary" onclick="location.href=('<?= base_url('Produksi/Tambah').'/'.$r['kode_produk'] ?>')" title="Tambah Data Produksi">
+                                                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                                            </button>
+                                            <!-- <button type="button" class="btn btn-outline-primary" onclick="return ambil('<?= $r['kode_produksi'] ?>','<?= $r['gambar_motif'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
+                                                <i class="fas fa-trash"></i>
+                                            </button> -->
 
                                         </td>
                                     </tr>
@@ -95,7 +98,6 @@
 
 
 <script>
-
     function ambil(id, foto) {
         $('#iduser').val(id);
         $('#foto').val(foto);

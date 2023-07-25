@@ -67,6 +67,14 @@
                                 <label>No.Telp/Hp</label>
                                 <input type="number" name="notelp" id="notelp" class="form-control" required>
                             </div>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            </div>
                             <button type="submit" id="submit" style="width:50px" class="btn btn-outline-primary">
                                 <i class="fas fa-save"></i>
                             </button>

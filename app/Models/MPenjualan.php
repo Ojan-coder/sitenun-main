@@ -53,7 +53,7 @@ class MPenjualan extends Model
             ->table('tbl_penjualan_detail')
             ->join('tbl_produk', 'tbl_produk.kode_produk = tbl_penjualan_detail.kode_produk_penjualan_detail')
             ->join('tbl_jenis_tenun', 'tbl_produk.kode_jenis_motif = tbl_jenis_tenun.kode_jenis')
-            ->where('no_pemesanan_detail', $id)->get()->getResultArray();
+            ->where('no_transaksi_penjualan_detail', $id)->get()->getResultArray();
     }
     public function insert_data_temp($data)
     {
@@ -69,7 +69,7 @@ class MPenjualan extends Model
     {
         return $this->db->table('tbl_penjualan')->delete(['kode_produksi' => $id]);
     }
-    public function hapus_detail($id, $id_detail)
+    public function hapus_detail($id_detail)
     {
         return $this->db->table('tbl_penjualan_detail')->delete(['id' => $id_detail]);
     }
