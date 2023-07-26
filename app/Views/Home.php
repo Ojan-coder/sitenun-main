@@ -26,22 +26,66 @@
                                 <?php } ?>
                                 <br>
                             </div>
+
                             <?php if ($r['jumlah_produk'] == 0) { ?>
                                 <button class="btn btn-outline-danger" title="Stok Habis">
                                     <i class="fa fa-warning" aria-hidden="true"></i>
                                 </button>
                             <?php } else if (session()->get('masuk') == TRUE) { ?>
-                                <button type="button" onclick="location.href=('<?= base_url('Pemesanan/simp_detail_home/' . $r['kode_produk'] . '/' . $r['nama_produk'] . '/' . $r['harga_produk']) ?>')" class="btn btn-outline-success" title="Masuk Pesanan">
+                                <button type="button" id="tambah" onclick="return ambil1('<?= $r['kode_produk'] ?>','<?= $r['kode_jenis_motif'] ?>','<?= $r['jumlah_produk'] ?>','1','<?= $r['harga_produk'] ?>')" data-toggle="modal" data-target="#modal-konfirm" class="btn btn-outline-success" title="Masuk Pesanan">
                                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
                                 </button>
                             <?php } ?>
                         </div>
-
                     </div>
                 </div>
             </div>
             <!-- </form> -->
         <?php } ?>
     </div>
-
 </div>
+
+
+<div class="modal fade" id="modal-konfirm">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header bg-success">
+                <h5>
+                    Konfirmasi Pesanan ?
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="<?= base_url('pemesanan/simp_detail_home') ?>">
+                    <input type="text" id="kodeproduk" name="kodeproduk">
+                    <input type="text" id="kodem" name="kodem">
+                    <input type="text" id="jumlah" name="jumlahproduk">
+                    <input type="text" id="jumlah1" name="jumlahbeli">
+                    <input type="text" id="harga" name="harga">
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-outline-success" data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block"></i>
+                    <span>Yes</span>
+                </button>
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Close</span>
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function ambil1(kodeproduk, kodem, jumlahproduk, jumlahbeli, harga) {
+        $('#kodeproduk').val(kodeproduk);
+        $('#kodem').val(kodem);
+        $('#jumlah').val(jumlahproduk);
+        $('#jumlah1').val(jumlahbeli);
+        $('#harga').val(harga);
+    }
+</script>

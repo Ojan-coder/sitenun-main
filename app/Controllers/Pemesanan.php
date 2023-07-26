@@ -119,27 +119,28 @@ class Pemesanan extends BaseController
         $produk = new MProduk();
         $pemesanan = new MPemesanan();
         date_default_timezone_set('Asia/Jakarta');
+        $id = $this->request->getPost('kodeproduk');
+        $harga = $this->request->getPost('harga');
+        $jumlahstok = $this->request->getPost('jumlahproduk');
+        $jumlahdibeli = $this->request->getPost('jumlahbeli');
+        $jumlahbhnbaku = intval($jumlahstok - $jumlahdibeli);
         $date = date('Y-m-d');
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
-            if (session()->get('akses1') == '4') {
-                $data = [
-                    'no_pemesanan' => $pemesanan->koderandom(),
-                    'tgl_pemesanan' => $date,
-                    'dataproduk' => $produk->getAlldata(),
-                    'detailpesanan' => $pemesanan->getDetailPemesanan(),
-                    'isi' => 'Transaksi/Pemesanan/Add'
-                ];
-                return view('Layout_pelanggan/Template', $data);
-            } else {
-                $data = [
-                    'no_pemesanan' => $pemesanan->koderandom(),
-                    'tgl_pemesanan' => $date,
-                    'dataproduk' => $produk->getAlldata(),
-                    'detailpesanan' => $pemesanan->getDetailPemesanan(),
-                    'isi' => 'Transaksi/Pemesanan/Add'
-                ];
-                return view('Layout/Template', $data);
-            }
+            $data = [
+                'no_pemesanan_detail' => $pemesanan->koderandom(),
+                'kode_produk_penjualan_detail' => $id,
+                'qty_produk_penjualan_detail' => $this->request->getPost('jumlahbeli'),
+                'harga_produk_penjualan_detail' => $harga,
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $pemesanan->insert_data_temp($data);
+            $dataproduk = [
+                'kode_produk' => $id,
+                'jumlah_produk' => $jumlahbhnbaku
+            ];
+            $produk->update_data($dataproduk, $id);
+            session()->setFlashdata('success', 'Data Pesanan Berhasil Ditambahkan');
+            return redirect()->to(base_url('Pemesanan/Tambah'));
         } else {
             return view('errors/erorr_pemesanan.php');
         }
