@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Cetak Faktur</title>
+    <title>Cetak Faktur Pemesanan</title>
 </head>
 <style>
     #tabel {
@@ -88,8 +88,10 @@
                             <?php
                             $no = 0;
                             foreach ($detail as $r) {
-                                $sisa = $r['qty_produk_penjualan_detail'] * $r['harga_produk_penjualan_detail'] - $r['dp_pemesanan'];
+                                // $sisa = $r['qty_produk_penjualan_detail'] * $r['harga_produk_penjualan_detail'] - $r['dp_pemesanan'];
                                 $total = $r['qty_produk_penjualan_detail'] * $r['harga_produk_penjualan_detail'];
+                                $dp = $r['dp_pemesanan'] - $r['bayar_sisa'];
+                                $sisa = $total - $r['dp_pemesanan'];
                                 $no++;
                             ?>
                                 <tr>

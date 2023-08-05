@@ -114,6 +114,7 @@ class Laporan extends BaseController
 
         $data = [
             'kode'=>$kode,
+            'tanggal'=>$laporan->getTanggalFakturPembelianBahanBaku($kode),
             'data' => $laporan->getDetailFakturPembelianBahanBaku($kode),
         ];
         return view('Laporan/Laporanpembelianbahanbaku_faktur', $data);

@@ -1,3 +1,14 @@
+<?php
+$request = \Config\Services::request();
+
+if (empty($request->uri->getSegment(3)) || empty($request->uri->getSegment(4))) {
+    $id = "";
+    $nama = "";
+} else {
+    $id =  $request->uri->getSegment(3);
+    $nama = $request->uri->getSegment(4);
+}
+?>
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -23,8 +34,8 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="hidden" class="form-control" id="kodepelanggan" name="kodepelanggan">
-                                        <input type="text" class="form-control" id="namapelanggan" name="namapelanggan">
+                                        <input type="hidden" class="form-control" value="<?= $id ?>" id="kodepelanggan" name="kodepelanggan">
+                                        <input type="text" class="form-control" value="<?= $nama ?>" id="namapelanggan" name="namapelanggan">
                                     </td>
                                     <td width="50px">
                                         <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-pelanggan">
@@ -278,9 +289,9 @@
                                 <td><?= $r['alamat'] ?></td>
                                 <td><?= $r['notelp'] ?></td>
                                 <td>
-                                    <button class="btn btn-outline-success" onclick="return ambilpelanggan('<?= $r['kodepelanggan'] ?>','<?= $r['namapelanggan'] ?>')">
+                                    <a href="<?= base_url('Penjualan/Tambah') . '/' . $r['kodepelanggan'] . '/' . $r['namapelanggan'] ?>" class="btn btn-outline-success" onclick="return ambilpelanggan('<?= $r['kodepelanggan'] ?>','<?= $r['namapelanggan'] ?>')">
                                         <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                    </button>
+                                    </a>
                                 </td>
                         </tr>
                     <?php } ?>

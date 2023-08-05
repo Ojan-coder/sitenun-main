@@ -29,6 +29,7 @@
                                     <th>Nama Bahan Baku</th>
                                     <th>Jenis Bahan Baku</th>
                                     <th>Stok</th>
+                                    <th>Harga</th>
                                     <th width="10px">#</th>
                                 </tr>
                             </thead>
@@ -42,6 +43,7 @@
                                         <td><?= $r['nama_bahan_baku'] ?></td>
                                         <td><?= $r['satuan_bahan_baku'] ?></td>
                                         <td><?= $r['jumlah_bahan_baku'] ?></td>
+                                        <td><?= "Rp. ".number_format($r['harga_bahan_baku']) ?></td>
                                         <td>
                                             <button type="button" class="btn btn-outline-danger" data-toggle="modal" onclick="return ambil('<?= $r['kode_bahan_baku'] ?>')" data-target="#modal-danger">
                                                 <i class="fas fa-trash-alt"></i>

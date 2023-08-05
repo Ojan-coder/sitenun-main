@@ -27,7 +27,7 @@
                                     <th>Kode Produk</th>
                                     <th>Nama Produk</th>
                                     <th>Motif</th>
-                                    <th>Jumlah</th>
+                                    <th>Stok</th>
                                     <th>Harga</th>
                                     <th>Foto</th>
                                     <th width="70px">#</th>

@@ -1,3 +1,20 @@
+<?php
+$request = \Config\Services::request();
+
+if (empty($request->uri->getSegment(3)) || empty($request->uri->getSegment(4))) {
+    $id = "";
+    $nama = "";
+    $motif = "";
+    $stok = "";
+    $harga = "";
+} else {
+    $id = preg_replace('/%20/', ' ', $request->uri->getSegment(3));
+    $nama = preg_replace('/%20/', ' ', $request->uri->getSegment(4));
+    $motif = preg_replace('/%20/', ' ', $request->uri->getSegment(6));
+    $stok = preg_replace('/%20/', ' ', $request->uri->getSegment(7));
+    $harga = preg_replace('/%20/', ' ', $request->uri->getSegment(8));
+}
+?>
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -40,26 +57,26 @@
                             <div class="form-group">
                                 <label>Nama Produk</label>
                                 <div class="input-group mb-3">
-                                    <input type="hidden" id="kodejenis" name="kodeproduk" value="<?= $produk['kode_produk'] ?>">
-                                    <input type="text" class="form-control" name="namaproduk" value="<?= $produk['nama_produk'] ?>" id="namaproduk" aria-describedby="button-addon2" onkeydown="event.preventDefault()">
-                                    <!-- <div class="input-group-append">
+                                    <input type="hidden" id="kodejenis" name="kodeproduk" value="<?= $id ?>">
+                                    <input type="text" class="form-control" name="namaproduk" value="<?= $nama ?>" id="namaproduk" aria-describedby="button-addon2" onkeydown="event.preventDefault()">
+                                    <div class="input-group-append">
                                         <button class="btn btn-outline-primary" data-toggle="modal" data-target="#modal-xl" type="button" id="button-addon2">
                                             <i class="fa fa-search" aria-hidden="true"></i>
                                         </button>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Jenis Motif</label>
-                                <input type="text" id="motif" class="form-control" value="<?= $produk['jenis_motif'] ?>" onkeydown="event.preventDefault()">
+                                <input type="text" id="motif" class="form-control" value="<?= $motif ?>" onkeydown="event.preventDefault()">
                             </div>
                             <div class="form-group">
                                 <label>Harga Produk</label>
-                                <input type="number" name="harga" id="harga" class="form-control" value="<?= $produk['harga_produk'] ?>" onkeydown="event.preventDefault()">
+                                <input type="number" name="harga" id="harga" class="form-control" value="<?= $harga ?>" onkeydown="event.preventDefault()">
                             </div>
                             <div class="form-group">
                                 <label>Jumlah Produk</label>
-                                <input type="hidden" name="jumlahlama" id="jumlahlama" value="<?= $produk['jumlah_produk'] ?>" class="form-control">
+                                <input type="hidden" name="jumlahlama" id="jumlahlama" value="<?= $stok ?>" class="form-control">
                                 <input type="number" name="jumlahbaru" id="jumlahbaru" required class="form-control">
                             </div>
                     </div>
@@ -88,7 +105,7 @@
                                         <div class="col-md-12">
                                             <div class="alert alert-danger alert-dismissible">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                <i class="fa fa-warning" aria-hidden="true"></i> Delete.
+                                                <i class="fa fa-warning" aria-hidden="true"></i> Danger.
                                                 <?= session()->getFlashdata('deletebahanbaku'); ?>
                                             </div>
                                         </div>
@@ -112,7 +129,7 @@
                                             </td>
                                             <td>
                                                 <input type="hidden" class="form-control jumlah1" name="jumlah1" id="jumlah1">
-                                                <input type="text" class="form-control jumlahbahanbaku" name="jumlahbahanbaku" id="jumlahbahanbaku">
+                                                <input type="text" class="form-control jumlahbahanbaku" value="0" name="jumlahbahanbaku" id="jumlahbahanbaku">
                                             </td>
                                             <td width="100px">
                                                 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal-bahanbaku" title="Cari Data Bahan Baku">
@@ -134,6 +151,8 @@
                                         </thead>
                                         <tbody id="showdata">
                                             <?php
+                                            $request = \Config\Services::request();
+                                            $id = $request->uri->getSegment(3);
                                             foreach ($detailbahanbaku as $r) {
                                             ?>
                                                 <tr>
@@ -141,7 +160,7 @@
                                                     <td><?= $r['nama_bahan_baku'] ?></td>
                                                     <td><?= $r['qty_bahan_baku_produksi'] ?> </td>
                                                     <td>
-                                                        <a class="btn btn-outline-danger" id="hapus" href="<?= base_url('Produksi/delete_bahanbaku/' . $r['kode_bahan_baku_detail']) . '/' . $r['qty_bahan_baku_produksi'] . '/' . $r['jumlah_bahan_baku'] . '/' . $r['id'] ?>" title="Hapus Data Bahan Baku">
+                                                        <a class="btn btn-outline-danger" id="hapus" href="<?= base_url('Produksi/delete_bahanbaku/' . $r['kode_bahan_baku_detail']) . '/' . $r['qty_bahan_baku_produksi'] . '/' . $r['jumlah_bahan_baku'] . '/' . $r['id'] . '/' . $id ?>" title="Hapus Data Bahan Baku">
                                                             <i class="fas fa-trash"></i>
                                                         </a>
                                                     </td>
@@ -168,6 +187,67 @@
         </div>
     </div>
 </section>
+
+
+<!--Produk Modal -->
+<div class="modal fade" id="modal-xl">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <h5 class="modal-title white" id="myModalLabel130">
+                    Data Produk
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="example2" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nama Produk</th>
+                            <th>Motif</th>
+                            <th>Stok</th>
+                            <th>Harga</th>
+                            <th width="20">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <?php foreach ($dataproduk as $r) { ?>
+                                <td><?= $r['nama_produk'] ?></td>
+                                <td><?= $r['jenis_motif'] ?></td>
+                                <td><?= $r['jumlah_produk'] ?></td>
+                                <td><?= "Rp. " . number_format($r['harga_produk']) ?></td>
+                                <td>
+                                    <?php if ($r['jumlah_produk'] == 0 && session()->get('akses1') == '4') { ?>
+                                        <button class="btn btn-danger" title="Stok Sudah Habis">
+                                            <i class="fa fa-warning" aria-hidden="true"></i>
+                                        </button>
+                                    <?php } else if ($r['jumlah_produk'] < 5 && session()->get('akses1') == '1') { ?>
+                                        <button class="btn btn-warning" title="Stok Sudah Menipis">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                        </button>
+                                    <?php } else { ?>
+                                        <a href="<?= base_url('Produksi/Tambah') . '/' . $r['kode_produk'] . '/' . $r['nama_produk'] . '/' . $r['kode_jenis_motif'] . '/' . $r['jenis_motif'] . '/' . $r['jumlah_produk'] . '/' . $r['harga_produk'] ?>" class="btn btn-outline-success" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['nama_produk'] ?>','<?= $r['kode_jenis_motif'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['jumlah_produk'] ?>','<?= $r['harga_produk'] ?>')">
+                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        </a>
+                                    <?php } ?>
+                                </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -198,7 +278,15 @@
                                 <td><?= $r['nama_bahan_baku'] ?></td>
                                 <td><?= $r['jumlah_bahan_baku'] ?>/<?= $r['satuan_bahan_baku'] ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-primary" onclick="return ambil1('<?= $r['kode_bahan_baku'] ?>','<?= $r['nama_bahan_baku'] ?>','<?= $r['jumlah_bahan_baku'] ?>')"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
+                                    <?php if ($r['jumlah_bahan_baku'] < 5) { ?>
+                                        <a href="<?= base_url('/Admin/PembelianBahanBaku/Bahanbaku-Tambah') ?>" type="button" class="btn btn-success" title="Stok Bahan Baku Mulai Menipis">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                        </a>
+                                    <?php } else { ?>
+                                        <button type="button" class="btn btn-primary" onclick="return ambil1('<?= $r['kode_bahan_baku'] ?>','<?= $r['nama_bahan_baku'] ?>','<?= $r['jumlah_bahan_baku'] ?>')">
+                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        </button>
+                                    <?php } ?>
                                 </td>
                             </tr>
                         <?php } ?>

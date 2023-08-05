@@ -28,8 +28,11 @@ class MProduksi extends Model
     function getAlldata()
     {
         return $this->db->table('tbl_produksi')
+            ->select('*')
+            ->selectSum('jumlah_produksi', 'jumlah')
             ->join('tbl_produk', 'tbl_produksi.kode_produk=tbl_produk.kode_produk')
             ->join('tbl_jenis_tenun', 'tbl_jenis_tenun.kode_jenis=tbl_produk.kode_jenis_motif')
+            ->groupBy('tbl_produk.kode_produk')
             ->get()->getResultArray();
     }
 

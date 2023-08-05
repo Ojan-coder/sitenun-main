@@ -91,8 +91,8 @@
                                     <td><?= $r['no_transaksi_penjualan_detail'] ?></td>
                                     <td><?= $r['tgl_penjualan'] ?></td>
                                     <td><?= $r['nama_produk'] ?></td>
-                                    <td><?= "Rp. " . number_format($r['qty_produk_penjualan_detail']) ?></td>
-                                    <td><?= $r['harga_produk_penjualan_detail'] ?></td>
+                                    <td><?= $r['qty_produk_penjualan_detail']?></td>
+                                    <td><?= "Rp. " . number_format($r['harga_produk_penjualan_detail']) ?></td>
                                     <td><?= "Rp. " . number_format($total) ?></td>
                                 </tr>
                             <?php

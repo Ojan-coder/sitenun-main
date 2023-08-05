@@ -14,6 +14,7 @@ class Produksi extends BaseController
         $Produksi = new MProduksi();
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y' && session()->get('akses1') == '1' || session()->get('akses1') == '3')) {
             $data = [
+                
                 'data' => $Produksi->getAllData(),
                 'isi' => 'Transaksi/Produksi/Data'
             ];
@@ -33,7 +34,8 @@ class Produksi extends BaseController
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
                 'isi' => 'Transaksi/Produksi/Add',
-                'produk' => $produk->detail($id),
+                // 'produk' => $produk->detail($id),
+                'dataproduk'=>$produk->getAllData(),
                 'bahanbaku' => $bahan->getAlldata(),
                 'detailbahanbaku' => $produksi->getDataTableDetail(),
             ];
@@ -53,7 +55,7 @@ class Produksi extends BaseController
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
                 'isi' => 'Transaksi/Produksi/Detail',
-                'produk'=>$produk->detail($id),
+                'produk' => $produk->detail($id),
                 'data' => $produksi->detail($id),
             ];
             return view('Layout/Template', $data);
@@ -68,24 +70,29 @@ class Produksi extends BaseController
         date_default_timezone_set('Asia/Jakarta');
         $id = $this->request->getPost('kodebahanbaku');
         $jumlahbhnbaku = intval($this->request->getPost('jumlah1') - $this->request->getPost('jumlahbahanbaku'));
-        // dd([$id,$jumlahbhnbaku]);
-        $data = [
-            'kode_produksi_detail' => $spp->koderandom(),
-            'kode_bahan_baku_detail' => $this->request->getPost('kodebahanbaku'),
-            'qty_bahan_baku_produksi' => $this->request->getPost('jumlahbahanbaku'),
-            'created_at' => date('Y-m-d H:i:s')
-        ];
-        $dataupdate = [
-            'kode_bahan_baku' => $id,
-            'jumlah_bahan_baku' => $jumlahbhnbaku
-        ];
-        // dd($dataupdate);
-        $bahanbaku = new MBahanbaku();
-        $bahanbaku->update_data($dataupdate, $id);
+        if ($this->request->getPost('jumlahbahanbaku') == 0) {
+            session()->setFlashdata('deletebahanbaku', 'Inputkan Jumlah Pemakaian Bahan Baku');
+        } else if ($this->request->getPost('jumlah1') < $this->request->getPost('jumlahbahanbaku')) {
+            session()->setFlashdata('deletebahanbaku', 'Stok Bahan Baku Tidak Mencukupi');
+        } else {
+            $data = [
+                'kode_produksi_detail' => $spp->koderandom(),
+                'kode_bahan_baku_detail' => $this->request->getPost('kodebahanbaku'),
+                'qty_bahan_baku_produksi' => $this->request->getPost('jumlahbahanbaku'),
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $dataupdate = [
+                'kode_bahan_baku' => $id,
+                'jumlah_bahan_baku' => $jumlahbhnbaku
+            ];
+            // dd($dataupdate);
+            $bahanbaku = new MBahanbaku();
+            $bahanbaku->update_data($dataupdate, $id);
 
-        $mhs = new MProduksi();
-        $mhs->insert_data_temp($data);
-        session()->setFlashdata('successbahanbaku', 'Data Bahan Baku Berhasil Ditambahkan');
+            $mhs = new MProduksi();
+            $mhs->insert_data_temp($data);
+            session()->setFlashdata('successbahanbaku', 'Data Bahan Baku Berhasil Ditambahkan');
+        }
     }
 
     function add()
@@ -139,6 +146,7 @@ class Produksi extends BaseController
         $id_detail = $request->uri->getSegment(6);
         $stokdipakai = $request->uri->getSegment(4);
         $stokskrng = $request->uri->getSegment(5);
+        $idproduksi = $request->uri->getSegment(7);
 
         $jumlahbhnbaku = intval($stokdipakai + $stokskrng);
         $dataupdate = [
@@ -151,7 +159,7 @@ class Produksi extends BaseController
         $usr = new MProduksi();
         $usr->hapus_detail($id, $id_detail);
         session()->setFlashdata('deletebahanbaku', 'Data Bahan Baku Berhasil Di Hapus !!');
-        return redirect()->to(base_url('/Admin/Produksi/Tambah'));
+        return redirect()->to(base_url('/Produksi/Tambah/' . $idproduksi));
     }
 
     public function delete()

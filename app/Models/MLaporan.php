@@ -42,8 +42,14 @@ class MLaporan extends Model
             ->join('tbl_bahan_baku', 'tbl_detail_bahan_baku_masuk.kode_bahan_baku_detail=tbl_bahan_baku.kode_bahan_baku')
             ->where('kode_bahan_baku_masuk_detail',$kode)
             ->get()->getResultArray();
-
     }
+
+    function getTanggalFakturPembelianBahanBaku($kode){
+        return $this->db->table('tbl_bahan_baku_masuk')
+            ->where('kode_bahan_baku_masuk',$kode)
+            ->get()->getRowArray();
+    }
+
     function getpemesanan($tglawal, $tglakhir)
     {
         return $this->db
