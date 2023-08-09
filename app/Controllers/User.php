@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\MUser;
-use App\Models\MPegawai;
+use App\Models\Mkaryawan;
 
 class User extends BaseController
 {
@@ -38,7 +38,7 @@ class User extends BaseController
     public function add()
     {
         $user = new MUser();
-        $pegawai = new MPegawai();
+        $pegawai = new Mkaryawan();
         date_default_timezone_set('Asia/Jakarta');
         $date = date('Y-m-d:H:i:s');
         $valid = $this->validate([
@@ -120,6 +120,7 @@ class User extends BaseController
         $user = new MUser();
         $request = \Config\Services::request();
         $id = $request->uri->getSegment(3);
+        // dd($user->detail($id));
         $data = [
             'level' => $user->getDataLevel(),
             'isi' => 'Master/User/Edit',
@@ -136,7 +137,7 @@ class User extends BaseController
         $kode = $this->request->getPost('kodepegawai');
         $id = $this->request->getPost('iduser');
         $user = new MUser();
-        $pegawai = new MPegawai();
+        $pegawai = new Mkaryawan();
         if (empty($pass)) {
             $valid = $this->validate([
                 'username' => [

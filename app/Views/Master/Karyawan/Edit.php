@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Tambah Pelanggan</h3>
+                        <h3 class="card-title">Edit Karyawan</h3>
                     </div>
                     <div class="card-body">
                         <button type="button" data-toggle="modal" onclick="location.href=('<?= base_url('Admin/Pelanggan') ?>')" class="btn btn-outline-danger" title="Kembali">
@@ -37,12 +37,12 @@
                             </div>
                         <?php
                         } ?>
-                        <form id="form" action="<?= base_url('Pelanggan/update') ?>" method="POST" enctype="multipart/form-data">
+                        <form id="form" action="<?= base_url('Karyawan/update') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Pelanggan</label>
-                                <input type="hidden" value="<?= $data['kodepelanggan'] ?>" name="kodepelanggan">
-                                <input type="text" name="namapelanggan" value="<?= $data['namapelanggan'] ?>" id="namapelanggan" class="form-control" required>
+                                <input type="hidden" value="<?= $data['kodekaryawan'] ?>" name="kodepelanggan">
+                                <input type="text" name="namapelanggan" value="<?= $data['namalengkap'] ?>" id="namapelanggan" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Lahir</label>
@@ -65,7 +65,17 @@
                             </div>
                             <div class="form-group">
                                 <label>No.Telp/Hp</label>
-                                <input type="number" name="notelp" id="notelp" class="form-control" value="<?= $data['notelp'] ?>" required>
+                                <input type="number" name="notelp" id="notelp" class="form-control" value="<?= $data['nohp'] ?>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" name="username" id="username" class="form-control" value="<?= $datauser['username'] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="passwordbaru" id="passwordbaru" class="form-control">
+                                <input type="hidden" name="passwordlama" id="passwordlama" class="form-control" value="<?= $datauser['password'] ?>">
                             </div>
                             <button type="submit" id="submit" style="width:50px" class="btn btn-outline-primary">
                                 <i class="fas fa-save"></i>

@@ -217,22 +217,20 @@ if (empty($request->uri->getSegment(3)) || empty($request->uri->getSegment(4))) 
                             <?php foreach ($dataproduk as $r) { ?>
                                 <td><?= $r['nama_produk'] ?></td>
                                 <td><?= $r['jenis_motif'] ?></td>
-                                <td><?= $r['jumlah_produk'] ?></td>
+                                <td>
+                                    <?php if ($r['jumlah_produk'] >1 && $r['jumlah_produk'] <= 5) { ?>
+                                        <span class='badge badge-warning'><?= $r['jumlah_produk'] ?></span>
+                                    <?php } else if ($r['jumlah_produk'] == 0) { ?>
+                                        <span class='badge badge-danger'><?= $r['jumlah_produk'] ?></span>
+                                    <?php } else { ?>
+                                        <?= $r['jumlah_produk'] ?>
+                                    <?php } ?>
+                                </td>
                                 <td><?= "Rp. " . number_format($r['harga_produk']) ?></td>
                                 <td>
-                                    <?php if ($r['jumlah_produk'] == 0 && session()->get('akses1') == '4') { ?>
-                                        <button class="btn btn-danger" title="Stok Sudah Habis">
-                                            <i class="fa fa-warning" aria-hidden="true"></i>
-                                        </button>
-                                    <?php } else if ($r['jumlah_produk'] < 5 && session()->get('akses1') == '1') { ?>
-                                        <button class="btn btn-warning" title="Stok Sudah Menipis">
-                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                        </button>
-                                    <?php } else { ?>
-                                        <a href="<?= base_url('Produksi/Tambah') . '/' . $r['kode_produk'] . '/' . $r['nama_produk'] . '/' . $r['kode_jenis_motif'] . '/' . $r['jenis_motif'] . '/' . $r['jumlah_produk'] . '/' . $r['harga_produk'] ?>" class="btn btn-outline-success" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['nama_produk'] ?>','<?= $r['kode_jenis_motif'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['jumlah_produk'] ?>','<?= $r['harga_produk'] ?>')">
-                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                        </a>
-                                    <?php } ?>
+                                    <a title="Stok Sudah Menipis" href="<?= base_url('Produksi/Tambah') . '/' . $r['kode_produk'] . '/' . $r['nama_produk'] . '/' . $r['kode_jenis_motif'] . '/' . $r['jenis_motif'] . '/' . $r['jumlah_produk'] . '/' . $r['harga_produk'] ?>" class="btn btn-outline-success" onclick="return ambil('<?= $r['kode_produk'] ?>','<?= $r['nama_produk'] ?>','<?= $r['kode_jenis_motif'] ?>','<?= $r['jenis_motif'] ?>','<?= $r['jumlah_produk'] ?>','<?= $r['harga_produk'] ?>')">
+                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                    </a>
                                 </td>
                         </tr>
                     <?php } ?>
