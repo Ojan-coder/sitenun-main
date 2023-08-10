@@ -23,7 +23,7 @@
 
 <body onload="window.print();" style='font-family:monospace; font-size:8pt;'>
     <div align="center">
-        <table style="border-collapse: collapse; width: 100%" border="1">
+        <table style="border-collapse: collapse; width: 100%" border="0">
             <tr>
                 <td align="center">
                     <table style="border-collapse: collapse; width: 90%;" border="0">
@@ -47,19 +47,19 @@
             <tr>
                 <td>
                     <br>
-                    <table style="border-collapse: collapse; width: 100%; font-weight: bold;" align="" border="0">
+                    <table style="border-collapse: collapse; width: 75%; font-weight: bold;" align="center" border="1">
                         <tr>
-                            <td>No. Transaksi</td>
+                            <td width="200px">No. Transaksi</td>
                             <td>:</td>
                             <td><?= $kode ?></td>
-                            <td>No. Pelanggan</td>
+                            <td width="200px">No. Pelanggan</td>
                             <td>:</td>
                             <td><?= $pelanggan['kodepelanggan'] ?></td>
                         </tr>
                         <tr>
                             <td>Tanggal Pemesanan</td>
                             <td>:</td>
-                            <td><?= date('d M Y',strtotime($tgl))?></td>
+                            <td><?= date('d M Y', strtotime($tgl)) ?></td>
                             <td>Nama Pelanggan</td>
                             <td>:</td>
                             <td><?= $pelanggan['namapelanggan'] ?></td>
@@ -84,7 +84,7 @@
                                 <th>Total Bayar</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody align="center">
                             <?php
                             $no = 0;
                             foreach ($detail as $r) {
@@ -97,7 +97,7 @@
                                 <tr>
                                     <td><?= $no; ?></td>
                                     <td><?= $r['nama_produk'] ?></td>
-                                    <td><?= $r['qty_produk_penjualan_detail']?></td>
+                                    <td><?= $r['qty_produk_penjualan_detail'] ?></td>
                                     <td><?= "Rp. " . number_format($r['harga_produk_penjualan_detail']) ?></td>
                                     <td><?= "Rp. " . number_format($r['dp_pemesanan']) ?></td>
                                     <td><?= "Rp. " . number_format($sisa) ?></td>
@@ -136,6 +136,7 @@
                 </td>
             </tr>
         </table>
+        <hr style="border-bottom: 1;border-style: dashed;">
     </div>
 </body>
 
