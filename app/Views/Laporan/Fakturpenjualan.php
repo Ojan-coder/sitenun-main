@@ -21,9 +21,9 @@
     }
 </style>
 
-<body onload="window.print();" style='font-family:tahoma; font-size:8pt;'>
+<body onload="window.print();" style='font-family:monospace; font-size:11pt;'>
     <div align="center">
-        <table style="border-collapse: collapse; width: 75%" border="1">
+    <table style="border-collapse: collapse; width: 100%" border="1">
             <tr>
                 <td align="center">
                     <table style="border-collapse: collapse; width: 90%;" border="0">
@@ -47,10 +47,10 @@
             <tr>
                 <td>
                     <br>
-                    <table style="border-collapse: collapse; width: 60%; font-weight: bold;" border="0">
+                    <table style="border-collapse: collapse; width: 95%; font-weight: bold;" align="center" border="0">
                         <tr>
-                            <td>No. Pelanggan</td>
-                            <td>:</td>
+                            <td width="150px">No. Pelanggan</td>
+                            <td width="20px">:</td>
                             <td><?= $pelanggan['kodepelanggan'] ?></td>
                         </tr>
                         <tr>
@@ -86,7 +86,7 @@
 
                                 $no++;
                             ?>
-                                <tr>
+                                <tr align="center">
                                     <td><?= $no; ?></td>
                                     <td><?= $r['no_transaksi_penjualan_detail'] ?></td>
                                     <td><?= $r['tgl_penjualan'] ?></td>
@@ -128,6 +128,7 @@
                 </td>
             </tr>
         </table>
+        <hr style="border-style: dashed;">
     </div>
 </body>
 
