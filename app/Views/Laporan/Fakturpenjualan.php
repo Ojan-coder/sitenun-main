@@ -23,7 +23,7 @@
 
 <body onload="window.print();" style='font-family:monospace; font-size:11pt;'>
     <div align="center">
-    <table style="border-collapse: collapse; width: 100%" border="1">
+    <table style="border-collapse: collapse; width: 100%" border="0">
             <tr>
                 <td align="center">
                     <table style="border-collapse: collapse; width: 90%;" border="0">
@@ -59,13 +59,11 @@
                             <td><?= $pelanggan['namapelanggan'] ?></td>
                         </tr>
                     </table>
-                    <br>
                 </td>
             </tr>
 
             <tr>
                 <td align="center">
-                    <br>
                     <table style="border-collapse: collapse; width: 95%;" border="1">
                         <thead>
                             <tr>
