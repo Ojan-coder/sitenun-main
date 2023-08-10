@@ -21,8 +21,9 @@ class MUser extends Model
     {
         return $this->db
             ->table('user')
-            ->join('tbl_pegawai','kode_pegawai=kode_user')
-            ->where('iduser', $id)->get()->getRowArray();
+            ->join('tbl_karyawan','kodekaryawan=kode_user','LEFT')
+            ->join('pelanggan','kodepelanggan=kode_user','LEFT')
+            ->where('kode_user', $id)->get()->getRowArray();
     }
     public function insert_data($data)
     {
@@ -30,7 +31,7 @@ class MUser extends Model
     }
     function update_data($data, $id)
     {
-        return $this->db->table('user')->update($data, ['iduser' => $id]);
+        return $this->db->table('user')->update($data, ['kode_user' => $id]);
     }
     public function hapus($id)
     {

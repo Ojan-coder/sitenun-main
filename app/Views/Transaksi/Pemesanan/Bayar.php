@@ -32,6 +32,21 @@
                                         <h3 class="card-title">Data Pesanan</h3>
                                     </div>
                                     <?php
+                                    $errors = session()->getFlashdata('errors');
+                                    if (!empty($errors)) { ?>
+                                        <div class="alert alert-danger alert-dismissible">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                            <h5><i class="icon fas fa-ban"></i> Kesalahan !</h5>
+                                            <ul>
+                                                <?php foreach ($errors as $key => $error) { ?>
+                                                    <li><?= esc($error) ?></li>
+                                                <?php
+                                                }
+                                                ?>
+                                            </ul>
+                                        </div>
+                                    <?php } ?>
+                                    <?php
                                     if (!empty(session()->getFlashdata('success'))) { ?>
                                         <div class="row" style="align-items: center;">
                                             <div class="col-md-12">

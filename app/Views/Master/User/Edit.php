@@ -41,8 +41,8 @@
                             <?php csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
-                                <input type="hidden" name="kodepegawai" value="<?= $data['kode_pegawai'] ?>">
-                                <input type="text" name="nama" id="nama" value="<?= $data['fullname'] ?>" class="form-control">
+                                <input type="hidden" name="kodepegawai" value="<?= $data['kodepelanggan'] ?>">
+                                <input type="text" name="nama" id="nama" value="<?= $data['namapelanggan'] ?>" class="form-control">
                             </div>
 
                             <div class="form-group">
@@ -56,7 +56,7 @@
                                     <option value="L">Laki-Laki</option>
                                     <option value="P">Perempuan</option>
                                     <script>
-                                        document.getElementById('cbjenkel').value = '<?= $data['jenis_kelamin'] ?>'
+                                        document.getElementById('cbjenkel').value = '<?= $data['kodejenkel'] ?>'
                                     </script>
                                 </select>
                             </div>
@@ -66,7 +66,7 @@
                             </div>
                             <div class="form-group">
                                 <label>No.Hp</label>
-                                <input type="number" name="nohp" id="nohp" value="<?= $data['nohp'] ?>" class="form-control">
+                                <input type="number" name="nohp" id="nohp" value="<?= $data['notelp'] ?>" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Username</label>

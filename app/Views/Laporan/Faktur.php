@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Cetak Faktur</title>
+    <title>Cetak Faktur Pemesanan</title>
 </head>
 <style>
     #tabel {
@@ -21,14 +21,14 @@
     }
 </style>
 
-<body onload="window.print();" style='font-family:tahoma; font-size:8pt;'>
+<body onload="window.print();" style='font-family:monospace; font-size:8pt;'>
     <div align="center">
-        <table style="border-collapse: collapse; width: 75%" border="1">
+        <table style="border-collapse: collapse; width: 100%" border="1">
             <tr>
                 <td align="center">
                     <table style="border-collapse: collapse; width: 90%;" border="0">
                         <tr>
-                            <td><img src="<?= base_url('img/logotenun.png') ?>" width="100px" height="100px" style="align-items:;"></td>
+                            <!-- <td><img src="<?= base_url('img/logotenun.png') ?>" width="100px" height="100px" style="align-items:;"></td> -->
                             <td style="text-align: center;">
                                 <span style="font-size: 20pt; font-weight: bold; color: black;">SENTRA TENUN LINTAU BUO</span><br>
                                 <span style="font-size: 12pt; font-weight: bold; color: black;">Taluak, Lintau Buo, Tanah Datar Regency, West Sumatra 27292</span><br>
@@ -38,7 +38,7 @@
                                     </span>
                                     <hr>
                             </td>
-                            <td><img src="<?= base_url('img/tanahdatar.png') ?>" width="100px" height="100px" style="align-items:;"></td>
+                            <!-- <td><img src="<?= base_url('img/tanahdatar.png') ?>" width="100px" height="100px" style="align-items:;"></td> -->
                         </tr>
                     </table>
                 </td>
@@ -88,8 +88,10 @@
                             <?php
                             $no = 0;
                             foreach ($detail as $r) {
-                                $sisa = $r['qty_produk_penjualan_detail'] * $r['harga_produk_penjualan_detail'] - $r['dp_pemesanan'];
+                                // $sisa = $r['qty_produk_penjualan_detail'] * $r['harga_produk_penjualan_detail'] - $r['dp_pemesanan'];
                                 $total = $r['qty_produk_penjualan_detail'] * $r['harga_produk_penjualan_detail'];
+                                $dp = $r['dp_pemesanan'] - $r['bayar_sisa'];
+                                $sisa = $total - $r['dp_pemesanan'];
                                 $no++;
                             ?>
                                 <tr>

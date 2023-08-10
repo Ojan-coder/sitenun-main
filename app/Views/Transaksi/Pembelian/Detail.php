@@ -33,7 +33,6 @@
                                     <th>Jumlah</th>
                                     <th>Harga Bahan Baku</th>
                                     <th>Total</th>
-                                    <th width="10px">#</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,11 +49,7 @@
                                         <td><?= $r['qty_bahan_baku_masuk_detail'] ?></td>
                                         <td><?= "Rp. " . number_format($r['harga_bahan_baku_masuk_detail']) ?></td>
                                         <td><?= "Rp. " . number_format($total) ?></td>
-                                        <td>
-                                            <a class="btn btn-outline-danger" id="hapus" href="<?= base_url('PembelianBahanBaku/delete_bahanbaku/' . $r['kode_bahan_baku_detail']) . '/' . $r['qty_bahan_baku_masuk_detail'] . '/' . $r['jumlah_bahan_baku'] . '/' . $r['id'] ?>" title="Hapus Data Bahan Baku">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
-                                        </td>
+                                        
                                     </tr>
                                 <?php } ?>
                             </tbody>

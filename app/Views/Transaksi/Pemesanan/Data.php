@@ -56,12 +56,16 @@
                                         <td><?= $r['nama_status'] ?></td>
                                         <td>
                                             <?php if ($r['status_pemesanan'] == '1' && $r['bukti_dp'] != NULL && session()->get('akses1') == '1') { ?>
-                                                <button class="btn btn-outline-secondary" title="Check Status Pembayaran" onclick="location.href=('<?= base_url('Pemesanan/gantistatus/') . $r['status_pemesanan'] . '/' . $r['kode_pemesanan'] ?>')">
+                                                <button class="btn btn-outline-secondary" title="Check Status Pembayaran 1" onclick="location.href=('<?= base_url('Pemesanan/gantistatus/') . $r['status_pemesanan'] . '/' . $r['kode_pemesanan'] ?>')">
                                                     <i class="fa fa-check-circle" aria-hidden="true"></i>
                                                 </button>
-                                            <?php } else if ($r['bukti_dp'] != NULL && $r['bukti_sisa'] != NULL && session()->get('akses1') == '1' && $r['status_pemesanan'] == "3 ") { ?>
+                                            <?php } else if ($r['bukti_dp'] != NULL && $r['bukti_sisa'] != NULL && session()->get('akses1') == '1' && $r['status_pemesanan'] == "3") { ?>
                                                 <button class="btn btn-outline-secondary" title="Selesaikan Produk" onclick="location.href=('<?= base_url('Pemesanan/gantistatus/') . $r['status_pemesanan'] . '/' . $r['kode_pemesanan'] ?>')">
                                                     <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                </button>
+                                            <?php } else if ($r['bukti_dp'] != NULL && $r['bukti_sisa'] != NULL && session()->get('akses1') == '1' && $r['status_pemesanan'] == "5") { ?>
+                                                <button class="btn btn-outline-danger" title="Produk Sudah Di Ambil" onclick="location.href=('<?= base_url('Pemesanan/gantistatus/') . $r['status_pemesanan'] . '/' . $r['kode_pemesanan'] ?>')">
+                                                    <i class="fa fa-check" aria-hidden="true"></i>
                                                 </button>
                                             <?php } else if ($sisa > 0 && session()->get('akses1') == '4') { ?>
                                                 <button type="button" class="btn btn-outline-success" onclick="location.href=('<?= base_url('Pemesanan/bayar/') . $r['kode_pemesanan'] ?>')" title="Silahkan Lunasi Pembayaran">
@@ -80,7 +84,7 @@
                                                     </a>
                                                 <?php } ?>
                                             <?php } ?>
-                                            <a class="btn btn-outline-primary" target="_blank" title="Cetak Faktur Pemesanan" href="<?= base_url('Laporan/CetakFaktur/' . $r['kode_pemesanan'] . '/' . $r['kode_pelanggan'] . '/' . $r['tgl_pemesanan']) ?>">
+                                            <a type="button" class="btn btn-outline-primary" target="_blank" title="Cetak Faktur Pemesanan" href="<?= base_url('Laporan/CetakFaktur/' . $r['kode_pemesanan'] . '/' . $r['kode_pelanggan'] . '/' . $r['tgl_pemesanan']) ?>">
                                                 <i class="fas fa-print"></i>
                                             </a>
                                         </td>

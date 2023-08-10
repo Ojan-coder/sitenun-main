@@ -27,8 +27,8 @@
                                 <br>
                             </div>
 
-                            <?php if ($r['jumlah_produk'] == 0) { ?>
-                                <button class="btn btn-outline-danger" title="Stok Habis">
+                            <?php if ($r['jumlah_produk'] == 0 && session()->get('masuk') == TRUE) { ?>
+                                <button class="btn btn-outline-danger" title="Produk Belum Tersedia">
                                     <i class="fa fa-warning" aria-hidden="true"></i>
                                 </button>
                             <?php } else if (session()->get('masuk') == TRUE) { ?>
@@ -47,25 +47,26 @@
 
 
 <div class="modal fade" id="modal-konfirm">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-success">
                 <h5>
-                    Konfirmasi Pesanan ?
+                    Order Pesanan
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
+                <h4>Apakah Anda Ingin Membeli Produk Ini ?</h4>
                 <form method="POST" action="<?= base_url('pemesanan/simp_detail_home') ?>">
-                    <input type="text" id="kodeproduk" name="kodeproduk">
-                    <input type="text" id="kodem" name="kodem">
-                    <input type="text" id="jumlah" name="jumlahproduk">
-                    <input type="text" id="jumlah1" name="jumlahbeli">
-                    <input type="text" id="harga" name="harga">
+                    <input type="hidden" id="kodeproduk" name="kodeproduk">
+                    <input type="hidden" id="kodem" name="kodem">
+                    <input type="hidden" id="jumlah" name="jumlahproduk">
+                    <input type="hidden" id="jumlah1" name="jumlahbeli">
+                    <input type="hidden" id="harga" name="harga">
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer justify-content-between">
                 <button type="submit" class="btn btn-outline-success" data-bs-dismiss="modal">
                     <i class="bx bx-x d-block"></i>
                     <span>Yes</span>

@@ -45,16 +45,20 @@
             </tr>
             <tr>
                 <td>
-                    <h2>No.Transaksi : <?= $kode ?></h2>
+                    No.Transaksi : <?= $kode ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Tanggal : <?= date('d-M-Y', strtotime($tanggal['tgl_bahan_baku_masuk'])) ?>
                 </td>
             </tr>
             <tr>
                 <td align="center">
                     <br>
-                    <table class="table table-bordered" width="100%" border="1">
+                    <table class="table table-bordered"  width="100%" border="1">
                         <thead>
                             <tr>
-                                <th>Tanggal Pembelian Bahan Baku</th>
                                 <th>Nama Bahan Baku</th>
                                 <th>Stok</th>
                                 <th>Harga</th>
@@ -70,7 +74,6 @@
                             ?>
 
                                 <tr>
-                                    <td><?= date('d-m-Y', strtotime($r['created_at'])) ?></td>
                                     <td><?= $r['nama_bahan_baku'] ?></td>
                                     <td><?= $r['jumlah_bahan_baku'] ?></td>
                                     <td><?= "Rp. " . number_format($r['harga_bahan_baku_masuk_detail']) ?></td>
@@ -79,7 +82,7 @@
                                 </tr>
                             <?php } ?>
                             <tr>
-                                <td colspan="4"><b>Total Semua</b></td>
+                                <td colspan="3"><b>Total Semua</b></td>
                                 <td><?= "Rp. " . number_format($totalsemua) ?></td>
                             </tr>
                         </tbody>

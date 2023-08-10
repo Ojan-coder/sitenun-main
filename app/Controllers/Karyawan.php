@@ -28,7 +28,7 @@ class Karyawan extends BaseController
         $user = new MUser();
         if ((session()->get('masuk') == TRUE) && (session()->get('status') == 'Y')) {
             $data = [
-                'level'=>$user->getDataLevel(),
+                'level' => $user->getDataLevel(),
                 'isi' => 'Master/Karyawan/Add'
             ];
             return view('Layout/Template', $data);
@@ -120,11 +120,14 @@ class Karyawan extends BaseController
     public function edit()
     {
         $pelanggan = new MKaryawan();
+        $user = new MUser();
         $request = \Config\Services::request();
         $id = $request->uri->getSegment(3);
+        // dd($id);
         $data = [
             'isi' => 'Master/Karyawan/Edit',
-            'data' => $pelanggan->detail($id)
+            'data' => $pelanggan->detail($id),
+            'datauser' => $user->detail($id),
         ];
         return view('Layout/Template', $data);
     }
@@ -133,8 +136,11 @@ class Karyawan extends BaseController
     {
         $id = $this->request->getPost('kodepelanggan');
         $pelanggan = new MKaryawan();
+        $user = new MUser();
         date_default_timezone_set('Asia/Jakarta');
         $date = date('Y-m-d:H:i:s');
+        $pas = $this->request->getVar('passwordbaru');
+        $pw = password_hash($pas, PASSWORD_BCRYPT);
 
         $valid = $this->validate([
             'namapelanggan' => [
@@ -163,20 +169,35 @@ class Karyawan extends BaseController
 
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to('Pelanggan/Tambah');
+            return redirect()->to('Karyawan/Tambah');
         } else {
             $data = [
-                'namapelanggan' => $this->request->getPost('namapelanggan'),
+                'namalengkap' => $this->request->getPost('namapelanggan'),
                 'tgl_lahir' => $this->request->getPost('tgllahir'),
                 'kodejenkel' => $this->request->getPost('cbjenkel'),
                 'alamat' => $this->request->getPost('alamat'),
-                'notelp' => $this->request->getPost('notelp'),
+                'nohp' => $this->request->getPost('notelp'),
                 'updated_at' => $date
             ];
 
             $pelanggan->update_data($data, $id);
+
+
+            if ($this->request->getPost('passwordbaru') != NULL || $this->request->getPost('passwordbaru') != '') {
+                $datauser = [
+                    'username' => $this->request->getPost('username'),
+                    'password' => $pw
+                ];
+                $user->update_data($datauser, $id);
+            } else {
+                $datauser = [
+                    'username' => $this->request->getPost('username')
+                ];
+                $user->update_data($datauser, $id);
+            }
+
             session()->setFlashdata('success', 'Data Pelanggan Berhasil Di Update');
-            return redirect()->to('Pelanggan');
+            return redirect()->to('Karyawan');
         }
     }
 

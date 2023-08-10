@@ -46,7 +46,7 @@
                                         <td><?= $r['username'] ?></td>
                                         <td class="text-center"><?= $stt ?></td>
                                         <td>
-                                            <button type="button" onclick="location.href=('<?= base_url('User/edit') . '/' . $r['iduser'] ?>')" class="btn btn-outline-warning" title="Edit Data">
+                                            <button type="button" onclick="location.href=('<?= base_url('User/edit') . '/' . $r['kode_user'] ?>')" class="btn btn-outline-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                             <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['iduser'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">

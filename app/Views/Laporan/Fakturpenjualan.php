@@ -21,14 +21,14 @@
     }
 </style>
 
-<body onload="window.print();" style='font-family:tahoma; font-size:8pt;'>
+<body onload="window.print();" style='font-family:monospace; font-size:8pt;'>
     <div align="center">
-        <table style="border-collapse: collapse; width: 75%" border="1">
+        <table style="border-collapse: collapse; width: 100%" border="0">
             <tr>
                 <td align="center">
                     <table style="border-collapse: collapse; width: 90%;" border="0">
                         <tr>
-                            <td><img src="<?= base_url('img/logotenun.png') ?>" width="100px" height="100px" style="align-items:;"></td>
+                            <!-- <td><img src="<?= base_url('img/logotenun.png') ?>" width="100px" height="100px" style="align-items:;"></td> -->
                             <td style="text-align: center;">
                                 <span style="font-size: 20pt; font-weight: bold; color: black;">SENTRA TENUN LINTAU BUO</span><br>
                                 <span style="font-size: 12pt; font-weight: bold; color: black;">Taluak, Lintau Buo, Tanah Datar Regency, West Sumatra 27292</span><br>
@@ -38,7 +38,7 @@
                                     </span>
                                     <hr>
                             </td>
-                            <td><img src="<?= base_url('img/tanahdatar.png') ?>" width="100px" height="100px" style="align-items:;"></td>
+                            <!-- <td><img src="<?= base_url('img/tanahdatar.png') ?>" width="100px" height="100px" style="align-items:;"></td> -->
                         </tr>
                     </table>
                 </td>
@@ -47,10 +47,10 @@
             <tr>
                 <td>
                     <br>
-                    <table style="border-collapse: collapse; width: 60%; font-weight: bold;" border="0">
+                    <table style="border-collapse: collapse; width: 95%; font-weight: bold;" align="center" border="0">
                         <tr>
-                            <td>No. Pelanggan</td>
-                            <td>:</td>
+                            <td width="180px">No. Pelanggan</td>
+                            <td width="50px">:</td>
                             <td><?= $pelanggan['kodepelanggan'] ?></td>
                         </tr>
                         <tr>
@@ -59,7 +59,6 @@
                             <td><?= $pelanggan['namapelanggan'] ?></td>
                         </tr>
                     </table>
-                    <br>
                 </td>
             </tr>
 
@@ -91,8 +90,8 @@
                                     <td><?= $r['no_transaksi_penjualan_detail'] ?></td>
                                     <td><?= $r['tgl_penjualan'] ?></td>
                                     <td><?= $r['nama_produk'] ?></td>
-                                    <td><?= "Rp. " . number_format($r['qty_produk_penjualan_detail']) ?></td>
-                                    <td><?= $r['harga_produk_penjualan_detail'] ?></td>
+                                    <td><?= $r['qty_produk_penjualan_detail']?></td>
+                                    <td><?= "Rp. " . number_format($r['harga_produk_penjualan_detail']) ?></td>
                                     <td><?= "Rp. " . number_format($total) ?></td>
                                 </tr>
                             <?php
