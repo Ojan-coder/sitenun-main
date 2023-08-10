@@ -32,9 +32,8 @@
                             <td style="text-align: center;">
                                 <span style="font-size: 20pt; font-weight: bold; color: black;">SENTRA TENUN LINTAU BUO</span><br>
                                 <span style="font-size: 12pt; font-weight: bold; color: black;">Taluak, Lintau Buo, Tanah Datar Regency, West Sumatra 27292</span><br>
-                                <p>
-                                    <span style="font-size: 18pt; font-weight: bold; color: black;">Faktur Pembayaran</span>
-                                    <hr>
+                                <span style="font-size: 18pt; font-weight: bold; color: black;">Faktur Pembayaran</span>
+                                <hr>
                             </td>
                             <td><img src="<?= base_url('img/tanahdatar.png') ?>" width="100px" height="100px" style="align-items:;"></td>
                         </tr>

@@ -23,7 +23,7 @@
 
 <body onload="window.print();" style='font-family:monospace; font-size:11pt;'>
     <div align="center">
-    <table style="border-collapse: collapse; width: 100%" border="0">
+        <table style="border-collapse: collapse; width: 100%" border="0">
             <tr>
                 <td align="center">
                     <table style="border-collapse: collapse; width: 90%;" border="0">
@@ -32,11 +32,8 @@
                             <td style="text-align: center;">
                                 <span style="font-size: 20pt; font-weight: bold; color: black;">SENTRA TENUN LINTAU BUO</span><br>
                                 <span style="font-size: 12pt; font-weight: bold; color: black;">Taluak, Lintau Buo, Tanah Datar Regency, West Sumatra 27292</span><br>
-                                <p>
-                                    <span style="font-size: 18pt; font-weight: bold; color: black;">Faktur Pembayaran</span><br>
-                                    <span style="font-size: 12pt; font-weight: bold; font-style: italic;">
-                                    </span>
-                                    <hr>
+                                <span style="font-size: 18pt; font-weight: bold; color: black;">Faktur Pembayaran</span><br>
+                                <hr>
                             </td>
                             <td><img src="<?= base_url('img/tanahdatar.png') ?>" width="100px" height="100px" style="align-items:;"></td>
                         </tr>
@@ -89,7 +86,7 @@
                                     <td><?= $r['no_transaksi_penjualan_detail'] ?></td>
                                     <td><?= $r['tgl_penjualan'] ?></td>
                                     <td><?= $r['nama_produk'] ?></td>
-                                    <td><?= $r['qty_produk_penjualan_detail']?></td>
+                                    <td><?= $r['qty_produk_penjualan_detail'] ?></td>
                                     <td><?= "Rp. " . number_format($r['harga_produk_penjualan_detail']) ?></td>
                                     <td><?= "Rp. " . number_format($total) ?></td>
                                 </tr>
