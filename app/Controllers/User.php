@@ -136,8 +136,8 @@ class User extends BaseController
         $pass = $this->request->getVar('pass');
         $kode = $this->request->getPost('kodepegawai');
         $id = $this->request->getPost('iduser');
+        // dd($this->request->getPost('cbstatus'));
         $user = new MUser();
-        $pegawai = new Mkaryawan();
         if (empty($pass)) {
             $valid = $this->validate([
                 'username' => [
@@ -152,21 +152,6 @@ class User extends BaseController
                     'rules'   => 'required',
                     'errors' => [
                         'required' => '{field} Wajib Diisi'
-                    ],
-                ],
-                'alamat' => [
-                    'label'  => 'Alamat',
-                    'rules'   => 'required',
-                    'errors' => [
-                        'required' => '{field} Wajib Diisi'
-                    ],
-                ],
-                'nohp' => [
-                    'label'  => 'No.Hp',
-                    'rules'   => 'required|max_length[12]',
-                    'errors' => [
-                        'required' => '{field} Wajib Diisi',
-                        'max_length' => '{field} Maximal 12 Karakter'
                     ],
                 ]
             ]);
@@ -184,29 +169,6 @@ class User extends BaseController
                     'rules'   => 'required',
                     'errors' => [
                         'required' => '{field} Wajib Diisi'
-                    ],
-                ],
-                'alamat' => [
-                    'label'  => 'Alamat',
-                    'rules'   => 'required',
-                    'errors' => [
-                        'required' => '{field} Wajib Diisi'
-                    ],
-                ],
-                'nohp' => [
-                    'label'  => 'No.Hp',
-                    'rules'   => 'required|max_length[12]',
-                    'errors' => [
-                        'required' => '{field} Wajib Diisi',
-                        'max_length' => '{field} Maximal 12 Karakter'
-                    ],
-                ],
-                'pass' => [
-                    'label'  => 'Password',
-                    'rules'   => 'required|min_length[8]',
-                    'errors' => [
-                        'required' => '{field} Wajib Diisi',
-                        'min_length' => 'Password Minimal Character 8'
                     ],
                 ],
                 'pass' => [
@@ -233,19 +195,19 @@ class User extends BaseController
                     'username' => $this->request->getPost('username'),
                     'fullname' => $this->request->getPost('nama'),
                     'level_user' => $this->request->getPost('cbakses'),
-                    'status' => $this->request->getPost('cbstatus'),
+                    // 'status' => $this->request->getPost('cbstatus'),
                     'updated_at' => $date
                 ];
                 $user->update_data($data, $id);
                 $datapegawai = [
-                    'nama_lengkap' => $this->request->getPost('nama'),
-                    'tgl_lahir' => $this->request->getPost('tgl'),
-                    'jenis_kelamin' => $this->request->getPost('cbjenkel'),
-                    'alamat' => $this->request->getPost('alamat'),
-                    'nohp' => $this->request->getPost('nohp'),
+                    'namalengkap' => $this->request->getPost('nama'),
+                    'tgl_lahir_karyawan' => $this->request->getPost('tgl'),
+                    'kodejenkel_karyawan' => $this->request->getPost('cbjenkel'),
+                    'alamat_karyawan' => $this->request->getPost('alamat'),
+                    'nohp_karyawan' => $this->request->getPost('nohp'),
                     'updated_at' => $date,
                 ];
-                $pegawai->update_data($datapegawai, $kode);
+                // $pegawai->update_data($datapegawai, $kode);
             } else {
 
                 $pw = password_hash($pass, PASSWORD_BCRYPT);
@@ -253,7 +215,7 @@ class User extends BaseController
                     'username' => $this->request->getPost('username'),
                     'fullname' => $this->request->getPost('nama'),
                     'level_user' => $this->request->getPost('cbakses'),
-                    'status' => $this->request->getPost('cbstatus'),
+                    // 'status' => $this->request->getPost('cbstatus'),
                     'password' => $pw,
                     'updated_at' => $date
                 ];
@@ -266,7 +228,7 @@ class User extends BaseController
                     'nohp' => $this->request->getPost('nohp'),
                     'updated_at' => $date,
                 ];
-                $pegawai->update_data($datapegawai, $kode);
+                // $pegawai->update_data($datapegawai, $kode);
             }
 
             session()->setFlashdata('success', 'Data Pegawai Berhasil Di Update !!');
@@ -280,7 +242,7 @@ class User extends BaseController
         $date = date('Y-m-d:H:i:s');
         $id = $this->request->getPost('idusery');
         $data = [
-            'status' => 'N',
+            'status' => 'Y',
             'updated_at' => $date
         ];
         $user = new MUser();
@@ -296,7 +258,7 @@ class User extends BaseController
         $date = date('Y-m-d:H:i:s');
         $id = $this->request->getPost('idusern');
         $data = [
-            'status' => 'Y',
+            'status' => 'N',
             'updated_at' => $date
         ];
         $user = new MUser();
