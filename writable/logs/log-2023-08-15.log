@@ -1,0 +1,27 @@
+INFO - 2023-08-15 02:47:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-15 02:47:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-15 02:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-15 02:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-08-15 02:47:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-08-15 02:50:48 --> strtotime(): Argument #2 ($baseTimestamp) must be of type ?int, string given
+in APPPATH\Views\Laporan\Laporanpembelianbahanbaku.php on line 47.
+ 1 APPPATH\Views\Laporan\Laporanpembelianbahanbaku.php(47): strtotime('8', 'M')
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Laporan\\Laporanpembelianbahanbaku.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Laporan/Laporanpembelianbahanbaku', [], true)
+ 5 APPPATH\Controllers\Laporan.php(52): view('Laporan/Laporanpembelianbahanbaku', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-15 02:55:15 --> strtotime(): Argument #2 ($baseTimestamp) must be of type ?int, string given
+in APPPATH\Views\Laporan\Laporanpembelianbahanbaku.php on line 47.
+ 1 APPPATH\Views\Laporan\Laporanpembelianbahanbaku.php(47): strtotime('8', 'MM')
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\xampp8\\htdocs\\sitenun-main\\app\\Views\\Laporan\\Laporanpembelianbahanbaku.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Laporan/Laporanpembelianbahanbaku', [], true)
+ 5 APPPATH\Controllers\Laporan.php(52): view('Laporan/Laporanpembelianbahanbaku', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Laporan->cetak()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laporan))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

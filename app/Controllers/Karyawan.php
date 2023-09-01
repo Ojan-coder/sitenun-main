@@ -103,10 +103,10 @@ class Karyawan extends BaseController
             $data = [
                 'kodekaryawan' => $pelanggan->koderandom(),
                 'namalengkap' => $this->request->getPost('namapelanggan'),
-                'tgl_lahir' => $this->request->getPost('tgllahir'),
-                'kodejenkel' => $this->request->getPost('cbjenkel'),
-                'alamat' => $this->request->getPost('alamat'),
-                'nohp' => $this->request->getPost('notelp'),
+                'tgl_lahir_karyawan' => $this->request->getPost('tgllahir'),
+                'kodejenkel_karyawan' => $this->request->getPost('cbjenkel'),
+                'alamat_karyawan' => $this->request->getPost('alamat'),
+                'nohp_karyawan' => $this->request->getPost('notelp'),
                 'created_at' => $date
             ];
             $pelanggan->insert_data($data);
@@ -169,14 +169,14 @@ class Karyawan extends BaseController
 
         if (!$valid) {
             session()->setFlashdata('errors', \Config\Services::validation()->getErrors());
-            return redirect()->to('Karyawan/Tambah');
+            return redirect()->to('Karyawan/Edit/'.$id);
         } else {
             $data = [
                 'namalengkap' => $this->request->getPost('namapelanggan'),
-                'tgl_lahir' => $this->request->getPost('tgllahir'),
-                'kodejenkel' => $this->request->getPost('cbjenkel'),
-                'alamat' => $this->request->getPost('alamat'),
-                'nohp' => $this->request->getPost('notelp'),
+                'tgl_lahir_karyawan' => $this->request->getPost('tgllahir'),
+                'kodejenkel_karyawan' => $this->request->getPost('cbjenkel'),
+                'alamat_karyawan' => $this->request->getPost('alamat'),
+                'nohp_karyawan' => $this->request->getPost('notelp'),
                 'updated_at' => $date
             ];
 
@@ -207,7 +207,7 @@ class Karyawan extends BaseController
         $id = $this->request->getPost('iduser');
         $pelanggan = new MKaryawan();
         $pelanggan->hapus($id);
-        session()->setFlashdata('success', 'Data Pelanggan Berhasil Di Hapus !!');
+        session()->setFlashdata('success', 'Data Karyawan Berhasil Di Hapus !!');
         return redirect()->to('Pelanggan');
     }
 }

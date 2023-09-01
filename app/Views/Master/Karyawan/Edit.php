@@ -40,13 +40,13 @@
                         <form id="form" action="<?= base_url('Karyawan/update') ?>" method="POST" enctype="multipart/form-data">
                             <?php csrf_field(); ?>
                             <div class="form-group">
-                                <label>Nama Pelanggan</label>
+                                <label>Nama Karyawan</label>
                                 <input type="hidden" value="<?= $data['kodekaryawan'] ?>" name="kodepelanggan">
                                 <input type="text" name="namapelanggan" value="<?= $data['namalengkap'] ?>" id="namapelanggan" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Lahir</label>
-                                <input type="date" name="tgllahir" value="<?= $data['tgl_lahir'] ?>" id="tgllahir" class="form-control" required>
+                                <input type="date" name="tgllahir" value="<?= $data['tgl_lahir_karyawan'] ?>" id="tgllahir" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Jenis Kelamin</label>
@@ -55,27 +55,17 @@
                                     <option value="L">Laki-Laki</option>
                                     <option value="P">Perempuan</option>
                                     <script>
-                                        document.getElementById('cbjenkel').value = '<?php echo $data['kodejenkel'] ?>'
+                                        document.getElementById('cbjenkel').value = '<?php echo $data['kodejenkel_karyawan'] ?>'
                                     </script>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <textarea class="form-control" name="alamat" id="alamat"><?= $data['alamat'] ?></textarea>
+                                <textarea class="form-control" name="alamat" id="alamat"><?= $data['alamat_karyawan'] ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label>No.Telp/Hp</label>
-                                <input type="number" name="notelp" id="notelp" class="form-control" value="<?= $data['nohp'] ?>" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" name="username" id="username" class="form-control" value="<?= $datauser['username'] ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" name="passwordbaru" id="passwordbaru" class="form-control">
-                                <input type="hidden" name="passwordlama" id="passwordlama" class="form-control" value="<?= $datauser['password'] ?>">
+                                <input type="number" name="notelp" id="notelp" class="form-control" value="<?= $data['nohp_karyawan'] ?>" required>
                             </div>
                             <button type="submit" id="submit" style="width:50px" class="btn btn-outline-primary">
                                 <i class="fas fa-save"></i>

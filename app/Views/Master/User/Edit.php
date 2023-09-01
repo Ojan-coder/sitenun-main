@@ -41,32 +41,7 @@
                             <?php csrf_field(); ?>
                             <div class="form-group">
                                 <label>Nama Lengkap</label>
-                                <input type="hidden" name="kodepegawai" value="<?= $data['kodepelanggan'] ?>">
-                                <input type="text" name="nama" id="nama" value="<?= $data['namapelanggan'] ?>" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Tanggal Lahir</label>
-                                <input type="date" name="tgl" id="tgl" value="<?= $data['tgl_lahir'] ?>" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Jenis Kelamin</label>
-                                <select name="cbjenkel" id="cbjenkel" class="form-control">
-                                    <option>-Pilih-</option>
-                                    <option value="L">Laki-Laki</option>
-                                    <option value="P">Perempuan</option>
-                                    <script>
-                                        document.getElementById('cbjenkel').value = '<?= $data['kodejenkel'] ?>'
-                                    </script>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Alamat</label>
-                                <textarea name="alamat" id="alamat" class="form-control"><?= $data['alamat'] ?></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>No.Hp</label>
-                                <input type="number" name="nohp" id="nohp" value="<?= $data['notelp'] ?>" class="form-control">
+                                <input type="text" name="nama" id="nama" value="<?= $data['fullname']?>" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Username</label>
@@ -87,7 +62,7 @@
                                     document.getElementById('cbakses').value = '<?= $data['level_user'] ?>'
                                 </script>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>Status</label>
                                 <select name="cbstatus" id="cbstatus" class="form-control">
                                     <option>-Pilih-</option>
@@ -97,8 +72,7 @@
                                 <script>
                                     document.getElementById('cbstatus').value = '<?= $data['status'] ?>'
                                 </script>
-                            </div>
-
+                            </div> -->
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" name="pass" id="pass" class="form-control">

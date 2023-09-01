@@ -9,7 +9,7 @@ class MKaryawan extends Model
     function koderandom()
     {
         $kode = $this->db->table('tbl_karyawan')
-            ->select('RIGHT(kodekaryawan,2) as iduser', false)
+            ->select('RIGHT(kodekaryawan,3) as iduser', false)
             ->orderBy('iduser', 'DESC')
             ->limit(1)
             ->get()->getRowArray();
@@ -20,7 +20,7 @@ class MKaryawan extends Model
             $no = "1";
         }
         $huruf = "USR-";
-        $batas = str_pad($no, 2, "000", STR_PAD_LEFT);
+        $batas = str_pad($no, 3, "000", STR_PAD_LEFT);
         $kodeu = $huruf . $batas;
         return $kodeu;
     }

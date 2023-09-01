@@ -10,7 +10,8 @@ class MUser extends Model
     {
         return $this->db
         ->table('user')
-        ->orderBy('username','ASC')
+        ->join('level_user','user.level_user=level_user.id_level')
+        ->orderBy('user.level_user','ASC')
         ->get()
         ->getResultArray();
     }
@@ -21,9 +22,7 @@ class MUser extends Model
     {
         return $this->db
             ->table('user')
-            ->join('tbl_karyawan','kodekaryawan=kode_user','LEFT')
-            ->join('pelanggan','kodepelanggan=kode_user','LEFT')
-            ->where('kode_user', $id)->get()->getRowArray();
+            ->where('iduser', $id)->get()->getRowArray();
     }
     public function insert_data($data)
     {
@@ -31,7 +30,7 @@ class MUser extends Model
     }
     function update_data($data, $id)
     {
-        return $this->db->table('user')->update($data, ['kode_user' => $id]);
+        return $this->db->table('user')->update($data, ['iduser' => $id]);
     }
     public function hapus($id)
     {

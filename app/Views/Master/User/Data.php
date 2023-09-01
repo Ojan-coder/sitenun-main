@@ -24,8 +24,9 @@
                         <table id="example2" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th width="200px">Username</th>
                                     <th>Nama User</th>
-                                    <th>Username</th>
+                                    <th width="150px">Akses</th>
                                     <th width="50px">Status</th>
                                     <th width="150px">#</th>
                                 </tr>
@@ -42,11 +43,12 @@
                                     }
                                 ?>
                                     <tr>
-                                        <td><?= $r['fullname'] ?></td>
                                         <td><?= $r['username'] ?></td>
+                                        <td><?= $r['fullname'] ?></td>
+                                        <td class="text-center"><?= $r['nama_level'] ?></td>
                                         <td class="text-center"><?= $stt ?></td>
                                         <td>
-                                            <button type="button" onclick="location.href=('<?= base_url('User/edit') . '/' . $r['kode_user'] ?>')" class="btn btn-outline-warning" title="Edit Data">
+                                            <button type="button" onclick="location.href=('<?= base_url('User/edit') . '/' . $r['iduser'] ?>')" class="btn btn-outline-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                             <button type="button" class="btn btn-outline-danger" onclick="return ambil('<?= $r['iduser'] ?>')" data-toggle="modal" data-target="#modal-danger" title="Hapus Data">
@@ -109,7 +111,6 @@
 
 <!-- Modal Ganti Status User -->
 
-?>
 <div class="modal fade" id="modal-status-n">
     <div class="modal-dialog">
         <div class="modal-content bg-primary">
@@ -148,7 +149,7 @@
                 <form method="POST" action="<?= base_url('User/changestatusy') ?>">
                     <div class="modal-body" style="color: black;">
                         Apakah Anda Yakin Ingin Aktifkan Akun Ini ?
-                        <input type="text" id="idusery" name="idusery">
+                        <input type="hidden" id="idusery" name="idusery">
                     </div>
             </div>
             <div class="modal-footer justify-content-between" style="background-color: white;">

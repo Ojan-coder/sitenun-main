@@ -36,7 +36,7 @@
                             <tbody>
                                 <?php
                                 foreach ($data as $r) {
-                                    if($r['kodejenkel']=='P'){
+                                    if($r['kodejenkel_karyawan']=='P'){
                                         $jk = "Perempuan";
                                     }else{
                                         $jk="Laki-Laki";
@@ -45,10 +45,10 @@
                                     <tr>
                                         <td><?= $r['kodekaryawan'] ?></td>
                                         <td><?= $r['namalengkap'] ?></td>
-                                        <td><?= $r['tgl_lahir'] ?></td>
+                                        <td><?= $r['tgl_lahir_karyawan'] ?></td>
                                         <td><?= $jk ?></td>
-                                        <td><?= $r['alamat'] ?></td>
-                                        <td><?= $r['nohp'] ?></td>
+                                        <td><?= $r['alamat_karyawan'] ?></td>
+                                        <td><?= $r['nohp_karyawan'] ?></td>
                                         <td>
                                             <button type="button" onclick="location.href=('<?= base_url('Karyawan/edit') . '/' . $r['kodekaryawan'] ?>')" class="btn btn-outline-warning" title="Edit Data">
                                                 <i class="fas fa-edit"></i>
@@ -82,9 +82,9 @@
                 </button>
             </div>
             <div class="modal-body" style="background-color: white;">
-                <form method="POST" action="<?= base_url('Pelanggan/delete') ?>">
+                <form method="POST" action="<?= base_url('Karyawan/delete') ?>">
                     <div class="modal-body" style="color: black;">
-                        Apakah Yakin Ingin Menghapus Data Pelanggan Ini ?
+                        Apakah Yakin Ingin Menghapus Data Karyawan Ini ?
                         <input type="hidden" id="iduser" name="iduser">
                     </div>
             </div>
