@@ -26,7 +26,6 @@
                                     <h3 class="card-title">Bahan Baku</h3>
                                 </div>
                                 <br>
-
                                 <?php
                                 if (!empty(session()->getFlashdata('successbahanbaku'))) { ?>
                                     <div class="row" style="align-items: center;padding-right:20px;padding-left:20px;padding-top:20px;">

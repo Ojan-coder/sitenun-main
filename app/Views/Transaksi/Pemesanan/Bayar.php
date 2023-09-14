@@ -11,8 +11,8 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label>No. Pemesanan</label>
-                                <input type="hidden" class="form-control" value="<?= $detail['bukti_dp'] ?>" name="buktidp">
-                                <input type="hidden" class="form-control" value="<?= $detail['bukti_sisa'] ?>" name="buktisisa">
+                                <input type="hidden" class="form-control" value="<?= $detail['bukti_dp'] ?>" name="buktidp"> <!-- Bukti Gambar Dp 1 -->
+                                <input type="hidden" class="form-control" value="<?= $detail['bukti_sisa'] ?>" name="buktisisa"> <!-- Bukti Gambar Dp 2 -->
                                 <input type="text" onkeydown="event.preventDefault()" class="form-control" value="<?= $no_pemesanan ?>" name="kodepesanan">
                             </div>
                             <div class="form-group">
@@ -34,7 +34,7 @@
                                     <?php
                                     $errors = session()->getFlashdata('errors');
                                     if (!empty($errors)) { ?>
-                                        <div class="alert alert-danger alert-dismissible">
+                                        <div class="alert alert-danger alert-dismissible" style="margin-left: 10px;margin-right: 10px;margin-top: 10px;">
                                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                             <h5><i class="icon fas fa-ban"></i> Kesalahan !</h5>
                                             <ul>
@@ -50,7 +50,7 @@
                                     if (!empty(session()->getFlashdata('success'))) { ?>
                                         <div class="row" style="align-items: center;">
                                             <div class="col-md-12">
-                                                <div class="alert alert-success alert-dismissible">
+                                                <div class="alert alert-success alert-dismissible" style="margin-left: 10px;margin-right: 10px;margin-top: 10px;">
                                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                                     <i class="icon fas fa-check"></i> Success.
                                                     <?= session()->getFlashdata('success'); ?>
@@ -61,9 +61,9 @@
                                     } else if (!empty(session()->getFlashdata('delete'))) { ?>
                                         <div class="row" style="align-items: center;">
                                             <div class="col-md-12">
-                                                <div class="alert alert-danger alert-dismissible">
+                                                <div class="alert alert-danger alert-dismissible" style="margin-left: 10px;margin-right: 10px;margin-top: 10px;">
                                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                    <i class="fa fa-warning" aria-hidden="true"></i> Delete.
+                                                    <i class="fa fa-warning" aria-hidden="true"></i> Perhatian.
                                                     <?= session()->getFlashdata('delete'); ?>
                                                 </div>
                                             </div>
@@ -71,7 +71,6 @@
                                     <?php
                                     } ?>
                                     <div class="card-body">
-
                                         <hr>
                                         <table class="table table-bordered">
                                             <thead>
@@ -112,10 +111,13 @@
                                             <?php if ($bayardp > 0) { ?>
                                                 <tr>
                                                     <td>Pembayaran 1</td>
-                                                    <td colspan="5"><span>Rp. <?= number_format($bayardp) ?></span></td>
+                                                    <td colspan="5">
+                                                        <span>Rp. <?= number_format($bayardp) ?></span>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Sisa Pembayaran</td>
+                                                    <input type="hidden" name="bayardp1" value="<?= $sisa ?>">
                                                     <td colspan="5"><span>Rp. <?= number_format($sisa) ?></span></td>
                                                 </tr>
                                             <?php } ?>

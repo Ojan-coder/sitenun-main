@@ -152,6 +152,8 @@ class Pemesanan extends BaseController
         $date = date('Y-m-d:H:i:s');
 
         $id = $this->request->getPost('kodepesanan');
+        $bayar1 = $this->request->getPost('bayardp1');
+        $bayar2 = $this->request->getPost('bayardp');
         $bayardp = $this->request->getPost('buktidp');
         $bayarsisa = $this->request->getPost('buktisisa');
         $pemesanan = new MPemesanan();
@@ -190,20 +192,24 @@ class Pemesanan extends BaseController
                     session()->setFlashdata('delete', 'Bukti Transfer Belum Di Upload !!');
                 }
             } else if ($bayardp != NULL && $bayarsisa == NULL) {
-                if ($image->isValid()) {
-                    $data = [
-                        // 'bayar_sisa' => $this->request->getPost('bayardp'),
-                        'bukti_sisa' => $img,
-                        'bayar_sisa' => $this->request->getPost('bayardp'),
-                        'status_pemesanan' => '3',
-                        'updated_at' => $date,
-                    ];
-                    $image->move(ROOTPATH . 'public/fotobukti2/', $img);
-                    $pemesanan->update_data($data, $id);
-                    session()->setFlashdata('success', 'Data Pembayaran 2 Berhasil Di Lakukan !!');
-                    return redirect()->to(base_url('/Pemesanan'));
+                if ($bayar2 < $bayar1) {
+                    session()->setFlashdata('delete', 'Nominal Yang Dimasukkan Masih Kurang Dari Pelunasan');
+                    return redirect()->back();
                 } else {
-                    session()->setFlashdata('delete', 'Bukti Transfer Belum Di Upload !!');
+                    if ($image->isValid()) {
+                        $data = [
+                            'bukti_sisa' => $img,
+                            'bayar_sisa' => $this->request->getPost('bayardp'),
+                            'status_pemesanan' => '3',
+                            'updated_at' => $date,
+                        ];
+                        $image->move(ROOTPATH . 'public/fotobukti2/', $img);
+                        $pemesanan->update_data($data, $id);
+                        session()->setFlashdata('success', 'Data Pembayaran 2 Berhasil Di Lakukan !!');
+                        return redirect()->to(base_url('/Pemesanan'));
+                    } else {
+                        session()->setFlashdata('delete', 'Bukti Transfer Belum Di Upload !!');
+                    }
                 }
             }
         }
@@ -242,8 +248,6 @@ class Pemesanan extends BaseController
         $id = $request->uri->getSegment(3);
         // dd($id);
         $pemesanan = new MPemesanan();
-
-
         $data = [
             'detail' => $pemesanan->detail($id),
             'no_pemesanan' => $id,
